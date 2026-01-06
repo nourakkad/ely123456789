@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const MamonAssa = () => {
+const DrNaderAlmzayek = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
 
   // Listen for language changes
@@ -25,13 +25,13 @@ const MamonAssa = () => {
   }, []);
 
   const doctorInfo = {
-    title: currentLanguage === 'AR' ? "مأمون عسه" : "Mamon Assa",
-    category: currentLanguage === 'AR' ? "مصمم أزياء" : "Fashion Designer",
-    image: "/assets/logo/mamon-assa.jpg",
-    instagram: "https://www.instagram.com/mamon_couture?igsh=MXQyNnAwNjQ1dXhubA==",
-    facebook: "https://www.facebook.com/share/1CswUFWFL9/",
-    phone: "+963 938 113 313",
-    email: "mamon.couture@gmail.com",
+    title: currentLanguage === 'AR' ? "د. نادر المزيك" : "Dr.Nader Almzayek",
+    category: currentLanguage === 'AR' ? "استشاري جراحة العظام" : "Orthopedic Surgeon",
+    image: "/assets/logo/dr-nader-almzayek.jpg",
+    instagram: "https://www.instagram.com/dr.naderalmzayek/?igsh=OGd4azJtdzk1ZTNi#",
+    facebook: "https://www.facebook.com/DrNaderAlmzayek?mibextid=wwXIfr&rdid=uMMSheNmjXKJUi8t&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F17hyMpNfM7%2F%3Fmibextid%3DwwXIfr#",
+    phone: "+963 944 610 099",
+ 
    };
 
   return (
@@ -188,7 +188,7 @@ const MamonAssa = () => {
               marginBottom: '12px',
               textAlign: 'center'
             }}>
-              {currentLanguage === 'AR' ? 'مصمم أزياء' : 'Fashion Designer'}
+              {currentLanguage === 'AR' ? 'استشاري جراحة العظام' : 'Orthopedic Surgeon'}
             </span>
           </div>
 
@@ -268,7 +268,7 @@ const MamonAssa = () => {
 </a>
 
             <a 
-              href={`https://wa.me/963938113313`}
+              href={`https://wa.me/963944610099`}
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -308,8 +308,8 @@ const MamonAssa = () => {
             marginTop: '16px'
           }}>
             <a
-              href="/mamon-assa.vcf"
-              download="mamon-assa.vcf"
+              href="/dr-nader-almzayek.vcf"
+              download="dr-nader-almzayek.vcf"
               style={{
                 backgroundColor: '#ffa700',
                 color: '#fff',
@@ -384,7 +384,7 @@ const MamonAssa = () => {
                   rel="noopener noreferrer"
                   style={{ fontWeight: '600', color: '#cc7a00', fontSize: '13px', textDecoration: 'underline' }}
                 >
-                  Mamon Assa
+                  Dr.Nader Almzayek
                 </a>
               </div>
             )}
@@ -409,7 +409,7 @@ const MamonAssa = () => {
                   rel="noopener noreferrer"
                   style={{ fontWeight: '600', color: '#cc7a00', fontSize: '13px', textDecoration: 'underline' }}
                 >
-                  @mamon.couture
+                  @dr.naderalmzayek
                 </a>
               </div>
             )}
@@ -429,4 +429,4 @@ const MamonAssa = () => {
   );
 };
 
-export default MamonAssa; 
+export default DrNaderAlmzayek; 
