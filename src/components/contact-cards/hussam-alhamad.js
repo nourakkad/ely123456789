@@ -308,7 +308,7 @@ const HussamAlhamad = () => {
             marginTop: '16px'
           }}>
             <a
-              href="/hussam-alahmad.vcf"
+              href="/hussam-alhmad.vcf"
               download="hussam-alhamad.vcf"
               style={{
                 backgroundColor: '#ffa700',
