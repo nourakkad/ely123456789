@@ -8,7 +8,7 @@ import Team from './components/Team';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import { DrMohammedJubain, CrazyBeeez, MamonAssa, DrNaderAlmzayek } from './components/contact-cards';
+import { DrMohammedJubain, CrazyBeeez, MamonAssa, DrNaderAlmzayek, HussamAlhamad } from './components/contact-cards';
 import './App.css';
 
 // Main Home Page Component
@@ -52,6 +52,7 @@ function App() {
           <Route path="/contact/crazy-beeez" element={<CrazyBeeez />} />
           <Route path="/contact/mamon-assa" element={<MamonAssa />} />
           <Route path="/contact/dr-nader-almzayek" element={<DrNaderAlmzayek />} />
+          <Route path="/contact/hussam-alhamad" element={<HussamAlhamad />} />
         </Routes>
       </Layout>
     </Router>
