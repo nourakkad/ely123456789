@@ -3,3 +3,8 @@ export { default as CrazyBeeez } from './crazy-beeez';
 export { default as MamonAssa } from './mamon-assa';
 export { default as DrNaderAlmzayek } from './Dr.Nader-Almzayek';
 export { default as HussamAlhamad } from './hussam-alhamad';
+export { default as RashidAdas } from './rashid-adas';
+export { default as AbdalrahmanAdas } from './abdalrahman-adas';
+export { default as YassenAltabakh } from './yassen-altabakh';
+export { default as AnwarSaeedJassem } from './anwar-saeed-jassem';
+export { default as ShadiSaeedJassem } from './shadi-saeed-jassem';
