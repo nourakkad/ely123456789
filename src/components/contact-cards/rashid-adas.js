@@ -309,7 +309,7 @@ const RashidAdas = () => {
             marginTop: '16px'
           }}>
             <a
-              href="/rashid-adas.vcf"
+              href="/assets/vcf/rashid-adas.vcf"
               download="rashid-adas.vcf"
               style={{
                 backgroundColor: '#ffa700',

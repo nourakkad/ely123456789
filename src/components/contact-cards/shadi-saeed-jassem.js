@@ -308,7 +308,7 @@ const ShadiSaeedJassem = () => {
             marginTop: '16px'
           }}>
             <a
-              href="/shadi-saeed-jassem.vcf"
+              href="/assets/vcf/shadi-saeed-jassem.vcf"
               download="shadi-saeed-jassem.vcf"
               style={{
                 backgroundColor: '#ffa700',

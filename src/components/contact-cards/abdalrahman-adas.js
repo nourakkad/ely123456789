@@ -308,7 +308,7 @@ const AbdalrahmanAdas = () => {
             marginTop: '16px'
           }}>
             <a
-              href="/abdalrahman-adas.vcf"
+              href="/assets/vcf/abdalrahman-adas.vcf"
               download="abdalrahman-adas.vcf"
               style={{
                 backgroundColor: '#ffa700',

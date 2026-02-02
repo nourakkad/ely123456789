@@ -308,7 +308,7 @@ const DeauCacao = () => {
             marginTop: '16px'
           }}>
             <a
-              href="/deau-cacao.vcf"
+              href="/assets/vcf/deau-cacao.vcf"
               download="deau-cacao.vcf"
               style={{
                 backgroundColor: '#ffa700',

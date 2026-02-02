@@ -308,7 +308,7 @@ const MamonAssa = () => {
             marginTop: '16px'
           }}>
             <a
-              href="/mamon-assa.vcf"
+              href="/assets/vcf/mamon-assa.vcf"
               download="mamon-assa.vcf"
               style={{
                 backgroundColor: '#ffa700',

@@ -308,7 +308,7 @@ const DrNaderAlmzayek = () => {
             marginTop: '16px'
           }}>
             <a
-              href="/dr-nader-almzayek.vcf"
+              href="/assets/vcf/dr-nader-almzayek.vcf"
               download="dr-nader-almzayek.vcf"
               style={{
                 backgroundColor: '#ffa700',

@@ -315,7 +315,7 @@ const DrMohammedJubain = () => {
             marginTop: '16px'
           }}>
             <a
-              href="/Dr_Mohammed_Jubain.vcf"
+              href="/assets/vcf/Dr_Mohammed_Jubain.vcf"
               download="Dr_Mohammed_Jubain.vcf"
               style={{
                 backgroundColor: '#ffa700',

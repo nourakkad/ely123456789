@@ -308,7 +308,7 @@ const YassenAltabakh = () => {
             marginTop: '16px'
           }}>
             <a
-              href="/yassen-altabakh.vcf"
+              href="/assets/vcf/yassen-altabakh.vcf"
               download="yassen-altabakh.vcf"
               style={{
                 backgroundColor: '#ffa700',

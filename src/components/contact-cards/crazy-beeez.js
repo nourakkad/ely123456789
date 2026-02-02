@@ -311,7 +311,7 @@ const CrazyBeeez = () => {
             marginTop: '16px'
           }}>
             <a
-              href="/Crazy_Beeez.vcf"
+              href="/assets/vcf/Crazy_Beeez.vcf"
               download="Crazy_Beeez.vcf"
               style={{
                 backgroundColor: '#ffa700',
