@@ -13,15 +13,7 @@ const Portfolio = () => {
   const trackRef = useRef(null);
 
   // Mapping for contact card URLs
-  const contactCardUrls = {
-    'Tembix': '/contact/tembix',
-    'Sabco': '/contact/sabco',
-    'GAAU': '/contact/gaau',
-    'KMA': '/contact/kma',
-    'Damascus Gin': '/contact/damascus-gin',
-    'Global Visonery Minds': '/contact/global-visionary-minds'
-  };
-
+ 
   const portfolioItems = [
    {
       id: 1,
@@ -321,36 +313,7 @@ const Portfolio = () => {
             </a>
           </div>
           
-          {/* Contact Card Button */}
-          {contactCardUrls[item.title] && (
-            <div style={{ marginTop: '15px' }}>
-              <Link 
-                to={contactCardUrls[item.title]}
-                style={{
-                  display: 'inline-block',
-                  padding: '8px 16px',
-                  backgroundColor: '#2a2a2a',
-                  color: '#fff',
-                  textDecoration: 'none',
-                  borderRadius: '20px',
-                  fontSize: isMobile ? '12px' : '14px',
-                  fontWeight: '500',
-                  transition: 'all 0.3s ease',
-                  border: '2px solid #2a2a2a'
-                }}
-                onMouseOver={(e) => {
-                  e.target.style.backgroundColor = '#ffa700';
-                  e.target.style.borderColor = '#ffa700';
-                }}
-                onMouseOut={(e) => {
-                  e.target.style.backgroundColor = '#2a2a2a';
-                  e.target.style.borderColor = '#2a2a2a';
-                }}
-              >
-                {currentLanguage === 'AR' ? 'عرض بطاقة الاتصال' : 'View Contact Card'}
-              </Link>
-            </div>
-          )}
+         
         </div>
       </div>
     </div>
