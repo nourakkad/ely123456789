@@ -18,13 +18,22 @@ const Portfolio = () => {
     'Sabco': '/contact/sabco',
     'GAAU': '/contact/gaau',
     'KMA': '/contact/kma',
-    'Damascus Gin': '/contact/damascus-gin'
+    'Damascus Gin': '/contact/damascus-gin',
+    'Global Visonery Minds': '/contact/global-visionary-minds'
   };
 
   const portfolioItems = [
-   
-    {
+   {
       id: 1,
+      title: "KMA",
+      category: currentLanguage === 'AR' ? "شركة القمة لخدمات محطات الوقود" : "KMA FOR GAS STATION SERVICES",
+      image: "/assets/logo/KMA.png",
+      //instagram: "",
+      facebook: "https://www.facebook.com/profile.php?id=61572372762233&sk",
+      website: "https://kma-sy.com"
+    },
+    {
+      id: 2,
       title: "Tembix",
       category: currentLanguage === 'AR' ? "حلول الأرضيات والترصيع المركبة" : "Composite Decking & Flooring Solutions",
       image: "/assets/logo/Tembix.png",
@@ -33,7 +42,7 @@ const Portfolio = () => {
       website: "https://timbex-sy.com/"
     },
     {
-      id: 2,
+      id: 3,
       title: "Sabco",
       category: currentLanguage === 'AR' ? "البوليسترين والعزل الحراري" : "Polystyrene & Thermal Insulation",
       image: "/assets/logo/Sabco.png",
@@ -42,7 +51,16 @@ const Portfolio = () => {
       website: "https://sabco.com.sy/"
     },
     {
-      id: 3,
+      id: 4,
+      title: "Global Visonery Minds",
+      category: currentLanguage === 'AR' ? "تمكين التغيير من خلال المجتمع" : "Empowering Change Through Community",
+      image: "/assets/logo/gvm.png",
+      //instagram: "https://www.instagram.com/damascusgin/",
+      //facebook: "https://www.facebook.com/damascusgin",
+      website: "https://globalvisionaryminds.com/"
+    },
+    {
+      id: 5,
       title: "GAAU",
       category: currentLanguage === 'AR' ? "الجمعية العربية الألمانية لجراحي المسالك البولية" : "Arab German Urological Surgeons",
       image: "/assets/logo/AGUS.png",
@@ -51,16 +69,7 @@ const Portfolio = () => {
       website: "https://gaau.blog"
     },
     {
-      id: 4,
-      title: "KMA",
-      category: currentLanguage === 'AR' ? "شركة القمة لخدمات محطات الوقود" : "KMA FOR GAS STATION SERVICES",
-      image: "/assets/logo/KMA.png",
-    
-      facebook: "https://www.facebook.com/profile.php?id=61572372762233&sk",
-      website: "https://kma-sy.com"
-    },
-    {
-      id: 5,
+      id: 6,
       title: "Damascus Gin",
       category: currentLanguage === 'AR' ? "مصنع جين حرفي فاخر" : "Premium Craft Gin Distillery",
       image: "/assets/logo/damascusgin.png",
