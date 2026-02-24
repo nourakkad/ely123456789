@@ -9,3 +9,4 @@ export { default as YassenAltabakh } from './yassen-altabakh';
 export { default as AnwarSaeedJassem } from './anwar-saeed-jassem';
 export { default as ShadiSaeedJassem } from './shadi-saeed-jassem';
 export { default as DeauCacao } from './deau-cacao';
+export { default as MuhammedAladdinHaymour } from './muhammed-aladdin-haymour';
