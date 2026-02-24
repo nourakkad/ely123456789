@@ -194,7 +194,7 @@ const DrHadiAlhariri = () => {
               marginBottom: '12px',
               textAlign: 'center'
             }}>
-              {currentLanguage === 'AR' ? '⁠CORE CREATIVE HOUSE مؤسس' : '⁠CORE CREATIVE HOUSE ⁠CO/FOUNDER'}
+              {currentLanguage === 'AR' ? '⁠طبيب وجراح أسنان' : '⁠Dentist and Dental Surgeon'}
             </span>
           </div>
 
@@ -420,7 +420,7 @@ const DrHadiAlhariri = () => {
                   rel="noopener noreferrer"
                   style={{ fontWeight: '600', color: '#cc7a00', fontSize: '13px', textDecoration: 'underline' }}
                 >
-                  Mohammed Jubain
+                  Dr. Hadi Nazeer Al Hariri
                 </a>
               </div>
             )}
