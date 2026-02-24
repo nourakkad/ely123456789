@@ -8,7 +8,7 @@ import Team from './components/Team';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import { DrMohammedJubain, CrazyBeeez, MamonAssa, DrNaderAlmzayek, HussamAlhamad, RashidAdas, AbdalrahmanAdas, YassenAltabakh, AnwarSaeedJassem, ShadiSaeedJassem, DeauCacao, MuhammedAladdinHaymour } from './components/contact-cards';
+import { DrMohammedJubain, CrazyBeeez, MamonAssa, DrNaderAlmzayek, HussamAlhamad, RashidAdas, AbdalrahmanAdas, YassenAltabakh, AnwarSaeedJassem, ShadiSaeedJassem, DeauCacao, MuhammedAladdinHaymour, DrHadiAlhariri } from './components/contact-cards';
 import './App.css';
 
 // Main Home Page Component
@@ -60,6 +60,7 @@ function App() {
           <Route path="/contact/shadi-saeed-jassem" element={<ShadiSaeedJassem />} />
           <Route path="/contact/deau-cacao" element={<DeauCacao />} />
           <Route path="/contact/muhammed-aladdin-haymour" element={<MuhammedAladdinHaymour />} />
+          <Route path="/contact/dr-hadi-alhariri" element={<DrHadiAlhariri />} />
         </Routes>
       </Layout>
     </Router>

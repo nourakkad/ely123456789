@@ -10,3 +10,4 @@ export { default as AnwarSaeedJassem } from './anwar-saeed-jassem';
 export { default as ShadiSaeedJassem } from './shadi-saeed-jassem';
 export { default as DeauCacao } from './deau-cacao';
 export { default as MuhammedAladdinHaymour } from './muhammed-aladdin-haymour';
+export { default as DrHadiAlhariri } from './dr-hadi-alhariri';
