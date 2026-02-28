@@ -28,13 +28,13 @@ const MuhammedAladdinHaymour = () => {
     title: currentLanguage === 'AR' ? "محمد علاء الدين حيمور" : "MUHAMMED ALADDIN HAYMOUR",
     category: currentLanguage === 'AR' ? "" : "",
     image: "/assets/logo/muhammed-aladdin-haymour.jpg",
-    instagram: "https://www.⁠Instagram.com/creativehousecore",
+    instagram: "https://www.instagram.com/creativehousecore",
    // facebook: "https://www.facebook.com/share/1GZPXv3HAY/?mibextid=wwXIfr",
     
   //  tiktok: "https://www.tiktok.com/@dr.jubain?_t=ZS-8ykBq4fFc5X&_r=1",
     phone: "+963 988 386 080",
-    phone1: "⁠+971 586 292 725",
-    email: "⁠Muhammedhaymour@gmail.com",
+    phone1: "+971 586 292 725",
+    email: "Muhammedhaymour@gmail.com",
     location: currentLanguage === 'AR' ? "دمشق،سوريا - أبو رمانه" : "Damascus,Syria - Abu Rummaneh",
     description: currentLanguage === 'AR' 
       ? ""
@@ -267,7 +267,9 @@ const MuhammedAladdinHaymour = () => {
               </svg>
             </a>
             <a 
-  href={`mailto:${doctorInfo.email}`}
+  href={doctorInfo.instagram}
+  target="_blank"
+  rel="noopener noreferrer"
   style={{
     backgroundColor: '#ffa700',
     color: '#fff',
@@ -292,15 +294,7 @@ const MuhammedAladdinHaymour = () => {
     e.target.style.boxShadow = '0 4px 12px rgba(255, 167, 0, 0.3)';
   }}
 >
-  {/* Modern Classic Envelope Icon */}
-  <svg xmlns="http://www.w3.org/2000/svg" 
-       viewBox="0 0 24 24" 
-       fill="currentColor" 
-       style={{ width: '20px', height: '20px' }}>
-    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 
-             2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 
-             4-8 5-8-5V6l8 5 8-5v2z"/>
-  </svg>
+  <i className="fab fa-instagram" style={{ fontSize: '20px' }}></i>
 </a>
 
             <a 
@@ -425,7 +419,10 @@ const MuhammedAladdinHaymour = () => {
               </div>
             )}
 
-            {doctorInfo.instagram && (
+           
+
+            {/* Email */}
+            {doctorInfo.email && (
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <span style={{ 
                   backgroundColor: '#ffa700', 
@@ -437,15 +434,13 @@ const MuhammedAladdinHaymour = () => {
                   width: '32px',
                   height: '32px'
                 }}>
-                  <i className="fab fa-instagram" style={{ fontSize: '16px', color: '#fff' }}></i>
+                  <i className="fas fa-envelope" style={{ fontSize: '16px', color: '#fff' }}></i>
                 </span>
                 <a 
-                  href={doctorInfo.instagram} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+                  href={`mailto:${doctorInfo.email}`}
                   style={{ fontWeight: '600', color: '#cc7a00', fontSize: '13px', textDecoration: 'underline' }}
                 >
-                  @creativehousecore
+                  {doctorInfo.email}
                 </a>
               </div>
             )}
