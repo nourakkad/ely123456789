@@ -35,7 +35,7 @@ const DrHadiAlhariri = () => {
     phone: "+963 965 294 724",
     phone1: "⁠+963 11 3320378",
    // email: "⁠Muhammedhaymour@gmail.com",
-    location: currentLanguage === 'AR' ? "دمشق،سوريا - أبو رمانه" : "⁠Damascus,Syria - Abu Rummaneh - Behind The National Library Of Syria",
+    location: currentLanguage === 'AR' ? "دمشق،سوريا - أبو رمانه - جادة الكرامة - خلف المكتبة الوطنية" : "⁠Damascus,Syria - Abu Rummaneh - Behind The National Library Of Syria",
     description: currentLanguage === 'AR' 
       ? ""
       : ""
