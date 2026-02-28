@@ -29,12 +29,8 @@ const DrHadiAlhariri = () => {
     category: currentLanguage === 'AR' ? "" : "",
     image: "/assets/logo/dr-hadi-alhariri.jpg",
     instagram: "https://www.⁠Instagram.com/dr.hadialhariri",
-   // facebook: "https://www.facebook.com/share/1GZPXv3HAY/?mibextid=wwXIfr",
-    
-  //  tiktok: "https://www.tiktok.com/@dr.jubain?_t=ZS-8ykBq4fFc5X&_r=1",
     phone: "+963 965 294 724",
     phone1: "⁠+963 11 3320378",
-   // email: "⁠Muhammedhaymour@gmail.com",
     location: currentLanguage === 'AR' ? "دمشق،سوريا - أبو رمانه - جادة الكرامة - خلف المكتبة الوطنية" : "⁠Damascus,Syria - Abu Rummaneh - Behind The National Library Of Syria",
     description: currentLanguage === 'AR' 
       ? ""
@@ -100,30 +96,30 @@ const DrHadiAlhariri = () => {
           style={{
             padding: '10px 18px',
             backgroundColor: 'rgba(255, 255, 255, 0.9)',
-            color: '#cc7a00',
-            border: '2px solid #ffa700',
+            color: '#1a7b9b',
+            border: '2px solid #1b88a8',
             borderRadius: '25px',
             fontSize: '14px',
             fontWeight: '700',
             cursor: 'pointer',
             transition: 'all 0.3s ease',
             backdropFilter: 'blur(15px)',
-            boxShadow: '0 4px 15px rgba(255, 167, 0, 0.2)',
+            boxShadow: '0 4px 15px rgba(27, 136, 168, 0.2)',
             minWidth: '80px',
             textAlign: 'center',
             letterSpacing: '0.5px'
           }}
           onMouseOver={(e) => {
-            e.target.style.backgroundColor = '#ffa700';
+            e.target.style.backgroundColor = '#1b88a8';
             e.target.style.color = '#fff';
             e.target.style.transform = 'translateY(-2px)';
-            e.target.style.boxShadow = '0 6px 20px rgba(255, 167, 0, 0.4)';
+            e.target.style.boxShadow = '0 6px 20px rgba(27, 136, 168, 0.4)';
           }}
           onMouseOut={(e) => {
             e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
-            e.target.style.color = '#cc7a00';
+            e.target.style.color = '#1a7b9b';
             e.target.style.transform = 'translateY(0)';
-            e.target.style.boxShadow = '0 4px 15px rgba(255, 167, 0, 0.2)';
+            e.target.style.boxShadow = '0 4px 15px rgba(27, 136, 168, 0.2)';
           }}
         >
           {currentLanguage === 'EN' ? 'العربية' : 'English'}
@@ -167,8 +163,8 @@ const DrHadiAlhariri = () => {
                 width: '100px',
                 height: '100px',
                 borderRadius: '50%',
-                border: '4px solid #ffa700',
-                boxShadow: '0 8px 25px rgba(255, 167, 0, 0.3)',
+                border: '4px solid #1b88a8',
+                boxShadow: '0 8px 25px rgba(27, 136, 168, 0.3)',
                 marginBottom: '12px',
                 objectFit: 'cover'
               }}
@@ -176,7 +172,7 @@ const DrHadiAlhariri = () => {
             <h2 style={{
               fontSize: '22px',
               fontWeight: '800',
-              color: '#cc7a00',
+              color: '#1a2b47',
               margin: '4px 0 0 0',
               textAlign: 'center'
             }}>
@@ -185,8 +181,8 @@ const DrHadiAlhariri = () => {
          
             <span style={{
               display: 'inline-block',
-              backgroundColor: '#fff3e0',
-              color: '#cc7a00',
+              backgroundColor: '#e0f4f7',
+              color: '#1a7b9b',
               padding: '6px 14px',
               borderRadius: '18px',
               fontSize: '13px',
@@ -209,11 +205,11 @@ const DrHadiAlhariri = () => {
             <a 
               href={`tel:${doctorInfo.phone}`}
               style={{
-                backgroundColor: '#ffa700',
+                backgroundColor: '#1b88a8',
                 color: '#fff',
                 padding: '12px',
                 borderRadius: '50%',
-                boxShadow: '0 4px 12px rgba(255, 167, 0, 0.3)',
+                boxShadow: '0 4px 12px rgba(27, 136, 168, 0.3)',
                 transition: 'all 0.3s ease',
                 display: 'flex',
                 alignItems: 'center',
@@ -222,14 +218,14 @@ const DrHadiAlhariri = () => {
                 height: '48px'
               }}
               onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#e69500';
+                e.target.style.backgroundColor = '#20a0c0';
                 e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 6px 16px rgba(255, 167, 0, 0.4)';
+                e.target.style.boxShadow = '0 6px 16px rgba(32, 160, 192, 0.4)';
               }}
               onMouseOut={(e) => {
-                e.target.style.backgroundColor = '#ffa700';
+                e.target.style.backgroundColor = '#1b88a8';
                 e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 4px 12px rgba(255, 167, 0, 0.3)';
+                e.target.style.boxShadow = '0 4px 12px rgba(27, 136, 168, 0.3)';
               }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '20px', height: '20px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -239,11 +235,11 @@ const DrHadiAlhariri = () => {
             <a 
               href={`tel:${doctorInfo.phone1}`}
               style={{
-                backgroundColor: '#ffa700',
+                backgroundColor: '#1b88a8',
                 color: '#fff',
                 padding: '12px',
                 borderRadius: '50%',
-                boxShadow: '0 4px 12px rgba(255, 167, 0, 0.3)',
+                boxShadow: '0 4px 12px rgba(27, 136, 168, 0.3)',
                 transition: 'all 0.3s ease',
                 display: 'flex',
                 alignItems: 'center',
@@ -252,18 +248,18 @@ const DrHadiAlhariri = () => {
                 height: '48px'
               }}
               onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#e69500';
+                e.target.style.backgroundColor = '#20a0c0';
                 e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 6px 16px rgba(255, 167, 0, 0.4)';
+                e.target.style.boxShadow = '0 6px 16px rgba(32, 160, 192, 0.4)';
               }}
               onMouseOut={(e) => {
-                e.target.style.backgroundColor = '#ffa700';
+                e.target.style.backgroundColor = '#1b88a8';
                 e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 4px 12px rgba(255, 167, 0, 0.3)';
+                e.target.style.boxShadow = '0 4px 12px rgba(27, 136, 168, 0.3)';
               }}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '20px', height: '20px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.516 2.064a2 2 0 01-.45 1.958l-1.27 1.27a16.001 16.001 0 006.586 6.586l1.27-1.27a2 2 0 011.958-.45l2.064.516A2 2 0 0121 18.72V21a2 2 0 01-2 2h-1C9.163 23 1 14.837 1 5V4a2 2 0 012-2z" />
+              <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '20px', height: '20px' }} fill="currentColor" viewBox="0 0 512 512">
+                <path d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z"/>
               </svg>
             </a>
             <a 
@@ -271,11 +267,11 @@ const DrHadiAlhariri = () => {
   target="_blank"
   rel="noopener noreferrer"
   style={{
-    backgroundColor: '#ffa700',
+    backgroundColor: '#1b88a8',
     color: '#fff',
     padding: '12px',
     borderRadius: '50%',
-    boxShadow: '0 4px 12px rgba(255, 167, 0, 0.3)',
+    boxShadow: '0 4px 12px rgba(27, 136, 168, 0.3)',
     transition: 'all 0.3s ease',
     display: 'flex',
     alignItems: 'center',
@@ -284,14 +280,14 @@ const DrHadiAlhariri = () => {
     height: '48px'
   }}
   onMouseOver={(e) => {
-    e.target.style.backgroundColor = '#e69500';
+    e.target.style.backgroundColor = '#20a0c0';
     e.target.style.transform = 'translateY(-2px)';
-    e.target.style.boxShadow = '0 6px 16px rgba(255, 167, 0, 0.4)';
+    e.target.style.boxShadow = '0 6px 16px rgba(32, 160, 192, 0.4)';
   }}
   onMouseOut={(e) => {
-    e.target.style.backgroundColor = '#ffa700';
+    e.target.style.backgroundColor = '#1b88a8';
     e.target.style.transform = 'translateY(0)';
-    e.target.style.boxShadow = '0 4px 12px rgba(255, 167, 0, 0.3)';
+    e.target.style.boxShadow = '0 4px 12px rgba(27, 136, 168, 0.3)';
   }}
 >
   <i className="fab fa-instagram" style={{ fontSize: '20px' }}></i>
@@ -302,11 +298,11 @@ const DrHadiAlhariri = () => {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                backgroundColor: '#ffa700',
+                backgroundColor: '#1b88a8',
                 color: '#fff',
                 padding: '12px',
                 borderRadius: '50%',
-                boxShadow: '0 4px 12px rgba(255, 167, 0, 0.3)',
+                boxShadow: '0 4px 12px rgba(27, 136, 168, 0.3)',
                 transition: 'all 0.3s ease',
                 display: 'flex',
                 alignItems: 'center',
@@ -315,14 +311,14 @@ const DrHadiAlhariri = () => {
                 height: '48px'
               }}
               onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#e69500';
+                e.target.style.backgroundColor = '#20a0c0';
                 e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 6px 16px rgba(255, 167, 0, 0.4)';
+                e.target.style.boxShadow = '0 6px 16px rgba(32, 160, 192, 0.4)';
               }}
               onMouseOut={(e) => {
-                e.target.style.backgroundColor = '#ffa700';
+                e.target.style.backgroundColor = '#1b88a8';
                 e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 4px 12px rgba(255, 167, 0, 0.3)';
+                e.target.style.boxShadow = '0 4px 12px rgba(27, 136, 168, 0.3)';
               }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '20px', height: '20px' }} fill="currentColor" viewBox="0 0 24 24">
@@ -341,7 +337,7 @@ const DrHadiAlhariri = () => {
               href="/assets/vcf/Dr_Hadi_Alhariri.vcf"
               download="Dr_Hadi_Alhariri.vcf"
               style={{
-                backgroundColor: '#ffa700',
+                backgroundColor: '#1b88a8',
                 color: '#fff',
                 border: 'none',
                 padding: '12px 24px',
@@ -350,7 +346,7 @@ const DrHadiAlhariri = () => {
                 fontWeight: '700',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
-                boxShadow: '0 4px 15px rgba(255, 167, 0, 0.3)',
+                boxShadow: '0 4px 15px rgba(27, 136, 168, 0.3)',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
@@ -358,14 +354,14 @@ const DrHadiAlhariri = () => {
                 textDecoration: 'none'
               }}
               onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#e69500';
+                e.target.style.backgroundColor = '#20a0c0';
                 e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 6px 20px rgba(255, 167, 0, 0.4)';
+                e.target.style.boxShadow = '0 6px 20px rgba(32, 160, 192, 0.4)';
               }}
               onMouseOut={(e) => {
-                e.target.style.backgroundColor = '#ffa700';
+                e.target.style.backgroundColor = '#1b88a8';
                 e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 4px 15px rgba(255, 167, 0, 0.3)';
+                e.target.style.boxShadow = '0 4px 15px rgba(27, 136, 168, 0.3)';
               }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '16px', height: '16px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -394,86 +390,17 @@ const DrHadiAlhariri = () => {
             
            
             
-            {doctorInfo.facebook && (
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <span style={{ 
-                  backgroundColor: '#ffa700', 
-                  padding: '8px', 
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: '32px',
-                  height: '32px'
-                }}>
-                  <i className="fab fa-facebook" style={{ fontSize: '16px', color: '#fff' }}></i>
-                </span>
-                <a 
-                  href={doctorInfo.facebook} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  style={{ fontWeight: '600', color: '#cc7a00', fontSize: '13px', textDecoration: 'underline' }}
-                >
-                  Dr. Hadi Nazeer Al Hariri
-                </a>
-              </div>
-            )}
+            
 
-            {doctorInfo.instagram && (
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <span style={{ 
-                  backgroundColor: '#ffa700', 
-                  padding: '8px', 
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: '32px',
-                  height: '32px'
-                }}>
-                  <i className="fab fa-instagram" style={{ fontSize: '16px', color: '#fff' }}></i>
-                </span>
-                <a 
-                  href={doctorInfo.instagram} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  style={{ fontWeight: '600', color: '#cc7a00', fontSize: '13px', textDecoration: 'underline' }}
-                >
-                  @dr.hadialhariri
-                </a>
-              </div>
-            )}
+            
 
-            {doctorInfo.tiktok && (
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <span style={{ 
-                  backgroundColor: '#ffa700', 
-                  padding: '8px', 
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: '32px',
-                  height: '32px'
-                }}>
-                  <i className="fab fa-tiktok" style={{ fontSize: '16px', color: '#fff' }}></i>
-                </span>
-                <a 
-                  href={doctorInfo.tiktok} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  style={{ fontWeight: '600', color: '#cc7a00', fontSize: '13px', textDecoration: 'underline' }}
-                >
-                  @dr_mohammed_jubain
-                </a>
-              </div>
-            )}
+            
 
             {/* Location */}
             {doctorInfo.location && (
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <span style={{ 
-                  backgroundColor: '#ffa700', 
+                  backgroundColor: '#1b88a8', 
                   padding: '8px', 
                   borderRadius: '50%',
                   display: 'flex',
@@ -484,7 +411,7 @@ const DrHadiAlhariri = () => {
                 }}>
                   <i className="fas fa-map-marker-alt" style={{ fontSize: '16px', color: '#fff' }}></i>
                 </span>
-                <span style={{ fontWeight: '600', color: '#cc7a00', fontSize: '13px' }}>
+                <span style={{ fontWeight: '600', color: '#1a7b9b', fontSize: '13px' }}>
                   {doctorInfo.location}
                 </span>
               </div>
