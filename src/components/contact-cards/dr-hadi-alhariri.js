@@ -263,37 +263,6 @@ const DrHadiAlhariri = () => {
               </svg>
             </a>
             <a 
-  href={doctorInfo.instagram}
-  target="_blank"
-  rel="noopener noreferrer"
-  style={{
-    backgroundColor: '#1b88a8',
-    color: '#fff',
-    padding: '12px',
-    borderRadius: '50%',
-    boxShadow: '0 4px 12px rgba(27, 136, 168, 0.3)',
-    transition: 'all 0.3s ease',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '48px',
-    height: '48px'
-  }}
-  onMouseOver={(e) => {
-    e.target.style.backgroundColor = '#20a0c0';
-    e.target.style.transform = 'translateY(-2px)';
-    e.target.style.boxShadow = '0 6px 16px rgba(32, 160, 192, 0.4)';
-  }}
-  onMouseOut={(e) => {
-    e.target.style.backgroundColor = '#1b88a8';
-    e.target.style.transform = 'translateY(0)';
-    e.target.style.boxShadow = '0 4px 12px rgba(27, 136, 168, 0.3)';
-  }}
->
-  <i className="fab fa-instagram" style={{ fontSize: '20px' }}></i>
-</a>
-
-            <a 
               href={`https://wa.me/963965294724`}
               target="_blank"
               rel="noopener noreferrer"
@@ -388,13 +357,31 @@ const DrHadiAlhariri = () => {
            
             {/* Social Media Links */}
             
-           
-            
-            
-
-            
-
-            
+            {/* Instagram */}
+            {doctorInfo.instagram && (
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <span style={{ 
+                  backgroundColor: '#1b88a8', 
+                  padding: '8px', 
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '32px',
+                  height: '32px'
+                }}>
+                  <i className="fab fa-instagram" style={{ fontSize: '22px', color: '#fff' }}></i>
+                </span>
+                <a 
+                  href={doctorInfo.instagram} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  style={{ fontWeight: '600', color: '#1a7b9b', fontSize: '13px', textDecoration: 'underline' }}
+                >
+                  @dr.hadialhariri
+                </a>
+              </div>
+            )}
 
             {/* Location */}
             {doctorInfo.location && (
@@ -409,7 +396,7 @@ const DrHadiAlhariri = () => {
                   width: '32px',
                   height: '32px'
                 }}>
-                  <i className="fas fa-map-marker-alt" style={{ fontSize: '16px', color: '#fff' }}></i>
+                  <i className="fas fa-map-marker-alt" style={{ fontSize: '22px', color: '#fff' }}></i>
                 </span>
                 <span style={{ fontWeight: '600', color: '#1a7b9b', fontSize: '13px' }}>
                   {doctorInfo.location}
