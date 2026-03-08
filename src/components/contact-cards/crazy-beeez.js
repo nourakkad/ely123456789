@@ -130,7 +130,6 @@ const CrazyBeeez = () => {
       <div style={{
         width: '100%',
         maxWidth: '360px',
-        aspectRatio: '1/1',
         margin: '0 auto',
         display: 'flex',
         alignItems: 'center',
@@ -138,7 +137,7 @@ const CrazyBeeez = () => {
       }}>
         <div style={{
           width: '100%',
-          height: '100%',
+          minHeight: '360px',
           backgroundColor: 'rgba(255, 255, 255, 0.85)',
           backdropFilter: 'blur(20px)',
           border: '1px solid rgba(255, 255, 255, 0.3)',
