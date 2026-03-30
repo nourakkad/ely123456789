@@ -26,7 +26,7 @@ const HussamAlhamad = () => {
 
   const doctorInfo = {
     title: currentLanguage === 'AR' ? "حسام الحمد" : "Hussam Alhamad",
-    category: currentLanguage === 'AR' ? "مصمم أزياء" : "Fashion Designer",
+    category: currentLanguage === 'AR' ? "أزياء رداء" : "REDAA FASHION",
     image: "/assets/logo/hussam-alhamad.png",
     //instagram: "https://www.instagram.com/mamon_couture?igsh=MXQyNnAwNjQ1dXhubA==",
     //facebook: "https://www.facebook.com/share/1CswUFWFL9/",
@@ -93,30 +93,30 @@ const HussamAlhamad = () => {
           style={{
             padding: '10px 18px',
             backgroundColor: 'rgba(255, 255, 255, 0.9)',
-            color: '#cc7a00',
-            border: '2px solid #ffa700',
+            color: '#0f0521',
+            border: '2px solid #deb95e',
             borderRadius: '25px',
             fontSize: '14px',
             fontWeight: '700',
             cursor: 'pointer',
             transition: 'all 0.3s ease',
             backdropFilter: 'blur(15px)',
-            boxShadow: '0 4px 15px rgba(255, 167, 0, 0.2)',
+            boxShadow: '0 4px 15px rgba(222, 185, 94, 0.28)',
             minWidth: '80px',
             textAlign: 'center',
             letterSpacing: '0.5px'
           }}
           onMouseOver={(e) => {
-            e.target.style.backgroundColor = '#ffa700';
-            e.target.style.color = '#fff';
+            e.target.style.backgroundColor = '#deb95e';
+            e.target.style.color = '#0f0521';
             e.target.style.transform = 'translateY(-2px)';
-            e.target.style.boxShadow = '0 6px 20px rgba(255, 167, 0, 0.4)';
+            e.target.style.boxShadow = '0 6px 20px rgba(222, 185, 94, 0.45)';
           }}
           onMouseOut={(e) => {
             e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
-            e.target.style.color = '#cc7a00';
+            e.target.style.color = '#0f0521';
             e.target.style.transform = 'translateY(0)';
-            e.target.style.boxShadow = '0 4px 15px rgba(255, 167, 0, 0.2)';
+            e.target.style.boxShadow = '0 4px 15px rgba(222, 185, 94, 0.28)';
           }}
         >
           {currentLanguage === 'EN' ? 'العربية' : 'English'}
@@ -160,16 +160,17 @@ const HussamAlhamad = () => {
                 width: '100px',
                 height: '100px',
                 borderRadius: '50%',
-                border: '4px solid #ffa700',
-                boxShadow: '0 8px 25px rgba(255, 167, 0, 0.3)',
+                border: '3px solid #deb95e',
+                boxShadow: '0 8px 28px rgba(222, 185, 94, 0.35), 0 0 0 2px rgba(15, 5, 33, 0.2)',
                 marginBottom: '12px',
-                objectFit: 'cover'
+                objectFit: 'contain',
+                backgroundColor: '#e4eef0'
               }}
             />
             <h2 style={{
               fontSize: '22px',
               fontWeight: '800',
-              color: '#cc7a00',
+              color: '#0f0521',
               margin: '4px 0 0 0',
               textAlign: 'center'
             }}>
@@ -178,8 +179,9 @@ const HussamAlhamad = () => {
          
             <span style={{
               display: 'inline-block',
-              backgroundColor: '#fff3e0',
-              color: '#cc7a00',
+              backgroundColor: '#e4eef0',
+              color: '#0f0521',
+              border: '1px solid rgba(222, 185, 94, 0.75)',
               padding: '6px 14px',
               borderRadius: '18px',
               fontSize: '13px',
@@ -202,11 +204,13 @@ const HussamAlhamad = () => {
             <a 
               href={`tel:${doctorInfo.phone}`}
               style={{
-                backgroundColor: '#ffa700',
+                backgroundColor: '#09384c',
                 color: '#fff',
                 padding: '12px',
                 borderRadius: '50%',
-                boxShadow: '0 4px 12px rgba(255, 167, 0, 0.3)',
+                border: '2px solid #deb95e',
+                boxSizing: 'border-box',
+                boxShadow: '0 4px 12px rgba(9, 56, 76, 0.3)',
                 transition: 'all 0.3s ease',
                 display: 'flex',
                 alignItems: 'center',
@@ -215,14 +219,14 @@ const HussamAlhamad = () => {
                 height: '48px'
               }}
               onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#e69500';
+                e.target.style.backgroundColor = '#0d5f7f';
                 e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 6px 16px rgba(255, 167, 0, 0.4)';
+                e.target.style.boxShadow = '0 6px 16px rgba(13, 95, 127, 0.45)';
               }}
               onMouseOut={(e) => {
-                e.target.style.backgroundColor = '#ffa700';
+                e.target.style.backgroundColor = '#09384c';
                 e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 4px 12px rgba(255, 167, 0, 0.3)';
+                e.target.style.boxShadow = '0 4px 12px rgba(9, 56, 76, 0.3)';
               }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '20px', height: '20px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -232,11 +236,13 @@ const HussamAlhamad = () => {
             <a 
   href={`mailto:${doctorInfo.email}`}
   style={{
-    backgroundColor: '#ffa700',
+    backgroundColor: '#09384c',
     color: '#fff',
     padding: '12px',
     borderRadius: '50%',
-    boxShadow: '0 4px 12px rgba(255, 167, 0, 0.3)',
+    border: '2px solid #deb95e',
+    boxSizing: 'border-box',
+    boxShadow: '0 4px 12px rgba(9, 56, 76, 0.3)',
     transition: 'all 0.3s ease',
     display: 'flex',
     alignItems: 'center',
@@ -245,14 +251,14 @@ const HussamAlhamad = () => {
     height: '48px'
   }}
   onMouseOver={(e) => {
-    e.target.style.backgroundColor = '#e69500';
+    e.target.style.backgroundColor = '#0d5f7f';
     e.target.style.transform = 'translateY(-2px)';
-    e.target.style.boxShadow = '0 6px 16px rgba(255, 167, 0, 0.4)';
+    e.target.style.boxShadow = '0 6px 16px rgba(13, 95, 127, 0.45)';
   }}
   onMouseOut={(e) => {
-    e.target.style.backgroundColor = '#ffa700';
+    e.target.style.backgroundColor = '#09384c';
     e.target.style.transform = 'translateY(0)';
-    e.target.style.boxShadow = '0 4px 12px rgba(255, 167, 0, 0.3)';
+    e.target.style.boxShadow = '0 4px 12px rgba(9, 56, 76, 0.3)';
   }}
 >
   {/* Modern Classic Envelope Icon */}
@@ -271,11 +277,13 @@ const HussamAlhamad = () => {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                backgroundColor: '#ffa700',
+                backgroundColor: '#09384c',
                 color: '#fff',
                 padding: '12px',
                 borderRadius: '50%',
-                boxShadow: '0 4px 12px rgba(255, 167, 0, 0.3)',
+                border: '2px solid #deb95e',
+                boxSizing: 'border-box',
+                boxShadow: '0 4px 12px rgba(9, 56, 76, 0.3)',
                 transition: 'all 0.3s ease',
                 display: 'flex',
                 alignItems: 'center',
@@ -284,14 +292,14 @@ const HussamAlhamad = () => {
                 height: '48px'
               }}
               onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#e69500';
+                e.target.style.backgroundColor = '#0d5f7f';
                 e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 6px 16px rgba(255, 167, 0, 0.4)';
+                e.target.style.boxShadow = '0 6px 16px rgba(13, 95, 127, 0.45)';
               }}
               onMouseOut={(e) => {
-                e.target.style.backgroundColor = '#ffa700';
+                e.target.style.backgroundColor = '#09384c';
                 e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 4px 12px rgba(255, 167, 0, 0.3)';
+                e.target.style.boxShadow = '0 4px 12px rgba(9, 56, 76, 0.3)';
               }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '20px', height: '20px' }} fill="currentColor" viewBox="0 0 24 24">
@@ -310,31 +318,32 @@ const HussamAlhamad = () => {
               href="/assets/vcf/hussam-alhmad.vcf"
               download="hussam-alhamad.vcf"
               style={{
-                backgroundColor: '#ffa700',
+                backgroundColor: '#09384c',
                 color: '#fff',
-                border: 'none',
+                border: '2px solid #deb95e',
                 padding: '12px 24px',
                 borderRadius: '25px',
                 fontSize: '14px',
                 fontWeight: '700',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
-                boxShadow: '0 4px 15px rgba(255, 167, 0, 0.3)',
+                boxShadow: '0 4px 15px rgba(9, 56, 76, 0.3)',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
                 letterSpacing: '0.5px',
-                textDecoration: 'none'
+                textDecoration: 'none',
+                boxSizing: 'border-box'
               }}
               onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#e69500';
+                e.target.style.backgroundColor = '#0d5f7f';
                 e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 6px 20px rgba(255, 167, 0, 0.4)';
+                e.target.style.boxShadow = '0 6px 20px rgba(13, 95, 127, 0.45)';
               }}
               onMouseOut={(e) => {
-                e.target.style.backgroundColor = '#ffa700';
+                e.target.style.backgroundColor = '#09384c';
                 e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 4px 15px rgba(255, 167, 0, 0.3)';
+                e.target.style.boxShadow = '0 4px 15px rgba(9, 56, 76, 0.3)';
               }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '16px', height: '16px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -366,7 +375,7 @@ const HussamAlhamad = () => {
             {doctorInfo.facebook && (
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <span style={{ 
-                  backgroundColor: '#ffa700', 
+                  backgroundColor: '#deb95e', 
                   padding: '8px', 
                   borderRadius: '50%',
                   display: 'flex',
@@ -375,13 +384,13 @@ const HussamAlhamad = () => {
                   width: '32px',
                   height: '32px'
                 }}>
-                  <i className="fab fa-facebook" style={{ fontSize: '16px', color: '#fff' }}></i>
+                  <i className="fab fa-facebook" style={{ fontSize: '16px', color: '#0f0521' }}></i>
                 </span>
                 <a 
                   href={doctorInfo.facebook} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  style={{ fontWeight: '600', color: '#cc7a00', fontSize: '13px', textDecoration: 'underline' }}
+                  style={{ fontWeight: '600', color: '#b89845', fontSize: '13px', textDecoration: 'underline' }}
                 >
                   Hussam Alhamad
                 </a>
@@ -391,7 +400,7 @@ const HussamAlhamad = () => {
             {doctorInfo.instagram && (
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <span style={{ 
-                  backgroundColor: '#ffa700', 
+                  backgroundColor: '#deb95e', 
                   padding: '8px', 
                   borderRadius: '50%',
                   display: 'flex',
@@ -400,13 +409,13 @@ const HussamAlhamad = () => {
                   width: '32px',
                   height: '32px'
                 }}>
-                  <i className="fab fa-instagram" style={{ fontSize: '16px', color: '#fff' }}></i>
+                  <i className="fab fa-instagram" style={{ fontSize: '16px', color: '#0f0521' }}></i>
                 </span>
                 <a 
                   href={doctorInfo.instagram} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  style={{ fontWeight: '600', color: '#cc7a00', fontSize: '13px', textDecoration: 'underline' }}
+                  style={{ fontWeight: '600', color: '#b89845', fontSize: '13px', textDecoration: 'underline' }}
                 >
                 @hussam.alhamad
                 </a>

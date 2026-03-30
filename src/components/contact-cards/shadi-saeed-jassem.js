@@ -32,6 +32,16 @@ const ShadiSaeedJassem = () => {
     facebook: "https://www.facebook.com/profile.php?id=61572372762233&sk",
     phone: "+963 941 940 957",
     email: "kmataegr@gmail.com",
+    locationLines:
+      currentLanguage === 'AR'
+        ? [
+            'دير الزور - شارع بورسعيد جانب محطة الحسن',
+            'الحسكة - غويران جانب محطة مارديني',
+          ]
+        : [
+            'Deir ez-Zor – Port Said Street, beside Al-Hasan Station',
+            'Al-Hasakah – Ghweiran, beside Mardini Station',
+          ],
      };
 
   return (
@@ -93,30 +103,30 @@ const ShadiSaeedJassem = () => {
           style={{
             padding: '10px 18px',
             backgroundColor: 'rgba(255, 255, 255, 0.9)',
-            color: '#cc7a00',
-            border: '2px solid #ffa700',
+            color: '#232D2F',
+            border: '2px solid #E1251B',
             borderRadius: '25px',
             fontSize: '14px',
             fontWeight: '700',
             cursor: 'pointer',
             transition: 'all 0.3s ease',
             backdropFilter: 'blur(15px)',
-            boxShadow: '0 4px 15px rgba(255, 167, 0, 0.2)',
+            boxShadow: '0 4px 15px rgba(225, 37, 27, 0.2)',
             minWidth: '80px',
             textAlign: 'center',
             letterSpacing: '0.5px'
           }}
           onMouseOver={(e) => {
-            e.target.style.backgroundColor = '#ffa700';
+            e.target.style.backgroundColor = '#E1251B';
             e.target.style.color = '#fff';
             e.target.style.transform = 'translateY(-2px)';
-            e.target.style.boxShadow = '0 6px 20px rgba(255, 167, 0, 0.4)';
+            e.target.style.boxShadow = '0 6px 20px rgba(225, 37, 27, 0.4)';
           }}
           onMouseOut={(e) => {
             e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
-            e.target.style.color = '#cc7a00';
+            e.target.style.color = '#232D2F';
             e.target.style.transform = 'translateY(0)';
-            e.target.style.boxShadow = '0 4px 15px rgba(255, 167, 0, 0.2)';
+            e.target.style.boxShadow = '0 4px 15px rgba(225, 37, 27, 0.2)';
           }}
         >
           {currentLanguage === 'EN' ? 'العربية' : 'English'}
@@ -160,16 +170,17 @@ const ShadiSaeedJassem = () => {
                 width: '100px',
                 height: '100px',
                 borderRadius: '50%',
-                border: '4px solid #ffa700',
-                boxShadow: '0 8px 25px rgba(255, 167, 0, 0.3)',
+                border: '4px solid #E1251B',
+                boxShadow: '0 8px 25px rgba(225, 37, 27, 0.3)',
                 marginBottom: '12px',
-                objectFit: 'cover'
+                objectFit: 'contain',
+                backgroundColor: '#E6E7E8'
               }}
             />
             <h2 style={{
               fontSize: '22px',
               fontWeight: '800',
-              color: '#cc7a00',
+              color: '#232D2F',
               margin: '4px 0 0 0',
               textAlign: 'center'
             }}>
@@ -178,8 +189,8 @@ const ShadiSaeedJassem = () => {
          
             <span style={{
               display: 'inline-block',
-              backgroundColor: '#fff3e0',
-              color: '#cc7a00',
+              backgroundColor: '#E6E7E8',
+              color: '#008B45',
               padding: '6px 14px',
               borderRadius: '18px',
               fontSize: '13px',
@@ -202,11 +213,11 @@ const ShadiSaeedJassem = () => {
             <a 
               href={`tel:${doctorInfo.phone}`}
               style={{
-                backgroundColor: '#ffa700',
+                backgroundColor: '#E1251B',
                 color: '#fff',
                 padding: '12px',
                 borderRadius: '50%',
-                boxShadow: '0 4px 12px rgba(255, 167, 0, 0.3)',
+                boxShadow: '0 4px 12px rgba(225, 37, 27, 0.3)',
                 transition: 'all 0.3s ease',
                 display: 'flex',
                 alignItems: 'center',
@@ -215,14 +226,14 @@ const ShadiSaeedJassem = () => {
                 height: '48px'
               }}
               onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#e69500';
+                e.target.style.backgroundColor = '#c41f17';
                 e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 6px 16px rgba(255, 167, 0, 0.4)';
+                e.target.style.boxShadow = '0 6px 16px rgba(225, 37, 27, 0.4)';
               }}
               onMouseOut={(e) => {
-                e.target.style.backgroundColor = '#ffa700';
+                e.target.style.backgroundColor = '#E1251B';
                 e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 4px 12px rgba(255, 167, 0, 0.3)';
+                e.target.style.boxShadow = '0 4px 12px rgba(225, 37, 27, 0.3)';
               }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '20px', height: '20px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -232,11 +243,11 @@ const ShadiSaeedJassem = () => {
             <a 
   href={`mailto:${doctorInfo.email}`}
   style={{
-    backgroundColor: '#ffa700',
+    backgroundColor: '#E1251B',
     color: '#fff',
     padding: '12px',
     borderRadius: '50%',
-    boxShadow: '0 4px 12px rgba(255, 167, 0, 0.3)',
+    boxShadow: '0 4px 12px rgba(225, 37, 27, 0.3)',
     transition: 'all 0.3s ease',
     display: 'flex',
     alignItems: 'center',
@@ -245,14 +256,14 @@ const ShadiSaeedJassem = () => {
     height: '48px'
   }}
   onMouseOver={(e) => {
-    e.target.style.backgroundColor = '#e69500';
+    e.target.style.backgroundColor = '#c41f17';
     e.target.style.transform = 'translateY(-2px)';
-    e.target.style.boxShadow = '0 6px 16px rgba(255, 167, 0, 0.4)';
+    e.target.style.boxShadow = '0 6px 16px rgba(225, 37, 27, 0.4)';
   }}
   onMouseOut={(e) => {
-    e.target.style.backgroundColor = '#ffa700';
+    e.target.style.backgroundColor = '#E1251B';
     e.target.style.transform = 'translateY(0)';
-    e.target.style.boxShadow = '0 4px 12px rgba(255, 167, 0, 0.3)';
+    e.target.style.boxShadow = '0 4px 12px rgba(225, 37, 27, 0.3)';
   }}
 >
   {/* Modern Classic Envelope Icon */}
@@ -271,11 +282,11 @@ const ShadiSaeedJassem = () => {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                backgroundColor: '#ffa700',
+                backgroundColor: '#E1251B',
                 color: '#fff',
                 padding: '12px',
                 borderRadius: '50%',
-                boxShadow: '0 4px 12px rgba(255, 167, 0, 0.3)',
+                boxShadow: '0 4px 12px rgba(225, 37, 27, 0.3)',
                 transition: 'all 0.3s ease',
                 display: 'flex',
                 alignItems: 'center',
@@ -284,14 +295,14 @@ const ShadiSaeedJassem = () => {
                 height: '48px'
               }}
               onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#e69500';
+                e.target.style.backgroundColor = '#c41f17';
                 e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 6px 16px rgba(255, 167, 0, 0.4)';
+                e.target.style.boxShadow = '0 6px 16px rgba(225, 37, 27, 0.4)';
               }}
               onMouseOut={(e) => {
-                e.target.style.backgroundColor = '#ffa700';
+                e.target.style.backgroundColor = '#E1251B';
                 e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 4px 12px rgba(255, 167, 0, 0.3)';
+                e.target.style.boxShadow = '0 4px 12px rgba(225, 37, 27, 0.3)';
               }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '20px', height: '20px' }} fill="currentColor" viewBox="0 0 24 24">
@@ -310,7 +321,7 @@ const ShadiSaeedJassem = () => {
               href="/assets/vcf/shadi-saeed-jassem.vcf"
               download="shadi-saeed-jassem.vcf"
               style={{
-                backgroundColor: '#ffa700',
+                backgroundColor: '#E1251B',
                 color: '#fff',
                 border: 'none',
                 padding: '12px 24px',
@@ -319,7 +330,7 @@ const ShadiSaeedJassem = () => {
                 fontWeight: '700',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
-                boxShadow: '0 4px 15px rgba(255, 167, 0, 0.3)',
+                boxShadow: '0 4px 15px rgba(225, 37, 27, 0.3)',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
@@ -327,14 +338,14 @@ const ShadiSaeedJassem = () => {
                 textDecoration: 'none'
               }}
               onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#e69500';
+                e.target.style.backgroundColor = '#c41f17';
                 e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 6px 20px rgba(255, 167, 0, 0.4)';
+                e.target.style.boxShadow = '0 6px 20px rgba(225, 37, 27, 0.4)';
               }}
               onMouseOut={(e) => {
-                e.target.style.backgroundColor = '#ffa700';
+                e.target.style.backgroundColor = '#E1251B';
                 e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 4px 15px rgba(255, 167, 0, 0.3)';
+                e.target.style.boxShadow = '0 4px 15px rgba(225, 37, 27, 0.3)';
               }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '16px', height: '16px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -366,7 +377,7 @@ const ShadiSaeedJassem = () => {
             {doctorInfo.facebook && (
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <span style={{ 
-                  backgroundColor: '#ffa700', 
+                  backgroundColor: '#E1251B', 
                   padding: '8px', 
                   borderRadius: '50%',
                   display: 'flex',
@@ -381,7 +392,7 @@ const ShadiSaeedJassem = () => {
                   href={doctorInfo.facebook} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  style={{ fontWeight: '600', color: '#cc7a00', fontSize: '13px', textDecoration: 'underline' }}
+                  style={{ fontWeight: '600', color: '#008B45', fontSize: '13px', textDecoration: 'underline' }}
                 >
                   القمة لخدمات محطات الوقود والطاقة KMA co.ltd 
                 </a>
@@ -391,7 +402,7 @@ const ShadiSaeedJassem = () => {
             {doctorInfo.instagram && (
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <span style={{ 
-                  backgroundColor: '#ffa700', 
+                  backgroundColor: '#E1251B', 
                   padding: '8px', 
                   borderRadius: '50%',
                   display: 'flex',
@@ -406,10 +417,35 @@ const ShadiSaeedJassem = () => {
                   href={doctorInfo.instagram} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  style={{ fontWeight: '600', color: '#cc7a00', fontSize: '13px', textDecoration: 'underline' }}
+                  style={{ fontWeight: '600', color: '#008B45', fontSize: '13px', textDecoration: 'underline' }}
                 >
                  
                 </a>
+              </div>
+            )}
+
+            {doctorInfo.locationLines && doctorInfo.locationLines.length > 0 && (
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                <span style={{
+                  backgroundColor: '#E1251B',
+                  padding: '8px',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '32px',
+                  height: '32px',
+                  flexShrink: 0
+                }}>
+                  <i className="fas fa-map-marker-alt" style={{ fontSize: '16px', color: '#fff' }}></i>
+                </span>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                  {doctorInfo.locationLines.map((line, idx) => (
+                    <span key={idx} style={{ fontWeight: '600', color: '#008B45', fontSize: '13px', lineHeight: 1.35 }}>
+                      {line}
+                    </span>
+                  ))}
+                </div>
               </div>
             )}
 

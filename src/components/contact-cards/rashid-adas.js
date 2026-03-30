@@ -33,6 +33,10 @@ const RashidAdas = () => {
     linkedin: "https://www.linkedin.com/in/rashid-adas-ab597777?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
     phone: "+963 933 469 024",
     email: "md@kma-sy.com",
+    location:
+      currentLanguage === 'AR'
+        ? 'المدينة الصناعية بعدرا، القطاع الكيميائي، معمل رقم 897 - ريف دمشق - سوريا'
+        : 'Adra Industrial City, Chemical Sector, Plant No. 897 – Rif Dimashq – Syria',
      };
 
   return (
@@ -94,30 +98,30 @@ const RashidAdas = () => {
           style={{
             padding: '10px 18px',
             backgroundColor: 'rgba(255, 255, 255, 0.9)',
-            color: '#cc7a00',
-            border: '2px solid #ffa700',
+            color: '#232D2F',
+            border: '2px solid #E1251B',
             borderRadius: '25px',
             fontSize: '14px',
             fontWeight: '700',
             cursor: 'pointer',
             transition: 'all 0.3s ease',
             backdropFilter: 'blur(15px)',
-            boxShadow: '0 4px 15px rgba(255, 167, 0, 0.2)',
+            boxShadow: '0 4px 15px rgba(225, 37, 27, 0.2)',
             minWidth: '80px',
             textAlign: 'center',
             letterSpacing: '0.5px'
           }}
           onMouseOver={(e) => {
-            e.target.style.backgroundColor = '#ffa700';
+            e.target.style.backgroundColor = '#E1251B';
             e.target.style.color = '#fff';
             e.target.style.transform = 'translateY(-2px)';
-            e.target.style.boxShadow = '0 6px 20px rgba(255, 167, 0, 0.4)';
+            e.target.style.boxShadow = '0 6px 20px rgba(225, 37, 27, 0.4)';
           }}
           onMouseOut={(e) => {
             e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
-            e.target.style.color = '#cc7a00';
+            e.target.style.color = '#232D2F';
             e.target.style.transform = 'translateY(0)';
-            e.target.style.boxShadow = '0 4px 15px rgba(255, 167, 0, 0.2)';
+            e.target.style.boxShadow = '0 4px 15px rgba(225, 37, 27, 0.2)';
           }}
         >
           {currentLanguage === 'EN' ? 'العربية' : 'English'}
@@ -161,16 +165,17 @@ const RashidAdas = () => {
                 width: '100px',
                 height: '100px',
                 borderRadius: '50%',
-                border: '4px solid #ffa700',
-                boxShadow: '0 8px 25px rgba(255, 167, 0, 0.3)',
+                border: '4px solid #E1251B',
+                boxShadow: '0 8px 25px rgba(225, 37, 27, 0.3)',
                 marginBottom: '12px',
-                objectFit: 'cover'
+                objectFit: 'contain',
+                backgroundColor: '#E6E7E8'
               }}
             />
             <h2 style={{
               fontSize: '22px',
               fontWeight: '800',
-              color: '#cc7a00',
+              color: '#232D2F',
               margin: '4px 0 0 0',
               textAlign: 'center'
             }}>
@@ -179,8 +184,8 @@ const RashidAdas = () => {
          
             <span style={{
               display: 'inline-block',
-              backgroundColor: '#fff3e0',
-              color: '#cc7a00',
+              backgroundColor: '#E6E7E8',
+              color: '#008B45',
               padding: '6px 14px',
               borderRadius: '18px',
               fontSize: '13px',
@@ -203,11 +208,11 @@ const RashidAdas = () => {
             <a 
               href={`tel:${doctorInfo.phone}`}
               style={{
-                backgroundColor: '#ffa700',
+                backgroundColor: '#E1251B',
                 color: '#fff',
                 padding: '12px',
                 borderRadius: '50%',
-                boxShadow: '0 4px 12px rgba(255, 167, 0, 0.3)',
+                boxShadow: '0 4px 12px rgba(225, 37, 27, 0.3)',
                 transition: 'all 0.3s ease',
                 display: 'flex',
                 alignItems: 'center',
@@ -216,14 +221,14 @@ const RashidAdas = () => {
                 height: '48px'
               }}
               onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#e69500';
+                e.target.style.backgroundColor = '#c41f17';
                 e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 6px 16px rgba(255, 167, 0, 0.4)';
+                e.target.style.boxShadow = '0 6px 16px rgba(225, 37, 27, 0.4)';
               }}
               onMouseOut={(e) => {
-                e.target.style.backgroundColor = '#ffa700';
+                e.target.style.backgroundColor = '#E1251B';
                 e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 4px 12px rgba(255, 167, 0, 0.3)';
+                e.target.style.boxShadow = '0 4px 12px rgba(225, 37, 27, 0.3)';
               }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '20px', height: '20px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -233,11 +238,11 @@ const RashidAdas = () => {
             <a 
   href={`mailto:${doctorInfo.email}`}
   style={{
-    backgroundColor: '#ffa700',
+    backgroundColor: '#E1251B',
     color: '#fff',
     padding: '12px',
     borderRadius: '50%',
-    boxShadow: '0 4px 12px rgba(255, 167, 0, 0.3)',
+    boxShadow: '0 4px 12px rgba(225, 37, 27, 0.3)',
     transition: 'all 0.3s ease',
     display: 'flex',
     alignItems: 'center',
@@ -246,14 +251,14 @@ const RashidAdas = () => {
     height: '48px'
   }}
   onMouseOver={(e) => {
-    e.target.style.backgroundColor = '#e69500';
+    e.target.style.backgroundColor = '#c41f17';
     e.target.style.transform = 'translateY(-2px)';
-    e.target.style.boxShadow = '0 6px 16px rgba(255, 167, 0, 0.4)';
+    e.target.style.boxShadow = '0 6px 16px rgba(225, 37, 27, 0.4)';
   }}
   onMouseOut={(e) => {
-    e.target.style.backgroundColor = '#ffa700';
+    e.target.style.backgroundColor = '#E1251B';
     e.target.style.transform = 'translateY(0)';
-    e.target.style.boxShadow = '0 4px 12px rgba(255, 167, 0, 0.3)';
+    e.target.style.boxShadow = '0 4px 12px rgba(225, 37, 27, 0.3)';
   }}
 >
   {/* Modern Classic Envelope Icon */}
@@ -272,11 +277,11 @@ const RashidAdas = () => {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                backgroundColor: '#ffa700',
+                backgroundColor: '#E1251B',
                 color: '#fff',
                 padding: '12px',
                 borderRadius: '50%',
-                boxShadow: '0 4px 12px rgba(255, 167, 0, 0.3)',
+                boxShadow: '0 4px 12px rgba(225, 37, 27, 0.3)',
                 transition: 'all 0.3s ease',
                 display: 'flex',
                 alignItems: 'center',
@@ -285,14 +290,14 @@ const RashidAdas = () => {
                 height: '48px'
               }}
               onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#e69500';
+                e.target.style.backgroundColor = '#c41f17';
                 e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 6px 16px rgba(255, 167, 0, 0.4)';
+                e.target.style.boxShadow = '0 6px 16px rgba(225, 37, 27, 0.4)';
               }}
               onMouseOut={(e) => {
-                e.target.style.backgroundColor = '#ffa700';
+                e.target.style.backgroundColor = '#E1251B';
                 e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 4px 12px rgba(255, 167, 0, 0.3)';
+                e.target.style.boxShadow = '0 4px 12px rgba(225, 37, 27, 0.3)';
               }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '20px', height: '20px' }} fill="currentColor" viewBox="0 0 24 24">
@@ -311,7 +316,7 @@ const RashidAdas = () => {
               href="/assets/vcf/rashid-adas.vcf"
               download="rashid-adas.vcf"
               style={{
-                backgroundColor: '#ffa700',
+                backgroundColor: '#E1251B',
                 color: '#fff',
                 border: 'none',
                 padding: '12px 24px',
@@ -320,7 +325,7 @@ const RashidAdas = () => {
                 fontWeight: '700',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
-                boxShadow: '0 4px 15px rgba(255, 167, 0, 0.3)',
+                boxShadow: '0 4px 15px rgba(225, 37, 27, 0.3)',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
@@ -328,14 +333,14 @@ const RashidAdas = () => {
                 textDecoration: 'none'
               }}
               onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#e69500';
+                e.target.style.backgroundColor = '#c41f17';
                 e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 6px 20px rgba(255, 167, 0, 0.4)';
+                e.target.style.boxShadow = '0 6px 20px rgba(225, 37, 27, 0.4)';
               }}
               onMouseOut={(e) => {
-                e.target.style.backgroundColor = '#ffa700';
+                e.target.style.backgroundColor = '#E1251B';
                 e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 4px 15px rgba(255, 167, 0, 0.3)';
+                e.target.style.boxShadow = '0 4px 15px rgba(225, 37, 27, 0.3)';
               }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '16px', height: '16px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -365,7 +370,7 @@ const RashidAdas = () => {
             {doctorInfo.linkedin && (
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <span style={{ 
-                  backgroundColor: '#ffa700', 
+                  backgroundColor: '#E1251B', 
                   padding: '8px', 
                   borderRadius: '50%',
                   display: 'flex',
@@ -380,7 +385,7 @@ const RashidAdas = () => {
                   href={doctorInfo.linkedin} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  style={{ fontWeight: '600', color: '#cc7a00', fontSize: '13px', textDecoration: 'underline' }}
+                  style={{ fontWeight: '600', color: '#008B45', fontSize: '13px', textDecoration: 'underline' }}
                 >
                   Eng.Rashid Adas
                 </a>
@@ -391,7 +396,7 @@ const RashidAdas = () => {
             {doctorInfo.facebook && (
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <span style={{ 
-                  backgroundColor: '#ffa700', 
+                  backgroundColor: '#E1251B', 
                   padding: '8px', 
                   borderRadius: '50%',
                   display: 'flex',
@@ -406,7 +411,7 @@ const RashidAdas = () => {
                   href={doctorInfo.facebook} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  style={{ fontWeight: '600', color: '#cc7a00', fontSize: '13px', textDecoration: 'underline' }}
+                  style={{ fontWeight: '600', color: '#008B45', fontSize: '13px', textDecoration: 'underline' }}
                 >
                   القمة لخدمات محطات الوقود والطاقة KMA co.ltd 
                 </a>
@@ -416,7 +421,7 @@ const RashidAdas = () => {
             {doctorInfo.instagram && (
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <span style={{ 
-                  backgroundColor: '#ffa700', 
+                  backgroundColor: '#E1251B', 
                   padding: '8px', 
                   borderRadius: '50%',
                   display: 'flex',
@@ -431,10 +436,30 @@ const RashidAdas = () => {
                   href={doctorInfo.instagram} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  style={{ fontWeight: '600', color: '#cc7a00', fontSize: '13px', textDecoration: 'underline' }}
+                  style={{ fontWeight: '600', color: '#008B45', fontSize: '13px', textDecoration: 'underline' }}
                 >
                  
                 </a>
+              </div>
+            )}
+
+            {doctorInfo.location && (
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <span style={{
+                  backgroundColor: '#E1251B',
+                  padding: '8px',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '32px',
+                  height: '32px'
+                }}>
+                  <i className="fas fa-map-marker-alt" style={{ fontSize: '16px', color: '#fff' }}></i>
+                </span>
+                <span style={{ fontWeight: '600', color: '#008B45', fontSize: '13px' }}>
+                  {doctorInfo.location}
+                </span>
               </div>
             )}
 

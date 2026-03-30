@@ -30,8 +30,8 @@ const DeauCacao = () => {
     image: "/assets/logo/DeauCacao.png",
     instagram: "https://www.instagram.com/deaucacao?igsh=MTg3YjlheHlwa3VldQ==",
     facebook: "https://www.facebook.com/share/1FtUyFzKr8/?mibextid=wwXIfr",
-    phone: "+963 951 427 029",
-    //email: "",
+    phone: "+963 952 392 762",
+    email: "deaucacao@gmail.com",
      };
 
   return (
@@ -267,7 +267,7 @@ const DeauCacao = () => {
 </a>
 
             <a 
-              href={`https://wa.me/963951427029`}
+              href={`https://wa.me/963952392762`}
               target="_blank"
               rel="noopener noreferrer"
               style={{

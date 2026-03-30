@@ -93,30 +93,30 @@ const MamonAssa = () => {
           style={{
             padding: '10px 18px',
             backgroundColor: 'rgba(255, 255, 255, 0.9)',
-            color: '#cc7a00',
-            border: '2px solid #ffa700',
+            color: '#1a1a1a',
+            border: '2px solid #8B1538',
             borderRadius: '25px',
             fontSize: '14px',
             fontWeight: '700',
             cursor: 'pointer',
             transition: 'all 0.3s ease',
             backdropFilter: 'blur(15px)',
-            boxShadow: '0 4px 15px rgba(255, 167, 0, 0.2)',
+            boxShadow: '0 4px 15px rgba(139, 21, 56, 0.2)',
             minWidth: '80px',
             textAlign: 'center',
             letterSpacing: '0.5px'
           }}
           onMouseOver={(e) => {
-            e.target.style.backgroundColor = '#ffa700';
+            e.target.style.backgroundColor = '#8B1538';
             e.target.style.color = '#fff';
             e.target.style.transform = 'translateY(-2px)';
-            e.target.style.boxShadow = '0 6px 20px rgba(255, 167, 0, 0.4)';
+            e.target.style.boxShadow = '0 6px 20px rgba(109, 17, 45, 0.4)';
           }}
           onMouseOut={(e) => {
             e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
-            e.target.style.color = '#cc7a00';
+            e.target.style.color = '#1a1a1a';
             e.target.style.transform = 'translateY(0)';
-            e.target.style.boxShadow = '0 4px 15px rgba(255, 167, 0, 0.2)';
+            e.target.style.boxShadow = '0 4px 15px rgba(139, 21, 56, 0.2)';
           }}
         >
           {currentLanguage === 'EN' ? 'العربية' : 'English'}
@@ -160,16 +160,17 @@ const MamonAssa = () => {
                 width: '100px',
                 height: '100px',
                 borderRadius: '50%',
-                border: '4px solid #ffa700',
-                boxShadow: '0 8px 25px rgba(255, 167, 0, 0.3)',
+                border: '4px solid #8B1538',
+                boxShadow: '0 8px 25px rgba(139, 21, 56, 0.3)',
                 marginBottom: '12px',
-                objectFit: 'cover'
+                objectFit: 'contain',
+                backgroundColor: '#ffffff'
               }}
             />
             <h2 style={{
               fontSize: '22px',
               fontWeight: '800',
-              color: '#cc7a00',
+              color: '#1a1a1a',
               margin: '4px 0 0 0',
               textAlign: 'center'
             }}>
@@ -178,8 +179,8 @@ const MamonAssa = () => {
          
             <span style={{
               display: 'inline-block',
-              backgroundColor: '#fff3e0',
-              color: '#cc7a00',
+              backgroundColor: '#f8eaed',
+              color: '#8B1538',
               padding: '6px 14px',
               borderRadius: '18px',
               fontSize: '13px',
@@ -187,7 +188,7 @@ const MamonAssa = () => {
               marginBottom: '12px',
               textAlign: 'center'
             }}>
-              {currentLanguage === 'AR' ? 'مصمم أزياء' : 'Fashion Designer'}
+              {currentLanguage === 'AR' ? 'مأمون كوتور' : 'MAMON COUTURE'}
             </span>
           </div>
 
@@ -202,11 +203,11 @@ const MamonAssa = () => {
             <a 
               href={`tel:${doctorInfo.phone}`}
               style={{
-                backgroundColor: '#ffa700',
+                backgroundColor: '#8B1538',
                 color: '#fff',
                 padding: '12px',
                 borderRadius: '50%',
-                boxShadow: '0 4px 12px rgba(255, 167, 0, 0.3)',
+                boxShadow: '0 4px 12px rgba(139, 21, 56, 0.3)',
                 transition: 'all 0.3s ease',
                 display: 'flex',
                 alignItems: 'center',
@@ -215,14 +216,14 @@ const MamonAssa = () => {
                 height: '48px'
               }}
               onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#e69500';
+                e.target.style.backgroundColor = '#6d112d';
                 e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 6px 16px rgba(255, 167, 0, 0.4)';
+                e.target.style.boxShadow = '0 6px 16px rgba(109, 17, 45, 0.4)';
               }}
               onMouseOut={(e) => {
-                e.target.style.backgroundColor = '#ffa700';
+                e.target.style.backgroundColor = '#8B1538';
                 e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 4px 12px rgba(255, 167, 0, 0.3)';
+                e.target.style.boxShadow = '0 4px 12px rgba(139, 21, 56, 0.3)';
               }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '20px', height: '20px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -232,11 +233,11 @@ const MamonAssa = () => {
             <a 
   href={`mailto:${doctorInfo.email}`}
   style={{
-    backgroundColor: '#ffa700',
+    backgroundColor: '#8B1538',
     color: '#fff',
     padding: '12px',
     borderRadius: '50%',
-    boxShadow: '0 4px 12px rgba(255, 167, 0, 0.3)',
+    boxShadow: '0 4px 12px rgba(139, 21, 56, 0.3)',
     transition: 'all 0.3s ease',
     display: 'flex',
     alignItems: 'center',
@@ -245,14 +246,14 @@ const MamonAssa = () => {
     height: '48px'
   }}
   onMouseOver={(e) => {
-    e.target.style.backgroundColor = '#e69500';
+    e.target.style.backgroundColor = '#6d112d';
     e.target.style.transform = 'translateY(-2px)';
-    e.target.style.boxShadow = '0 6px 16px rgba(255, 167, 0, 0.4)';
+    e.target.style.boxShadow = '0 6px 16px rgba(109, 17, 45, 0.4)';
   }}
   onMouseOut={(e) => {
-    e.target.style.backgroundColor = '#ffa700';
+    e.target.style.backgroundColor = '#8B1538';
     e.target.style.transform = 'translateY(0)';
-    e.target.style.boxShadow = '0 4px 12px rgba(255, 167, 0, 0.3)';
+    e.target.style.boxShadow = '0 4px 12px rgba(139, 21, 56, 0.3)';
   }}
 >
   {/* Modern Classic Envelope Icon */}
@@ -271,11 +272,11 @@ const MamonAssa = () => {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                backgroundColor: '#ffa700',
+                backgroundColor: '#8B1538',
                 color: '#fff',
                 padding: '12px',
                 borderRadius: '50%',
-                boxShadow: '0 4px 12px rgba(255, 167, 0, 0.3)',
+                boxShadow: '0 4px 12px rgba(139, 21, 56, 0.3)',
                 transition: 'all 0.3s ease',
                 display: 'flex',
                 alignItems: 'center',
@@ -284,14 +285,14 @@ const MamonAssa = () => {
                 height: '48px'
               }}
               onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#e69500';
+                e.target.style.backgroundColor = '#6d112d';
                 e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 6px 16px rgba(255, 167, 0, 0.4)';
+                e.target.style.boxShadow = '0 6px 16px rgba(109, 17, 45, 0.4)';
               }}
               onMouseOut={(e) => {
-                e.target.style.backgroundColor = '#ffa700';
+                e.target.style.backgroundColor = '#8B1538';
                 e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 4px 12px rgba(255, 167, 0, 0.3)';
+                e.target.style.boxShadow = '0 4px 12px rgba(139, 21, 56, 0.3)';
               }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '20px', height: '20px' }} fill="currentColor" viewBox="0 0 24 24">
@@ -310,7 +311,7 @@ const MamonAssa = () => {
               href="/assets/vcf/mamon-assa.vcf"
               download="mamon-assa.vcf"
               style={{
-                backgroundColor: '#ffa700',
+                backgroundColor: '#8B1538',
                 color: '#fff',
                 border: 'none',
                 padding: '12px 24px',
@@ -319,7 +320,7 @@ const MamonAssa = () => {
                 fontWeight: '700',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
-                boxShadow: '0 4px 15px rgba(255, 167, 0, 0.3)',
+                boxShadow: '0 4px 15px rgba(139, 21, 56, 0.3)',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
@@ -327,14 +328,14 @@ const MamonAssa = () => {
                 textDecoration: 'none'
               }}
               onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#e69500';
+                e.target.style.backgroundColor = '#6d112d';
                 e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 6px 20px rgba(255, 167, 0, 0.4)';
+                e.target.style.boxShadow = '0 6px 20px rgba(109, 17, 45, 0.4)';
               }}
               onMouseOut={(e) => {
-                e.target.style.backgroundColor = '#ffa700';
+                e.target.style.backgroundColor = '#8B1538';
                 e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 4px 15px rgba(255, 167, 0, 0.3)';
+                e.target.style.boxShadow = '0 4px 15px rgba(139, 21, 56, 0.3)';
               }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '16px', height: '16px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -366,7 +367,7 @@ const MamonAssa = () => {
             {doctorInfo.facebook && (
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <span style={{ 
-                  backgroundColor: '#ffa700', 
+                  backgroundColor: '#8B1538', 
                   padding: '8px', 
                   borderRadius: '50%',
                   display: 'flex',
@@ -381,7 +382,7 @@ const MamonAssa = () => {
                   href={doctorInfo.facebook} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  style={{ fontWeight: '600', color: '#cc7a00', fontSize: '13px', textDecoration: 'underline' }}
+                  style={{ fontWeight: '600', color: '#8B1538', fontSize: '13px', textDecoration: 'underline' }}
                 >
                   Mamon Assa
                 </a>
@@ -391,7 +392,7 @@ const MamonAssa = () => {
             {doctorInfo.instagram && (
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <span style={{ 
-                  backgroundColor: '#ffa700', 
+                  backgroundColor: '#8B1538', 
                   padding: '8px', 
                   borderRadius: '50%',
                   display: 'flex',
@@ -406,7 +407,7 @@ const MamonAssa = () => {
                   href={doctorInfo.instagram} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  style={{ fontWeight: '600', color: '#cc7a00', fontSize: '13px', textDecoration: 'underline' }}
+                  style={{ fontWeight: '600', color: '#8B1538', fontSize: '13px', textDecoration: 'underline' }}
                 >
                   @mamon.couture
                 </a>
