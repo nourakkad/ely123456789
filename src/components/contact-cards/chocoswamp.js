@@ -41,11 +41,11 @@ const ChocoSwamp = () => {
   const ringCyan = c.cyan;
 
   const doctorInfo = {
-    title: currentLanguage === 'AR' ? 'شوكو سوامب' : 'Choco Swamp',
+    title: currentLanguage === 'AR' ? 'شوكو سوامب بلس' : 'Choco Swamp Plus',
     location:
       currentLanguage === 'AR'
-        ? 'كفرسوسة - دامسكينو مول - ردهة المطاعم B2'
-        : 'Kafrsousa - Damaskino Mall - Food court B2',
+        ? 'تنظيم كفرسوسة - دامسكينو مول - ردهة المطاعم B2'
+        : 'Tanzeem Kafrsousa - Damaskino Mall - Food court B2',
     image: '/assets/logo/cocoswamp.png',
     facebook: 'https://www.facebook.com/chocoswampplus',
     facebookLabel: 'Choco Swamp Plus',
