@@ -1,13 +1,13 @@
 BEGIN:VCARD
 VERSION:3.0
-N:Plus;Choco Swamp;;
-FN:Choco Swamp Plus
-ORG:Choco Swamp Plus
+N:Swamp;Choco;;
+FN:Choco Swamp
+ORG:Choco Swamp
 TITLE:
 TEL;TYPE=CELL:+963 944 000 710
 TEL;TYPE=WORK,VOICE:+963 11 216 6033
 ADR;TYPE=WORK:;;Food court B2;Damaskino Mall;Tanzeem Kafrsousa;;Syria
-URL;TYPE=INSTAGRAM:https://www.instagram.com/chocoswampplus
-URL;TYPE=FACEBOOK:https://www.facebook.com/chocoswampplus
+URL;TYPE=INSTAGRAM:https://www.instagram.com/chocoswamp
+URL;TYPE=FACEBOOK:https://www.facebook.com/chocoswamp
 NOTE:تنظيم كفرسوسة - دامسكينو مول - ردهة المطاعم B2\nWhatsApp same as mobile +963 944 000 710
 END:VCARD

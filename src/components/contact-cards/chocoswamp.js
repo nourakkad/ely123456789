@@ -27,30 +27,31 @@ const ChocoSwamp = () => {
     return () => window.removeEventListener('languageChanged', handleLanguageChange);
   }, []);
 
-  // Brand colors from /assets/logo/cocoswamp.png (magenta ribbon, white type, black 3D shadow, cyan outline)
+  // Brand colors from /assets/logo/cocoswamp.png — chocolate mascot, red ring, white type, soft beige
   const c = {
-    mag: '#D12061',
-    magDark: '#9d1a4f',
-    cyan: '#5fd3ef',
-    wash: '#fff5f8',
-    ink: '#0d0d0d',
+    brown: '#5C3826',
+    brownLight: '#7B4A33',
+    red: '#E31E24',
+    redDark: '#B9151A',
+    wash: '#FDE9E4',
+    ink: '#2A1A10',
   };
-  const prim = c.mag;
-  const primHover = c.magDark;
+  const prim = c.red;
+  const primHover = c.redDark;
   const light = c.wash;
-  const ringCyan = c.cyan;
+  const choco = c.brown;
 
   const doctorInfo = {
-    title: currentLanguage === 'AR' ? 'شوكو سوامب بلس' : 'Choco Swamp Plus',
+    title: currentLanguage === 'AR' ? 'شوكو سوامب' : 'Choco Swamp',
     location:
       currentLanguage === 'AR'
         ? 'تنظيم كفرسوسة - دامسكينو مول - ردهة المطاعم B2'
         : 'Tanzeem Kafrsousa - Damaskino Mall - Food court B2',
     image: '/assets/logo/cocoswamp.png',
-    facebook: 'https://www.facebook.com/chocoswampplus',
-    facebookLabel: 'Choco Swamp Plus',
-    instagram: 'https://www.instagram.com/chocoswampplus',
-    instagramHandle: '@chocoswampplus',
+    facebook: 'https://www.facebook.com/chocoswamp',
+    facebookLabel: 'Choco Swamp',
+    instagram: 'https://www.instagram.com/chocoswamp',
+    instagramHandle: '@chocoswamp',
   };
 
   const btnBase = {
@@ -58,7 +59,7 @@ const ChocoSwamp = () => {
     color: '#fff',
     padding: '12px',
     borderRadius: '50%',
-    boxShadow: `0 2px 0 0 ${c.ink}, 0 4px 12px rgba(209, 32, 97, 0.45)`,
+    boxShadow: `0 2px 0 0 ${c.ink}, 0 4px 12px rgba(227, 30, 36, 0.4)`,
     transition: 'all 0.3s ease',
     display: 'flex',
     alignItems: 'center',
@@ -126,9 +127,9 @@ const ChocoSwamp = () => {
           style={{
             padding: '10px 18px',
             backgroundColor: 'rgba(255, 255, 255, 0.95)',
-            color: prim,
+            color: choco,
             border: `2px solid ${prim}`,
-            boxShadow: `0 0 0 1px ${ringCyan}, 0 2px 0 0 ${c.ink}`,
+            boxShadow: `0 0 0 1px ${light}, 0 2px 0 0 ${c.ink}`,
             borderRadius: '25px',
             fontSize: '14px',
             fontWeight: '700',
@@ -142,12 +143,12 @@ const ChocoSwamp = () => {
           onMouseOver={(e) => {
             e.target.style.backgroundColor = prim;
             e.target.style.color = '#fff';
-            e.target.style.borderColor = ringCyan;
+            e.target.style.borderColor = choco;
             e.target.style.transform = 'translateY(-2px)';
           }}
           onMouseOut={(e) => {
             e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-            e.target.style.color = prim;
+            e.target.style.color = choco;
             e.target.style.borderColor = prim;
             e.target.style.transform = 'translateY(0)';
           }}
@@ -165,7 +166,7 @@ const ChocoSwamp = () => {
             backdropFilter: 'blur(20px)',
             border: `2px solid ${prim}`,
             borderRadius: '28px',
-            boxShadow: `6px 6px 0 0 ${c.ink}, 0 20px 40px rgba(209, 32, 97, 0.18)`,
+            boxShadow: `6px 6px 0 0 ${c.ink}, 0 20px 40px rgba(92, 56, 38, 0.12), 0 8px 24px rgba(227, 30, 36, 0.12)`,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -181,8 +182,8 @@ const ChocoSwamp = () => {
                 width: '100px',
                 height: '100px',
                 borderRadius: '50%',
-                border: `3px solid ${ringCyan}`,
-                boxShadow: `0 0 0 3px ${prim}, 4px 4px 0 0 ${c.ink}`,
+                border: '3px solid #fff',
+                boxShadow: `0 0 0 2px ${prim}, 0 0 0 5px ${choco}, 4px 4px 0 0 ${c.ink}`,
                 marginBottom: '12px',
                 objectFit: 'cover',
                 backgroundColor: light,
@@ -192,10 +193,10 @@ const ChocoSwamp = () => {
               style={{
                 fontSize: '22px',
                 fontWeight: '800',
-                color: prim,
+                color: choco,
                 margin: '4px 0 0 0',
                 textAlign: 'center',
-                textShadow: `0 0 0 1px ${ringCyan}, 2px 2px 0 ${c.ink}`,
+                textShadow: '1px 1px 0 rgba(255, 255, 255, 0.6), 2px 2px 0 rgba(227, 30, 36, 0.35), 3px 3px 0 rgba(42, 26, 16, 0.35)',
               }}
             >
               {doctorInfo.title}
@@ -204,8 +205,8 @@ const ChocoSwamp = () => {
               style={{
                 display: 'inline-block',
                 backgroundColor: light,
-                color: prim,
-                border: `2px solid ${ringCyan}`,
+                color: choco,
+                border: `2px solid ${prim}`,
                 boxShadow: `0 2px 0 0 ${c.ink}`,
                 padding: '6px 14px',
                 borderRadius: '18px',
@@ -270,7 +271,7 @@ const ChocoSwamp = () => {
                 fontWeight: '700',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
-                boxShadow: `0 2px 0 0 ${c.ink}, 0 4px 15px rgba(209, 32, 97, 0.35)`,
+                boxShadow: `0 2px 0 0 ${c.ink}, 0 4px 15px rgba(227, 30, 36, 0.3)`,
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
@@ -303,7 +304,7 @@ const ChocoSwamp = () => {
               width: '100%',
               backgroundColor: c.wash,
               borderRadius: '18px',
-              border: `1px solid ${ringCyan}`,
+              border: `1px solid rgba(92, 56, 38, 0.25)`,
               boxShadow: `inset 0 2px 4px rgba(0, 0, 0, 0.06), 0 2px 0 0 rgba(13, 13, 13, 0.08)`,
               padding: '16px',
               marginTop: '12px',
