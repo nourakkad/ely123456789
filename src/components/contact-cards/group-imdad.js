@@ -29,7 +29,7 @@ const ENGINEERING_SERVICE = {
   display: '+963 941 963 141',
 };
 
-const GroupImdadex = () => {
+const GroupImdad = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
 
   useEffect(() => {
@@ -200,7 +200,7 @@ const GroupImdadex = () => {
                 textAlign: 'center',
               }}
             >
-              {currentLanguage === 'AR' ? 'مجموعة إمداد' : 'Group Imdadex'}
+              {currentLanguage === 'AR' ? 'مجموعة إمداد' : 'Group Imdad'}
             </h2>
 
             <span
@@ -219,14 +219,14 @@ const GroupImdadex = () => {
                 boxShadow: accentGlowInsetStack,
               }}
             >
-              {currentLanguage === 'AR' ? 'Group Imdadex' : 'مجموعة إمداد'}
+              {currentLanguage === 'AR' ? 'Group Imdad' : 'مجموعة إمداد'}
             </span>
           </div>
 
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: '16px', width: '100%' }}>
             <a
-              href="/assets/vcf/group-imdadex.vcf"
-              download="group-imdadex.vcf"
+              href="/assets/vcf/group-imdad.vcf"
+              download="group-imdad.vcf"
               style={{
                   backgroundColor: prim,
                   color: '#fff',
@@ -276,7 +276,7 @@ const GroupImdadex = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={
-                  currentLanguage === 'AR' ? 'صفحة مجموعة إمداد على فيسبوك' : 'Group Imdadex on Facebook'
+                  currentLanguage === 'AR' ? 'صفحة مجموعة إمداد على فيسبوك' : 'Group Imdad on Facebook'
                 }
                 style={{
                   display: 'flex',
@@ -310,7 +310,7 @@ const GroupImdadex = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={
-                  currentLanguage === 'AR' ? 'صفحة مجموعة إمداد على إنستغرام' : 'Group Imdadex on Instagram'
+                  currentLanguage === 'AR' ? 'صفحة مجموعة إمداد على إنستغرام' : 'Group Imdad on Instagram'
                 }
                 style={{
                   display: 'flex',
@@ -627,4 +627,4 @@ const GroupImdadex = () => {
   );
 };
 
-export default GroupImdadex;
+export default GroupImdad;

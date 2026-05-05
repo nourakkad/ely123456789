@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Banner from './components/Banner';
 import Services from './components/Services';
@@ -8,7 +8,7 @@ import Team from './components/Team';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import { DrMohammedJubain, CrazyBeeez, MamonAssa, DrNaderAlmzayek, HussamAlhamad, RashidAdas, AbdalrahmanAdas, YassenAltabakh, AnwarSaeedJassem, ShadiSaeedJassem, DeauCacao, ChocoSwamp, Elyptek, GroupImdadex, MuhammedAladdinHaymour, DrHadiAlhariri } from './components/contact-cards';
+import { DrMohammedJubain, CrazyBeeez, MamonAssa, DrNaderAlmzayek, HussamAlhamad, RashidAdas, AbdalrahmanAdas, YassenAltabakh, AnwarSaeedJassem, ShadiSaeedJassem, DeauCacao, ChocoSwamp, Elyptek, GroupImdad, MuhammedAladdinHaymour, DrHadiAlhariri } from './components/contact-cards';
 import './App.css';
 
 // Main Home Page Component
@@ -61,7 +61,8 @@ function App() {
           <Route path="/contact/deau-cacao" element={<DeauCacao />} />
           <Route path="/contact/chocoswamp" element={<ChocoSwamp />} />
           <Route path="/contact/elyptek" element={<Elyptek />} />
-          <Route path="/contact/group-imdadex" element={<GroupImdadex />} />
+          <Route path="/contact/group-imdad" element={<GroupImdad />} />
+          <Route path="/contact/group-imdadex" element={<Navigate to="/contact/group-imdad" replace />} />
           <Route path="/contact/muhammed-aladdin-haymour" element={<MuhammedAladdinHaymour />} />
           <Route path="/contact/dr-hadi-alhariri" element={<DrHadiAlhariri />} />
         </Routes>
