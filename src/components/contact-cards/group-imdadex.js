@@ -200,8 +200,9 @@ const GroupImdadex = () => {
                 textAlign: 'center',
               }}
             >
-              {currentLanguage === 'AR' ? 'مجموعة امداد' : 'Group Imdadex'}
+              {currentLanguage === 'AR' ? 'مجموعة إمداد' : 'Group Imdadex'}
             </h2>
+
             <span
               style={{
                 display: 'inline-block',
@@ -218,7 +219,7 @@ const GroupImdadex = () => {
                 boxShadow: accentGlowInsetStack,
               }}
             >
-              {currentLanguage === 'AR' ? 'Group Imdadex' : 'مجموعة امداد'}
+              {currentLanguage === 'AR' ? 'Group Imdadex' : 'مجموعة إمداد'}
             </span>
           </div>
 
@@ -260,7 +261,87 @@ const GroupImdadex = () => {
                 {currentLanguage === 'AR' ? 'تحميل بطاقة الاتصال' : 'Download Contact Card'}
               </a>
             </div>
-
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '12px',
+                marginTop: '10px',
+              }}
+            >
+              <a
+                href="https://www.facebook.com/Groupimdadex"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={
+                  currentLanguage === 'AR' ? 'صفحة مجموعة إمداد على فيسبوك' : 'Group Imdadex on Facebook'
+                }
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '42px',
+                  height: '42px',
+                  borderRadius: '50%',
+                  backgroundColor: prim,
+                  border: `1px solid ${accentYellow}`,
+                  boxShadow: accentGlowInsetStack,
+                  textDecoration: 'none',
+                  transition: 'transform 0.15s ease, box-shadow 0.15s ease',
+                }}
+                onMouseDown={(e) => {
+                  e.currentTarget.style.transform = 'scale(0.96)';
+                }}
+                onMouseUp={(e) => {
+                  e.currentTarget.style.transform = 'scale(1)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'scale(1)';
+                }}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden style={{ width: '20px', height: '20px' }} fill="#fff">
+                  <path d="M22 12.06C22 6.54 17.53 2 12 2S2 6.54 2 12.06c0 4.93 3.61 9.06 9.05 9.94v-7.04H7.9v-2.91h3.09V9.74c0-3.04 1.83-4.71 4.57-4.71 1.32 0 2.7.23 2.7.23v3.06h-1.52c-1.51 0-1.97.93-1.97 1.89v2.37h3.43l-.55 3.04h-2.88v7.06C18.4 21.12 22 16.99 22 12.06z" />
+                </svg>
+              </a>
+              <a
+                href="https://www.instagram.com/imdadgroupex"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={
+                  currentLanguage === 'AR' ? 'صفحة مجموعة إمداد على إنستغرام' : 'Group Imdadex on Instagram'
+                }
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '42px',
+                  height: '42px',
+                  borderRadius: '50%',
+                  backgroundColor: prim,
+                  border: `1px solid ${accentYellow}`,
+                  boxShadow: accentGlowInsetStack,
+                  textDecoration: 'none',
+                  transition: 'transform 0.15s ease, box-shadow 0.15s ease',
+                }}
+                onMouseDown={(e) => {
+                  e.currentTarget.style.transform = 'scale(0.96)';
+                }}
+                onMouseUp={(e) => {
+                  e.currentTarget.style.transform = 'scale(1)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'scale(1)';
+                }}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '20px', height: '20px' }}>
+                  <rect width="18" height="18" x="3" y="3" rx="5" ry="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none" />
+                </svg>
+              </a>
+            </div>
             <div
               style={{
                 width: '100%',
