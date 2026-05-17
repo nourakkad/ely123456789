@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { getTranslation, getCountryCodes } from '../translations';
 import { CONTACT_EMAIL } from '../env/publicConfig';
 import { sendSiteMail } from '../lib/sendSiteMail';
@@ -6,6 +6,30 @@ import { sendSiteMail } from '../lib/sendSiteMail';
 const EXP_KEYS = ['', 'graduate', '1-2', '3-5', '5plus'];
 
 const LOGO_IMG_SRC = `${(process.env.PUBLIC_URL || '').replace(/\/$/, '')}/assets/images/logo12.png`;
+
+const CV_MAX_MB = 3;
+const CV_MAX_BYTES = CV_MAX_MB * 1024 * 1024;
+
+const CV_ALLOWED_TYPES = new Set(['application/pdf', 'image/jpeg', 'image/jpg', 'image/png', 'image/webp']);
+
+function isAllowedCvMime(mime) {
+  const m = (mime || '').toLowerCase().trim();
+  if (!m) return true;
+  return CV_ALLOWED_TYPES.has(m);
+}
+
+function encodeCvFileBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const s = String(reader.result || '');
+      const comma = s.indexOf(',');
+      resolve(comma >= 0 ? s.slice(comma + 1) : '');
+    };
+    reader.onerror = () => reject(new Error('read'));
+    reader.readAsDataURL(file);
+  });
+}
 
 const JobApplication = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
@@ -24,6 +48,9 @@ const JobApplication = () => {
   const [mobileError, setMobileError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
+  const [cvFile, setCvFile] = useState(null);
+  const [cvPdfError, setCvPdfError] = useState('');
+  const cvPdfInputRef = useRef(null);
 
   const validateMobile = (code, digits) => {
     if (!digits) return 'required';
@@ -82,6 +109,38 @@ const JobApplication = () => {
     setSubmitStatus(null);
   };
 
+  const clearCvPdf = () => {
+    setCvFile(null);
+    setCvPdfError('');
+    if (cvPdfInputRef.current) {
+      cvPdfInputRef.current.value = '';
+    }
+  };
+
+  const handleCvPdfChange = (e) => {
+    const input = e.target;
+    setSubmitStatus(null);
+    setCvPdfError('');
+    const f = input.files?.[0];
+    if (!f) {
+      setCvFile(null);
+      return;
+    }
+    if (!isAllowedCvMime(f.type)) {
+      setCvFile(null);
+      setCvPdfError('type');
+      input.value = '';
+      return;
+    }
+    if (f.size > CV_MAX_BYTES) {
+      setCvFile(null);
+      setCvPdfError('size');
+      input.value = '';
+      return;
+    }
+    setCvFile(f);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const err = validateMobile(formData.countryCode, formData.mobile);
@@ -90,9 +149,10 @@ const JobApplication = () => {
 
     setIsSubmitting(true);
     setSubmitStatus(null);
+    setCvPdfError('');
 
     try {
-      await sendSiteMail('job', {
+      const payload = {
         name: formData.name,
         email: formData.email,
         countryCode: formData.countryCode,
@@ -102,7 +162,28 @@ const JobApplication = () => {
         linkedin: formData.linkedin,
         cvLink: formData.cvLink,
         coverLetter: formData.coverLetter,
-      });
+      };
+
+      if (cvFile) {
+        let contentBase64;
+        try {
+          contentBase64 = await encodeCvFileBase64(cvFile);
+        } catch {
+          setCvPdfError('read');
+          return;
+        }
+        if (!contentBase64) {
+          setCvPdfError('read');
+          return;
+        }
+        payload.cvAttachment = {
+          filename: cvFile.name || 'cv',
+          mimeType: (cvFile.type || 'application/octet-stream').toLowerCase(),
+          contentBase64,
+        };
+      }
+
+      await sendSiteMail('job', payload);
 
       setSubmitStatus('success');
       setFormData({
@@ -117,6 +198,7 @@ const JobApplication = () => {
         coverLetter: '',
       });
       setMobileError('');
+      clearCvPdf();
     } catch (error) {
       console.error('Job application mail error:', error);
       setSubmitStatus('error');
@@ -287,7 +369,36 @@ const JobApplication = () => {
                           autoComplete="url"
                           inputMode="url"
                         />
-                        <p className="job-form-hint">{t('jobCvHint')}</p>
+                      </fieldset>
+                      <fieldset>
+                        <label className="job-cv-upload-label" htmlFor="job-cv-file">
+                          {t('jobCvPdfLabel')}
+                        </label>
+                        <input
+                          ref={cvPdfInputRef}
+                          id="job-cv-file"
+                          name="cvFile"
+                          type="file"
+                          accept="application/pdf,.pdf,image/jpeg,.jpg,.jpeg,image/png,.png,image/webp,.webp"
+                          className="job-cv-file-input"
+                          onChange={handleCvPdfChange}
+                          aria-invalid={cvPdfError ? 'true' : 'false'}
+                        />
+                        {cvFile && (
+                          <p className="job-form-hint job-cv-selected-row">
+                            {t('jobCvPdfSelected').replace(/\{\{name\}\}/g, cvFile.name)}{' '}
+                            <button type="button" className="job-application-cv-remove" onClick={clearCvPdf}>
+                              {t('jobCvPdfClear')}
+                            </button>
+                          </p>
+                        )}
+                        {cvPdfError === 'type' && <div className="form-error">{t('jobCvPdfErrorType')}</div>}
+                        {cvPdfError === 'size' && (
+                          <div className="form-error">
+                            {t('jobCvPdfErrorSize').replace(/\{\{sizeMB\}\}/g, String(CV_MAX_MB))}
+                          </div>
+                        )}
+                        {cvPdfError === 'read' && <div className="form-error">{t('jobCvPdfErrorRead')}</div>}
                       </fieldset>
                       <fieldset>
                         <textarea

@@ -71,7 +71,12 @@ export const translations = {
     jobSubmit: "Submit application",
     jobSubmitSuccess: "Application sent successfully. We'll be in touch if there's a fit.",
     jobSubmitError: "Something went wrong. Please try again or email {{email}}.",
-    jobCvHint: "If you attach files elsewhere, paste a shared link above.",
+    jobCvPdfLabel: "Upload CV — PDF or image (optional)",
+    jobCvPdfSelected: "Selected: {{name}}",
+    jobCvPdfErrorType: "Please upload a PDF, JPG, PNG, or WEBP file.",
+    jobCvPdfErrorSize: "File is too large (max {{sizeMB}} MB).",
+    jobCvPdfErrorRead: "Could not read the file — try another.",
+    jobCvPdfClear: "Remove file",
     jobLogoHomeAria: "Go to Elyptek.com home",
     
     // Footer
@@ -187,7 +192,12 @@ export const translations = {
     jobSubmit: "إرسال الطلب",
     jobSubmitSuccess: "تم إرسال طلبك بنجاح. سنتواصل عند وجود تناسب.",
     jobSubmitError: "تعذّر الإرسال. حاول مجدداً أو راسلنا على {{email}}",
-    jobCvHint: "إن رفعت ملفات على منصة أخرى، الصق الرابط أعلاه.",
+    jobCvPdfLabel: "رفع السيرة — PDF أو صورة (اختياري)",
+    jobCvPdfSelected: "الملف المختار: {{name}}",
+    jobCvPdfErrorType: "استخدم ملف PDF أو JPG أو PNG أو WEBP.",
+    jobCvPdfErrorSize: "الملف أكبر من المسموح (حتى {{sizeMB}} ميغابايت).",
+    jobCvPdfErrorRead: "تعذّر قراءة الملف — جرّب ملفاً آخر.",
+    jobCvPdfClear: "إزالة الملف",
     jobLogoHomeAria: "الانتقال إلى الصفحة الرئيسية Elyptek.com",
     
     // Footer

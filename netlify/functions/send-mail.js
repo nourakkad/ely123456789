@@ -51,6 +51,98 @@ function createTransportMaybe() {
   });
 }
 
+const MIME_EXT = {
+  'application/pdf': '.pdf',
+  'image/jpeg': '.jpg',
+  'image/png': '.png',
+  'image/webp': '.webp',
+};
+
+const ALLOWED_CV_MIMES = new Set(Object.keys(MIME_EXT));
+
+function normalizeClientMime(raw) {
+  const m = clip(raw, 160).trim().toLowerCase();
+  if (m === 'image/jpg') return 'image/jpeg';
+  return m;
+}
+
+/** Detect type from bytes (do not trust the browser alone). */
+function detectCvBufferMime(buf) {
+  if (!buf || buf.length < 12) return null;
+  if (buf.subarray(0, 5).toString('latin1').startsWith('%PDF')) return 'application/pdf';
+  if (buf[0] === 0xff && buf[1] === 0xd8 && buf[2] === 0xff) return 'image/jpeg';
+  if (buf[0] === 0x89 && buf[1] === 0x50 && buf[2] === 0x4e && buf[3] === 0x47 && buf.length > 40) return 'image/png';
+  if (buf.subarray(0, 4).toString('latin1') === 'RIFF' && buf.subarray(8, 12).toString('latin1') === 'WEBP') {
+    return 'image/webp';
+  }
+  return null;
+}
+
+function safeCvFilename(raw, mime) {
+  const ext = MIME_EXT[mime] || '.dat';
+  const base = clip(raw || `cv${ext}`, 140).replace(/^.*[/\\]/, '').replace(/\s+/g, '-');
+  const cleaned = base.replace(/[^a-zA-Z0-9._\-\u0590-\u05FF\u0600-\u06FF]+/g, '_');
+  const stem = cleaned.replace(/\.(pdf|jpe?g|png|webp)$/i, '') || 'cv';
+  return `${stem}${ext}`.slice(0, 120);
+}
+
+function parseOptionalCv(body) {
+  const raw = body.cvAttachment;
+  if (raw == null || raw === false) return { attachment: null };
+  if (typeof raw !== 'object' || Array.isArray(raw)) {
+    return { error: 'Invalid CV attachment.' };
+  }
+
+  const cap = Math.floor(Number(process.env.MAIL_CV_MAX_BYTES || 3 * 1024 * 1024));
+  const maxBytes = Number.isFinite(cap) && cap > 0 ? Math.min(cap, 5 * 1024 * 1024) : 3 * 1024 * 1024;
+
+  const clientMime = normalizeClientMime(raw.mimeType);
+  if (clientMime && !ALLOWED_CV_MIMES.has(clientMime)) {
+    return { error: 'CV attachment must be a PDF or image (JPEG, PNG, or WEBP).' };
+  }
+
+  const b64Raw = typeof raw.contentBase64 === 'string' ? raw.contentBase64.replace(/\s/g, '') : '';
+  if (!b64Raw) {
+    return { error: 'CV attachment is empty.' };
+  }
+
+  let buf;
+  try {
+    buf = Buffer.from(b64Raw, 'base64');
+  } catch {
+    return { error: 'CV attachment encoding is invalid.' };
+  }
+
+  if (buf.length < 24) {
+    return { error: 'CV file is too small.' };
+  }
+  if (buf.length > maxBytes) {
+    const mb = Math.round(maxBytes / (1024 * 1024));
+    return {
+      error: `CV exceeds max size (${mb} MB). Upload a smaller file or paste a link above.`,
+    };
+  }
+
+  const detected = detectCvBufferMime(buf);
+  if (!detected || !ALLOWED_CV_MIMES.has(detected)) {
+    return { error: 'Invalid or unsupported file. Use PDF, JPG, PNG, or WEBP.' };
+  }
+  if (clientMime && clientMime !== detected) {
+    return { error: 'File contents do not match the selected type.' };
+  }
+
+  const filename = safeCvFilename(typeof raw.filename === 'string' ? raw.filename : undefined, detected);
+
+  return {
+    attachment: {
+      filename,
+      content: buf,
+      contentType: detected,
+      contentDisposition: 'attachment',
+    },
+  };
+}
+
 exports.handler = async (event) => {
   const origin = event.headers.origin || event.headers.Origin || '';
   const cors = corsHeaders(origin);
@@ -110,6 +202,7 @@ exports.handler = async (event) => {
 
   let subject;
   let text;
+  let attachments;
 
   if (kind === 'contact') {
     const message = clip(body.message, 8000);
@@ -147,6 +240,21 @@ exports.handler = async (event) => {
       };
     }
 
+    const parsedCv = parseOptionalCv(body);
+    if (parsedCv.error) {
+      return {
+        statusCode: 400,
+        headers: baseHeaders,
+        body: JSON.stringify({ ok: false, message: parsedCv.error }),
+      };
+    }
+
+    attachments = parsedCv.attachment ? [parsedCv.attachment] : undefined;
+    const fileAtt = parsedCv.attachment;
+    const cvAttachNote = fileAtt
+      ? `CV file attached: ${fileAtt.filename} (${fileAtt.contentType}, ~${Math.max(1, Math.round(fileAtt.content.length / 1024))} KB)`
+      : 'CV file attached: none (optional link above if any)';
+
     subject = `[Elyptek website] Job application — ${position} — ${name}`;
     text = [
       '[Job application — elyptek.com/form]',
@@ -158,6 +266,7 @@ exports.handler = async (event) => {
       `Experience band: ${experienceLabel}`,
       `LinkedIn: ${linkedin || '—'}`,
       `CV / portfolio link: ${cvLink || '—'}`,
+      cvAttachNote,
       '',
       'Cover letter:',
       coverLetter,
@@ -165,13 +274,17 @@ exports.handler = async (event) => {
   }
 
   try {
-    await transport.sendMail({
+    const mailOpts = {
       from: mailFrom,
       to: mailTo,
       replyTo: email,
       subject,
       text,
-    });
+    };
+    if (attachments && attachments.length) {
+      mailOpts.attachments = attachments;
+    }
+    await transport.sendMail(mailOpts);
     return { statusCode: 200, headers: baseHeaders, body: JSON.stringify({ ok: true }) };
   } catch (err) {
     console.error('[send-mail]', err.message);

@@ -253,3 +253,44 @@
 .job-fill-form[dir='rtl'] fieldset select {
   direction: rtl;
 }
+
+.job-fill-form label.job-cv-upload-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #2a2a2a;
+  text-align: start;
+}
+
+.job-fill-form input.job-cv-file-input[type='file'] {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 4px;
+  padding: 10px 12px;
+  font-size: 14px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  background: #f8f9fa;
+  cursor: pointer;
+}
+
+.job-fill-form .job-cv-selected-row .job-application-cv-remove {
+  margin-inline-start: 4px;
+}
+
+.job-application-cv-remove {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+  color: #ffa700;
+  text-decoration: underline;
+}
+
+.job-application-cv-remove:hover {
+  color: #e09600;
+}

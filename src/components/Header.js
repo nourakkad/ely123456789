@@ -185,7 +185,7 @@ const Header = () => {
               
               {/* Logo Start */}
               <a href="#top" className="logo" onClick={(e) => smoothScrollToSection(e, '#top')}>
-                <img src="/assets/images/logo12.png" alt="Elyptek Logo" className="logo-webs" />
+                <img src="/assets/images/p.png" alt="Elyptek Logo" className="logo-webs" />
               </a>
               {/* Logo End */}
               
