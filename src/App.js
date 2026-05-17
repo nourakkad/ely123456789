@@ -8,6 +8,7 @@ import Team from './components/Team';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import JobApplication from './components/JobApplication';
 import { DrMohammedJubain, CrazyBeeez, MamonAssa, DrNaderAlmzayek, HussamAlhamad, RashidAdas, AbdalrahmanAdas, YassenAltabakh, AnwarSaeedJassem, ShadiSaeedJassem, DeauCacao, ChocoSwamp, Elyptek, GroupImdad, MuhammedAladdinHaymour, DrHadiAlhariri } from './components/contact-cards';
 import './App.css';
 
@@ -47,6 +48,8 @@ function App() {
           {/* Main Home Page */}
           <Route path="/" element={<HomePage />} />
           
+          <Route path="/form" element={<JobApplication />} />
+
           {/* Contact Card Routes */}
           <Route path="/contact/dr-mohammed-jubain" element={<DrMohammedJubain />} />
           <Route path="/contact/crazy-beeez" element={<CrazyBeeez />} />

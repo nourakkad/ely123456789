@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { CONTACT_EMAIL } from '../env/publicConfig';
 
 const Footer = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
@@ -66,6 +68,7 @@ const Footer = () => {
               <li><a href="#services">{currentLanguage === 'AR' ? 'خدماتنا' : 'Our Services'}</a></li>
               <li><a href="#portfolio">{currentLanguage === 'AR' ? 'أعمالنا' : 'Portfolio'}</a></li>
               <li><a href="#team">{currentLanguage === 'AR' ? 'فريقنا' : 'Our Team'}</a></li>
+              <li><Link to="/form">{currentLanguage === 'AR' ? 'التقديم الوظيفي' : 'Careers'}</Link></li>
               <li><a href="#contact">{currentLanguage === 'AR' ? 'اتصل بنا' : 'Contact Us'}</a></li>
             </ul>
           </div>
@@ -82,7 +85,9 @@ const Footer = () => {
               </li>
               <li>
                 <i className="fas fa-envelope"></i>
-                <a href="mailto:elyptek@gmail.com" className="footer-link-white">elyptek@gmail.com</a>
+                <a href={`mailto:${CONTACT_EMAIL}`} className="footer-link-white">
+                  {CONTACT_EMAIL}
+                </a>
               </li>
               <li>
                 <i className="fas fa-map-marker-alt"></i>

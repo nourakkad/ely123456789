@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import emailjs from '@emailjs/browser';
 import { getTranslation, getCountryCodes } from '../translations';
+import { CONTACT_EMAIL } from '../env/publicConfig';
+import { sendSiteMail } from '../lib/sendSiteMail';
 
 const Contact = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
@@ -91,38 +92,28 @@ const Contact = () => {
     setSubmitMessage('');
     
     try {
-      // EmailJS configuration
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        phone: `${formData.countryCode} ${formData.mobile}`,
+      await sendSiteMail('contact', {
+        name: formData.name,
+        email: formData.email,
+        countryCode: formData.countryCode,
+        mobile: formData.mobile,
         message: formData.message,
-        to_email: 'elyptek@gmail.com'
-      };
-      
-      // Send email using EmailJS
-      const result = await emailjs.send(
-        'service_82s8o5u', // Replace with your EmailJS service ID
-        'template_snc4f5i', // Replace with your EmailJS template ID
-        templateParams,
-        'E0DoBnMJYd8QhDk1e' // Replace with your EmailJS public key
-      );
-      
-      if (result.status === 200) {
-        setSubmitMessage('Message sent successfully! We will get back to you soon.');
-        // Reset form
-        setFormData({
-          name: '',
-          email: '',
-          countryCode: '+963',
-          mobile: '',
-          message: ''
-        });
-        setMobileError('');
-      }
+      });
+
+      setSubmitMessage('Message sent successfully! We will get back to you soon.');
+      setFormData({
+        name: '',
+        email: '',
+        countryCode: '+963',
+        mobile: '',
+        message: '',
+      });
+      setMobileError('');
     } catch (error) {
       console.error('Email send failed:', error);
-      setSubmitMessage('Failed to send message. Please try again or contact us directly.');
+      setSubmitMessage(
+        error instanceof Error ? error.message : 'Failed to send message. Please try again.'
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -199,15 +190,15 @@ const Contact = () => {
                           <div className="info-post">
                             <div className="icon">
                               <img src="assets/images/ml.png" alt="Email Icon" />
-                              <a 
-                                href="mailto:elyptek@gmail.com" 
+                              <a
+                                href={`mailto:${CONTACT_EMAIL}`}
                                 style={{
                                   direction: 'ltr',
                                   unicodeBidi: 'plaintext',
-                                  display: 'inline-block'
+                                  display: 'inline-block',
                                 }}
                               >
-                                elyptek@gmail.com
+                                {CONTACT_EMAIL}
                               </a>
                             </div>
                           </div>

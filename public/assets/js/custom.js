@@ -106,7 +106,15 @@
     var scrollPos = $(document).scrollTop();
     $(".nav a").each(function () {
       var currLink = $(this);
-      var refElement = $(currLink.attr("href"));
+      var hrefAttr = currLink.attr("href");
+      /* React Router links (e.g. /form) are not jQuery/CSS selectors */
+      if (!hrefAttr || hrefAttr.charAt(0) !== "#" || hrefAttr === "#") {
+        return;
+      }
+      var refElement = $(hrefAttr);
+      if (!refElement.length) {
+        return;
+      }
       if (
         refElement.position().top <= scrollPos &&
         refElement.position().top + refElement.height() > scrollPos

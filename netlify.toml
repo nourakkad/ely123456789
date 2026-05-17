@@ -1,0 +1,19 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[functions]
+  directory = "netlify/functions"
+
+# Pretty URL → function (SPA still uses `/api/send-mail`)
+[[redirects]]
+  from = "/api/send-mail"
+  to = "/.netlify/functions/send-mail"
+  status = 200
+  force = true
+
+# React Router SPA fallback — must stay last
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

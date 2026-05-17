@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { getTranslation } from '../translations';
 
 function isDeviceArabic() {
@@ -256,6 +257,12 @@ const Header = () => {
                     <i className="fas fa-project-diagram"></i>
                     {getTranslation('projects', currentLanguage)}
                   </a>
+                </li>
+                <li className="scroll-to-section">
+                  <Link to="/form" className="careers-nav-link" onClick={closeMenu}>
+                    <i className="fa fa-briefcase"></i>
+                    {getTranslation('careersNav', currentLanguage)}
+                  </Link>
                 </li>
                 <li className="scroll-to-section">
                   <a 

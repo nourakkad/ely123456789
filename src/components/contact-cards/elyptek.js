@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { CONTACT_EMAIL } from '../../env/publicConfig';
 
 const TEL = '+963980325553';
 const WA_ME = '963980325553';
-const EMAIL = 'info@elyptek.com';
 const SITE = 'https://elyptek.com';
 const INSTAGRAM = 'https://www.instagram.com/elyptek.co';
 const MAPS_QUERY = 'https://www.google.com/maps/search/?api=1&query=Al-Shaalan%2C+Damascus%2C+Syria';
@@ -232,7 +232,7 @@ const Elyptek = () => {
                 <path d="M20.52 3.48A11.77 11.77 0 0012.02 0C5.61 0 .25 5.35.25 11.74c0 2.07.55 4.1 1.6 5.9L0 24l6.52-1.7a11.68 11.68 0 005.49 1.4h.01c6.41 0 11.77-5.36 11.77-11.75 0-3.15-1.22-6.11-3.47-8.47zm-8.5 18.2c-1.7 0-3.39-.46-4.86-1.33l-.35-.2-3.87 1.01 1.03-3.77-.23-.39a9.72 9.72 0 01-1.46-5.1c0-5.4 4.4-9.8 9.81-9.8a9.72 9.72 0 016.94 2.87 9.63 9.63 0 012.87 6.93c0 5.4-4.4 9.8-9.8 9.8zm5.45-7.42c-.3-.15-1.76-.87-2.03-.96-.27-.1-.47-.15-.66.15-.19.3-.76.95-.93 1.14-.17.2-.34.22-.64.07a7.88 7.88 0 01-2.3-1.42 8.62 8.62 0 01-1.6-2.03c-.17-.3-.02-.47.13-.62.14-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.19.05-.37-.02-.52-.08-.15-.66-1.6-.91-2.18-.24-.57-.48-.49-.66-.5h-.57c-.2 0-.52.07-.79.35-.27.3-1.03 1-1.03 2.43s1.05 2.82 1.2 3.01c.15.19 2.06 3.16 5 4.43.7.3 1.24.48 1.67.61.7.22 1.34.19 1.84.11.56-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.18-1.42-.07-.13-.27-.2-.57-.34z" />
               </svg>
             </a>
-            <a href={`mailto:${EMAIL}`} style={btnBase} onMouseOver={onBtnOver} onMouseOut={onBtnOut} aria-label="Email">
+            <a href={`mailto:${CONTACT_EMAIL}`} style={btnBase} onMouseOver={onBtnOver} onMouseOut={onBtnOut} aria-label="Email">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style={{ width: '20px', height: '20px' }}>
                 <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
               </svg>

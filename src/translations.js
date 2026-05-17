@@ -7,6 +7,7 @@ export const translations = {
     team: "Team",
     projects: "Projects",
     contact: "Contact",
+    careersNav: "Careers",
     
     // Banner
     subtitle: "Welcome to Elyptek",
@@ -49,6 +50,28 @@ export const translations = {
     message: "Your Message",
     sendMessage: "Send Message Now",
     sending: "Sending...",
+    
+    // Careers / job application
+    jobApplicationTitle: "Careers",
+    jobApplicationHero: "Apply to join Elyptek",
+    jobApplicationDescription: "Share your background and the role you're interested in. Our team reviews every application.",
+    jobPositionLabel: "Role / position",
+    jobPositionPlaceholder: "e.g. Frontend developer, UX designer…",
+    jobExperienceLabel: "Years of experience",
+    jobExperienceOption: "Select range",
+    jobExperienceGraduate: "Student / Recent graduate",
+    jobExperienceLt2: "1–2 years",
+    jobExperience2to5: "3–5 years",
+    jobExperienceGt5: "5+ years",
+    jobLinkedInLabel: "LinkedIn (optional)",
+    jobCvLinkLabel: "CV or portfolio link (optional)",
+    jobCvLinkPlaceholder: "Link to Drive, Dropbox, Behance…",
+    jobCoverLetterLabel: "Cover letter",
+    jobCoverLetterPlaceholder: "Why Elyptek? What would you bring to the team?",
+    jobSubmit: "Submit application",
+    jobSubmitSuccess: "Application sent successfully. We'll be in touch if there's a fit.",
+    jobSubmitError: "Something went wrong. Please try again or email {{email}}.",
+    jobCvHint: "If you attach files elsewhere, paste a shared link above.",
     
     // Footer
     footerQuote: "Empowering businesses through innovative digital solutions",
@@ -99,6 +122,7 @@ export const translations = {
     team: "الفريق",
     projects: "المشاريع",
     contact: "اتصل بنا",
+    careersNav: "التوظيف",
     
     // Banner
     subtitle: "مرحباً بكم في إيليبتك",
@@ -141,6 +165,28 @@ export const translations = {
     message: "رسالتك",
     sendMessage: "أرسل الرسالة الآن",
     sending: "جاري الإرسال...",
+    
+    // Careers / job application
+    jobApplicationTitle: "فرص عمل",
+    jobApplicationHero: "انضم إلى فريق إيليبتك",
+    jobApplicationDescription: "شاركنا خلفيتك والوظيفة التي تهتم لها. يراجع فريقنا جميع الطلبات.",
+    jobPositionLabel: "المسمّى أو المجال",
+    jobPositionPlaceholder: "مثال: مطوّر واجهات، مصمّم تجربة مستخدم…",
+    jobExperienceLabel: "سنوات الخبرة",
+    jobExperienceOption: "اختر المدى",
+    jobExperienceGraduate: "طالب / حديث تخرّج",
+    jobExperienceLt2: "1–2 سنة",
+    jobExperience2to5: "3–5 سنوات",
+    jobExperienceGt5: "+5 سنوات",
+    jobLinkedInLabel: "لينكد إن (اختياري)",
+    jobCvLinkLabel: "رابط السيرة الذاتية أو معرض الأعمال (اختياري)",
+    jobCvLinkPlaceholder: "رابط درايف أو دروببوكس أو بيهانس…",
+    jobCoverLetterLabel: "خطاب تعريفي",
+    jobCoverLetterPlaceholder: "لماذا إيليبتك؟ وماذا تضيف للفريق؟",
+    jobSubmit: "إرسال الطلب",
+    jobSubmitSuccess: "تم إرسال طلبك بنجاح. سنتواصل عند وجود تناسب.",
+    jobSubmitError: "تعذّر الإرسال. حاول مجدداً أو راسلنا على {{email}}",
+    jobCvHint: "إن رفعت ملفات على منصة أخرى، الصق الرابط أعلاه.",
     
     // Footer
     footerQuote: "تمكين الشركات من خلال الحلول الرقمية المبتكرة",
