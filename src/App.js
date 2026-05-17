@@ -30,12 +30,14 @@ const HomePage = () => {
 const Layout = ({ children }) => {
   const location = useLocation();
   const isContactCard = location.pathname.startsWith('/contact/');
-  
+  const isFormOnly = location.pathname === '/form';
+  const showChrome = !isContactCard && !isFormOnly;
+
   return (
     <div className="App">
-      {!isContactCard && <Header />}
+      {showChrome && <Header />}
       {children}
-      {!isContactCard && <Footer />}
+      {showChrome && <Footer />}
     </div>
   );
 };

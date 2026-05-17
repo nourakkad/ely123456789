@@ -72,6 +72,7 @@ export const translations = {
     jobSubmitSuccess: "Application sent successfully. We'll be in touch if there's a fit.",
     jobSubmitError: "Something went wrong. Please try again or email {{email}}.",
     jobCvHint: "If you attach files elsewhere, paste a shared link above.",
+    jobLogoHomeAria: "Go to Elyptek.com home",
     
     // Footer
     footerQuote: "Empowering businesses through innovative digital solutions",
@@ -187,6 +188,7 @@ export const translations = {
     jobSubmitSuccess: "تم إرسال طلبك بنجاح. سنتواصل عند وجود تناسب.",
     jobSubmitError: "تعذّر الإرسال. حاول مجدداً أو راسلنا على {{email}}",
     jobCvHint: "إن رفعت ملفات على منصة أخرى، الصق الرابط أعلاه.",
+    jobLogoHomeAria: "الانتقال إلى الصفحة الرئيسية Elyptek.com",
     
     // Footer
     footerQuote: "تمكين الشركات من خلال الحلول الرقمية المبتكرة",

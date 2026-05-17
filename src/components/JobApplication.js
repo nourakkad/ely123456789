@@ -5,6 +5,8 @@ import { sendSiteMail } from '../lib/sendSiteMail';
 
 const EXP_KEYS = ['', 'graduate', '1-2', '3-5', '5plus'];
 
+const LOGO_IMG_SRC = `${(process.env.PUBLIC_URL || '').replace(/\/$/, '')}/assets/images/logo12.png`;
+
 const JobApplication = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
   const [countryCodes, setCountryCodes] = useState(getCountryCodes('EN'));
@@ -126,20 +128,39 @@ const JobApplication = () => {
   const t = (key) => getTranslation(key, currentLanguage);
 
   return (
-    <>
-      <span id="top" />
-      <div className="section-divider">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: 'block', width: '100%', height: '60px' }}>
-          <path
-            fill="rgba(255,167,0,0.8)"
-            d="M0,32L48,37.3C96,43,192,53,288,58.7C384,64,480,64,576,58.7C672,53,768,43,864,37.3C960,32,1056,32,1152,37.3C1248,43,1344,53,1392,58.7L1440,64L1440,80L1392,80C1344,80,1248,80,1152,80C1056,80,960,80,864,80C768,80,672,80,576,80C480,80,384,80,288,80C192,80,96,80,48,80L0,80Z"
-          />
-        </svg>
-      </div>
+    <div className="job-application-page">
+      <header className="job-application-card-top-shell">
+        <div className="job-application-card-top-inner">
+          <a
+            className="job-application-logo-link"
+            href="https://elyptek.com/"
+            rel="noopener noreferrer"
+            aria-label={t('jobLogoHomeAria')}
+          >
+            <img src={LOGO_IMG_SRC} alt="Elyptek" />
+          </a>
+          <button
+            type="button"
+            className="job-application-lang-toggle"
+            onClick={() => {
+              const newLang = currentLanguage === 'EN' ? 'AR' : 'EN';
+              setCurrentLanguage(newLang);
+              setCountryCodes(getCountryCodes(newLang));
+              localStorage.setItem('language', newLang);
+              const url = new URL(window.location.href);
+              url.searchParams.set('lang', newLang);
+              window.history.pushState({}, '', url);
+              window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: newLang } }));
+            }}
+          >
+            {currentLanguage === 'EN' ? 'العربية' : 'English'}
+          </button>
+        </div>
+      </header>
       <div id="job-application" className="contact-us section job-application-section">
         <div className="container">
-          <div className="row">
-            <div className="col-lg-8 offset-lg-2">
+          <div className="row justify-content-center">
+            <div className="col-xl-9 col-lg-10 col-md-11">
               <div
                 className="section-heading wow fadeIn contact-heading"
                 data-wow-duration="1s"
@@ -153,8 +174,8 @@ const JobApplication = () => {
               </div>
             </div>
           </div>
-          <div className="row">
-            <div className="col-lg-10 offset-lg-1 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
+          <div className="row justify-content-center">
+            <div className="col-xl-9 col-lg-10 col-md-11 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
               <form
                 id="contact"
                 aria-label={t('jobApplicationHero')}
@@ -279,7 +300,7 @@ const JobApplication = () => {
                           rows="8"
                           required
                           aria-label={t('jobCoverLetterLabel')}
-                          minLength={40}
+                          minLength={20}
                         />
                       </fieldset>
                     </div>
@@ -306,7 +327,7 @@ const JobApplication = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

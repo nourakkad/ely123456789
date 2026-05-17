@@ -186,7 +186,7 @@ const Header = () => {
               
               {/* Logo Start */}
               <a href="#top" className="logo" onClick={(e) => smoothScrollToSection(e, '#top')}>
-                <img src="assets/images/p.png" alt="Elyptek Logo" className="logo-webs" />
+                <img src="/assets/images/logo12.png" alt="Elyptek Logo" className="logo-webs" />
               </a>
               {/* Logo End */}
               
@@ -258,12 +258,7 @@ const Header = () => {
                     {getTranslation('projects', currentLanguage)}
                   </a>
                 </li>
-                <li className="scroll-to-section">
-                  <Link to="/form" className="careers-nav-link" onClick={closeMenu}>
-                    <i className="fa fa-briefcase"></i>
-                    {getTranslation('careersNav', currentLanguage)}
-                  </Link>
-                </li>
+                
                 <li className="scroll-to-section">
                   <a 
                     href="#contact" 
