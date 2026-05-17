@@ -232,7 +232,7 @@ exports.handler = async (event) => {
         body: JSON.stringify({ ok: false, message: 'Role / position is required.' }),
       };
     }
-    if (coverLetter.length < 40) {
+    if (coverLetter.length < 20) {
       return {
         statusCode: 400,
         headers: baseHeaders,
