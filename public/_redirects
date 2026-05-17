@@ -1,1 +1,3 @@
-/*    /index.html   200 
+# API must precede SPA catch-all — without this line, `/api/*` never reaches Functions.
+/api/send-mail    /.netlify/functions/send-mail    200
+/*    /index.html   200

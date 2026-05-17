@@ -1,6 +1,6 @@
 import { MAIL_API_ENDPOINT } from '../env/publicConfig';
 
-/** POST to `/api/send-mail`, rewritten by Netlify to the `send-mail` serverless function. */
+/** POST to `/.netlify/functions/send-mail` (see `MAIL_API_ENDPOINT` in env/publicConfig.js). */
 export async function sendSiteMail(kind, payload) {
   const res = await fetch(MAIL_API_ENDPOINT, {
     method: 'POST',
