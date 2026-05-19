@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 
 const BRANCHES = [
   {
-    nameAR: 'صالة زملكا مقابل فرن زملكا',
-    nameEN: 'Zamalka hall — opposite Zamalka bakery',
-    tel: '+963945000707',
-    display: '+963 945 000 707',
-  },
-  {
     nameAR: 'صالة النعيم جديدة الشيباني',
     nameEN: 'Al-Naeem hall — Jedidet al-Shibaniyah',
     tel: '+963940050057',
     display: '+963 940 050 057',
+  },
+  {
+    nameAR: 'صالة زملكا مقابل فرن زملكا',
+    nameEN: 'Zamalka hall — opposite Zamalka bakery',
+    tel: '+963945000707',
+    display: '+963 945 000 707',
   },
   {
     nameAR: 'صالة الصبورة',
