@@ -181,32 +181,20 @@ const KhalilAlokdi = () => {
           }}
         >
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-            <div
+            <img
+              src={doctorInfo.image}
+              alt={doctorInfo.title}
               style={{
-                width: '120px',
-                height: '148px',
-                borderRadius: '18px',
+                width: '100px',
+                height: '100px',
+                borderRadius: '50%',
                 border: `4px solid ${prim}`,
                 boxShadow: '0 8px 25px rgba(21, 28, 41, 0.3)',
                 marginBottom: '12px',
+                objectFit: 'contain',
                 backgroundColor: '#fff',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: '10px 8px',
-                boxSizing: 'border-box',
               }}
-            >
-              <img
-                src={doctorInfo.image}
-                alt={doctorInfo.title}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'contain',
-                }}
-              />
-            </div>
+            />
             <h2
               style={{
                 fontSize: '22px',
