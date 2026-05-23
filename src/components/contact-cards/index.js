@@ -14,3 +14,4 @@ export { default as Elyptek } from './elyptek';
 export { default as GroupImdad } from './group-imdad';
 export { default as MuhammedAladdinHaymour } from './muhammed-aladdin-haymour';
 export { default as DrHadiAlhariri } from './dr-hadi-alhariri';
+export { default as KhalilAlokdi } from './khalil-alokdi';

@@ -9,7 +9,7 @@ import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import JobApplication from './components/JobApplication';
-import { DrMohammedJubain, CrazyBeeez, MamonAssa, DrNaderAlmzayek, HussamAlhamad, RashidAdas, AbdalrahmanAdas, YassenAltabakh, AnwarSaeedJassem, ShadiSaeedJassem, DeauCacao, ChocoSwamp, Elyptek, GroupImdad, MuhammedAladdinHaymour, DrHadiAlhariri } from './components/contact-cards';
+import { DrMohammedJubain, CrazyBeeez, MamonAssa, DrNaderAlmzayek, HussamAlhamad, RashidAdas, AbdalrahmanAdas, YassenAltabakh, AnwarSaeedJassem, ShadiSaeedJassem, DeauCacao, ChocoSwamp, Elyptek, GroupImdad, MuhammedAladdinHaymour, DrHadiAlhariri, KhalilAlokdi } from './components/contact-cards';
 import './App.css';
 
 // Main Home Page Component
@@ -70,6 +70,7 @@ function App() {
           <Route path="/contact/group-imdadex" element={<Navigate to="/contact/group-imdad" replace />} />
           <Route path="/contact/muhammed-aladdin-haymour" element={<MuhammedAladdinHaymour />} />
           <Route path="/contact/dr-hadi-alhariri" element={<DrHadiAlhariri />} />
+          <Route path="/contact/khalil-alokdi" element={<KhalilAlokdi />} />
         </Routes>
       </Layout>
     </Router>
