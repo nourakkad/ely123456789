@@ -34,7 +34,7 @@ const ArkanCeramics = () => {
     image: '/assets/logo/Arkan-Ceramics.png',
     phone: '+963 944 400 788',
     phone1: '+963 944 538 563',
-    phone2: '+963 985 126 126',
+    phone2: '+963 995 070 007',
     email: 'tarek.nabeel@outlook.com',
     facebook: '',
     instagram: '',
@@ -88,10 +88,41 @@ const ArkanCeramics = () => {
     flexShrink: 0,
   };
 
-  const hasQuickActions =
-    info.phone || info.phone1 || info.phone2 || info.email || info.instagram || info.facebook || info.website;
+  const detailActionBtnStyle = {
+    backgroundColor: prim,
+    color: '#fff',
+    padding: '8px',
+    borderRadius: '50%',
+    boxShadow: '0 4px 12px rgba(29, 45, 77, 0.3)',
+    transition: 'all 0.3s ease',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '32px',
+    height: '32px',
+    flexShrink: 0,
+    textDecoration: 'none',
+  };
+
+  const toWhatsApp = (phone) => `https://wa.me/${phone.replace(/\D/g, '')}`;
+
+  const phoneIcon = (
+    <svg style={{ width: '16px', height: '16px', color: accent }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.516 2.064a2 2 0 01-.45 1.958l-1.27 1.27a16.001 16.001 0 006.586 6.586l1.27-1.27a2 2 0 011.958-.45l2.064.516A2 2 0 0121 18.72V21a2 2 0 01-2 2h-1C9.163 23 1 14.837 1 5V4a2 2 0 012-2z" />
+    </svg>
+  );
+
+  const whatsAppIcon = (
+    <svg style={{ width: '16px', height: '16px', color: '#fff' }} fill="currentColor" viewBox="0 0 24 24">
+      <path d="M20.52 3.48A11.77 11.77 0 0012.02 0C5.61 0 .25 5.35.25 11.74c0 2.07.55 4.1 1.6 5.9L0 24l6.52-1.7a11.68 11.68 0 005.49 1.4h.01c6.41 0 11.77-5.36 11.77-11.75 0-3.15-1.22-6.11-3.47-8.47zm-8.5 18.2c-1.7 0-3.39-.46-4.86-1.33l-.35-.2-3.87 1.01 1.03-3.77-.23-.39a9.72 9.72 0 01-1.46-5.1c0-5.4 4.4-9.8 9.81-9.8a9.72 9.72 0 016.94 2.87 9.63 9.63 0 012.87 6.93c0 5.4-4.4 9.8-9.8 9.8zm5.45-7.42c-.3-.15-1.76-.87-2.03-.96-.27-.1-.47-.15-.66.15-.19.3-.76.95-.93 1.14-.17.2-.34.22-.64.07a7.88 7.88 0 01-2.3-1.42 8.62 8.62 0 01-1.6-2.03c-.17-.3-.02-.47.13-.62.14-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.19.05-.37-.02-.52-.08-.15-.66-1.6-.91-2.18-.24-.57-.48-.49-.66-.5h-.57c-.2 0-.52.07-.79.35-.27.3-1.03 1-1.03 2.43s1.05 2.82 1.2 3.01c.15.19 2.06 3.16 5 4.43.7.3 1.24.48 1.67.61.7.22 1.34.19 1.84.11.56-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.18-1.42-.07-.13-.27-.2-.57-.34z" />
+    </svg>
+  );
+
+  const phoneNumbers = [info.phone, info.phone1, info.phone2].filter(Boolean);
+
+  const hasQuickActions = info.email;
   const hasContactDetails =
-    info.phone || info.phone1 || info.phone2 || info.facebook || info.instagram || info.website || info.email || info.location;
+    info.phone || info.phone1 || info.phone2 || info.facebook || info.instagram || info.website || info.location;
 
   return (
     <div
@@ -264,59 +295,9 @@ const ArkanCeramics = () => {
 
           {hasQuickActions && (
             <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '12px', marginTop: '16px' }}>
-              {info.phone && (
-                <a href={`tel:${info.phone}`} style={btnStyle} onMouseOver={onBtnOver} onMouseOut={onBtnOut}>
-                  <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '20px', height: '20px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.516 2.064a2 2 0 01-.45 1.958l-1.27 1.27a16.001 16.001 0 006.586 6.586l1.27-1.27a2 2 0 011.958-.45l2.064.516A2 2 0 0121 18.72V21a2 2 0 01-2 2h-1C9.163 23 1 14.837 1 5V4a2 2 0 012-2z" />
-                  </svg>
-                </a>
-              )}
-              {info.phone1 && (
-                <a href={`tel:${info.phone1}`} style={btnStyle} onMouseOver={onBtnOver} onMouseOut={onBtnOut}>
-                  <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '20px', height: '20px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.516 2.064a2 2 0 01-.45 1.958l-1.27 1.27a16.001 16.001 0 006.586 6.586l1.27-1.27a2 2 0 011.958-.45l2.064.516A2 2 0 0121 18.72V21a2 2 0 01-2 2h-1C9.163 23 1 14.837 1 5V4a2 2 0 012-2z" />
-                  </svg>
-                </a>
-              )}
-              {info.phone2 && (
-                <a href={`tel:${info.phone2}`} style={btnStyle} onMouseOver={onBtnOver} onMouseOut={onBtnOut}>
-                  <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '20px', height: '20px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.516 2.064a2 2 0 01-.45 1.958l-1.27 1.27a16.001 16.001 0 006.586 6.586l1.27-1.27a2 2 0 011.958-.45l2.064.516A2 2 0 0121 18.72V21a2 2 0 01-2 2h-1C9.163 23 1 14.837 1 5V4a2 2 0 012-2z" />
-                  </svg>
-                </a>
-              )}
-              {info.email && (
-                <a href={`mailto:${info.email}`} style={btnStyle} onMouseOver={onBtnOver} onMouseOut={onBtnOut}>
-                  <i className="fas fa-envelope" style={{ fontSize: '18px' }} />
-                </a>
-              )}
-              <a
-                href="https://wa.me/963944400788"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={btnStyle}
-                onMouseOver={onBtnOver}
-                onMouseOut={onBtnOut}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '20px', height: '20px' }} fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.52 3.48A11.77 11.77 0 0012.02 0C5.61 0 .25 5.35.25 11.74c0 2.07.55 4.1 1.6 5.9L0 24l6.52-1.7a11.68 11.68 0 005.49 1.4h.01c6.41 0 11.77-5.36 11.77-11.75 0-3.15-1.22-6.11-3.47-8.47zm-8.5 18.2c-1.7 0-3.39-.46-4.86-1.33l-.35-.2-3.87 1.01 1.03-3.77-.23-.39a9.72 9.72 0 01-1.46-5.1c0-5.4 4.4-9.8 9.81-9.8a9.72 9.72 0 016.94 2.87 9.63 9.63 0 012.87 6.93c0 5.4-4.4 9.8-9.8 9.8zm5.45-7.42c-.3-.15-1.76-.87-2.03-.96-.27-.1-.47-.15-.66.15-.19.3-.76.95-.93 1.14-.17.2-.34.22-.64.07a7.88 7.88 0 01-2.3-1.42 8.62 8.62 0 01-1.6-2.03c-.17-.3-.02-.47.13-.62.14-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.19.05-.37-.02-.52-.08-.15-.66-1.6-.91-2.18-.24-.57-.48-.49-.66-.5h-.57c-.2 0-.52.07-.79.35-.27.3-1.03 1-1.03 2.43s1.05 2.82 1.2 3.01c.15.19 2.06 3.16 5 4.43.7.3 1.24.48 1.67.61.7.22 1.34.19 1.84.11.56-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.18-1.42-.07-.13-.27-.2-.57-.34z" />
-                </svg>
+              <a href={`mailto:${info.email}`} style={btnStyle} onMouseOver={onBtnOver} onMouseOut={onBtnOut}>
+                <i className="fas fa-envelope" style={{ fontSize: '18px' }} />
               </a>
-              {info.instagram && (
-                <a href={info.instagram} target="_blank" rel="noopener noreferrer" style={btnStyle} onMouseOver={onBtnOver} onMouseOut={onBtnOut}>
-                  <i className="fab fa-instagram" style={{ fontSize: '20px' }} />
-                </a>
-              )}
-              {info.facebook && (
-                <a href={info.facebook} target="_blank" rel="noopener noreferrer" style={btnStyle} onMouseOver={onBtnOver} onMouseOut={onBtnOut}>
-                  <i className="fab fa-facebook-f" style={{ fontSize: '20px' }} />
-                </a>
-              )}
-              {info.website && (
-                <a href={info.website} target="_blank" rel="noopener noreferrer" style={btnStyle} onMouseOver={onBtnOver} onMouseOut={onBtnOut}>
-                  <i className="fas fa-link" style={{ fontSize: '18px' }} />
-                </a>
-              )}
             </div>
           )}
 
@@ -373,30 +354,60 @@ const ArkanCeramics = () => {
                 flexDirection: 'column',
               }}
             >
-              {(info.phone || info.phone1 || info.phone2) && (
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                  <span style={iconBadgeStyle}>
-                    <svg style={{ width: '16px', height: '16px', color: accent }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.516 2.064a2 2 0 01-.45 1.958l-1.27 1.27a16.001 16.001 0 006.586 6.586l1.27-1.27a2 2 0 011.958-.45l2.064.516A2 2 0 0121 18.72V21a2 2 0 01-2 2h-1C9.163 23 1 14.837 1 5V4a2 2 0 012-2z" />
-                    </svg>
-                  </span>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                    {info.phone && (
-                      <a href={`tel:${info.phone}`} style={detailLinkStyle}>
-                        {info.phone}
+              {phoneNumbers.length > 0 && (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%' }}>
+                  {phoneNumbers.map((phone) => (
+                    <div
+                      key={phone}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        gap: '10px',
+                        width: '100%',
+                      }}
+                    >
+                      <a
+                        href={`tel:${phone}`}
+                        style={detailActionBtnStyle}
+                        aria-label={`Call ${phone}`}
+                        onMouseOver={onBtnOver}
+                        onMouseOut={onBtnOut}
+                        onMouseDown={onBtnOver}
+                        onMouseUp={onBtnOut}
+                        onTouchStart={onBtnOver}
+                        onTouchEnd={onBtnOut}
+                      >
+                        {phoneIcon}
                       </a>
-                    )}
-                    {info.phone1 && (
-                      <a href={`tel:${info.phone1}`} style={detailLinkStyle}>
-                        {info.phone1}
+                      <a
+                        href={`tel:${phone}`}
+                        style={{
+                          ...detailLinkStyle,
+                          flex: 1,
+                          textAlign: 'center',
+                          textDecoration: 'none',
+                        }}
+                      >
+                        {phone}
                       </a>
-                    )}
-                    {info.phone2 && (
-                      <a href={`tel:${info.phone2}`} style={detailLinkStyle}>
-                        {info.phone2}
+                      <a
+                        href={toWhatsApp(phone)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={detailActionBtnStyle}
+                        aria-label={`WhatsApp ${phone}`}
+                        onMouseOver={onBtnOver}
+                        onMouseOut={onBtnOut}
+                        onMouseDown={onBtnOver}
+                        onMouseUp={onBtnOut}
+                        onTouchStart={onBtnOver}
+                        onTouchEnd={onBtnOut}
+                      >
+                        {whatsAppIcon}
                       </a>
-                    )}
-                  </div>
+                    </div>
+                  ))}
                 </div>
               )}
 
@@ -429,17 +440,6 @@ const ArkanCeramics = () => {
                   </span>
                   <a href={info.website} target="_blank" rel="noopener noreferrer" style={detailLinkStyle}>
                     {info.website.replace(/^https?:\/\//, '').replace(/\/$/, '')}
-                  </a>
-                </div>
-              )}
-
-              {info.email && (
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <span style={iconBadgeStyle}>
-                    <i className="fas fa-envelope" style={{ fontSize: '16px', color: '#fff' }} />
-                  </span>
-                  <a href={`mailto:${info.email}`} style={detailLinkStyle}>
-                    {info.email}
                   </a>
                 </div>
               )}
