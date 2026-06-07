@@ -30,12 +30,13 @@ const ArkanCeramics = () => {
 
   const info = {
     title: currentLanguage === 'AR' ? 'الأركان للسيراميك' : 'Arkan Ceramics',
-    category: currentLanguage === 'AR' ? 'سيراميك ومواد بناء' : 'Ceramics & Building Materials',
+    category: currentLanguage === 'AR' ? 'سيراميك ومواد الكسوة' : 'Ceramics and Cladding Materials.',
     image: '/assets/logo/Arkan-Ceramics.png',
     phone: '+963 944 400 788',
     phone1: '+963 944 538 563',
     phone2: '+963 995 070 007',
-    email: 'tarek.nabeel@outlook.com',
+    email: '3mmarhakim@gmail.com',
+    email1: 'tarek.nabeel@outlook.com',
     facebook: '',
     instagram: '',
     website: '',
@@ -66,6 +67,36 @@ const ArkanCeramics = () => {
     e.currentTarget.style.backgroundColor = prim;
     e.currentTarget.style.transform = 'translateY(0)';
     e.currentTarget.style.boxShadow = '0 4px 12px rgba(29, 45, 77, 0.3)';
+  };
+
+  const downloadBtnStyle = {
+    backgroundColor: prim,
+    color: '#fff',
+    border: 'none',
+    padding: '12px 24px',
+    borderRadius: '25px',
+    fontSize: '14px',
+    fontWeight: '700',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    boxShadow: '0 4px 15px rgba(29, 45, 77, 0.3)',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px',
+    letterSpacing: '0.5px',
+    textDecoration: 'none',
+  };
+
+  const onDownloadOver = (e) => {
+    e.currentTarget.style.backgroundColor = primHover;
+    e.currentTarget.style.transform = 'translateY(-2px)';
+    e.currentTarget.style.boxShadow = '0 6px 20px rgba(29, 45, 77, 0.4)';
+  };
+
+  const onDownloadOut = (e) => {
+    e.currentTarget.style.backgroundColor = prim;
+    e.currentTarget.style.transform = 'translateY(0)';
+    e.currentTarget.style.boxShadow = '0 4px 15px rgba(29, 45, 77, 0.3)';
   };
 
   const detailLinkStyle = {
@@ -119,8 +150,9 @@ const ArkanCeramics = () => {
   );
 
   const phoneNumbers = [info.phone, info.phone1, info.phone2].filter(Boolean);
+  const emails = [info.email, info.email1].filter(Boolean);
 
-  const hasQuickActions = info.email;
+  const hasQuickActions = emails.length > 0;
   const hasContactDetails =
     info.phone || info.phone1 || info.phone2 || info.facebook || info.instagram || info.website || info.location;
 
@@ -295,48 +327,54 @@ const ArkanCeramics = () => {
 
           {hasQuickActions && (
             <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '12px', marginTop: '16px' }}>
-              <a href={`mailto:${info.email}`} style={btnStyle} onMouseOver={onBtnOver} onMouseOut={onBtnOut}>
-                <i className="fas fa-envelope" style={{ fontSize: '18px' }} />
-              </a>
+              {emails.map((address) => (
+                <a
+                  key={address}
+                  href={`mailto:${address}`}
+                  style={btnStyle}
+                  aria-label={`Email ${address}`}
+                  onMouseOver={onBtnOver}
+                  onMouseOut={onBtnOut}
+                >
+                  <i className="fas fa-envelope" style={{ fontSize: '18px' }} />
+                </a>
+              ))}
             </div>
           )}
 
-          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '16px' }}>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '10px',
+              marginTop: '16px',
+              width: '100%',
+            }}
+          >
             <a
               href="/assets/vcf/arkan-ceramics.vcf"
               download="arkan-ceramics.vcf"
-              style={{
-                backgroundColor: prim,
-                color: '#fff',
-                border: 'none',
-                padding: '12px 24px',
-                borderRadius: '25px',
-                fontSize: '14px',
-                fontWeight: '700',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                boxShadow: '0 4px 15px rgba(29, 45, 77, 0.3)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                letterSpacing: '0.5px',
-                textDecoration: 'none',
-              }}
-              onMouseOver={(e) => {
-                e.currentTarget.style.backgroundColor = primHover;
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 6px 20px rgba(29, 45, 77, 0.4)';
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.backgroundColor = prim;
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 4px 15px rgba(29, 45, 77, 0.3)';
-              }}
+              style={downloadBtnStyle}
+              onMouseOver={onDownloadOver}
+              onMouseOut={onDownloadOut}
             >
               <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '16px', height: '16px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
               {currentLanguage === 'AR' ? 'تحميل بطاقة الاتصال' : 'Download Contact Card'}
+            </a>
+            <a
+              href="/assets/pdf/arkan-brochure.pdf"
+              download="arkan-brochure.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={downloadBtnStyle}
+              onMouseOver={onDownloadOver}
+              onMouseOut={onDownloadOut}
+            >
+              <i className="fas fa-file-pdf-o" style={{ fontSize: '16px' }} />
+              {currentLanguage === 'AR' ? 'تحميل البروشور' : 'Download Brochure'}
             </a>
           </div>
 

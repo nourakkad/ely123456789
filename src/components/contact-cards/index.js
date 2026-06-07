@@ -16,3 +16,4 @@ export { default as MuhammedAladdinHaymour } from './muhammed-aladdin-haymour';
 export { default as DrHadiAlhariri } from './dr-hadi-alhariri';
 export { default as KhalilAlokdi } from './khalil-alokdi';
 export { default as ArkanCeramics } from './arkan-ceramics';
+export { default as JasminePerfumes } from './jasmine-perfumes';

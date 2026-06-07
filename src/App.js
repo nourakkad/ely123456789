@@ -9,7 +9,7 @@ import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import JobApplication from './components/JobApplication';
-import { DrMohammedJubain, CrazyBeeez, MamonAssa, DrNaderAlmzayek, HussamAlhamad, RashidAdas, AbdalrahmanAdas, YassenAltabakh, AnwarSaeedJassem, ShadiSaeedJassem, DeauCacao, ChocoSwamp, Elyptek, GroupImdad, MuhammedAladdinHaymour, DrHadiAlhariri, KhalilAlokdi, ArkanCeramics } from './components/contact-cards';
+import { DrMohammedJubain, CrazyBeeez, MamonAssa, DrNaderAlmzayek, HussamAlhamad, RashidAdas, AbdalrahmanAdas, YassenAltabakh, AnwarSaeedJassem, ShadiSaeedJassem, DeauCacao, ChocoSwamp, Elyptek, GroupImdad, MuhammedAladdinHaymour, DrHadiAlhariri, KhalilAlokdi, ArkanCeramics, JasminePerfumes } from './components/contact-cards';
 import './App.css';
 
 // Main Home Page Component
@@ -72,6 +72,7 @@ function App() {
           <Route path="/contact/dr-hadi-alhariri" element={<DrHadiAlhariri />} />
           <Route path="/contact/khalil-alokdi" element={<KhalilAlokdi />} />
           <Route path="/contact/arkan-ceramics" element={<ArkanCeramics />} />
+          <Route path="/contact/jasmine-perfumes" element={<JasminePerfumes />} />
         </Routes>
       </Layout>
     </Router>
