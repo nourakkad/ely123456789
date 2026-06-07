@@ -16,8 +16,8 @@ const BRANCHES = [
   {
     nameAR: 'صالة الصبورة',
     nameEN: 'Al-Sabboura hall',
-    tel: '+963944271428',
-    display: '+963 944 271 428',
+    tel: '+963944271427',
+    display: '+963 944 271 427',
   },
 ];
 
