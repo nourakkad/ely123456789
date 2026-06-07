@@ -37,7 +37,7 @@ const ArkanCeramics = () => {
     phone2: '+963 995 070 007',
     email: '3mmarhakim@gmail.com',
     email1: 'tarek.nabeel@outlook.com',
-    facebook: '',
+    facebook: 'https://www.facebook.com/share/1BJBpqqDRf/',
     instagram: 'https://www.instagram.com/arkan.ceramics',
     website: '',
     location: '',
@@ -152,9 +152,9 @@ const ArkanCeramics = () => {
   const phoneNumbers = [info.phone, info.phone1, info.phone2].filter(Boolean);
   const emails = [info.email, info.email1].filter(Boolean);
 
-  const hasQuickActions = emails.length > 0 || info.instagram;
+  const hasQuickActions = emails.length > 0 || info.instagram || info.facebook;
   const hasContactDetails =
-    info.phone || info.phone1 || info.phone2 || info.facebook || info.website || info.location;
+    info.phone || info.phone1 || info.phone2 || info.website || info.location;
 
   return (
     <div
@@ -339,6 +339,19 @@ const ArkanCeramics = () => {
                   <i className="fas fa-envelope" style={{ fontSize: '18px' }} />
                 </a>
               ))}
+              {info.facebook && (
+                <a
+                  href={info.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={btnStyle}
+                  aria-label="Facebook"
+                  onMouseOver={onBtnOver}
+                  onMouseOut={onBtnOut}
+                >
+                  <i className="fab fa-facebook-f" style={{ fontSize: '20px' }} />
+                </a>
+              )}
               {info.instagram && (
                 <a
                   href={info.instagram}
@@ -459,17 +472,6 @@ const ArkanCeramics = () => {
                       </a>
                     </div>
                   ))}
-                </div>
-              )}
-
-              {info.facebook && (
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <span style={iconBadgeStyle}>
-                    <i className="fab fa-facebook" style={{ fontSize: '16px', color: '#fff' }} />
-                  </span>
-                  <a href={info.facebook} target="_blank" rel="noopener noreferrer" style={detailLinkStyle}>
-                    Facebook
-                  </a>
                 </div>
               )}
 
