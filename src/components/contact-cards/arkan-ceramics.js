@@ -152,9 +152,9 @@ const ArkanCeramics = () => {
   const phoneNumbers = [info.phone, info.phone1, info.phone2].filter(Boolean);
   const emails = [info.email, info.email1].filter(Boolean);
 
-  const hasQuickActions = emails.length > 0;
+  const hasQuickActions = emails.length > 0 || info.instagram;
   const hasContactDetails =
-    info.phone || info.phone1 || info.phone2 || info.facebook || info.instagram || info.website || info.location;
+    info.phone || info.phone1 || info.phone2 || info.facebook || info.website || info.location;
 
   return (
     <div
@@ -339,6 +339,19 @@ const ArkanCeramics = () => {
                   <i className="fas fa-envelope" style={{ fontSize: '18px' }} />
                 </a>
               ))}
+              {info.instagram && (
+                <a
+                  href={info.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={btnStyle}
+                  aria-label="Instagram"
+                  onMouseOver={onBtnOver}
+                  onMouseOut={onBtnOut}
+                >
+                  <i className="fab fa-instagram" style={{ fontSize: '20px' }} />
+                </a>
+              )}
             </div>
           )}
 
@@ -456,17 +469,6 @@ const ArkanCeramics = () => {
                   </span>
                   <a href={info.facebook} target="_blank" rel="noopener noreferrer" style={detailLinkStyle}>
                     Facebook
-                  </a>
-                </div>
-              )}
-
-              {info.instagram && (
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <span style={iconBadgeStyle}>
-                    <i className="fab fa-instagram" style={{ fontSize: '16px', color: '#fff' }} />
-                  </span>
-                  <a href={info.instagram} target="_blank" rel="noopener noreferrer" style={detailLinkStyle}>
-                    Instagram
                   </a>
                 </div>
               )}
