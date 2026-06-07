@@ -38,7 +38,7 @@ const ArkanCeramics = () => {
     email: '3mmarhakim@gmail.com',
     email1: 'tarek.nabeel@outlook.com',
     facebook: '',
-    instagram: '',
+    instagram: 'https://www.instagram.com/arkan.ceramics',
     website: '',
     location: '',
   };
