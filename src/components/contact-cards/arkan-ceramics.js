@@ -39,6 +39,7 @@ const ArkanCeramics = () => {
     email1: 'tarek.nabeel@outlook.com',
     facebook: 'https://www.facebook.com/share/1BJBpqqDRf/',
     instagram: 'https://www.instagram.com/arkan.ceramics',
+    app: 'https://arkanceramics.com/app',
     website: '',
     location: '',
   };
@@ -149,10 +150,35 @@ const ArkanCeramics = () => {
     </svg>
   );
 
+  const appBtnStyle = {
+    ...btnStyle,
+    backgroundColor: accent,
+    boxShadow: '0 4px 12px rgba(227, 30, 36, 0.35)',
+  };
+
+  const onAppBtnOver = (e) => {
+    e.currentTarget.style.backgroundColor = '#C41920';
+    e.currentTarget.style.transform = 'translateY(-2px)';
+    e.currentTarget.style.boxShadow = '0 6px 16px rgba(227, 30, 36, 0.45)';
+  };
+
+  const onAppBtnOut = (e) => {
+    e.currentTarget.style.backgroundColor = accent;
+    e.currentTarget.style.transform = 'translateY(0)';
+    e.currentTarget.style.boxShadow = '0 4px 12px rgba(227, 30, 36, 0.35)';
+  };
+
+  const appIcon = (
+    <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '22px', height: '22px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M12 9v4m0 0l-2-2m2 2l2-2" />
+    </svg>
+  );
+
   const phoneNumbers = [info.phone, info.phone1, info.phone2].filter(Boolean);
   const emails = [info.email, info.email1].filter(Boolean);
 
-  const hasQuickActions = emails.length > 0 || info.instagram || info.facebook;
+  const hasQuickActions = emails.length > 0 || info.instagram || info.facebook || info.app;
   const hasContactDetails =
     info.phone || info.phone1 || info.phone2 || info.website || info.location;
 
@@ -365,6 +391,20 @@ const ArkanCeramics = () => {
                   <i className="fab fa-instagram" style={{ fontSize: '20px' }} />
                 </a>
               )}
+              {info.app && (
+                <a
+                  href={info.app}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={appBtnStyle}
+                  aria-label={currentLanguage === 'AR' ? 'تحميل تطبيق أركان' : 'Download Arkan App'}
+                  title={currentLanguage === 'AR' ? 'تحميل التطبيق' : 'Download App'}
+                  onMouseOver={onAppBtnOver}
+                  onMouseOut={onAppBtnOut}
+                >
+                  {appIcon}
+                </a>
+              )}
             </div>
           )}
 
@@ -400,7 +440,7 @@ const ArkanCeramics = () => {
               onMouseOut={onDownloadOut}
             >
               <i className="fas fa-file-pdf-o" style={{ fontSize: '16px' }} />
-              {currentLanguage === 'AR' ? 'تحميل البروشور' : 'Download Brochure'}
+              {currentLanguage === 'AR' ? 'تحميل الكتالوج' : 'Download Catalog'}
             </a>
           </div>
 
