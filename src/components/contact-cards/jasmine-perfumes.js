@@ -27,15 +27,15 @@ const JasminePerfumes = () => {
   const primHover = '#2A2A2A';
   const accent = '#D4AF37';
   const accentLight = '#F9E29B';
-  const softBg = '#FFF8E7';
+
   const cardBackground = '/assets/logo/jasmine-bcakground.png';
 
   const info = {
     title: currentLanguage === 'AR' ? 'شركة جاسمين للعطور' : 'Jasmine Perfumes Company',
     category: currentLanguage === 'AR' ? 'قسم المبيعات' : 'Sales Department',
     image: '/assets/logo/jasmine.png',
-    phone: '+964 750 988 5814',
-    phone1: '+964 771 306 5814',
+    phone: '+964 771 306 5814',
+    phone1: '+964 750 988 5814',
     phone2: '',
     email: 'jasmineirag0@gmail.com',
     facebook: 'https://www.facebook.com/share/1JUd15Kt2H/',
@@ -151,7 +151,7 @@ const JasminePerfumes = () => {
         <div>
           <a href="https://elyptek.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
             <img
-              src="/assets/images/logo12.png"
+              src="/assets/images/logo13.png"
               alt="Elyptek"
               style={{
                 maxWidth: '100px',
