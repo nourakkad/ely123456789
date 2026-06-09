@@ -30,13 +30,13 @@ const ArkanCeramics = () => {
 
   const info = {
     title: currentLanguage === 'AR' ? 'الأركان للسيراميك' : 'Arkan Ceramics',
-    category: currentLanguage === 'AR' ? 'سيراميك ومواد الكسوة' : 'Ceramics and Cladding Materials.',
+    category: currentLanguage === 'AR' ? 'سيراميك ومواد الإكساء' : 'Ceramics and Cladding Materials.',
     image: '/assets/logo/Arkan-Ceramics.png',
     phone: '+963 944 400 788',
     phone1: '+963 944 538 563',
     phone2: '+963 995 070 007',
-    email: '3mmarhakim@gmail.com',
-    email1: 'tarek.nabeel@outlook.com',
+    email: 'tarek.nabeel@outlook.com',
+    email1: '3mmarhakim@gmail.com',
     facebook: 'https://www.facebook.com/share/1BJBpqqDRf/',
     instagram: 'https://www.instagram.com/arkan.ceramics',
     app: 'https://arkanceramics.com/app',
