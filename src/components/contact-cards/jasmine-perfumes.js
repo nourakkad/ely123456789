@@ -28,6 +28,7 @@ const JasminePerfumes = () => {
   const accent = '#D4AF37';
   const accentLight = '#F9E29B';
   const softBg = '#FFF8E7';
+  const cardBackground = '/assets/logo/jasmine-bcakground.png';
 
   const info = {
     title: currentLanguage === 'AR' ? 'شركة جاسمين للعطور' : 'Jasmine Perfumes Company',
@@ -72,7 +73,7 @@ const JasminePerfumes = () => {
 
   const detailLinkStyle = {
     fontWeight: '600',
-    color: prim,
+    color: accentLight,
     fontSize: '13px',
     textDecoration: 'underline',
     lineHeight: 1.45,
@@ -134,10 +135,7 @@ const JasminePerfumes = () => {
         alignItems: 'center',
         padding: '16px 12px',
         minHeight: '100vh',
-        background: `url('/assets/images/blog-left-dec.jpg')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
+        backgroundColor: prim,
       }}
     >
       <div
@@ -226,16 +224,19 @@ const JasminePerfumes = () => {
           style={{
             width: '100%',
             minHeight: '360px',
-            backgroundColor: 'rgba(255, 255, 255, 0.85)',
-            backdropFilter: 'blur(20px)',
-            border: '1px solid rgba(255, 255, 255, 0.3)',
+            backgroundImage: `url('${cardBackground}')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            border: `1px solid rgba(212, 175, 55, 0.45)`,
             borderRadius: '28px',
-            boxShadow: '0 25px 50px rgba(0, 0, 0, 0.25)',
+            boxShadow: '0 25px 50px rgba(0, 0, 0, 0.5)',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'space-between',
             padding: '28px',
+            overflow: 'hidden',
           }}
         >
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
@@ -269,9 +270,10 @@ const JasminePerfumes = () => {
               style={{
                 fontSize: '22px',
                 fontWeight: '800',
-                color: prim,
+                color: accent,
                 margin: '4px 0 0 0',
                 textAlign: 'center',
+                textShadow: '0 2px 8px rgba(0, 0, 0, 0.6)',
               }}
             >
               {info.title}
@@ -280,8 +282,8 @@ const JasminePerfumes = () => {
             <span
               style={{
                 display: 'inline-block',
-                backgroundColor: softBg,
-                color: prim,
+                backgroundColor: 'rgba(0, 0, 0, 0.45)',
+                color: accentLight,
                 padding: '6px 14px',
                 borderRadius: '18px',
                 fontSize: '13px',
@@ -360,9 +362,10 @@ const JasminePerfumes = () => {
             <div
               style={{
                 width: '100%',
-                backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                backgroundColor: 'rgba(0, 0, 0, 0.4)',
                 borderRadius: '18px',
-                boxShadow: 'inset 0 2px 4px rgba(0, 0, 0, 0.1)',
+                border: `1px solid rgba(212, 175, 55, 0.3)`,
+                boxShadow: 'inset 0 2px 4px rgba(0, 0, 0, 0.2)',
                 padding: '16px',
                 marginTop: '12px',
                 gap: '10px',
