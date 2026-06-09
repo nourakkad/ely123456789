@@ -431,8 +431,8 @@ const ArkanCeramics = () => {
               {currentLanguage === 'AR' ? 'تحميل بطاقة الاتصال' : 'Download Contact Card'}
             </a>
             <a
-              href="/assets/pdf/arkan-brochure.pdf"
-              download="arkan-brochure.pdf"
+              href="/assets/pdf/arkan-catalog.pdf"
+              download="arkan-catalog.pdf"
               target="_blank"
               rel="noopener noreferrer"
               style={downloadBtnStyle}
