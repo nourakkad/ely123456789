@@ -10,7 +10,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import JobApplication from './components/JobApplication';
 import { DrMohammedJubain, CrazyBeeez, MamonAssa, DrNaderAlmzayek, HussamAlhamad, RashidAdas, AbdalrahmanAdas, YassenAltabakh, AnwarSaeedJassem, ShadiSaeedJassem, DeauCacao, ChocoSwamp, Elyptek, GroupImdad, MuhammedAladdinHaymour, DrHadiAlhariri, KhalilAlokdi, ArkanCeramics, JasminePerfumes, Mazmazeh, Arta } from './components/contact-cards';
-import { ChocoSwampMenu, KousaMahshiMenu } from './components/menu';
+import { ChocoSwampMenu, KousaMahshiMenu } from './components/menu/index';
 import './App.css';
 
 // Main Home Page Component
