@@ -29,7 +29,7 @@ const Arta = () => {
     }
 
     window.addEventListener('languageChanged', handleLanguageChange);
-    document.title = BRAND;
+    document.title = 'Elyptek';
     return () => {
       window.removeEventListener('languageChanged', handleLanguageChange);
       document.title = 'Elyptek';
