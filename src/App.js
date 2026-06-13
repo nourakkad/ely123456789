@@ -9,7 +9,8 @@ import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import JobApplication from './components/JobApplication';
-import { DrMohammedJubain, CrazyBeeez, MamonAssa, DrNaderAlmzayek, HussamAlhamad, RashidAdas, AbdalrahmanAdas, YassenAltabakh, AnwarSaeedJassem, ShadiSaeedJassem, DeauCacao, ChocoSwamp, Elyptek, GroupImdad, MuhammedAladdinHaymour, DrHadiAlhariri, KhalilAlokdi, ArkanCeramics, JasminePerfumes } from './components/contact-cards';
+import { DrMohammedJubain, CrazyBeeez, MamonAssa, DrNaderAlmzayek, HussamAlhamad, RashidAdas, AbdalrahmanAdas, YassenAltabakh, AnwarSaeedJassem, ShadiSaeedJassem, DeauCacao, ChocoSwamp, Elyptek, GroupImdad, MuhammedAladdinHaymour, DrHadiAlhariri, KhalilAlokdi, ArkanCeramics, JasminePerfumes, Mazmazeh, Arta } from './components/contact-cards';
+import { ChocoSwampMenu, KousaMahshiMenu } from './components/menu';
 import './App.css';
 
 // Main Home Page Component
@@ -30,8 +31,9 @@ const HomePage = () => {
 const Layout = ({ children }) => {
   const location = useLocation();
   const isContactCard = location.pathname.startsWith('/contact/');
+  const isRestaurantMenu = location.pathname.startsWith('/menu/');
   const isFormOnly = location.pathname === '/form';
-  const showChrome = !isContactCard && !isFormOnly;
+  const showChrome = !isContactCard && !isRestaurantMenu && !isFormOnly;
 
   return (
     <div className="App">
@@ -73,6 +75,13 @@ function App() {
           <Route path="/contact/khalil-alokdi" element={<KhalilAlokdi />} />
           <Route path="/contact/arkan-ceramics" element={<ArkanCeramics />} />
           <Route path="/contact/jasmine-perfumes" element={<JasminePerfumes />} />
+          <Route path="/contact/mazmazeh" element={<Mazmazeh />} />
+          <Route path="/contact/arta" element={<Arta />} />
+          <Route path={'/contact/\u00e0rta'} element={<Arta />} />
+
+          {/* Restaurant Menu Routes */}
+          <Route path="/menu/chocoswamp" element={<ChocoSwampMenu />} />
+          <Route path="/menu/kousa-mahshi" element={<KousaMahshiMenu />} />
         </Routes>
       </Layout>
     </Router>
