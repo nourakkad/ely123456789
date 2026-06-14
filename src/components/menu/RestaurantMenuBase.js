@@ -227,26 +227,13 @@ const RestaurantMenuBase = ({ restaurant, colors, categories = [] }) => {
                     key={`${activeCategory}-${index}`}
                     style={{
                       display: 'flex',
-                      gap: '12px',
+                      gap: '14px',
                       padding: '16px',
                       borderBottom: index < activeItems.length - 1 ? `1px solid ${c.secondary}22` : 'none',
-                      alignItems: 'flex-start',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
                     }}
                   >
-                    {item.image && (
-                      <img
-                        src={item.image}
-                        alt={t(item.name)}
-                        style={{
-                          width: '64px',
-                          height: '64px',
-                          borderRadius: '12px',
-                          objectFit: 'cover',
-                          flexShrink: 0,
-                          border: `1px solid ${c.secondary}33`,
-                        }}
-                      />
-                    )}
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div
                         style={{
@@ -316,6 +303,21 @@ const RestaurantMenuBase = ({ restaurant, colors, categories = [] }) => {
                         </div>
                       )}
                     </div>
+                    {item.image && (
+                      <img
+                        src={item.image}
+                        alt={t(item.name)}
+                        style={{
+                          width: '80px',
+                          height: '80px',
+                          borderRadius: '12px',
+                          objectFit: 'cover',
+                          flexShrink: 0,
+                          border: `1px solid ${c.secondary}33`,
+                          boxShadow: `2px 2px 0 0 ${c.secondary}22`,
+                        }}
+                      />
+                    )}
                   </div>
                 ))
               )}

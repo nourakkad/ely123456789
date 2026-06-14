@@ -1,9 +1,12 @@
 import React from 'react';
 import RestaurantMenuBase from './RestaurantMenuBase';
 
-const item = (ar, en, description) => ({
+const img = (file) => encodeURI(`/assets/menu/kousa mahshi/${file}`);
+
+const item = (ar, en, description, imageFile) => ({
   name: { ar, en },
   ...(description ? { description: { ar: description.ar, en: description.en } } : {}),
+  ...(imageFile ? { image: img(imageFile) } : {}),
 });
 
 const restaurant = {
@@ -26,14 +29,14 @@ const categories = [
     id: 'specialties',
     title: { en: 'House Specialties', ar: 'الأصناف الخاصة' },
     items: [
-      item('يبرق', 'Yabraq'),
+      item('يبرق', 'Yabraq', null, 'yabraq.jpg'),
       item('سجقات', 'Sujukat'),
-      item('محاشي مشكل', 'Mixed Mahshi'),
-      item('يخنة ملفوف', 'Cabbage Stew'),
+      item('محاشي مشكل', 'Mixed Mahshi', null, 'mixed mahshi.jpg'),
+      item('يخنة ملفوف', 'Cabbage Stew', null, 'cabbage stew.jpg'),
       item('يلنجي', 'Yalanji', {
         ar: 'ورق عنب، باذنجان، كوسا',
         en: 'Grape leaves, eggplant, zucchini',
-      }),
+      }, 'yalanji.jpg'),
     ],
   },
   {
@@ -43,45 +46,48 @@ const categories = [
       item('برك', 'Barak', {
         ar: 'جبنة، لحمة، دجاج',
         en: 'Cheese, meat, chicken',
-      }),
-      item('عجة', 'Eggah'),
-      item('كبة مشوية', 'Grilled Kibbeh'),
-      item('كبة مقلية', 'Fried Kibbeh'),
-      item('كبة لبنية', 'Kibbeh Labaniyeh'),
-      item('شيش برك', 'Shish Barak'),
-      item('ملوخية دجاج', 'Molokhia with Chicken'),
-      item('كباب هندي', 'Indian Kebab'),
+      }, 'barak.jpg'),
+      item('عجة', 'Eggah', null, 'eggah.jpg'),
+      item('كبة مشوية', 'Grilled Kibbeh', null, 'grilled kibbeh.jpg'),
+      item('كبة مقلية', 'Fried Kibbeh', null, 'fried kibbeh.jpg'),
+      item('كبة لبنية', 'Kibbeh Labaniyeh', null, 'kibbeh labaniyeh.jpg'),
+      item('شيش برك', 'Shish Barak', null, 'shish barak.jpg'),
+      item('ملوخية دجاج', 'Molokhia with Chicken', null, 'molokhia with chicken.jpg'),
+      item('كباب هندي', 'Indian Kebab', null, 'indian kabab.jpg'),
       item('حراء اصبعو', "Harra' Isba'o"),
-      item('اوزي', 'Ouzi'),
-      item('بطاطا محشية', 'Stuffed Potato'),
-      item('معكرونة بالبشاميل', 'Pasta Béchamel'),
-      item('بطاطا بالقشقوان', 'Potato with Kashkaval'),
-      item('بطاطا بالموزاريلا', 'Potato with Mozzarella'),
-      item('بطاطا بالشيدر', 'Potato with Cheddar'),
+      item('اوزي', 'Ouzi', null, 'ouzi.jpg'),
+      item('بطاطا محشية', 'Stuffed Potato', null, 'stuffed potato.jpg'),
+      item('معكرونة بالبشاميل', 'Pasta Béchamel', null, 'pasta béchamel.jpg'),
+      item('بطاطا بالقشقوان', 'Potato with Kashkaval', null, 'patato with kashkaval.jpg'),
+      item('بطاطا بالموزاريلا', 'Potato with Mozzarella', null, 'patato with mozzarella.jpg'),
+      item('بطاطا بالشيدر', 'Potato with Cheddar', null, 'patato with cheddar.jpg'),
     ],
   },
   {
     id: 'soups',
     title: { en: 'Soups', ar: 'شوربات' },
-    items: [item('شوربة عدس', 'Lentil Soup'), item('شوربة فطر', 'Mushroom Soup')],
+    items: [
+      item('شوربة عدس', 'Lentil Soup', null, 'lentil soup.jpg'),
+      item('شوربة فطر', 'Mushroom Soup', null, 'mushroom soup.jpg'),
+    ],
   },
   {
     id: 'salads',
     title: { en: 'Salads', ar: 'سلطات' },
     items: [
-      item('فتوش', 'Fattoush'),
-      item('تبولة', 'Tabbouleh'),
-      item('سلطة شوندر', 'Beet Salad'),
+      item('فتوش', 'Fattoush', null, 'fattoush.jpg'),
+      item('تبولة', 'Tabbouleh', null, 'tabbouleh.jpg'),
+      item('سلطة شوندر', 'Beet Salad', null, 'beet salad.jpg'),
     ],
   },
   {
     id: 'appetizers',
     title: { en: 'Appetizers', ar: 'مقبلات' },
     items: [
-      item('معكرونة باردة', 'Cold Pasta Salad'),
-      item('متبل شوندر', 'Beet Dip'),
+      item('معكرونة باردة', 'Cold Pasta Salad', null, 'cold pasta salad.jpg'),
+      item('متبل شوندر', 'Beet Dip', null, 'beet dip.jpg'),
       item('متبل باذنجان', 'Eggplant Dip'),
-      item('بابا غنوج', 'Baba Ghanoush'),
+      item('بابا غنوج', 'Baba Ghanoush', null, 'baba ghanoush.jpg'),
     ],
   },
   {
@@ -89,11 +95,11 @@ const categories = [
     title: { en: 'Grills & Special Cuts', ar: 'مشاوي وخاصات' },
     items: [
       item('مقادم', 'Meqadem'),
-      item('لسانات', 'Tongues'),
-      item('أباوات', 'Abawat'),
+      item('لسانات', 'Tongues', null, 'tongues.jpg'),
+      item('أباوات', 'Abawat', null, 'abawat.jpg'),
       item('حفاتي', 'Hafati'),
-      item('راس غنم', 'Lamb Head'),
-      item('نخاعات', 'Marrow Bones'),
+      item('راس غنم', 'Lamb Head', null, 'lamp head.jpg'),
+      item('نخاعات', 'Marrow Bones', null, 'marrow bones.jpg'),
     ],
   },
 ];
