@@ -9,7 +9,7 @@ import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import JobApplication from './components/JobApplication';
-import { DrMohammedJubain, CrazyBeeez, MamonAssa, DrNaderAlmzayek, HussamAlhamad, RashidAdas, AbdalrahmanAdas, YassenAltabakh, AnwarSaeedJassem, ShadiSaeedJassem, DeauCacao, ChocoSwamp, Elyptek, GroupImdad, MuhammedAladdinHaymour, DrHadiAlhariri, KhalilAlokdi, ArkanCeramics, JasminePerfumes, Mazmazeh, Arta } from './components/contact-cards';
+import { DrMohammedJubain, CrazyBeeez, MamonAssa, DrNaderAlmzayek, HussamAlhamad, RashidAdas, AbdalrahmanAdas, YassenAltabakh, AnwarSaeedJassem, ShadiSaeedJassem, DeauCacao, ChocoSwamp, Elyptek, GroupImdad, MuhammedAladdinHaymour, DrHadiAlhariri, DrHadiAlomari, KhalilAlokdi, ArkanCeramics, JasminePerfumes, Mazmazeh, Arta } from './components/contact-cards';
 import { ChocoSwampMenu, KousaMahshiMenu } from './components/menu/index';
 import './App.css';
 
@@ -72,6 +72,7 @@ function App() {
           <Route path="/contact/group-imdadex" element={<Navigate to="/contact/group-imdad" replace />} />
           <Route path="/contact/muhammed-aladdin-haymour" element={<MuhammedAladdinHaymour />} />
           <Route path="/contact/dr-hadi-alhariri" element={<DrHadiAlhariri />} />
+          <Route path="/contact/dr-hadi-alomari" element={<DrHadiAlomari />} />
           <Route path="/contact/khalil-alokdi" element={<KhalilAlokdi />} />
           <Route path="/contact/arkan-ceramics" element={<ArkanCeramics />} />
           <Route path="/contact/jasmine-perfumes" element={<JasminePerfumes />} />
