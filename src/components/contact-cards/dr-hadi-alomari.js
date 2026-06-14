@@ -28,7 +28,7 @@ const DrHadiAlomari = () => {
       currentLanguage === 'AR'
         ? 'دراسات عليا في الجراحة العظمية وأمراض المفاصل وجراحتها'
         : 'Postgraduate Studies in Orthopedic Surgery & Joint Diseases',
-    image: '/assets/logo/dr.hadi-alomari.png',
+    image: '/assets/logo/dr.hadi-alomari.jpg',
     instagram: 'https://www.instagram.com/dr.hadialomari?igsh=dGl4ZGQzNjRiM2pj',
     facebook: 'https://www.facebook.com/share/1BkJY8M7e8/?mibextid=wwXIfr',
     phone: '+963 992 506 512',
