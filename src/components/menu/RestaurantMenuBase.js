@@ -34,6 +34,7 @@ import useBilingualLanguage from './useBilingualLanguage';
  * @property {string} [instagram]
  * @property {string} [facebook]
  * @property {BilingualText} [currency]
+ * @property {string} [logoBackground]
  */
 
 /**
@@ -180,21 +181,28 @@ const RestaurantMenuBase = ({ restaurant, colors, categories = [] }) => {
             overflow: 'hidden',
           }}
         >
-          <img
-            src={restaurant.logo}
-            alt={t(restaurant.name)}
+          <div
             style={{
-              display: 'block',
-              width: '100%',
-              height: 'auto',
-              maxHeight: '160px',
               borderRadius: '16px',
               border: `2px solid ${c.primary}`,
               boxShadow: `4px 4px 0 0 ${c.ink}`,
-              objectFit: 'contain',
-              backgroundColor: c.wash,
+              backgroundColor: restaurant.logoBackground ?? '#FFFFFF',
+              padding: '12px',
+              overflow: 'hidden',
             }}
-          />
+          >
+            <img
+              src={restaurant.logo}
+              alt={t(restaurant.name)}
+              style={{
+                display: 'block',
+                width: '100%',
+                height: 'auto',
+                maxHeight: '140px',
+                objectFit: 'contain',
+              }}
+            />
+          </div>
         </div>
 
         {visibleCategories.length > 0 && (

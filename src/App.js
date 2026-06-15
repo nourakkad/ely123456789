@@ -10,7 +10,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import JobApplication from './components/JobApplication';
 import { DrMohammedJubain, CrazyBeeez, MamonAssa, DrNaderAlmzayek, HussamAlhamad, RashidAdas, AbdalrahmanAdas, YassenAltabakh, AnwarSaeedJassem, ShadiSaeedJassem, DeauCacao, ChocoSwamp, Elyptek, GroupImdad, MuhammedAladdinHaymour, DrHadiAlhariri, DrHadiAlomari, KhalilAlokdi, ArkanCeramics, JasminePerfumes, Mazmazeh, Arta } from './components/contact-cards';
-import { ChocoSwampMenu, KousaMahshiMenu } from './components/menu/index';
+import { ChocoSwampMenu, KousaMe7shiMenu, ChimneyMenu } from './components/menu/index';
 import './App.css';
 
 // Main Home Page Component
@@ -82,7 +82,8 @@ function App() {
 
           {/* Restaurant Menu Routes */}
           <Route path="/menu/chocoswamp" element={<ChocoSwampMenu />} />
-          <Route path="/menu/kousa-mahshi" element={<KousaMahshiMenu />} />
+          <Route path="/menu/kousa-me7shi" element={<KousaMe7shiMenu />} />
+          <Route path="/menu/chimney" element={<ChimneyMenu />} />
         </Routes>
       </Layout>
     </Router>
