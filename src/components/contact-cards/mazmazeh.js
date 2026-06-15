@@ -213,7 +213,7 @@ const Mazmazeh = () => {
                 height: '100px',
                 borderRadius: '50%',
                 border: '3px solid #fff',
-                boxShadow: `0 0 0 2px ${prim}, 0 0 0 5px ${brand}, 4px 4px 0 0 ${c.ink}`,
+                boxShadow: `0 0 0 2px ${prim}, 0 0 0 5px ${prim}, 4px 4px 0 0 ${c.ink}`,
                 marginBottom: '12px',
                 backgroundColor: '#fff',
                 display: 'flex',
@@ -230,7 +230,7 @@ const Mazmazeh = () => {
               style={{
                 fontSize: '22px',
                 fontWeight: '800',
-                color: brand,
+                color: prim,
                 margin: '0 0 8px',
                 textAlign: 'center',
                 textShadow: '1px 1px 0 rgba(255, 255, 255, 0.6), 2px 2px 0 rgba(55, 115, 184, 0.35), 3px 3px 0 rgba(26, 35, 64, 0.35)',
