@@ -31,7 +31,7 @@ const Mazmazeh = () => {
     blue: '#3773B8',
     blueDark: '#2A5A94',
     purple: '#524FA1',
-    wash: '#FFF9B8',
+    wash: '#FFF12D',
     ink: '#1A2340',
   };
   const prim = c.blue;
