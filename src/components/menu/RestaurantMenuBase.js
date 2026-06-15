@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import useBilingualLanguage from './useBilingualLanguage';
 
 /**
@@ -54,6 +54,21 @@ const formatPrice = (price, currencyLabel) => {
 const RestaurantMenuBase = ({ restaurant, colors, categories = [] }) => {
   const { toggleLanguage, t, isArabic, currentLanguage } = useBilingualLanguage();
   const [activeCategory, setActiveCategory] = useState(categories[0]?.id ?? '');
+  const [expandedDish, setExpandedDish] = useState(null);
+
+  useEffect(() => {
+    if (!expandedDish) return undefined;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') setExpandedDish(null);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [expandedDish]);
 
   const c = {
     primary: colors.primary,
@@ -81,6 +96,18 @@ const RestaurantMenuBase = ({ restaurant, colors, categories = [] }) => {
         backgroundRepeat: 'no-repeat',
       }}
     >
+      <style>{`
+        @keyframes menu-dish-pulse {
+          0%, 100% { box-shadow: 0 0 0 0 ${c.primary}55, 2px 2px 0 0 ${c.secondary}22; }
+          50% { box-shadow: 0 0 0 5px ${c.primary}33, 2px 2px 0 0 ${c.secondary}22; }
+        }
+        .menu-dish-thumb {
+          animation: menu-dish-pulse 2.2s ease-in-out infinite;
+        }
+        .menu-dish-thumb:active img {
+          transform: scale(0.95);
+        }
+      `}</style>
       <div
         dir="ltr"
         style={{
@@ -304,19 +331,68 @@ const RestaurantMenuBase = ({ restaurant, colors, categories = [] }) => {
                       )}
                     </div>
                     {item.image && (
-                      <img
-                        src={item.image}
-                        alt={t(item.name)}
+                      <button
+                        type="button"
+                        className="menu-dish-thumb"
+                        onClick={() => setExpandedDish({ src: item.image, name: t(item.name) })}
+                        aria-label={isArabic ? `اضغط لتكبير ${t(item.name)}` : `Tap to enlarge ${t(item.name)}`}
                         style={{
-                          width: '80px',
-                          height: '80px',
-                          borderRadius: '12px',
-                          objectFit: 'cover',
+                          position: 'relative',
+                          padding: 0,
+                          border: `2px solid ${c.primary}`,
+                          borderRadius: '14px',
+                          background: 'none',
+                          cursor: 'pointer',
                           flexShrink: 0,
-                          border: `1px solid ${c.secondary}33`,
-                          boxShadow: `2px 2px 0 0 ${c.secondary}22`,
+                          overflow: 'hidden',
+                          lineHeight: 0,
                         }}
-                      />
+                      >
+                        <img
+                          src={item.image}
+                          alt={t(item.name)}
+                          style={{
+                            display: 'block',
+                            width: '80px',
+                            height: '80px',
+                            objectFit: 'cover',
+                            transition: 'transform 0.2s ease',
+                          }}
+                        />
+                        <span
+                          style={{
+                            position: 'absolute',
+                            inset: 0,
+                            background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 50%)',
+                            pointerEvents: 'none',
+                          }}
+                        />
+                        <span
+                          style={{
+                            position: 'absolute',
+                            bottom: '4px',
+                            left: '50%',
+                            transform: 'translateX(-50%)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '3px',
+                            backgroundColor: c.primary,
+                            color: '#fff',
+                            fontSize: '9px',
+                            fontWeight: '700',
+                            padding: '3px 7px',
+                            borderRadius: '10px',
+                            whiteSpace: 'nowrap',
+                            pointerEvents: 'none',
+                            boxShadow: `0 1px 0 0 ${c.ink}`,
+                          }}
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M11 18a7 7 0 100-14 7 7 0 000 14zM11 8v6M8 11h6" />
+                          </svg>
+                          {isArabic ? 'اضغط' : 'Tap'}
+                        </span>
+                      </button>
                     )}
                   </div>
                 ))
@@ -358,6 +434,99 @@ const RestaurantMenuBase = ({ restaurant, colors, categories = [] }) => {
           </div>
         )}
       </div>
+
+      {expandedDish && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={expandedDish.name}
+          onClick={() => setExpandedDish(null)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 2000,
+            backgroundColor: 'rgba(0, 0, 0, 0.88)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '20px',
+            backdropFilter: 'blur(6px)',
+          }}
+        >
+          <button
+            type="button"
+            onClick={() => setExpandedDish(null)}
+            aria-label={isArabic ? 'إغلاق' : 'Close'}
+            style={{
+              position: 'absolute',
+              top: '16px',
+              right: '16px',
+              width: '40px',
+              height: '40px',
+              borderRadius: '50%',
+              border: 'none',
+              backgroundColor: 'rgba(255, 255, 255, 0.95)',
+              color: c.secondary,
+              fontSize: '22px',
+              fontWeight: '700',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: `0 2px 0 0 ${c.ink}`,
+            }}
+          >
+            ×
+          </button>
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              width: '100%',
+              maxWidth: '360px',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '12px',
+            }}
+          >
+            <img
+              src={expandedDish.src}
+              alt={expandedDish.name}
+              style={{
+                width: '100%',
+                maxHeight: '70vh',
+                objectFit: 'contain',
+                borderRadius: '20px',
+                border: `3px solid ${c.primary}`,
+                boxShadow: `6px 6px 0 0 ${c.ink}`,
+                backgroundColor: '#fff',
+              }}
+            />
+            <p
+              style={{
+                margin: 0,
+                color: '#fff',
+                fontSize: '18px',
+                fontWeight: '800',
+                textAlign: 'center',
+              }}
+            >
+              {expandedDish.name}
+            </p>
+            <p
+              style={{
+                margin: 0,
+                color: 'rgba(255, 255, 255, 0.65)',
+                fontSize: '12px',
+                fontWeight: '600',
+              }}
+            >
+              {isArabic ? 'اضغط خارج الصورة للإغلاق' : 'Tap outside to close'}
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

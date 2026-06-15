@@ -61,47 +61,27 @@ const categories = [
       item('بطاطا بالقشقوان', 'Potato with Kashkaval', null, 'patato with kashkaval.jpg'),
       item('بطاطا بالموزاريلا', 'Potato with Mozzarella', null, 'patato with mozzarella.jpg'),
       item('بطاطا بالشيدر', 'Potato with Cheddar', null, 'patato with cheddar.jpg'),
-    ],
-  },
-  {
-    id: 'soups',
-    title: { en: 'Soups', ar: 'شوربات' },
-    items: [
-      item('شوربة عدس', 'Lentil Soup', null, 'lentil soup.jpg'),
-      item('شوربة فطر', 'Mushroom Soup', null, 'mushroom soup.jpg'),
-    ],
-  },
-  {
-    id: 'salads',
-    title: { en: 'Salads', ar: 'سلطات' },
-    items: [
-      item('فتوش', 'Fattoush', null, 'fattoush.jpg'),
-      item('تبولة', 'Tabbouleh', null, 'tabbouleh.jpg'),
-      item('سلطة شوندر', 'Beet Salad', null, 'beet salad.jpg'),
-    ],
-  },
-  {
-    id: 'appetizers',
-    title: { en: 'Appetizers', ar: 'مقبلات' },
-    items: [
-      item('معكرونة باردة', 'Cold Pasta Salad', null, 'cold pasta salad.jpg'),
-      item('متبل شوندر', 'Beet Dip', null, 'beet dip.jpg'),
-      item('متبل باذنجان', 'Eggplant Dip'),
-      item('بابا غنوج', 'Baba Ghanoush', null, 'baba ghanoush.jpg'),
-    ],
-  },
-  {
-    id: 'grills',
-    title: { en: 'Grills & Special Cuts', ar: 'مشاوي وخاصات' },
-    items: [
       item('مقادم', 'Meqadem'),
       item('لسانات', 'Tongues', null, 'tongues.jpg'),
       item('أباوات', 'Abawat', null, 'abawat.jpg'),
       item('حفاتي', 'Hafati'),
       item('راس غنم', 'Lamb Head', null, 'lamp head.jpg'),
       item('نخاعات', 'Marrow Bones', null, 'marrow bones.jpg'),
+      item('معكرونة باردة', 'Cold Pasta Salad', null, 'cold pasta salad.jpg'),
+      item('متبل شوندر', 'Beet Dip', null, 'beet dip.jpg'),
+      item('متبل باذنجان', 'Eggplant Dip'),
+      item('بابا غنوج', 'Baba Ghanoush', null, 'baba ghanoush.jpg'),
+      item('فتوش', 'Fattoush', null, 'fattoush.jpg'),
+      item('تبولة', 'Tabbouleh', null, 'tabbouleh.jpg'),
+      item('سلطة شوندر', 'Beet Salad', null, 'beet salad.jpg'),
+      item('شوربة عدس', 'Lentil Soup', null, 'lentil soup.jpg'),
+      item('شوربة فطر', 'Mushroom Soup', null, 'mushroom soup.jpg'),
     ],
+   
+  
   },
+ 
+  
 ];
 
 const KousaMahshiMenu = () => (
