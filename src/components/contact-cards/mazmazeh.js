@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const TEL = '+963955230206';
 const WA_ID = '963955230206';
@@ -40,7 +41,7 @@ const Mazmazeh = () => {
 
   const info = {
     title: currentLanguage === 'AR' ? 'مزمزة' : 'Mazmazeh',
-    category: currentLanguage === 'AR' ? 'Mazmazeh' : 'مزمزة',
+   
     image: '/assets/logo/mazmazeh.png',
     facebook: 'https://www.facebook.com/profile.php?id=100083266964717',
     facebookLabel: 'Mazmazeh',
@@ -50,6 +51,38 @@ const Mazmazeh = () => {
       currentLanguage === 'AR'
         ? 'مهاجرين السكة، شارع ناظم باشا'
         : 'Muhajreen Al-Sika, Nazem Basha Street',
+  };
+
+  const menus = [
+    {
+      path: '/menu/kousa-me7shi',
+      title: currentLanguage === 'AR' ? 'منيو كوسا محشي' : 'Kousa Mahshi Menu',
+      logo: '/assets/logo/kousa-me7shi.png',
+    },
+    {
+      path: '/menu/chimney',
+      title: currentLanguage === 'AR' ? 'منيو تشيميني' : 'Chimney Menu',
+      logo: '/assets/logo/chimney.png',
+    },
+  ];
+
+  const menuLinkStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '8px',
+    flex: 1,
+    minWidth: 0,
+    padding: '12px 8px',
+    borderRadius: '18px',
+    backgroundColor: '#fff',
+    border: `2px solid ${prim}`,
+    boxShadow: `0 2px 0 0 ${c.ink}`,
+    textDecoration: 'none',
+    transition: 'all 0.3s ease',
+    color: brand,
+    textAlign: 'center',
   };
 
   const btnBase = {
@@ -160,7 +193,6 @@ const Mazmazeh = () => {
         <div
           style={{
             width: '100%',
-            minHeight: '360px',
             backgroundColor: 'rgba(255, 255, 255, 0.92)',
             backdropFilter: 'blur(20px)',
             border: `2px solid ${prim}`,
@@ -169,10 +201,11 @@ const Mazmazeh = () => {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'space-between',
-            padding: '28px',
+            gap: '16px',
+            padding: '24px 20px',
           }}
         >
+          {/* Brand */}
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
             <div
               style={{
@@ -191,79 +224,53 @@ const Mazmazeh = () => {
                 overflow: 'hidden',
               }}
             >
-              <img
-                src={info.image}
-                alt={info.title}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'contain',
-                }}
-              />
+              <img src={info.image} alt={info.title} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
             </div>
             <h2
               style={{
                 fontSize: '22px',
                 fontWeight: '800',
                 color: brand,
-                margin: '4px 0 0 0',
+                margin: '0 0 8px',
                 textAlign: 'center',
                 textShadow: '1px 1px 0 rgba(255, 255, 255, 0.6), 2px 2px 0 rgba(55, 115, 184, 0.35), 3px 3px 0 rgba(26, 35, 64, 0.35)',
               }}
             >
               {info.title}
             </h2>
-            <span
-              style={{
-                display: 'inline-block',
-                backgroundColor: light,
-                color: brand,
-                border: `2px solid ${prim}`,
-                boxShadow: `0 2px 0 0 ${c.ink}`,
-                padding: '6px 14px',
-                borderRadius: '18px',
-                fontSize: '13px',
-                fontWeight: '700',
-                marginBottom: '8px',
-                marginTop: '8px',
-                textAlign: 'center',
-              }}
-            >
-              {info.category}
-            </span>
-          </div>
+         {/* Actions */}
+         <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '12px' }}>
+              <a href={`tel:${TEL}`} style={btnBase} onMouseOver={onBtnOver} onMouseOut={onBtnOut} aria-label="Phone">
+                <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '20px', height: '20px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.516 2.064a2 2 0 01-.45 1.958l-1.27 1.27a16.001 16.001 0 006.586 6.586l1.27-1.27a2 2 0 011.958-.45l2.064.516A2 2 0 0121 18.72V21a2 2 0 01-2 2h-1C9.163 23 1 14.837 1 5V4a2 2 0 012-2z"
+                  />
+                </svg>
+              </a>
+              <a
+                href={`https://wa.me/${WA_ID}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={btnBase}
+                onMouseOver={onBtnOver}
+                onMouseOut={onBtnOut}
+                aria-label="WhatsApp"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '20px', height: '20px' }} fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.52 3.48A11.77 11.77 0 0012.02 0C5.61 0 .25 5.35.25 11.74c0 2.07.55 4.1 1.6 5.9L0 24l6.52-1.7a11.68 11.68 0 005.49 1.4h.01c6.41 0 11.77-5.36 11.77-11.75 0-3.15-1.22-6.11-3.47-8.47zm-8.5 18.2c-1.7 0-3.39-.46-4.86-1.33l-.35-.2-3.87 1.01 1.03-3.77-.23-.39a9.72 9.72 0 01-1.46-5.1c0-5.4 4.4-9.8 9.81-9.8a9.72 9.72 0 016.94 2.87 9.63 9.63 0 012.87 6.93c0 5.4-4.4 9.8-9.8 9.8zm5.45-7.42c-.3-.15-1.76-.87-2.03-.96-.27-.1-.47-.15-.66.15-.19.3-.76.95-.93 1.14-.17.2-.34.22-.64.07a7.88 7.88 0 01-2.3-1.42 8.62 8.62 0 01-1.6-2.03c-.17-.3-.02-.47.13-.62.14-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.19.05-.37-.02-.52-.08-.15-.66-1.6-.91-2.18-.24-.57-.48-.49-.66-.5h-.57c-.2 0-.52.07-.79.35-.27.3-1.03 1-1.03 2.43s1.05 2.82 1.2 3.01c.15.19 2.06 3.16 5 4.43.7.3 1.24.48 1.67.61.7.22 1.34.19 1.84.11.56-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.18-1.42-.07-.13-.27-.2-.57-.34z" />
+                </svg>
+              </a>
+            </div>
 
-          <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '12px', marginTop: '16px' }}>
-            <a href={`tel:${TEL}`} style={btnBase} onMouseOver={onBtnOver} onMouseOut={onBtnOut} aria-label="Phone">
-              <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '20px', height: '20px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.516 2.064a2 2 0 01-.45 1.958l-1.27 1.27a16.001 16.001 0 006.586 6.586l1.27-1.27a2 2 0 011.958-.45l2.064.516A2 2 0 0121 18.72V21a2 2 0 01-2 2h-1C9.163 23 1 14.837 1 5V4a2 2 0 012-2z"
-                />
-              </svg>
-            </a>
-            <a
-              href={`https://wa.me/${WA_ID}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={btnBase}
-              onMouseOver={onBtnOver}
-              onMouseOut={onBtnOut}
-              aria-label="WhatsApp"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '20px', height: '20px' }} fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.52 3.48A11.77 11.77 0 0012.02 0C5.61 0 .25 5.35.25 11.74c0 2.07.55 4.1 1.6 5.9L0 24l6.52-1.7a11.68 11.68 0 005.49 1.4h.01c6.41 0 11.77-5.36 11.77-11.75 0-3.15-1.22-6.11-3.47-8.47zm-8.5 18.2c-1.7 0-3.39-.46-4.86-1.33l-.35-.2-3.87 1.01 1.03-3.77-.23-.39a9.72 9.72 0 01-1.46-5.1c0-5.4 4.4-9.8 9.81-9.8a9.72 9.72 0 016.94 2.87 9.63 9.63 0 012.87 6.93c0 5.4-4.4 9.8-9.8 9.8zm5.45-7.42c-.3-.15-1.76-.87-2.03-.96-.27-.1-.47-.15-.66.15-.19.3-.76.95-.93 1.14-.17.2-.34.22-.64.07a7.88 7.88 0 01-2.3-1.42 8.62 8.62 0 01-1.6-2.03c-.17-.3-.02-.47.13-.62.14-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.19.05-.37-.02-.52-.08-.15-.66-1.6-.91-2.18-.24-.57-.48-.49-.66-.5h-.57c-.2 0-.52.07-.79.35-.27.3-1.03 1-1.03 2.43s1.05 2.82 1.2 3.01c.15.19 2.06 3.16 5 4.43.7.3 1.24.48 1.67.61.7.22 1.34.19 1.84.11.56-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.18-1.42-.07-.13-.27-.2-.57-.34z" />
-              </svg>
-            </a>
-          </div>
-
-          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '16px' }}>
             <a
               href="/assets/vcf/mazmazeh.vcf"
               download="mazmazeh.vcf"
               style={{
+                width: '100%',
                 backgroundColor: prim,
                 color: '#fff',
                 border: 'none',
@@ -276,6 +283,7 @@ const Mazmazeh = () => {
                 boxShadow: `0 2px 0 0 ${c.ink}, 0 4px 15px rgba(55, 115, 184, 0.3)`,
                 display: 'flex',
                 alignItems: 'center',
+                justifyContent: 'center',
                 gap: '8px',
                 letterSpacing: '0.5px',
                 textDecoration: 'none',
@@ -300,7 +308,9 @@ const Mazmazeh = () => {
               {currentLanguage === 'AR' ? 'تحميل بطاقة الاتصال' : 'Download Contact Card'}
             </a>
           </div>
+          </div>
 
+          {/* Menus */}
           <div
             style={{
               width: '100%',
@@ -308,11 +318,62 @@ const Mazmazeh = () => {
               borderRadius: '18px',
               border: `1px solid rgba(55, 115, 184, 0.25)`,
               boxShadow: `inset 0 2px 4px rgba(0, 0, 0, 0.06), 0 2px 0 0 rgba(13, 13, 13, 0.08)`,
-              padding: '16px',
-              marginTop: '12px',
-              gap: '12px',
+              padding: '14px',
               display: 'flex',
               flexDirection: 'column',
+              gap: '10px',
+            }}
+          >
+            
+            <div style={{ display: 'flex', flexDirection: 'row', gap: '10px', width: '100%' }}>
+              {menus.map((menu) => (
+                <Link
+                  key={menu.path}
+                  to={menu.path}
+                  style={menuLinkStyle}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.backgroundColor = prim;
+                    e.currentTarget.style.color = '#fff';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = `0 4px 0 0 ${c.ink}`;
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.backgroundColor = '#fff';
+                    e.currentTarget.style.color = brand;
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = `0 2px 0 0 ${c.ink}`;
+                  }}
+                >
+                  <img
+                    src={menu.logo}
+                    alt={menu.title}
+                    style={{
+                      width: '48px',
+                      height: '48px',
+                      borderRadius: '10px',
+                      objectFit: 'contain',
+                      backgroundColor: light,
+                      flexShrink: 0,
+                    }}
+                  />
+                  <span style={{ fontWeight: '700', fontSize: '12px', lineHeight: 1.3 }}>{menu.title}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact info */}
+          <div
+            style={{
+              width: '100%',
+              backgroundColor: light,
+              borderRadius: '18px',
+              border: `1px solid rgba(55, 115, 184, 0.25)`,
+              boxShadow: `inset 0 2px 4px rgba(0, 0, 0, 0.06), 0 2px 0 0 rgba(13, 13, 13, 0.08)`,
+              padding: '14px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '12px',
             }}
           >
             {info.facebook && (
@@ -390,6 +451,8 @@ const Mazmazeh = () => {
               <p style={{ margin: 0, fontSize: '13px', fontWeight: '600', color: c.ink, lineHeight: 1.45 }}>{info.location}</p>
             </div>
           </div>
+
+         
         </div>
       </div>
     </div>
