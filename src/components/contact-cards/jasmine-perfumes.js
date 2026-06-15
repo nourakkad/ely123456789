@@ -40,6 +40,7 @@ const JasminePerfumes = () => {
     email: 'jasmineirag0@gmail.com',
     facebook: 'https://www.facebook.com/share/1JUd15Kt2H/',
     instagram: 'https://www.instagram.com/jasmine_perfumes_company?igsh=MWZ0c3JmM254cmR3YQ==',
+    tiktok: 'https://www.tiktok.com/@jasmine.perfume55',
     website: '',
     location:
       currentLanguage === 'AR' ? 'العراق - أربيل - بختياري' : 'Iraq - Erbil - Bakhtiari',
@@ -123,7 +124,7 @@ const JasminePerfumes = () => {
 
   const phoneNumbers = [info.phone, info.phone1, info.phone2].filter(Boolean);
 
-  const hasQuickActions = info.email || info.facebook || info.instagram;
+  const hasQuickActions = info.email || info.facebook || info.instagram || info.tiktok;
   const hasContactDetails =
     info.phone || info.phone1 || info.phone2 || info.website || info.location;
 
@@ -312,6 +313,11 @@ const JasminePerfumes = () => {
               {info.instagram && (
                 <a href={info.instagram} target="_blank" rel="noopener noreferrer" style={btnStyle} onMouseOver={onBtnOver} onMouseOut={onBtnOut}>
                   <i className="fab fa-instagram" style={{ fontSize: '20px' }} />
+                </a>
+              )}
+              {info.tiktok && (
+                <a href={info.tiktok} target="_blank" rel="noopener noreferrer" style={btnStyle} onMouseOver={onBtnOver} onMouseOut={onBtnOut}>
+                  <i className="fab fa-tiktok" style={{ fontSize: '20px' }} />
                 </a>
               )}
             </div>
