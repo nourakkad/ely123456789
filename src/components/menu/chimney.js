@@ -37,6 +37,24 @@ const colors = {
 
 const categories = [
   {
+    id: 'winter-chimney',
+    title: { en: 'Winter Chimney Roll', ar: 'أصناف الشتوي تشمني رول' },
+    items: [
+      item(
+        'سحلب مع حليب',
+        'Sahlab with Milk',
+        d('مع مكسرات أو جوز الهند أو القرفة', 'With nuts, coconut, or cinnamon')
+      ),
+      item('كستنا', 'Chestnuts'),
+      item('كراوية', 'Karawiya'),
+      item('حبوب', 'Grains'),
+      item('شوندر', 'Beets'),
+      item('فول نابت', 'Boiled Fava Beans'),
+      item('بليلة', 'Balila'),
+      item('بطاطا حلوة', 'Sweet Potato'),
+    ],
+  },
+  {
     id: 'wafer-chocolate',
     title: { en: 'Wafer Chocolate', ar: 'أصناف وافر شوكولا' },
     items: [
@@ -86,7 +104,8 @@ const categories = [
       item('بيتزا', 'Pizza'),
       item('لحومات باردة مع قشقوان', 'Cold Cuts with Kashkaval'),
       item('شوكولا', 'Chocolate', chocolateManouche),
-      item('قشطة وعسل', 'Cream & Honey'),
+      item('قشطة وعسل وموز', 'Cream & Honey & Banana'),
+      item('قشطة وعسل ومكسرات', 'Cream & Honey & Nuts'),
     ],
   },
   {
