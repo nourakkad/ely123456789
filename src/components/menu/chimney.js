@@ -98,7 +98,7 @@ const categories = [
       item('محمرة', 'Muhammara', undefined, 'Muhammara.jpg'),
       item('لبنة وزيتون', 'Labneh & Olives', undefined, 'Labneh & Olives.jpg'),
       item('جبنة', 'Cheese', undefined, 'Cheese.jpg'),
-      item('زعتر', 'Zaatar'),
+      item('زعتر', 'Zaatar', undefined, 'Zaatar.jpeg'),
       item('قشقوان', 'Kashkaval', undefined, 'Kashkaval.jpg'),
       item('محمرة وقشقوان', 'Muhammara & Kashkaval', undefined, 'Muhammara & Kashkaval.jpg'),
       item('زعتر مع قشقوان', 'Zaatar with Kashkaval', undefined, 'Zaatar & Kashkaval .jpeg'),
@@ -156,11 +156,11 @@ const categories = [
     title: { en: 'Milkshakes', ar: 'ميلك شيك' },
     items: [
       item('ميلك شيك أوريو', 'Oreo Milkshake', undefined, 'Oreo Milkshake.jpg'),
-      item('ميلك شيك فانيل', 'Vanilla Milkshake'),
+      item('ميلك شيك فانيل', 'Vanilla Milkshake', undefined, 'Vanilla Milkshake.jpeg'),
       item('ميلك شيك شوكولا', 'Chocolate Milkshake', undefined, 'Chocolate Milkshake.jpg'),
       item('ميلك شيك سيريلاك سادة', 'Plain Cerealac Milkshake', undefined, 'Plain Cerealac Milkshake.jpg'),
       item('ميلك شيك سيريلاك + كورن فليكس', 'Cerealac & Corn Flakes Milkshake', undefined, 'Cerealac & Corn Flakes Milkshake.jpeg'),
-      item('ميلك شيك سيريلاك + مارشميلو', 'Cerealac & Marshmallow Milkshake'),
+      item('ميلك شيك سيريلاك + مارشميلو', 'Cerealac & Marshmallow Milkshake', undefined, 'Cerealac & Marshmallow Milkshake.jpeg'),
     ],
   },
   {
