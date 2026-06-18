@@ -49,13 +49,13 @@ const categories = [
         d('مع مكسرات أو جوز الهند أو القرفة', 'With nuts, coconut, or cinnamon'),
         'Sahlab with Milk.jpg'
       ),
-      item('كستنا', 'Chestnuts'),
+      item('كستنا', 'Chestnuts', undefined, 'Chestnuts.jpeg'),
       item('كراوية', 'Karawiya', undefined, 'Karawiya.jpg'),
       item('حبوب', 'Grains', undefined, 'Grains.jpg'),
       item('شوندر', 'Beets', undefined, 'Beets.jpg'),
       item('فول نابت', 'Boiled Fava Beans', undefined, 'Boiled Fava Beans.jpg'),
       item('بليلة', 'Balila', undefined, 'Balila.jpg'),
-      item('بطاطا حلوة', 'Sweet Potato'),
+      item('بطاطا حلوة', 'Sweet Potato', undefined, 'Sweet Potato.jpeg'),
       item('ميكس شتوي', 'Winter Mix', undefined, 'Winter MIx.jpg'),
     ],
   },
@@ -86,7 +86,7 @@ const categories = [
     items: [
       item('ترمس', 'Lupini Beans', undefined, 'Lupini Beans.jpg'),
       item('عرنوس ذرة مسلوق', 'Boiled Corn on the Cob', undefined, 'Boiled Corn on the Cob.jpg'),
-      item('علبة سلطة ذرة', 'Corn Salad Box'),
+      item('علبة سلطة ذرة', 'Corn Salad Box', undefined, 'Corn Salad Box.jpeg'),
       item('سلطة ذرة دبل', 'Double Corn Salad', cornDouble, 'Double Corn Salad.jpg'),
       item('شيبس حلزون نكهات', 'Spiral Chips Flavors', spiralChips, 'Spiral Chips Flavors.jpg'),
     ],
@@ -147,8 +147,8 @@ const categories = [
     items: [
       item('موز وحليب', 'Banana & Milk', undefined, 'Banana & Milk.jpg'),
       item('فريز وموز وحليب', 'Strawberry, Banana & Milk', undefined, 'Strawberry, Banana & Milk.jpg'),
-      item('فواكه مشكلة', 'Mixed Fruits', undefined, 'Mixed Fruits.jpg'),
-      item('أفوكادو وحليب', 'Avocado & Milk', undefined, 'Avocado & Milk.jpg'),
+      item('فواكه مشكلة', 'Mixed Fruits', undefined, 'Mixed Fruits.jpeg'),
+      item('أفوكادو وحليب', 'Avocado & Milk', undefined, 'Avocado & Milk.jpeg'),
     ],
   },
   {
@@ -157,9 +157,9 @@ const categories = [
     items: [
       item('ميلك شيك أوريو', 'Oreo Milkshake', undefined, 'Oreo Milkshake.jpg'),
       item('ميلك شيك فانيل', 'Vanilla Milkshake'),
-      item('ميلك شيك شوكولا', 'Chocolate Milkshake'),
+      item('ميلك شيك شوكولا', 'Chocolate Milkshake', undefined, 'Chocolate Milkshake.jpg'),
       item('ميلك شيك سيريلاك سادة', 'Plain Cerealac Milkshake', undefined, 'Plain Cerealac Milkshake.jpg'),
-      item('ميلك شيك سيريلاك + كورن فليكس', 'Cerealac & Corn Flakes Milkshake', undefined, 'Cerealac & Corn Flakes Milkshake.jpg'),
+      item('ميلك شيك سيريلاك + كورن فليكس', 'Cerealac & Corn Flakes Milkshake', undefined, 'Cerealac & Corn Flakes Milkshake.jpeg'),
       item('ميلك شيك سيريلاك + مارشميلو', 'Cerealac & Marshmallow Milkshake'),
     ],
   },
@@ -167,8 +167,8 @@ const categories = [
     id: 'saj-ice-cream',
     title: { en: 'Ice Cream on Saj', ar: 'بوظة عالصاج' },
     items: [
-      item('شوكولا', 'Chocolate', sajIceOpts, 'Chocolate (2).jpg'),
-      item('فانيل', 'Vanilla', sajIceOpts),
+      item('شوكولا', 'Chocolate', sajIceOpts, 'Chocolate.jpg'),
+      item('فانيل', 'Vanilla', sajIceOpts, 'Vanilla saj.jpeg'),
       item('فريز', 'Strawberry', sajIceOpts, 'Strawberry (2).jpg'),
       item('منغا', 'Mango', sajIceOpts, 'Mango.jpg'),
     ],
