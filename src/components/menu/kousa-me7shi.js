@@ -11,7 +11,10 @@ const item = (ar, en, description, imageFile) => ({
 
 const restaurant = {
   name: { en: 'Kousa Mahshi', ar: 'كوسا محشي' },
-  tagline: { en: 'Menu', ar: 'مينو كوسا محشي' },
+  tagline: {
+    en: 'Fully prepared for all occasions and special orders — the full range of Levantine cuisine',
+    ar: 'استعداد تام لكافة المناسبات و الطلبات الخاصة ، من جميع أصناف المطبخ الشامي',
+  },
   logo: '/assets/logo/kousa-me7shi.png',
   currency: { en: 'SYP', ar: 'ل.س' },
 };

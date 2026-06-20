@@ -27,6 +27,7 @@ import useBilingualLanguage from './useBilingualLanguage';
  * @typedef {Object} RestaurantConfig
  * @property {BilingualText} name
  * @property {BilingualText} [tagline]
+ * @property {BilingualText} [promo]
  * @property {string} logo
  * @property {BilingualText} [location]
  * @property {string} [phone]
@@ -203,6 +204,24 @@ const RestaurantMenuBase = ({ restaurant, colors, categories = [] }) => {
               }}
             />
           </div>
+          {restaurant.tagline && (
+            <p
+              style={{
+                margin: '12px 0 0',
+                padding: '10px 12px',
+                backgroundColor: c.wash,
+                borderRadius: '14px',
+                border: `1px solid ${c.primary}44`,
+                color: c.secondary,
+                fontSize: '13px',
+                fontWeight: '600',
+                lineHeight: 1.55,
+                textAlign: 'center',
+              }}
+            >
+              {t(restaurant.tagline)}
+            </p>
+          )}
         </div>
 
         {visibleCategories.length > 0 && (
@@ -407,6 +426,37 @@ const RestaurantMenuBase = ({ restaurant, colors, categories = [] }) => {
               )}
             </div>
           </>
+        )}
+
+        {restaurant.promo && (
+          <div
+            style={{
+              marginTop: '16px',
+              padding: '16px',
+              backgroundColor: c.wash,
+              borderRadius: '18px',
+              border: `2px solid ${c.primary}`,
+              boxShadow: `3px 3px 0 0 ${c.ink}`,
+            }}
+          >
+            {t(restaurant.promo)
+              .split('\n\n')
+              .map((paragraph, index, paragraphs) => (
+                <p
+                  key={paragraph.slice(0, 24)}
+                  style={{
+                    margin: index < paragraphs.length - 1 ? '0 0 10px' : 0,
+                    color: index === paragraphs.length - 1 ? c.secondary : c.ink,
+                    fontSize: index === paragraphs.length - 1 ? '14px' : '13px',
+                    fontWeight: index === paragraphs.length - 1 ? '800' : '600',
+                    lineHeight: 1.6,
+                    textAlign: 'center',
+                  }}
+                >
+                  {paragraph}
+                </p>
+              ))}
+          </div>
         )}
 
         {(restaurant.instagram || restaurant.facebook) && (

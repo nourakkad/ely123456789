@@ -24,7 +24,10 @@ const sajIceOpts = d('مع بسكوت أو فواكه أو سادة', 'With bisc
 
 const restaurant = {
   name: { en: 'Chimney Roll', ar: 'تشيميني رول' },
-  tagline: { en: 'Menu', ar: 'مينو تشيميني' },
+  promo: {
+    ar: 'استعداد تام لتخديم كافة المناسبات و حفلات أعياد الميلاد ، حفلات التخرج ، المناسبات الخاصة و غيرها\n\nمع تشكيلة مميزة من قوالب الكيك الفاخرة و التسالي\n\nمزمزة شريك مناسباتكم',
+    en: 'Fully prepared to cater all occasions and celebrations — birthday parties, graduation parties, private events, and more.\n\nFeaturing a distinctive selection of premium cake molds and snacks.\n\nMazmazeh — your occasions partner.',
+  },
   logo: '/assets/logo/chimney.png',
   logoBackground: '#FFFFFF',
   currency: { en: 'SYP', ar: 'ل.س' },
@@ -41,7 +44,7 @@ const colors = {
 const categories = [
   {
     id: 'winter-chimney',
-    title: { en: 'Winter Chimney Roll', ar: 'أصناف الشتوي تشمني رول' },
+    title: { en: 'Winter Chimney Roll', ar: 'أصناف الشتوي تشيميني رول' },
     items: [
       item(
         'سحلب مع حليب',
