@@ -140,8 +140,8 @@ const Header = () => {
                 <span>Menu</span>
               </button>
 
-              <Link to={SITE_SECTIONS.home} className="logo" onClick={closeMenu}>
-                <img src="/assets/images/p.png" alt="Elyptek Logo" className="logo-webs" />
+              <Link to={SITE_SECTIONS.home} className="logo site-header-logo-link" onClick={closeMenu}>
+                <img src="/assets/images/logo12.png" alt="Elyptek Logo" className="site-header-logo" />
               </Link>
 
               <div className="language-toggle">

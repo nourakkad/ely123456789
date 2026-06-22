@@ -337,6 +337,39 @@
 }
 
 /* ── Header & navigation ── */
+.site-shell .header-area .main-nav {
+  position: relative;
+}
+
+.site-shell .header-area .main-nav .site-header-logo-link {
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  line-height: 1;
+  margin-left: 0;
+  padding: 0;
+  z-index: 1002;
+  background: transparent;
+  box-shadow: none;
+}
+
+.site-shell .header-area .main-nav .site-header-logo {
+  display: block;
+  width: auto;
+  height: 56px;
+  max-width: 220px;
+  object-fit: contain;
+  object-position: center;
+  mix-blend-mode: lighten;
+  filter: none;
+}
+
+.site-shell .transparent-header .main-nav .site-header-logo {
+  filter: none;
+}
+
 .site-shell .header-area .main-nav .language-toggle .lang-btn {
   border-radius: 50px;
   font-weight: 700;
@@ -1231,6 +1264,28 @@
 
   .site-shell .section-page {
     padding-top: 88px;
+  }
+
+  .site-shell .header-area .main-nav .site-header-logo-link {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    float: none;
+    transform: translate(-50%, -50%);
+    margin-left: 0;
+    height: auto;
+    max-width: min(62vw, 240px);
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    z-index: 1002;
+  }
+
+  .site-shell .header-area .main-nav .site-header-logo {
+    height: 48px;
+    max-width: 100%;
+    width: auto;
+    mix-blend-mode: lighten;
   }
 
   .site-shell .header-area .main-nav .nav li a.contact-btn {
