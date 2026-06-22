@@ -1266,26 +1266,84 @@
     padding-top: 88px;
   }
 
-  .site-shell .header-area .main-nav .site-header-logo-link {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    float: none;
-    transform: translate(-50%, -50%);
-    margin-left: 0;
+  .site-shell .header-area {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .site-shell .header-area .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .site-shell .header-area .main-nav {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 10px;
+    min-height: 80px;
+    height: 80px;
+    overflow: visible;
+  }
+
+  .site-shell .header-area .main-nav .menu-trigger {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    justify-self: start;
+    align-self: center;
+    margin: 0;
+  }
+
+  .site-shell .header-area .main-nav .site-header-logo-link,
+  .site-shell .header-area .main-nav .logo.site-header-logo-link {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    float: none !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    align-self: center;
+    width: 100%;
+    max-width: none;
     height: auto;
-    max-width: min(62vw, 240px);
+    min-width: 0;
     padding: 0;
     background: transparent;
     box-shadow: none;
-    z-index: 1002;
   }
 
-  .site-shell .header-area .main-nav .site-header-logo {
-    height: 48px;
-    max-width: 100%;
+  .site-shell .header-area .main-nav .site-header-logo,
+  .site-shell .header-area .logo img.site-header-logo {
+    display: block;
+    height: 44px;
+    max-height: none !important;
+    max-width: min(100%, 196px);
     width: auto;
+    margin: 0 auto;
     mix-blend-mode: lighten;
+  }
+
+  .site-shell .header-area .main-nav .language-toggle {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    justify-self: end;
+    align-self: center;
+    margin: 0;
+    flex-shrink: 0;
+    gap: 4px;
+  }
+
+  .site-shell .header-area .main-nav .nav {
+    left: 0;
+    right: 0;
+    width: 100%;
   }
 
   .site-shell .header-area .main-nav .nav li a.contact-btn {
