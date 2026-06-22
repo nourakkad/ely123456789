@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { getTranslation, getCountryCodes } from '../translations';
 import { CONTACT_EMAIL } from '../env/publicConfig';
 import { sendSiteMail } from '../lib/sendSiteMail';
+import { injectElyptekHtml } from '../utils/textWithElyptek';
 
 const EXP_KEYS = ['', 'graduate', '1-2', '3-5', '5plus'];
 
@@ -250,7 +251,10 @@ const JobApplication = () => {
                 dir={currentLanguage === 'AR' ? 'rtl' : 'ltr'}
               >
                 <h6 className="contact-subtitle">{t('jobApplicationTitle')}</h6>
-                <h4 className="contact-title">{t('jobApplicationHero')}</h4>
+                <h4
+                  className="contact-title"
+                  dangerouslySetInnerHTML={{ __html: injectElyptekHtml(t('jobApplicationHero')) }}
+                />
                 <div className="line-dec contact-line" />
                 <p className="contact-description">{t('jobApplicationDescription')}</p>
               </div>

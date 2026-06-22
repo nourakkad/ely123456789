@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { CONTACT_EMAIL } from '../env/publicConfig';
+import { getTranslation } from '../translations';
+import { SITE_SECTIONS } from '../routes/siteRoutes';
+import ElyptekWord from './ElyptekWord';
 
 const Footer = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
@@ -36,9 +39,9 @@ const Footer = () => {
           {/* Left: Logo, Quote, Socials */}
           <div className="footer-col footer-col-left">
             <div className="footer-logo">
-              <a href="#top" aria-label="Back to top">
+              <Link to={SITE_SECTIONS.home} aria-label="Back to home">
                 <img src="assets/images/LOGO ELYPTEK .png" alt="Elyptek logo" />
-              </a>
+              </Link>
             </div>
             <p className="footer-quote">
               {currentLanguage === 'AR'
@@ -65,13 +68,13 @@ const Footer = () => {
               {currentLanguage === 'AR' ? 'روابط سريعة' : 'Quick Links'}
             </h4>
             <ul className="footer-links-list">
-              <li><a href="#top">{currentLanguage === 'AR' ? 'الرئيسية' : 'Home'}</a></li>
-              <li><a href="#about">{currentLanguage === 'AR' ? 'من نحن' : 'About Us'}</a></li>
-              <li><a href="#services">{currentLanguage === 'AR' ? 'خدماتنا' : 'Our Services'}</a></li>
-              <li><a href="#portfolio">{currentLanguage === 'AR' ? 'أعمالنا' : 'Portfolio'}</a></li>
-              <li><a href="#team">{currentLanguage === 'AR' ? 'فريقنا' : 'Our Team'}</a></li>
-              <li><Link to="/form">{currentLanguage === 'AR' ? 'التقديم الوظيفي' : 'Careers'}</Link></li>
-              <li><a href="#contact">{currentLanguage === 'AR' ? 'اتصل بنا' : 'Contact Us'}</a></li>
+              <li><Link to={SITE_SECTIONS.home}>{currentLanguage === 'AR' ? 'الرئيسية' : 'Home'}</Link></li>
+              <li><Link to={SITE_SECTIONS.about}>{currentLanguage === 'AR' ? 'من نحن' : 'About Us'}</Link></li>
+              <li><Link to={SITE_SECTIONS.services}>{currentLanguage === 'AR' ? 'خدماتنا' : 'Our Services'}</Link></li>
+              <li><Link to={SITE_SECTIONS.portfolio}>{getTranslation('portfolio', currentLanguage)}</Link></li>
+              <li><Link to={SITE_SECTIONS.team}>{currentLanguage === 'AR' ? 'فريقنا' : 'Our Team'}</Link></li>
+              <li><Link to={SITE_SECTIONS.careers}>{currentLanguage === 'AR' ? 'التقديم الوظيفي' : 'Careers'}</Link></li>
+              <li><Link to={SITE_SECTIONS.contact}>{currentLanguage === 'AR' ? 'اتصل بنا' : 'Contact Us'}</Link></li>
             </ul>
           </div>
 
@@ -114,7 +117,7 @@ const Footer = () => {
             © {year}{' '}
             <bdi>
               <span className="footer-brand" dir="ltr">
-              Elyptek™
+                <ElyptekWord tm onDark />
               </span>
             </bdi>
             . {isAr ? 'جميع الحقوق محفوظة.' : 'All Rights Reserved.'}

@@ -1,0 +1,51 @@
+.elyptek-word {
+  font-style: normal;
+  font-weight: inherit;
+  white-space: nowrap;
+}
+
+.elyptek-word .elyp {
+  color: #1a1a1a;
+}
+
+.elyptek-word .tek {
+  color: #f8a400;
+}
+
+.elyptek-word--on-dark .elyp {
+  color: #ffffff;
+}
+
+.elyptek-word--on-dark .tek {
+  color: #f8a400;
+}
+
+.site-shell .section-heading h4 .elyptek-word .elyp,
+.site-shell .section-heading h6 .elyptek-word .elyp {
+  color: #1a1a1a;
+}
+
+.site-shell .section-heading h4 .elyptek-word .tek,
+.site-shell .section-heading h6 .elyptek-word .tek {
+  color: var(--site-orange, #f8a400);
+}
+
+.site-shell .site-cta-inner .elyptek-word .elyp,
+.modern-footer .footer-bottom .elyptek-word .elyp {
+  color: #ffffff;
+}
+
+.site-shell .site-cta-inner .elyptek-word .tek,
+.modern-footer .footer-bottom .elyptek-word .tek {
+  color: #f8a400;
+}
+
+.elyptek-word-link {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.elyptek-word-link:hover .tek {
+  color: #e09600;
+}

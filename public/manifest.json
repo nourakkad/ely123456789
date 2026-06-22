@@ -1,6 +1,7 @@
 {
   "short_name": "Elyptek",
-  "name": "Elyptek - Digital Marketing & Web Development",
+  "name": "Elyptek | Digital Marketing & Software Solutions",
+  "description": "Digital marketing, web design, and custom software development in Damascus, Syria.",
   "icons": [
     {
       "src": "favicon.png",
@@ -18,8 +19,9 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#ffa700",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "lang": "en"
 }

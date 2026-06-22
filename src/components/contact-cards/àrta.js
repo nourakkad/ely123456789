@@ -45,7 +45,7 @@ const Arta = () => {
   const doctorInfo = {
     title: BRAND,
     category: currentLanguage === 'AR' ? 'دار فن إبداعي' : 'Creative Art House',
-    image: '/assets/logo/àrta.png',
+    image: '/assets/logo/arta.jpeg',
     phone: TEL,
     email: 'arta.agency0@gmail.com',
     facebook: 'https://www.facebook.com/share/1bdNRB1ZwH/',

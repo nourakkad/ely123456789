@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { getTranslation } from '../translations';
+import { SITE_SECTIONS } from '../routes/siteRoutes';
 
 const Banner = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
@@ -118,17 +121,40 @@ const Banner = () => {
                   )}
                 </div>
               </div>
-              <div className="custom-subtitle" style={{ 
-                direction: currentLanguage === 'AR' ? 'rtl' : 'ltr',
-                textAlign: currentLanguage === 'AR' ? 'right' : 'left'
-              }}>
-                {currentLanguage === 'AR' ? 'رؤيتك، نحن' : 'Your Vision, Our'}
-                <span className="custom-animate-black" id="animateWord" style={{ 
+              <div
+                className="custom-subtitle"
+                style={{
                   direction: currentLanguage === 'AR' ? 'rtl' : 'ltr',
-                  textAlign: currentLanguage === 'AR' ? 'right' : 'left'
-                }}>
+                  textAlign: currentLanguage === 'AR' ? 'right' : 'left',
+                }}
+              >
+                {currentLanguage === 'AR' ? 'رؤيتك، نحن' : 'Your Vision, Our'}
+                <span
+                  className="custom-animate-black"
+                  id="animateWord"
+                  style={{
+                    direction: currentLanguage === 'AR' ? 'rtl' : 'ltr',
+                    textAlign: currentLanguage === 'AR' ? 'right' : 'left',
+                  }}
+                >
                   {currentLanguage === 'AR' ? ' نبتكر' : 'Create'}
                 </span>
+              </div>
+              <div
+                style={{
+                  marginTop: '28px',
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  gap: '12px',
+                  direction: currentLanguage === 'AR' ? 'rtl' : 'ltr',
+                }}
+              >
+                <Link to={SITE_SECTIONS.services} className="main-button">
+                  {getTranslation('learnMore', currentLanguage)}
+                </Link>
+                <Link to={SITE_SECTIONS.contact} className="main-button site-btn-dark">
+                  {getTranslation('getStarted', currentLanguage)}
+                </Link>
               </div>
             </div>
           </div>

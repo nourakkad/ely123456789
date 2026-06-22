@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CONTACT_EMAIL } from '../../env/publicConfig';
+import ElyptekWord from '../ElyptekWord';
 
 const TEL = '+963980325553';
 const WA_ME = '963980325553';
@@ -177,7 +178,7 @@ const Elyptek = () => {
                 textShadow: '1px 1px 0 #fff, 2px 2px 0 rgba(248, 164, 0, 0.35)',
               }}
             >
-              {info.title}
+              <ElyptekWord />
             </h2>
             <span
               style={{

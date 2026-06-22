@@ -51,7 +51,7 @@ const Team = () => {
           <div className="col-lg-4 col-md-6">
             <div className="team-member wow fadeInUp" data-wow-delay="0.1s">
               <div className="member-img">
-                <img src="assets/images/nour1.png" alt="Nour Akkad" />
+                <img src="/assets/images/Nour-Akkad.jpg" alt="Nour Akkad" />
               </div>
               <div className="member-info">
                 <h3>Nour Akkad</h3>
@@ -68,7 +68,7 @@ const Team = () => {
           <div className="col-lg-4 col-md-6">
             <div className="team-member wow fadeInUp" data-wow-delay="0.3s">
               <div className="member-img">
-                <img src="assets/images/anas.png" alt="Anas Omari" />
+                <img src="/assets/images/Anas-Alomari.jpg" alt="Anas Omari" />
               </div>
               <div className="member-info">
                 <h3>Anas Omari</h3>

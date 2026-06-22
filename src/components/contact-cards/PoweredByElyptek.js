@@ -1,13 +1,7 @@
 import React from 'react';
+import ElyptekWord from '../ElyptekWord';
 
 const ELYPTEK_URL = 'https://elyptek.com';
-const ELYPTEK_ORANGE = '#F8A400';
-
-const linkStyle = {
-  color: ELYPTEK_ORANGE,
-  fontWeight: '700',
-  textDecoration: 'none',
-};
 
 const PoweredByElyptek = ({ currentLanguage = 'EN' }) => {
   const isAr = currentLanguage === 'AR';
@@ -40,9 +34,9 @@ const PoweredByElyptek = ({ currentLanguage = 'EN' }) => {
             title={isAr ? 'إيليبتك — حلول برمجية وتقنية' : 'Elyptek — Software & technology'}
             rel="noopener noreferrer"
             dir="ltr"
-            style={linkStyle}
+            className="elyptek-word-link"
           >
-            Elyptek™
+            <ElyptekWord tm />
           </a>
         </bdi>
       </p>

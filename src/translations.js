@@ -5,7 +5,7 @@ export const translations = {
     services: "Services",
     about: "About",
     team: "Team",
-    projects: "Projects",
+    portfolio: "Portfolio",
     contact: "Contact",
     careersNav: "Careers",
     
@@ -35,7 +35,7 @@ export const translations = {
     // Portfolio
     portfolioTitle: "Our Portfolio",
     portfolioSubtitle: "Recent Work",
-    portfolioDescription: "Discover our latest projects showcasing innovative design and development solutions across various industries",
+    portfolioDescription: "Discover our latest portfolio showcasing innovative design and development solutions across various industries",
     
     // Contact
     contactTitle: "Contact Us",
@@ -126,7 +126,7 @@ export const translations = {
     services: "الخدمات",
     about: "من نحن",
     team: "الفريق",
-    projects: "المشاريع",
+    portfolio: "أعمالنا",
     contact: "اتصل بنا",
     careersNav: "التوظيف",
     
@@ -156,7 +156,7 @@ export const translations = {
     // Portfolio
     portfolioTitle: "أعمالنا",
     portfolioSubtitle: "أحدث الأعمال",
-    portfolioDescription: "اكتشف أحدث مشاريعنا التي تعرض حلول التصميم والتطوير المبتكرة عبر مختلف الصناعات",
+    portfolioDescription: "اكتشف أحدث أعمالنا التي تعرض حلول التصميم والتطوير المبتكرة عبر مختلف الصناعات",
     
     // Contact
     contactTitle: "اتصل بنا",

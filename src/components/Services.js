@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getTranslation } from '../translations';
+import { injectElyptekHtml } from '../utils/textWithElyptek';
 
 const Services = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -215,7 +216,11 @@ const Services = () => {
                           </div>
                           <div className="service-tab-content">
                             <h4>{services[activeTab].content.title}</h4>
-                            <p>{services[activeTab].content.description}</p>
+                            <p
+                              dangerouslySetInnerHTML={{
+                                __html: injectElyptekHtml(services[activeTab].content.description),
+                              }}
+                            />
                             <div className="ticks-list">
                               {services[activeTab].content.features.map((feature, index) => (
                                 <span key={index}>

@@ -1,7 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Header from './components/Header';
-import Banner from './components/Banner';
+import HomePage from './pages/HomePage';
+import SectionPage from './pages/SectionPage';
+import { DrMohammedJubain, CrazyBeeez, MamonAssa, DrNaderAlmzayek, HussamAlhamad, RashidAdas, AbdalrahmanAdas, YassenAltabakh, AnwarSaeedJassem, ShadiSaeedJassem, DeauCacao, ChocoSwamp, Elyptek, GroupImdad, Maydan, DrHadiAlhariri, DrHadiAlomari, KhalilAlokdi, ArkanCeramics, JasminePerfumes, Mazmazeh, Arta } from './components/contact-cards';
+import { ChocoSwampMenu, KousaMe7shiMenu, ChimneyMenu } from './components/menu/index';
+import PageSeo from './seo/PageSeo';
+import './App.css';
+import './styles/elyptek-brand.css';
+import './styles/site-global.css';
+
 import Services from './components/Services';
 import About from './components/About';
 import Team from './components/Team';
@@ -9,38 +17,20 @@ import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import JobApplication from './components/JobApplication';
-import { DrMohammedJubain, CrazyBeeez, MamonAssa, DrNaderAlmzayek, HussamAlhamad, RashidAdas, AbdalrahmanAdas, YassenAltabakh, AnwarSaeedJassem, ShadiSaeedJassem, DeauCacao, ChocoSwamp, Elyptek, GroupImdad, Maydan, DrHadiAlhariri, DrHadiAlomari, KhalilAlokdi, ArkanCeramics, JasminePerfumes, Mazmazeh, Arta } from './components/contact-cards';
-import { ChocoSwampMenu, KousaMe7shiMenu, ChimneyMenu } from './components/menu/index';
-import ContactCardSeo from './components/contact-cards/ContactCardSeo';
-import MenuSeo from './components/menu/MenuSeo';
-import './App.css';
+import ScrollToTop from './components/ScrollToTop';
 
-// Main Home Page Component
-const HomePage = () => {
-  return (
-    <>
-      <Banner />
-      <Services />
-      <About />
-      <Team />
-      <Portfolio />
-      <Contact />
-    </>
-  );
-};
-
-// Layout Component to conditionally render Header and Footer
 const Layout = ({ children }) => {
   const location = useLocation();
   const isContactCard = location.pathname.startsWith('/contact/');
   const isRestaurantMenu = location.pathname.startsWith('/menu/');
   const isFormOnly = location.pathname === '/form';
   const showChrome = !isContactCard && !isRestaurantMenu && !isFormOnly;
+  const shellClass = showChrome ? 'App site-shell' : isFormOnly ? 'App site-shell job-form-shell' : 'App';
 
   return (
-    <div className="App">
-      {isContactCard && <ContactCardSeo />}
-      {isRestaurantMenu && <MenuSeo />}
+    <div className={shellClass}>
+      <PageSeo />
+      <ScrollToTop />
       {showChrome && <Header />}
       {children}
       {showChrome && <Footer />}
@@ -53,9 +43,13 @@ function App() {
     <Router>
       <Layout>
         <Routes>
-          {/* Main Home Page */}
           <Route path="/" element={<HomePage />} />
-          
+          <Route path="/services" element={<SectionPage><Services /></SectionPage>} />
+          <Route path="/about" element={<SectionPage><About /></SectionPage>} />
+          <Route path="/team" element={<SectionPage><Team /></SectionPage>} />
+          <Route path="/portfolio" element={<SectionPage><Portfolio /></SectionPage>} />
+          <Route path="/contact" element={<SectionPage><Contact /></SectionPage>} />
+
           <Route path="/form" element={<JobApplication />} />
 
           {/* Contact Card Routes */}

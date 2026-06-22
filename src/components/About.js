@@ -1,213 +1,266 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import useSiteLanguage from '../hooks/useSiteLanguage';
 import { getTranslation } from '../translations';
+import { SITE_SECTIONS } from '../routes/siteRoutes';
+import ElyptekWord from './ElyptekWord';
 
 const About = () => {
-  const [currentLanguage, setCurrentLanguage] = useState('EN');
+  const lang = useSiteLanguage();
+  const isAr = lang === 'AR';
+  const rtlClass = isAr ? 'rtl-site' : '';
 
-  // Listen for language changes
-  useEffect(() => {
-    const handleLanguageChange = (event) => {
-      setCurrentLanguage(event.detail.language);
-    };
+  const values = [
+    {
+      icon: 'fas fa-lightbulb',
+      title: isAr ? 'الابتكار' : 'Innovation',
+      text: isAr
+        ? 'نستكشف أفكاراً جديدة ونبني حلولاً تسبق توقعات السوق.'
+        : 'We explore fresh ideas and build solutions that stay ahead of expectations.',
+    },
+    {
+      icon: 'fas fa-gem',
+      title: isAr ? 'الجودة' : 'Quality',
+      text: isAr
+        ? 'كل تفصيلة مهمة — من التصميم إلى الكود وخدمة ما بعد الإطلاق.'
+        : 'Every detail matters — from design and code to post-launch support.',
+    },
+    {
+      icon: 'fas fa-handshake',
+      title: isAr ? 'الشراكة' : 'Partnership',
+      text: isAr
+        ? 'نعمل معك كفريق واحد، بشفافية وتواصل مستمر.'
+        : 'We work with you as one team, with transparency and open communication.',
+    },
+    {
+      icon: 'fas fa-chart-line',
+      title: isAr ? 'النتائج' : 'Impact',
+      text: isAr
+        ? 'نقيس النجاح بما يحققه مشروعك من نمو وظهور وعائد.'
+        : 'We measure success by the growth, visibility, and ROI your project delivers.',
+    },
+  ];
 
-    // Get initial language from URL or localStorage
-    const urlParams = new URLSearchParams(window.location.search);
-    const langFromUrl = urlParams.get('lang');
-    const langFromStorage = localStorage.getItem('language');
-    
-    if (langFromUrl && (langFromUrl === 'EN' || langFromUrl === 'AR')) {
-      setCurrentLanguage(langFromUrl);
-    } else if (langFromStorage && (langFromStorage === 'EN' || langFromStorage === 'AR')) {
-      setCurrentLanguage(langFromStorage);
-    }
+  const processSteps = [
+    {
+      step: '01',
+      title: isAr ? 'اكتشاف' : 'Discover',
+      text: isAr
+        ? 'نفهم أهدافك، جمهورك، وتحدياتك الحالية.'
+        : 'We learn your goals, audience, and current challenges.',
+    },
+    {
+      step: '02',
+      title: isAr ? 'تخطيط' : 'Plan',
+      text: isAr
+        ? 'نضع استراتيجية واضحة، جدولاً زمنياً، ونطاق عمل محدداً.'
+        : 'We define a clear strategy, timeline, and scope of work.',
+    },
+    {
+      step: '03',
+      title: isAr ? 'تنفيذ' : 'Build',
+      text: isAr
+        ? 'نصمم، نطور، ونختبر — مع تحديثات منتظمة لك.'
+        : 'We design, develop, and test — with regular updates for you.',
+    },
+    {
+      step: '04',
+      title: isAr ? 'إطلاق ودعم' : 'Launch & Support',
+      text: isAr
+        ? 'نطلق المشروع ونبقى بجانبك للتحسين والنمو.'
+        : 'We launch and stay with you for optimization and growth.',
+    },
+  ];
 
-    window.addEventListener('languageChanged', handleLanguageChange);
-    return () => window.removeEventListener('languageChanged', handleLanguageChange);
-  }, []);
+  const differentiators = [
+    {
+      icon: 'fas fa-layer-group',
+      title: isAr ? 'حلول متكاملة' : 'End-to-end delivery',
+      text: isAr
+        ? 'من الهوية البصرية إلى البرمجيات والتسويق — تحت سقف واحد.'
+        : 'From branding to software and marketing — under one roof.',
+    },
+    {
+      icon: 'fas fa-language',
+      title: isAr ? 'ثنائي اللغة' : 'Bilingual by design',
+      text: isAr
+        ? 'محتوى وواجهات بالعربية والإنجليزية لجمهور أوسع.'
+        : 'Arabic and English content and interfaces for a wider reach.',
+    },
+    {
+      icon: 'fas fa-map-marker-alt',
+      title: isAr ? 'جذور محلية' : 'Local roots',
+      text: isAr
+        ? 'مقرنا في دمشق — نفهم السوق ونبني حلولاً مناسبة له.'
+        : 'Based in Damascus — we understand the market and build for it.',
+    },
+  ];
 
   return (
-  <>
-    <div className="section-divider">
-      <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" style={{display:'block',width:'100%',height:'60px'}}><path fill="rgba(255,167,0,0.8)" d="M0,32L48,37.3C96,43,192,53,288,58.7C384,64,480,64,576,58.7C672,53,768,43,864,37.3C960,32,1056,32,1152,37.3C1248,43,1344,53,1392,58.7L1440,64L1440,80L1392,80C1344,80,1248,80,1152,80C1056,80,960,80,864,80C768,80,672,80,576,80C480,80,384,80,288,80,192,80,96,80,48,80L0,80Z"></path></svg>
-    </div>
-    <div id="about" className={`about section ${currentLanguage === 'AR' ? 'rtl-about' : ''}`}>
+    <div id="about" className={`about-page ${rtlClass} ${isAr ? 'rtl-about' : ''}`} dir={isAr ? 'rtl' : 'ltr'}>
       <div className="container">
-        <div className="row">
-          <div className="col-lg-12">
-            <div className="row">
-              <div className="col-lg-6 order-lg-1 order-2">
-                <div className="about-left-image wow fadeInLeft about-image-desktop-margin" data-wow-duration="1s" data-wow-delay="0.5s">
-                  <img src="assets/images/About us.png" alt="" />
-                </div>
-              </div>
-              <div className="col-lg-6 align-self-center wow fadeInRight order-lg-2 order-1" data-wow-duration="1s" data-wow-delay="0.5s">
-                <div className="about-right-content">
-                  <div className="section-heading" style={{
-                    textAlign: currentLanguage === 'AR' ? 'center' : 'left'
-                  }}>
-                    <h6 style={{
-                      textAlign: currentLanguage === 'AR' ? 'right' : 'left'
-                    }} 
-                    className="about-subtitle"
-                    >{getTranslation('aboutTitle', currentLanguage)}</h6>
-                    <h4 
-                      dangerouslySetInnerHTML={{
-                        __html: currentLanguage === 'AR' 
-                          ? 'من هو إيليبـ<em>تيك</em>' 
-                          : 'Who is Elyp<em>tek</em>'
-                      }}
-                      style={{
-                        textAlign: currentLanguage === 'AR' ? 'right' : 'left',
-                        '@media (max-width: 768px)': {
-                          textAlign: 'center'
-                        }
-                      }}
-                      className="about-heading"
-                    />
-                    <div className="line-dec about-line" style={{
-                      marginLeft: currentLanguage === 'AR' ? 'auto' : '0',
-                      marginRight: currentLanguage === 'AR' ? '0' : '0'
-                    }}></div>
-                  </div>
-                  <p>
-                    {currentLanguage === 'AR' 
-                      ? 'في إيليبتك، نؤمن أن النجاح الرقمي الحقيقي يبدأ بفكرة جريئة، وينمو من خلال استراتيجية ذكية، ويأتي إلى الحياة من خلال التنفيذ الخبير. نحن وكالة إبداعية متخصصة في التسويق الرقمي وتصميم المواقع والتطوير، نساعد العلامات التجارية على التميز والتفاعل والازدهار في عالم اليوم الرقمي سريع الخطى.'
-                      : 'At Elyptek , we believe that true digital success begins with a bold idea , grows through smart strategy , and comes to life through expert execution . We are a creative agency specializing in digital marketing , website design , and development , helping brands stand out , engage , and thrive in today\'s fast-paced digital world .'
-                    }
-                  </p>
-                  <p>
-                    {currentLanguage === 'AR'
-                      ? 'منذ إطلاقنا، تعاونا مع عملاء من مختلف الصناعات لتقديم حلول متكاملة تبدأ ببناء هوية رقمية قوية وتمتد إلى إنشاء مواقع ويب مؤثرة وحملات تسويقية محققة للنتائج.'
-                      : 'Since our launch , we\'ve partnered with clients across various industries to deliver integrated solutions that start with building a strong digital identity and extend to creating impactful websites and result-driven marketing campaigns .'
-                    }
-                  </p>
-                 
-                </div>
-              </div>
+        <div className="section-heading wow fadeInDown about-page-hero" data-wow-duration="1s" data-wow-delay="0.2s">
+          <h6>{getTranslation('aboutTitle', lang)}</h6>
+          <h4>
+            {isAr ? (
+              <>
+                قصة <ElyptekWord /> ورؤيتنا
+              </>
+            ) : (
+              <>
+                The <ElyptekWord /> Story & Vision
+              </>
+            )}
+          </h4>
+          <div className="line-dec" />
+          <p className="site-lead">
+            {isAr
+              ? 'وكالة دمشقية للحلول الرقمية — نحوّل الأفكار إلى منتجات وتجارب تُحدث فرقاً.'
+              : 'A Damascus-based digital agency — turning ideas into products and experiences that make a difference.'}
+          </p>
+        </div>
+
+        <div className="row about-mission-row">
+          <div className="col-md-6">
+            <div className="site-card about-mission-card wow fadeInUp" data-wow-delay="0.2s">
+              <span className="site-card-icon">
+                <i className="fas fa-bullseye" />
+              </span>
+              <h5>{isAr ? 'مهمتنا' : 'Our Mission'}</h5>
+              <p>
+                {isAr
+                  ? 'تمكين الشركات والعلامات من النمو الرقمي عبر استراتيجيات ذكية وتنفيذ تقني احترافي — من أول فكرة حتى إطلاق ناجح.'
+                  : 'Empower businesses and brands to grow digitally through smart strategy and expert execution — from first idea to successful launch.'}
+              </p>
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="site-card about-mission-card wow fadeInUp" data-wow-delay="0.35s">
+              <span className="site-card-icon">
+                <i className="fas fa-eye" />
+              </span>
+              <h5>{isAr ? 'رؤيتنا' : 'Our Vision'}</h5>
+              <p>
+                {isAr
+                  ? 'أن نكون الشريك الرقمي الأول للشركات في سوريا والمنطقة — معروفين بالإبداع، الموثوقية، والنتائج القابلة للقياس.'
+                  : 'To be the go-to digital partner for businesses in Syria and the region — known for creativity, reliability, and measurable results.'}
+              </p>
             </div>
           </div>
         </div>
-        <div className="row justify-content-center" style={{marginTop: '40px'}}>
-          <div className="col-lg-8 text-center">
-            <h5 style={{marginBottom: '24px', color: '#ffa700', fontWeight: '600'}}> 
-              {currentLanguage === 'AR' ? 'تشمل خدماتنا:' : 'Our Services Include:'} 
-            </h5>
-            <div className="services-list">
-              <div className="service-item">
-                <i className="fas fa-users"></i>
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: currentLanguage === 'AR' 
-                      ? 'إدارة احترافية لصفحات <b>فيسبوك</b> و <b>إنستغرام</b>'
-                      : 'Professional management of <b>Facebook</b> and <b>Instagram</b> pages'
-                  }}
-                />
+
+        <div className="about-page-block">
+          <div className="section-heading">
+            <h6>{isAr ? 'قيمنا' : 'Our Values'}</h6>
+            <h4>
+              {isAr ? 'ما ' : 'What '}
+              <em>{isAr ? 'نؤمن به' : 'We Stand For'}</em>
+            </h4>
+            <div className="line-dec" />
+          </div>
+          <div className="row site-card-grid">
+            {values.map((item) => (
+              <div key={item.title} className="col-md-6 col-lg-3">
+                <div className="site-card site-card--center">
+                  <span className="site-card-icon">
+                    <i className={item.icon} />
+                  </span>
+                  <h5>{item.title}</h5>
+                  <p>{item.text}</p>
+                </div>
               </div>
-              <div className="service-item">
-                <i className="fas fa-pen-nib"></i>
-                <span>
-                  {currentLanguage === 'AR'
-                    ? 'كتابة محتوى إبداعي ونشر منشورات جذابة'
-                    : 'Creative content writing and engaging post publishing'
-                  }
-                </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="about-page-block about-page-block--muted">
+          <div className="section-heading">
+            <h6>{isAr ? 'كيف نعمل' : 'How We Work'}</h6>
+            <h4>
+              {isAr ? 'من الفكرة إلى ' : 'From Idea to '}
+              <em>{isAr ? 'الإطلاق' : 'Launch'}</em>
+            </h4>
+            <div className="line-dec" />
+          </div>
+          <div className="about-process-grid">
+            {processSteps.map((item) => (
+              <div key={item.step} className="about-process-step wow fadeInUp">
+                <span className="about-process-number">{item.step}</span>
+                <h5>{item.title}</h5>
+                <p>{item.text}</p>
               </div>
-              <div className="service-item">
-                <i className="fas fa-lightbulb"></i>
-                <span>
-                  {currentLanguage === 'AR'
-                    ? 'استراتيجيات أعمال مبتكرة مخصصة لاحتياجاتك'
-                    : 'Innovative business strategies tailored to your needs'
-                  }
-                </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="about-page-block">
+          <div className="section-heading">
+            <h6>
+              {isAr ? (
+                <>
+                  لماذا <ElyptekWord />؟
+                </>
+              ) : (
+                <>
+                  Why <ElyptekWord />?
+                </>
+              )}
+            </h6>
+            <h4>
+              {isAr ? 'ما ' : 'What Sets Us '}
+              <em>{isAr ? 'يميزنا' : 'Apart'}</em>
+            </h4>
+            <div className="line-dec" />
+          </div>
+          <div className="row site-card-grid">
+            {differentiators.map((item) => (
+              <div key={item.title} className="col-md-4">
+                <div className="site-card">
+                  <span className="site-card-icon">
+                    <i className={item.icon} />
+                  </span>
+                  <h5>{item.title}</h5>
+                  <p>{item.text}</p>
+                </div>
               </div>
-              <div className="service-item">
-                <i className="fas fa-laptop-code"></i>
-                <span>
-                  {currentLanguage === 'AR'
-                    ? 'تطوير مواقع ويب متميزة تعكس رؤيتك'
-                    : 'Development of standout websites that reflect your vision'
-                  }
-                </span>
-              </div>
-              <div className="service-item">
-                <i className="fas fa-paint-brush"></i>
-                <span>
-                  {currentLanguage === 'AR'
-                    ? 'حلول تسويقية شاملة، تشمل الملصقات والكتيبات والهوية البصرية والشعارات والتصميم'
-                    : 'Comprehensive marketing solutions, including posters, brochures, visual identity, logos, and design'
-                  }
-                </span>
-              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="about-page-cta wow fadeInUp">
+          <div className="site-cta-inner">
+            <div>
+              <h3>
+                {isAr ? (
+                  'تعرّف على الفريق'
+                ) : (
+                  <>
+                    Meet the people behind <ElyptekWord onDark />
+                  </>
+                )}
+              </h3>
+              <p>
+                {isAr
+                  ? 'اكتشف من يقود المشاريع، أو تواصل معنا لبدء مشروعك القادم.'
+                  : 'Discover who leads our projects, or get in touch to start your next one.'}
+              </p>
             </div>
-            <p style={{marginTop: '30px', fontSize: '16px', lineHeight: '1.6'}}>
-              {currentLanguage === 'AR'
-                ? 'نحن هنا لمساعدتك في نمو علامتك التجارية وتحقيق أهدافك. دعنا نعمل معاً لخلق شيء مذهل.'
-                : 'We are here to help you grow your brand and achieve your goals. Let\'s work together to create something amazing.'
-              }
-            </p>
-            <div className="row justify-content-center about-skills-row" style={{marginTop: '30px'}}>
-              <div className="col-lg-4 col-sm-4">
-                <div className="skill-item first-skill-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
-                  <div className="progress" data-percentage="80">
-                    <span className="progress-left">
-                      <span className="progress-bar"></span>
-                    </span>
-                    <span className="progress-right">
-                      <span className="progress-bar"></span>
-                    </span>
-                    <div className="progress-value">
-                      <div>
-                        100%<br />
-                        <span>{currentLanguage === 'AR' ? 'حلول مخصصة' : 'Tailored Solutions'}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-4 col-sm-4">
-                <div className="skill-item second-skill-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
-                  <div className="progress" data-percentage="80">
-                    <span className="progress-left">
-                      <span className="progress-bar"></span>
-                    </span>
-                    <span className="progress-right">
-                      <span className="progress-bar"></span>
-                    </span>
-                    <div className="progress-value">
-                      <div>
-                        100%<br />
-                        <span>{currentLanguage === 'AR' ? 'فريق خبير' : 'Expert Team'}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-4 col-sm-4">
-                <div className="skill-item third-skill-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
-                  <div className="progress" data-percentage="80">
-                    <span className="progress-left">
-                      <span className="progress-bar"></span>
-                    </span>
-                    <span className="progress-right">
-                      <span className="progress-bar"></span>
-                    </span>
-                    <div className="progress-value">
-                      <div>
-                        100%<br />
-                        <span>{currentLanguage === 'AR' ? 'الابتكار في القلب' : 'Innovation at Heart'}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="site-cta-actions">
+              <Link to={SITE_SECTIONS.team} className="main-button">
+                {getTranslation('team', lang)}
+              </Link>
+              <Link to={SITE_SECTIONS.services} className="main-button site-btn-secondary">
+                {getTranslation('services', lang)}
+              </Link>
+              <Link to={SITE_SECTIONS.contact} className="main-button site-btn-dark">
+                {getTranslation('contact', lang)}
+              </Link>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </>
   );
 };
 
-export default About; 
+export default About;
