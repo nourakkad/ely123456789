@@ -12,6 +12,7 @@ import JobApplication from './components/JobApplication';
 import { DrMohammedJubain, CrazyBeeez, MamonAssa, DrNaderAlmzayek, HussamAlhamad, RashidAdas, AbdalrahmanAdas, YassenAltabakh, AnwarSaeedJassem, ShadiSaeedJassem, DeauCacao, ChocoSwamp, Elyptek, GroupImdad, Maydan, DrHadiAlhariri, DrHadiAlomari, KhalilAlokdi, ArkanCeramics, JasminePerfumes, Mazmazeh, Arta } from './components/contact-cards';
 import { ChocoSwampMenu, KousaMe7shiMenu, ChimneyMenu } from './components/menu/index';
 import ContactCardSeo from './components/contact-cards/ContactCardSeo';
+import MenuSeo from './components/menu/MenuSeo';
 import './App.css';
 
 // Main Home Page Component
@@ -39,6 +40,7 @@ const Layout = ({ children }) => {
   return (
     <div className="App">
       {isContactCard && <ContactCardSeo />}
+      {isRestaurantMenu && <MenuSeo />}
       {showChrome && <Header />}
       {children}
       {showChrome && <Footer />}

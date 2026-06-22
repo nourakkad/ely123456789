@@ -83,7 +83,7 @@ export const translations = {
     footerQuote: "Empowering businesses through innovative digital solutions",
     quickLinks: "Quick Links",
     contactInfo: "Contact Information",
-    copyright: "© 2024 Elyptek. All rights reserved.",
+    copyright: "© 2026 Elyptek. All rights reserved.",
     
     // Country codes (keep as is since they're already in English)
     countryCodes: [
@@ -204,7 +204,7 @@ export const translations = {
     footerQuote: "تمكين الشركات من خلال الحلول الرقمية المبتكرة",
     quickLinks: "روابط سريعة",
     contactInfo: "معلومات الاتصال",
-    copyright: "© 2024 إيليبتك. جميع الحقوق محفوظة.",
+    copyright: "© 2026 Elyptek. جميع الحقوق محفوظة.",
     
     // Country codes in Arabic
     countryCodes: [

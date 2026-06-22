@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PoweredByElyptek from '../contact-cards/PoweredByElyptek';
 import useBilingualLanguage from './useBilingualLanguage';
 
 /**
@@ -111,30 +112,15 @@ const RestaurantMenuBase = ({ restaurant, colors, categories = [] }) => {
         }
       `}</style>
       <div
-        dir="ltr"
         style={{
           display: 'flex',
-          justifyContent: 'space-between',
+          justifyContent: 'flex-end',
           alignItems: 'center',
           width: '100%',
           maxWidth: '420px',
           marginBottom: '12px',
         }}
       >
-        <a href="https://elyptek.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
-          <img
-            src="/assets/images/logo12.png"
-            alt="Elyptek"
-            style={{ maxWidth: '100px', maxHeight: '100px', objectFit: 'contain', transition: 'all 0.3s ease' }}
-            onMouseOver={(e) => {
-              e.target.style.transform = 'scale(1.05)';
-            }}
-            onMouseOut={(e) => {
-              e.target.style.transform = 'scale(1)';
-            }}
-          />
-        </a>
-
         <button
           type="button"
           onClick={toggleLanguage}
@@ -492,6 +478,8 @@ const RestaurantMenuBase = ({ restaurant, colors, categories = [] }) => {
           </div>
         )}
       </div>
+
+      <PoweredByElyptek currentLanguage={currentLanguage} />
 
       {expandedDish && (
         <div

@@ -4,6 +4,8 @@ import { CONTACT_EMAIL } from '../env/publicConfig';
 
 const Footer = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
+  const year = new Date().getFullYear();
+  const isAr = currentLanguage === 'AR';
 
   // Listen for language changes
   useEffect(() => {
@@ -104,9 +106,18 @@ const Footer = () => {
     <div className="footer-bottom">
       <div className="container">
         <div className="footer-bottom-row">
-          <p className="copyright">
-            © 2025 <span className="footer-brand">Elyptek</span>. 
-            {currentLanguage === 'AR' ? 'جميع الحقوق محفوظة.' : 'All Rights Reserved.'}
+          <p
+            className="copyright"
+            dir={isAr ? 'rtl' : 'ltr'}
+            style={{ direction: isAr ? 'rtl' : 'ltr' }}
+          >
+            © {year}{' '}
+            <bdi>
+              <span className="footer-brand" dir="ltr">
+              Elyptek™
+              </span>
+            </bdi>
+            . {isAr ? 'جميع الحقوق محفوظة.' : 'All Rights Reserved.'}
           </p>
         </div>
       </div>
