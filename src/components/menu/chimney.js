@@ -111,7 +111,7 @@ const categories = [
       item('ذرة مع قشقوان', 'Corn with Kashkaval', undefined, 'Corn with Kashkaval.jpg'),
       item('بيتزا', 'Pizza', undefined, 'Pizza.jpg'),
       item('لحومات باردة مع قشقوان', 'Cold Cuts with Kashkaval', undefined, 'Cold Cuts with Kashkaval.jpg'),
-      item('شوكولا', 'Chocolate', chocolateManouche, 'Chocolate.jpg'),
+      item('شوكولا', 'Chocolate', chocolateManouche, 'Chocolate Milkshake.jpg'),
       item('قشطة وعسل وموز', 'Cream & Honey & Banana', undefined, 'Cream & Honey & banana.jpg'),
       item('قشطة وعسل ومكسرات', 'Cream & Honey & Nuts', undefined, 'Cream & Honey & Nuts.jpg'),
     ],
@@ -120,7 +120,7 @@ const categories = [
     id: 'juices',
     title: { en: 'Juices', ar: 'عصائر' },
     items: [
-      item('منغا', 'Mango', undefined, 'Mango.jpg'),
+      item('منغا', 'Mango', undefined, '1Mango.jpg'),
       item('برتقال', 'Orange', undefined, 'Orange.jpeg'),
       item('رمان', 'Pomegranate', undefined, 'Pomegranate.jpg'),
       item('فريز', 'Strawberry', undefined, 'Strawberry.jpg'),
@@ -160,7 +160,7 @@ const categories = [
     items: [
       item('ميلك شيك أوريو', 'Oreo Milkshake', undefined, 'Oreo Milkshake.jpg'),
       item('ميلك شيك فانيل', 'Vanilla Milkshake', undefined, 'Vanilla Milkshake.jpeg'),
-      item('ميلك شيك شوكولا', 'Chocolate Milkshake', undefined, 'Chocolate Milkshake.jpg'),
+      item('ميلك شيك شوكولا', 'Chocolate Milkshake', undefined, 'Chocolate Milkshake.jpeg'),
       item('ميلك شيك سيريلاك سادة', 'Plain Cerealac Milkshake', undefined, 'Plain Cerealac Milkshake.jpg'),
       item('ميلك شيك سيريلاك + كورن فليكس', 'Cerealac & Corn Flakes Milkshake', undefined, 'Cerealac & Corn Flakes Milkshake.jpeg'),
       item('ميلك شيك سيريلاك + مارشميلو', 'Cerealac & Marshmallow Milkshake', undefined, 'Cerealac & Marshmallow Milkshake.jpeg'),
