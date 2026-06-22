@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PoweredByElyptek from './PoweredByElyptek';
 
 const YassenAltabakh = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
@@ -53,40 +54,14 @@ const YassenAltabakh = () => {
       {/* Header */}
       <div style={{
         display: 'flex',
-        justifyContent: 'space-between',
+        justifyContent: 'flex-end',
         alignItems: 'center',
         width: '100%',
         maxWidth: '360px',
         marginBottom: '12px'
       }}>
         {/* Elyptek Logo */}
-        <div>
-          <a 
-            href="https://elyptek.com" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            style={{ textDecoration: 'none' }}
-          >
-            <img 
-              src="/assets/images/logo12.png" 
-              alt="Elyptek"
-              style={{
-                maxWidth: '100px',
-                maxHeight: '100px',
-                objectFit: 'contain',
-                transition: 'all 0.3s ease'
-              }}
-              onMouseOver={(e) => {
-                e.target.style.transform = 'scale(1.05)';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.transform = 'scale(1)';
-              }}
-            />
-          </a>
-        </div>
-
-        {/* Language Switcher */}
+{/* Language Switcher */}
         <button
           onClick={() => {
             const newLang = currentLanguage === 'EN' ? 'AR' : 'EN';
@@ -147,7 +122,7 @@ const YassenAltabakh = () => {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          justifyContent: 'space-between',
+          justifyContent: 'flex-end',
           padding: '28px'
         }}>
           {/* Profile Section */}
@@ -445,6 +420,7 @@ const YassenAltabakh = () => {
       
         </div>
       </div>
+      <PoweredByElyptek currentLanguage={currentLanguage} />
     </div>
   );
 };

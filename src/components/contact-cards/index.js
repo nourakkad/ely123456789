@@ -12,7 +12,7 @@ export { default as DeauCacao } from './deau-cacao';
 export { default as ChocoSwamp } from './chocoswamp';
 export { default as Elyptek } from './elyptek';
 export { default as GroupImdad } from './group-imdad';
-export { default as MuhammedAladdinHaymour } from './muhammed-aladdin-haymour';
+export { default as Maydan } from './maydan';
 export { default as DrHadiAlhariri } from './dr-hadi-alhariri';
 export { default as DrHadiAlomari } from './dr-hadi-alomari';
 export { default as KhalilAlokdi } from './khalil-alokdi';

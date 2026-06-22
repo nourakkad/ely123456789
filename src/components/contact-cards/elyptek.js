@@ -89,28 +89,14 @@ const Elyptek = () => {
       <div
         style={{
           display: 'flex',
-          justifyContent: 'space-between',
+          justifyContent: 'flex-end',
           alignItems: 'center',
           width: '100%',
           maxWidth: '360px',
           marginBottom: '12px',
         }}
       >
-        <a href={SITE} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
-          <img
-            src="/assets/images/logo12.png"
-            alt="Elyptek"
-            style={{ maxWidth: '100px', maxHeight: '100px', objectFit: 'contain', transition: 'all 0.3s ease' }}
-            onMouseOver={(e) => {
-              e.target.style.transform = 'scale(1.05)';
-            }}
-            onMouseOut={(e) => {
-              e.target.style.transform = 'scale(1)';
-            }}
-          />
-        </a>
-
-        <button
+<button
           type="button"
           onClick={() => {
             const newLang = currentLanguage === 'EN' ? 'AR' : 'EN';
@@ -162,7 +148,7 @@ const Elyptek = () => {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'space-between',
+            justifyContent: 'flex-end',
             padding: '28px',
           }}
         >

@@ -9,8 +9,9 @@ import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import JobApplication from './components/JobApplication';
-import { DrMohammedJubain, CrazyBeeez, MamonAssa, DrNaderAlmzayek, HussamAlhamad, RashidAdas, AbdalrahmanAdas, YassenAltabakh, AnwarSaeedJassem, ShadiSaeedJassem, DeauCacao, ChocoSwamp, Elyptek, GroupImdad, MuhammedAladdinHaymour, DrHadiAlhariri, DrHadiAlomari, KhalilAlokdi, ArkanCeramics, JasminePerfumes, Mazmazeh, Arta } from './components/contact-cards';
+import { DrMohammedJubain, CrazyBeeez, MamonAssa, DrNaderAlmzayek, HussamAlhamad, RashidAdas, AbdalrahmanAdas, YassenAltabakh, AnwarSaeedJassem, ShadiSaeedJassem, DeauCacao, ChocoSwamp, Elyptek, GroupImdad, Maydan, DrHadiAlhariri, DrHadiAlomari, KhalilAlokdi, ArkanCeramics, JasminePerfumes, Mazmazeh, Arta } from './components/contact-cards';
 import { ChocoSwampMenu, KousaMe7shiMenu, ChimneyMenu } from './components/menu/index';
+import ContactCardSeo from './components/contact-cards/ContactCardSeo';
 import './App.css';
 
 // Main Home Page Component
@@ -37,6 +38,7 @@ const Layout = ({ children }) => {
 
   return (
     <div className="App">
+      {isContactCard && <ContactCardSeo />}
       {showChrome && <Header />}
       {children}
       {showChrome && <Footer />}
@@ -70,7 +72,8 @@ function App() {
           <Route path="/contact/elyptek" element={<Elyptek />} />
           <Route path="/contact/group-imdad" element={<GroupImdad />} />
           <Route path="/contact/group-imdadex" element={<Navigate to="/contact/group-imdad" replace />} />
-          <Route path="/contact/muhammed-aladdin-haymour" element={<MuhammedAladdinHaymour />} />
+          <Route path="/contact/maydan" element={<Maydan />} />
+          <Route path="/contact/muhammed-aladdin-haymour" element={<Navigate to="/contact/maydan" replace />} />
           <Route path="/contact/dr-hadi-alhariri" element={<DrHadiAlhariri />} />
           <Route path="/contact/dr-hadi-alomari" element={<DrHadiAlomari />} />
           <Route path="/contact/khalil-alokdi" element={<KhalilAlokdi />} />

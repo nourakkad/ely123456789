@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import PoweredByElyptek from './PoweredByElyptek';
 
-const MuhammedAladdinHaymour = () => {
+const Maydan = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
 
-  // Listen for language changes
   useEffect(() => {
     const handleLanguageChange = (event) => {
       setCurrentLanguage(event.detail.language);
     };
 
-    // Get initial language from URL or localStorage
     const urlParams = new URLSearchParams(window.location.search);
     const langFromUrl = urlParams.get('lang');
     const langFromStorage = localStorage.getItem('language');
-    
+
     if (langFromUrl && (langFromUrl === 'EN' || langFromUrl === 'AR')) {
       setCurrentLanguage(langFromUrl);
     } else if (langFromStorage && (langFromStorage === 'EN' || langFromStorage === 'AR')) {
@@ -25,7 +23,57 @@ const MuhammedAladdinHaymour = () => {
     return () => window.removeEventListener('languageChanged', handleLanguageChange);
   }, []);
 
-  const doctorInfo = {
+  const c = {
+    charcoal: '#545454',
+    charcoalDark: '#3F3F3F',
+    silver: '#D1D1D1',
+    wash: '#EBEBEB',
+    ink: '#3D3D3D',
+  };
+  const prim = c.charcoal;
+  const primHover = c.charcoalDark;
+  const accent = c.silver;
+  const light = c.wash;
+
+  const btnBase = {
+    backgroundColor: prim,
+    color: accent,
+    padding: '12px',
+    borderRadius: '50%',
+    boxShadow: `0 4px 12px rgba(84, 84, 84, 0.35)`,
+    transition: 'all 0.3s ease',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '48px',
+    height: '48px',
+  };
+
+  const iconBadgeStyle = {
+    backgroundColor: prim,
+    padding: '8px',
+    borderRadius: '50%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '32px',
+    height: '32px',
+    flexShrink: 0,
+  };
+
+  const onBtnOver = (e) => {
+    e.currentTarget.style.backgroundColor = primHover;
+    e.currentTarget.style.transform = 'translateY(-2px)';
+    e.currentTarget.style.boxShadow = '0 6px 16px rgba(84, 84, 84, 0.45)';
+  };
+
+  const onBtnOut = (e) => {
+    e.currentTarget.style.backgroundColor = prim;
+    e.currentTarget.style.transform = 'translateY(0)';
+    e.currentTarget.style.boxShadow = '0 4px 12px rgba(84, 84, 84, 0.35)';
+  };
+
+  const contactInfo = {
     title: currentLanguage === 'AR' ? 'مايدان كرييتيف ستوديو' : 'Maydan Creative Studio',
     category: currentLanguage === 'AR' ? 'محمد حيمور — مؤسس شريك' : 'Mohamad Haymour Co / Founder',
     image: '/assets/logo/maydan.png',
@@ -47,7 +95,6 @@ const MuhammedAladdinHaymour = () => {
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat'
     }}>
-      {/* Header */}
       <div style={{
         display: 'flex',
         justifyContent: 'flex-end',
@@ -56,9 +103,8 @@ const MuhammedAladdinHaymour = () => {
         maxWidth: '360px',
         marginBottom: '12px'
       }}>
-        {/* Elyptek Logo */}
-{/* Language Switcher */}
-        <button
+<button
+          type="button"
           onClick={() => {
             const newLang = currentLanguage === 'EN' ? 'AR' : 'EN';
             setCurrentLanguage(newLang);
@@ -68,37 +114,36 @@ const MuhammedAladdinHaymour = () => {
           style={{
             padding: '10px 18px',
             backgroundColor: 'rgba(255, 255, 255, 0.9)',
-            color: '#000',
-            border: '2px solid #000',
+            color: prim,
+            border: `2px solid ${prim}`,
             borderRadius: '25px',
             fontSize: '14px',
             fontWeight: '700',
             cursor: 'pointer',
             transition: 'all 0.3s ease',
             backdropFilter: 'blur(15px)',
-            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
+            boxShadow: '0 4px 15px rgba(84, 84, 84, 0.2)',
             minWidth: '80px',
             textAlign: 'center',
             letterSpacing: '0.5px'
           }}
           onMouseOver={(e) => {
-            e.target.style.backgroundColor = '#000';
-            e.target.style.color = '#fff';
+            e.target.style.backgroundColor = prim;
+            e.target.style.color = accent;
             e.target.style.transform = 'translateY(-2px)';
-            e.target.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.4)';
+            e.target.style.boxShadow = '0 6px 20px rgba(84, 84, 84, 0.35)';
           }}
           onMouseOut={(e) => {
             e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
-            e.target.style.color = '#000';
+            e.target.style.color = prim;
             e.target.style.transform = 'translateY(0)';
-            e.target.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
+            e.target.style.boxShadow = '0 4px 15px rgba(84, 84, 84, 0.2)';
           }}
         >
           {currentLanguage === 'EN' ? 'العربية' : 'English'}
         </button>
       </div>
 
-      {/* Main Card */}
       <div style={{
         width: '100%',
         maxWidth: '360px',
@@ -112,16 +157,15 @@ const MuhammedAladdinHaymour = () => {
           minHeight: '360px',
           backgroundColor: 'rgba(255, 255, 255, 0.85)',
           backdropFilter: 'blur(20px)',
-          border: '1px solid rgba(255, 255, 255, 0.3)',
+          border: `1px solid ${accent}`,
           borderRadius: '28px',
-          boxShadow: '0 25px 50px rgba(0, 0, 0, 0.25)',
+          boxShadow: '0 25px 50px rgba(84, 84, 84, 0.25)',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'flex-end',
           padding: '28px'
         }}>
-          {/* Profile Section */}
           <div style={{
             display: 'flex',
             flexDirection: 'column',
@@ -129,32 +173,36 @@ const MuhammedAladdinHaymour = () => {
             width: '100%'
           }}>
             <img
-              src={doctorInfo.image}
-              alt={doctorInfo.title}
+              src={contactInfo.image}
+              alt={contactInfo.title}
               style={{
                 width: '100px',
                 height: '100px',
                 borderRadius: '50%',
-                border: '4px solid #000',
-                boxShadow: '0 8px 25px rgba(0, 0, 0, 0.3)',
+                border: `4px solid ${accent}`,
+                boxShadow: `0 8px 25px rgba(84, 84, 84, 0.35)`,
                 marginBottom: '12px',
-                objectFit: 'cover'
+                objectFit: 'contain',
+                backgroundColor: prim,
+                padding: '8px',
+                boxSizing: 'border-box',
               }}
             />
             <h2 style={{
               fontSize: '22px',
               fontWeight: '800',
-              color: '#000',
+              color: prim,
               margin: '4px 0 0 0',
               textAlign: 'center'
             }}>
-              {doctorInfo.title}
+              {contactInfo.title}
             </h2>
-         
+
             <span style={{
               display: 'inline-block',
-              backgroundColor: '#f0f0f0',
-              color: '#000',
+              backgroundColor: light,
+              color: c.ink,
+              border: `1px solid ${accent}`,
               padding: '6px 14px',
               borderRadius: '18px',
               fontSize: '13px',
@@ -162,125 +210,54 @@ const MuhammedAladdinHaymour = () => {
               marginBottom: '12px',
               textAlign: 'center'
             }}>
-              {doctorInfo.category}
+              {contactInfo.category}
             </span>
           </div>
 
-          
-          {/* Quick Actions */}
           <div style={{
             display: 'flex',
             justifyContent: 'center',
             gap: '12px',
             marginTop: '16px'
           }}>
-            <a 
-              href={`tel:${doctorInfo.phone}`}
-              style={{
-                backgroundColor: '#000',
-                color: '#fff',
-                padding: '12px',
-                borderRadius: '50%',
-                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
-                transition: 'all 0.3s ease',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: '48px',
-                height: '48px'
-              }}
-              onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#333';
-                e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 6px 16px rgba(0, 0, 0, 0.4)';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.backgroundColor = '#000';
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.3)';
-              }}
+            <a
+              href={`tel:${contactInfo.phone}`}
+              style={btnBase}
+              onMouseOver={onBtnOver}
+              onMouseOut={onBtnOut}
+              aria-label="Phone"
             >
               <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '20px', height: '20px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.516 2.064a2 2 0 01-.45 1.958l-1.27 1.27a16.001 16.001 0 006.586 6.586l1.27-1.27a2 2 0 011.958-.45l2.064.516A2 2 0 0121 18.72V21a2 2 0 01-2 2h-1C9.163 23 1 14.837 1 5V4a2 2 0 012-2z" />
               </svg>
             </a>
-            <a 
-  href={doctorInfo.instagram}
-  target="_blank"
-  rel="noopener noreferrer"
-  style={{
-    backgroundColor: '#000',
-    color: '#fff',
-    padding: '12px',
-    borderRadius: '50%',
-    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
-    transition: 'all 0.3s ease',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '48px',
-    height: '48px'
-  }}
-  onMouseOver={(e) => {
-    e.target.style.backgroundColor = '#333';
-    e.target.style.transform = 'translateY(-2px)';
-    e.target.style.boxShadow = '0 6px 16px rgba(0, 0, 0, 0.4)';
-  }}
-  onMouseOut={(e) => {
-    e.target.style.backgroundColor = '#000';
-    e.target.style.transform = 'translateY(0)';
-    e.target.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.3)';
-  }}
->
-  <i className="fab fa-instagram" style={{ fontSize: '20px' }}></i>
-</a>
 
-            <a 
-              href={`https://wa.me/963988386080`}
+            <a
+              href="https://wa.me/963988386080"
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                backgroundColor: '#000',
-                color: '#fff',
-                padding: '12px',
-                borderRadius: '50%',
-                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
-                transition: 'all 0.3s ease',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: '48px',
-                height: '48px'
-              }}
-              onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#333';
-                e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 6px 16px rgba(0, 0, 0, 0.4)';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.backgroundColor = '#000';
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.3)';
-              }}
+              style={btnBase}
+              onMouseOver={onBtnOver}
+              onMouseOut={onBtnOut}
+              aria-label="WhatsApp"
             >
               <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '20px', height: '20px' }} fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.52 3.48A11.77 11.77 0 0012.02 0C5.61 0 .25 5.35.25 11.74c0 2.07.55 4.1 1.6 5.9L0 24l6.52-1.7a11.68 11.68 0 005.49 1.4h.01c6.41 0 11.77-5.36 11.77-11.75 0-3.15-1.22-6.11-3.47-8.47zm-8.5 18.2c-1.7 0-3.39-.46-4.86-1.33l-.35-.2-3.87 1.01 1.03-3.77-.23-.39a9.72 9.72 0 01-1.46-5.1c0-5.4 4.4-9.8 9.81-9.8a9.72 9.72 0 016.94 2.87 9.63 9.63 0 012.87 6.93c0 5.4-4.4 9.8-9.8 9.8zm5.45-7.42c-.3-.15-1.76-.87-2.03-.96-.27-.1-.47-.15-.66.15-.19.3-.76.95-.93 1.14-.17.2-.34.22-.64.07a7.88 7.88 0 01-2.3-1.42 8.62 8.62 0 01-1.6-2.03c-.17-.3-.02-.47.13-.62.14-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.19.05-.37-.02-.52-.08-.15-.66-1.6-.91-2.18-.24-.57-.48-.49-.66-.5h-.57c-.2 0-.52.07-.79.35-.27.3-1.03 1-1.03 2.43s1.05 2.82 1.2 3.01c.15.19 2.06 3.16 5 4.43.7.3 1.24.48 1.67.61.7.22 1.34.19 1.84.11.56-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.18-1.42-.07-.13-.27-.2-.57-.34z"/>
+                <path d="M20.52 3.48A11.77 11.77 0 0012.02 0C5.61 0 .25 5.35.25 11.74c0 2.07.55 4.1 1.6 5.9L0 24l6.52-1.7a11.68 11.68 0 005.49 1.4h.01c6.41 0 11.77-5.36 11.77-11.75 0-3.15-1.22-6.11-3.47-8.47zm-8.5 18.2c-1.7 0-3.39-.46-4.86-1.33l-.35-.2-3.87 1.01 1.03-3.77-.23-.39a9.72 9.72 0 01-1.46-5.1c0-5.4 4.4-9.8 9.81-9.8a9.72 9.72 0 016.94 2.87 9.63 9.63 0 012.87 6.93c0 5.4-4.4 9.8-9.8 9.8zm5.45-7.42c-.3-.15-1.76-.87-2.03-.96-.27-.1-.47-.15-.66.15-.19.3-.76.95-.93 1.14-.17.2-.34.22-.64.07a7.88 7.88 0 01-2.3-1.42 8.62 8.62 0 01-1.6-2.03c-.17-.3-.02-.47.13-.62.14-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.19.05-.37-.02-.52-.08-.15-.66-1.6-.91-2.18-.24-.57-.48-.49-.66-.5h-.57c-.2 0-.52.07-.79.35-.27.3-1.03 1-1.03 2.43s1.05 2.82 1.2 3.01c.15.19 2.06 3.16 5 4.43.7.3 1.24.48 1.67.61.7.22 1.34.19 1.84.11.56-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.18-1.42-.07-.13-.27-.2-.57-.34z" />
               </svg>
             </a>
           </div>
 
-          {/* Download VCF Button */}
           <div style={{
             display: 'flex',
             justifyContent: 'center',
             marginTop: '16px'
           }}>
             <a
-              href="/assets/vcf/Muhammed_Aladdin_Haymour.vcf"
-              download="Muhammed_Aladdin_Haymour.vcf"
+              href="/assets/vcf/maydan.vcf"
+              download="maydan.vcf"
               style={{
-                backgroundColor: '#000',
-                color: '#fff',
+                backgroundColor: prim,
+                color: accent,
                 border: 'none',
                 padding: '12px 24px',
                 borderRadius: '25px',
@@ -288,7 +265,7 @@ const MuhammedAladdinHaymour = () => {
                 fontWeight: '700',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
-                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.3)',
+                boxShadow: '0 4px 15px rgba(84, 84, 84, 0.35)',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
@@ -296,14 +273,16 @@ const MuhammedAladdinHaymour = () => {
                 textDecoration: 'none'
               }}
               onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#333';
-                e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.4)';
+                e.currentTarget.style.backgroundColor = accent;
+                e.currentTarget.style.color = prim;
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 6px 20px rgba(84, 84, 84, 0.4)';
               }}
               onMouseOut={(e) => {
-                e.target.style.backgroundColor = '#000';
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.3)';
+                e.currentTarget.style.backgroundColor = prim;
+                e.currentTarget.style.color = accent;
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 4px 15px rgba(84, 84, 84, 0.35)';
               }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '16px', height: '16px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -313,75 +292,45 @@ const MuhammedAladdinHaymour = () => {
             </a>
           </div>
 
-          {/* Contact Info List */}
           <div style={{
             width: '100%',
-            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+            backgroundColor: light,
             borderRadius: '18px',
-            boxShadow: 'inset 0 2px 4px rgba(0, 0, 0, 0.1)',
+            border: `1px solid ${accent}`,
+            boxShadow: 'inset 0 2px 4px rgba(84, 84, 84, 0.08)',
             padding: '16px',
             marginTop: '12px',
             gap: '10px',
             display: 'flex',
             flexDirection: 'column'
           }}>
-           
-            
-           
-            {/* Social Media Links */}
-            
-           
-            
-            {doctorInfo.instagram && (
+            {contactInfo.instagram && (
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <span style={{ 
-                  backgroundColor: '#000', 
-                  padding: '8px', 
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: '32px',
-                  height: '32px'
-                }}>
-                  <i className="fab fa-instagram" style={{ fontSize: '16px', color: '#fff' }}></i>
+                <span style={iconBadgeStyle}>
+                  <i className="fab fa-instagram" style={{ fontSize: '16px', color: accent }} />
                 </span>
-                <a 
-                  href={doctorInfo.instagram} 
-                  target="_blank" 
+                <a
+                  href={contactInfo.instagram}
+                  target="_blank"
                   rel="noopener noreferrer"
-                  style={{ fontWeight: '600', color: '#000', fontSize: '13px', textDecoration: 'underline' }}
+                  style={{ fontWeight: '600', color: prim, fontSize: '13px', textDecoration: 'underline' }}
                 >
-                  {doctorInfo.instagramHandle}
+                  {contactInfo.instagramHandle}
                 </a>
               </div>
             )}
 
-            {/* Location */}
-            {doctorInfo.location && (
+            {contactInfo.location && (
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <span style={{ 
-                  backgroundColor: '#000', 
-                  padding: '8px', 
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: '32px',
-                  height: '32px'
-                }}>
-                  <i className="fas fa-map-marker-alt" style={{ fontSize: '16px', color: '#fff' }}></i>
+                <span style={iconBadgeStyle}>
+                  <i className="fas fa-map-marker-alt" style={{ fontSize: '16px', color: accent }} />
                 </span>
-                <span style={{ fontWeight: '600', color: '#000', fontSize: '13px' }}>
-                  {doctorInfo.location}
+                <span style={{ fontWeight: '600', color: c.ink, fontSize: '13px' }}>
+                  {contactInfo.location}
                 </span>
               </div>
             )}
-           
-           
           </div>
-
-      
         </div>
       </div>
       <PoweredByElyptek currentLanguage={currentLanguage} />
@@ -389,4 +338,4 @@ const MuhammedAladdinHaymour = () => {
   );
 };
 
-export default MuhammedAladdinHaymour; 
+export default Maydan;
