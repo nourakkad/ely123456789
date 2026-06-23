@@ -1756,8 +1756,7 @@
 }
 
 .site-shell .about-page-hero .site-lead {
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
 }
 
 .site-shell .about-page .section-heading {
@@ -1765,8 +1764,60 @@
 }
 
 .site-shell .about-page .section-heading .line-dec {
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
+}
+
+/* Consistent EN/AR layout on dedicated about page (all breakpoints) */
+.site-shell .about-page.rtl-about {
+  text-align: center;
+}
+
+.site-shell .about-page .section-heading h4,
+.site-shell .about-page .section-heading h6,
+.site-shell .about-page-hero h4 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25em;
+  text-align: center;
+}
+
+.site-shell .about-page .about-mission-card,
+.site-shell .about-page .about-process-step,
+.site-shell .about-page .site-card {
+  text-align: center;
+}
+
+.site-shell .about-page .site-card-icon {
+  margin-inline: auto;
+}
+
+.site-shell .about-page .about-process-number {
+  margin-inline: auto;
+}
+
+.site-shell .about-page-cta .site-cta-inner {
+  margin-top: 0;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+}
+
+.site-shell .about-page.rtl-about .about-page-cta .site-cta-inner,
+.site-shell .about-page.rtl-about .about-page-cta .site-cta-inner h3,
+.site-shell .about-page.rtl-about .about-page-cta .site-cta-inner p {
+  text-align: center !important;
+}
+
+.site-shell .about-page-cta .site-cta-inner p {
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+.site-shell .about-page-cta .site-cta-actions {
+  justify-content: center;
 }
 
 .site-shell .about-mission-row {
@@ -1841,10 +1892,6 @@
 
 .site-shell .about-page-cta {
   margin-top: 24px;
-}
-
-.site-shell .about-page-cta .site-cta-inner {
-  margin-top: 0;
 }
 
 @media (max-width: 991px) {

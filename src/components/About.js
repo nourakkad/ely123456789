@@ -122,7 +122,7 @@ const About = () => {
 
         <div className="row about-mission-row">
           <div className="col-md-6">
-            <div className="site-card about-mission-card wow fadeInUp" data-wow-delay="0.2s">
+            <div className="site-card site-card--center about-mission-card wow fadeInUp" data-wow-delay="0.2s">
               <span className="site-card-icon">
                 <i className="fas fa-bullseye" />
               </span>
@@ -135,7 +135,7 @@ const About = () => {
             </div>
           </div>
           <div className="col-md-6">
-            <div className="site-card about-mission-card wow fadeInUp" data-wow-delay="0.35s">
+            <div className="site-card site-card--center about-mission-card wow fadeInUp" data-wow-delay="0.35s">
               <span className="site-card-icon">
                 <i className="fas fa-eye" />
               </span>
