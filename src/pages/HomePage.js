@@ -150,15 +150,15 @@ const HomePage = () => {
                 <img src="assets/images/About us.png" alt={isAr ? 'About Elyptek' : 'About Elyptek'} />
               </div>
             </div>
-            <div className="col-lg-6 order-lg-2 order-1 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.4s">
-              <div className="section-heading" style={{ textAlign: isAr ? 'right' : 'left' }}>
+            <div className="col-lg-6 order-lg-2 order-1 wow fadeInRight site-about-intro">
+              <div className="section-heading">
                 <h6>{getTranslation('aboutTitle', lang)}</h6>
                 <h4>
                   {isAr ? 'من هو ' : 'Who is '}
                   <ElyptekWord />
                   {isAr ? '؟' : '?'}
                 </h4>
-                <div className="line-dec" style={{ margin: isAr ? '0 0 0 auto' : undefined }} />
+                <div className="line-dec" />
               </div>
               <p className="site-body-text">
                 {isAr ? (
@@ -176,9 +176,11 @@ const HomePage = () => {
                   ? 'نعمل مع عملاء من قطاعات متعددة — من الشركات الناشئة إلى المؤسسات — لبناء حضور رقمي قوي يحقق نتائج.'
                   : 'We partner with clients across industries — from startups to established businesses — to build a strong digital presence that delivers results.'}
               </p>
-              <Link to={SITE_SECTIONS.about} className="main-button" style={{ marginTop: '8px', display: 'inline-block' }}>
-                {isAr ? 'اقرأ المزيد عنا' : 'Read More About Us'}
-              </Link>
+              <div className="site-actions site-about-actions">
+                <Link to={SITE_SECTIONS.about} className="main-button">
+                  {isAr ? 'اقرأ المزيد عنا' : 'Read More About Us'}
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -200,14 +202,20 @@ const HomePage = () => {
             </h4>
             <div className="line-dec" />
           </div>
-          <div className="row">
+          <div className="row home-explore-grid">
             {exploreLinks.map((item) => (
-              <div key={item.path} className="col-md-6 col-lg-3">
+              <div key={item.path} className="col-12 col-md-6 col-lg-3">
                 <Link to={item.path} className="site-link-card">
-                  <i className={item.icon} />
-                  <h5>{item.title}</h5>
-                  <p><TextWithElyptek text={item.text} /></p>
-                  <span className="site-link-card-arrow">{isAr ? '←' : '→'}</span>
+                  <span className="site-link-card-icon" aria-hidden="true">
+                    <i className={item.icon} />
+                  </span>
+                  <div className="site-link-card-content">
+                    <h5>{item.title}</h5>
+                    <p><TextWithElyptek text={item.text} /></p>
+                  </div>
+                  <span className="site-link-card-arrow" aria-hidden="true">
+                    {isAr ? '‹' : '›'}
+                  </span>
                 </Link>
               </div>
             ))}

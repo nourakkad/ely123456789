@@ -6,8 +6,6 @@ import { injectElyptekHtml } from '../utils/textWithElyptek';
 
 const EXP_KEYS = ['', 'graduate', '1-2', '3-5', '5plus'];
 
-const LOGO_IMG_SRC = `${(process.env.PUBLIC_URL || '').replace(/\/$/, '')}/assets/images/logo12.png`;
-
 const CV_MAX_MB = 3;
 const CV_MAX_BYTES = CV_MAX_MB * 1024 * 1024;
 
@@ -211,63 +209,31 @@ const JobApplication = () => {
   const t = (key) => getTranslation(key, currentLanguage);
 
   return (
-    <div className="job-application-page">
-      <header className="job-application-card-top-shell">
-        <div className="job-application-card-top-inner">
-          <a
-            className="job-application-logo-link"
-            href="https://elyptek.com/"
-            rel="noopener noreferrer"
-            aria-label={t('jobLogoHomeAria')}
+    <div id="job-application" className="contact-us site-section job-application-section">
+      <div className="container">
+        <div className="job-application-inner">
+          <div
+            className="section-heading wow fadeIn contact-heading"
+            data-wow-duration="1s"
+            data-wow-delay="0.2s"
+            dir={currentLanguage === 'AR' ? 'rtl' : 'ltr'}
           >
-            <img src={LOGO_IMG_SRC} alt="Elyptek" />
-          </a>
-          <button
-            type="button"
-            className="job-application-lang-toggle"
-            onClick={() => {
-              const newLang = currentLanguage === 'EN' ? 'AR' : 'EN';
-              setCurrentLanguage(newLang);
-              setCountryCodes(getCountryCodes(newLang));
-              localStorage.setItem('language', newLang);
-              const url = new URL(window.location.href);
-              url.searchParams.set('lang', newLang);
-              window.history.pushState({}, '', url);
-              window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: newLang } }));
-            }}
-          >
-            {currentLanguage === 'EN' ? 'العربية' : 'English'}
-          </button>
-        </div>
-      </header>
-      <div id="job-application" className="contact-us section job-application-section">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-xl-9 col-lg-10 col-md-11">
-              <div
-                className="section-heading wow fadeIn contact-heading"
-                data-wow-duration="1s"
-                data-wow-delay="0.2s"
-                dir={currentLanguage === 'AR' ? 'rtl' : 'ltr'}
-              >
-                <h6 className="contact-subtitle">{t('jobApplicationTitle')}</h6>
-                <h4
-                  className="contact-title"
-                  dangerouslySetInnerHTML={{ __html: injectElyptekHtml(t('jobApplicationHero')) }}
-                />
-                <div className="line-dec contact-line" />
-                <p className="contact-description">{t('jobApplicationDescription')}</p>
-              </div>
-            </div>
+            <h6 className="contact-subtitle">{t('jobApplicationTitle')}</h6>
+            <h4
+              className="contact-title"
+              dangerouslySetInnerHTML={{ __html: injectElyptekHtml(t('jobApplicationHero')) }}
+            />
+            <div className="line-dec contact-line" />
+            <p className="contact-description">{t('jobApplicationDescription')}</p>
           </div>
-          <div className="row justify-content-center">
-            <div className="col-xl-9 col-lg-10 col-md-11 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
-              <form
-                id="contact"
-                aria-label={t('jobApplicationHero')}
-                onSubmit={handleSubmit}
-                dir={currentLanguage === 'AR' ? 'rtl' : 'ltr'}
-              >
+
+          <div className="wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
+            <form
+              id="contact"
+              aria-label={t('jobApplicationHero')}
+              onSubmit={handleSubmit}
+              dir={currentLanguage === 'AR' ? 'rtl' : 'ltr'}
+            >
                 <div className="fill-form job-fill-form" dir={currentLanguage === 'AR' ? 'rtl' : 'ltr'}>
                   <div className="row">
                     <div className="col-lg-6">
@@ -438,7 +404,6 @@ const JobApplication = () => {
                   </div>
                 </div>
               </form>
-            </div>
           </div>
         </div>
       </div>

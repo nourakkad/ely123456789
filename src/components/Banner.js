@@ -140,15 +140,7 @@ const Banner = () => {
                   {currentLanguage === 'AR' ? ' نبتكر' : 'Create'}
                 </span>
               </div>
-              <div
-                style={{
-                  marginTop: '28px',
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  gap: '12px',
-                  direction: currentLanguage === 'AR' ? 'rtl' : 'ltr',
-                }}
-              >
+              <div className="site-hero-actions">
                 <Link to={SITE_SECTIONS.services} className="main-button">
                   {getTranslation('learnMore', currentLanguage)}
                 </Link>

@@ -190,18 +190,26 @@ const Services = () => {
                 <div className="grid">
                   <div className="row">
                     <div className="col-lg-12">
-                      <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-                        <div className="menu">
+                      <div className="services-menu-wrap">
+                        <div className="menu services-tab-menu">
                           {services.map((service, index) => (
-                            <div 
+                            <div
                               key={service.id}
-                              className={index === activeTab ? 'active' : ''}
+                              className={`services-tab ${index === activeTab ? 'active' : ''}`}
                               onClick={() => setActiveTab(index)}
-                              style={{ cursor: 'pointer' }}
+                              role="button"
+                              tabIndex={0}
+                              onKeyDown={(e) => {
+                                if (e.key === 'Enter' || e.key === ' ') {
+                                  e.preventDefault();
+                                  setActiveTab(index);
+                                }
+                              }}
+                              aria-pressed={index === activeTab}
                             >
                               <div className="thumb">
                                 <span className="icon"><i className={service.icon}></i></span>
-                                {service.title}
+                                <span className="services-tab-label">{service.title}</span>
                               </div>
                             </div>
                           ))}

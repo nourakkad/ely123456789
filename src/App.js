@@ -23,9 +23,8 @@ const Layout = ({ children }) => {
   const location = useLocation();
   const isContactCard = location.pathname.startsWith('/contact/');
   const isRestaurantMenu = location.pathname.startsWith('/menu/');
-  const isFormOnly = location.pathname === '/form';
-  const showChrome = !isContactCard && !isRestaurantMenu && !isFormOnly;
-  const shellClass = showChrome ? 'App site-shell' : isFormOnly ? 'App site-shell job-form-shell' : 'App';
+  const showChrome = !isContactCard && !isRestaurantMenu;
+  const shellClass = showChrome ? 'App site-shell' : 'App';
 
   return (
     <div className={shellClass}>
@@ -50,7 +49,7 @@ function App() {
           <Route path="/portfolio" element={<SectionPage><Portfolio /></SectionPage>} />
           <Route path="/contact" element={<SectionPage><Contact /></SectionPage>} />
 
-          <Route path="/form" element={<JobApplication />} />
+          <Route path="/form" element={<SectionPage><JobApplication /></SectionPage>} />
 
           {/* Contact Card Routes */}
           <Route path="/contact/dr-mohammed-jubain" element={<DrMohammedJubain />} />

@@ -1,6 +1,67 @@
 import React, { useState, useEffect } from 'react';
 import { getTranslation } from '../translations';
 
+const TEAM_MEMBERS = [
+  {
+    name: 'Nour Akkad',
+    initials: 'NA',
+    image: '/assets/images/Nour-Akkad.jpg',
+    role: { EN: 'Co-founder & CEO', AR: 'شريك مؤسس والرئيس التنفيذي' },
+    bio: {
+      EN: 'Leading innovation and strategic development',
+      AR: 'قيادة الابتكار والتطوير الاستراتيجي',
+    },
+    delay: '0.1s',
+  },
+  {
+    name: 'Anas Omari',
+    initials: 'AO',
+    image: '/assets/images/Anas-Alomari.jpg',
+    role: { EN: 'Co-founder & COO', AR: 'شريك مؤسس ومدير العمليات' },
+    bio: {
+      EN: 'Driving growth and business development',
+      AR: 'دفع النمو وتطوير الأعمال',
+    },
+    delay: '0.2s',
+  },
+  {
+    name: 'Abd Falaha',
+    initials: 'AF',
+    image: '/assets/images/Abd-Falaha.jpg',
+    role: { EN: 'Graphic Designer', AR: 'مصمم جرافيك' },
+    bio: {
+      EN: 'Crafting visual identity and brand experiences',
+      AR: 'تصميم الهوية البصرية وتجارب العلامة التجارية',
+    },
+    delay: '0.3s',
+  },
+  {
+    name: 'Shahinaz Kalaaji',
+    initials: 'SK',
+    image: '/assets/images/Shahinaz-Kalaaji.jpg',
+    role: { EN: 'Logistics', AR: 'لوجستيات' },
+    bio: {
+      EN: 'Coordinating operations and seamless delivery',
+      AR: 'تنسيق العمليات والتسليم بسلاسة',
+    },
+    delay: '0.4s',
+  },
+];
+
+function MemberPhoto({ src, alt, initials }) {
+  const [failed, setFailed] = useState(false);
+
+  if (failed) {
+    return (
+      <div className="member-img-placeholder" aria-hidden="true">
+        {initials}
+      </div>
+    );
+  }
+
+  return <img src={src} alt={alt} onError={() => setFailed(true)} />;
+}
+
 const Team = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
 
@@ -48,40 +109,20 @@ const Team = () => {
           </div>
         </div>
         <div className="row team-grid">
-          <div className="col-lg-4 col-md-6">
-            <div className="team-member wow fadeInUp" data-wow-delay="0.1s">
-              <div className="member-img">
-                <img src="/assets/images/Nour-Akkad.jpg" alt="Nour Akkad" />
-              </div>
-              <div className="member-info">
-                <h3>Nour Akkad</h3>
-                <span>CEO</span>
-                <p>
-                  {currentLanguage === 'AR' 
-                    ? 'قيادة الابتكار والتطوير الاستراتيجي'
-                    : 'Leading innovation and strategic development'
-                  }
-                </p>
+          {TEAM_MEMBERS.map((member) => (
+            <div key={member.name} className="col-lg-3 col-md-6">
+              <div className="team-member wow fadeInUp" data-wow-delay={member.delay}>
+                <div className="member-img">
+                  <MemberPhoto src={member.image} alt={member.name} initials={member.initials} />
+                </div>
+                <div className="member-info">
+                  <h3>{member.name}</h3>
+                  <span>{member.role[currentLanguage]}</span>
+                  <p>{member.bio[currentLanguage]}</p>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="col-lg-4 col-md-6">
-            <div className="team-member wow fadeInUp" data-wow-delay="0.3s">
-              <div className="member-img">
-                <img src="/assets/images/Anas-Alomari.jpg" alt="Anas Omari" />
-              </div>
-              <div className="member-info">
-                <h3>Anas Omari</h3>
-                <span>COO</span>
-                <p>
-                  {currentLanguage === 'AR'
-                    ? 'دفع النمو وتطوير الأعمال'
-                    : 'Driving growth and business development'
-                  }
-                </p>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

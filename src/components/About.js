@@ -215,7 +215,7 @@ const About = () => {
           <div className="row site-card-grid">
             {differentiators.map((item) => (
               <div key={item.title} className="col-md-4">
-                <div className="site-card">
+                <div className="site-card site-card--center">
                   <span className="site-card-icon">
                     <i className={item.icon} />
                   </span>

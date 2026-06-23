@@ -70,6 +70,10 @@ const Header = () => {
     window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: lang } }));
   };
 
+  const toggleLanguage = () => {
+    changeLanguage(currentLanguage === 'EN' ? 'AR' : 'EN');
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -147,17 +151,17 @@ const Header = () => {
               <div className="language-toggle">
                 <button
                   type="button"
-                  className={`lang-btn ${currentLanguage === 'EN' ? 'active' : ''}`}
-                  onClick={() => changeLanguage('EN')}
+                  className="lang-btn lang-btn-switch"
+                  onClick={toggleLanguage}
+                  aria-label={currentLanguage === 'EN' ? 'Switch to Arabic' : 'Switch to English'}
                 >
-                  EN
-                </button>
-                <button
-                  type="button"
-                  className={`lang-btn ${currentLanguage === 'AR' ? 'active' : ''}`}
-                  onClick={() => changeLanguage('AR')}
-                >
-                  AR
+                  <i className="fas fa-globe" aria-hidden="true" />
+                  <span className="lang-btn-text">
+                    {currentLanguage === 'EN' ? 'العربية' : 'English'}
+                  </span>
+                  <span className="lang-btn-code">
+                    {currentLanguage === 'EN' ? 'AR' : 'EN'}
+                  </span>
                 </button>
               </div>
 
@@ -179,12 +183,6 @@ const Header = () => {
                     </Link>
                   </li>
                 ))}
-                <li className="scroll-to-section desktop-hidden">
-                  <Link to={SITE_SECTIONS.contact} className="contact-btn" onClick={closeMenu}>
-                    <i className="fa fa-paper-plane" />
-                    Free Quote
-                  </Link>
-                </li>
               </ul>
             </nav>
           </div>
