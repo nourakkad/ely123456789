@@ -103,6 +103,14 @@ const PORTFOLIO_ITEMS = [
     instagram: 'https://www.instagram.com/creativemaydan',
     website: 'https://elyptek.com/contact/maydan',
   },
+  {
+    id: 11,
+    title: 'Dr-Academy',
+    categoryEn: 'Online Learning & Medical Workshops',
+    categoryAr: 'منصة تعليم إلكترونية وورشات طبية',
+    image: '/assets/logo/dr-academy.png',
+    website: 'https://dr-academy.tech',
+  },
 ];
 
 const SWIPE_THRESHOLD = 50;

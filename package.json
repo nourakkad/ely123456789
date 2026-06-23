@@ -16,17 +16,24 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && node scripts/inject-sw.js",
     "dev": "npx netlify dev",
     "functions": "npx netlify functions:serve",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": ["react-app", "react-app/jest"]
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
-    "production": [">0.2%", "not dead", "not op_mini all"],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
@@ -34,6 +41,7 @@
     ]
   },
   "devDependencies": {
-    "http-proxy-middleware": "^2.0.9"
+    "http-proxy-middleware": "^2.0.9",
+    "workbox-build": "^7.4.1"
   }
 }

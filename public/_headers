@@ -1,3 +1,9 @@
+/service-worker.js
+  Cache-Control: no-cache
+
+/manifest.json
+  Cache-Control: public, max-age=0, must-revalidate
+
 /Dr_Mohammed_Jubain.vcf
   Content-Disposition: attachment; filename="Dr_Mohammed_Jubain.vcf"
   Content-Type: text/vcard 
