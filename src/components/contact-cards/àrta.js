@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PoweredByElyptek from './PoweredByElyptek';
+import { getWhatsAppWebUrl, handleWhatsAppClick } from './whatsappLink';
 
 const TEL = '+963991478028';
 const WA_ID = '963991478028';
@@ -244,8 +245,8 @@ const Arta = () => {
               </svg>
             </a>
             <a
-              href={`https://wa.me/${WA_ID}`}
-              target="_blank"
+              href={getWhatsAppWebUrl(WA_ID)}
+              onClick={handleWhatsAppClick(WA_ID)}
               rel="noopener noreferrer"
               style={btnStyle}
               onMouseOver={onBtnOver}

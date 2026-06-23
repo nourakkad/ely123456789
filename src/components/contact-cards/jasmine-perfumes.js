@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PoweredByElyptek from './PoweredByElyptek';
+import { getWhatsAppWebUrl, handleWhatsAppClick } from './whatsappLink';
 
 const JasminePerfumes = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
@@ -108,8 +109,6 @@ const JasminePerfumes = () => {
     flexShrink: 0,
     textDecoration: 'none',
   };
-
-  const toWhatsApp = (phone) => `https://wa.me/${phone.replace(/\D/g, '')}`;
 
   const phoneIcon = (
     <svg style={{ width: '16px', height: '16px', color: accent }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -397,8 +396,8 @@ const JasminePerfumes = () => {
                         {phone}
                       </a>
                       <a
-                        href={toWhatsApp(phone)}
-                        target="_blank"
+                        href={getWhatsAppWebUrl(phone)}
+                        onClick={handleWhatsAppClick(phone)}
                         rel="noopener noreferrer"
                         style={detailActionBtnStyle}
                         aria-label={`WhatsApp ${phone}`}

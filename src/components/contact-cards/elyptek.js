@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { getWhatsAppWebUrl, handleWhatsAppClick } from './whatsappLink';
 import { CONTACT_EMAIL } from '../../env/publicConfig';
 import ElyptekWord from '../ElyptekWord';
 
@@ -207,8 +208,8 @@ const Elyptek = () => {
               </svg>
             </a>
             <a
-              href={`https://wa.me/${WA_ME}`}
-              target="_blank"
+              href={getWhatsAppWebUrl(WA_ME)}
+              onClick={handleWhatsAppClick(WA_ME)}
               rel="noopener noreferrer"
               style={btnBase}
               onMouseOver={onBtnOver}

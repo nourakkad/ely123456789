@@ -16,6 +16,48 @@
   --site-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   --site-shadow-hover: 0 12px 32px rgba(255, 167, 0, 0.15);
   --site-section-y: 70px;
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+/* Clip decorative layers / animation overflow that extends scroll height */
+.site-shell .services,
+.site-shell .our-portfolio,
+.site-shell .team-section,
+.site-shell .contact-us,
+.site-shell .about-page,
+.site-shell .section-page,
+.site-shell .site-section,
+.site-shell .site-cta,
+.site-shell .section-divider {
+  overflow: clip;
+}
+
+.site-shell .services {
+  overflow: hidden;
+}
+
+.site-shell .about-left-image {
+  overflow: hidden;
+}
+
+.site-shell .section-divider {
+  display: block;
+  line-height: 0;
+}
+
+.site-shell .section-divider svg {
+  display: block;
+  vertical-align: top;
+}
+
+@media (max-width: 991px) {
+  .site-shell .services::before,
+  .site-shell .services::after,
+  .site-shell .our-portfolio::before,
+  .site-shell .our-portfolio::after {
+    display: none !important;
+  }
 }
 
 .site-shell .section-page {
@@ -1615,6 +1657,11 @@
 }
 
 /* ── Footer ── */
+.site-shell .modern-footer.footer-section {
+  margin-bottom: 0;
+  overflow: hidden;
+}
+
 .site-shell .modern-footer .footer-links-list a {
   display: inline-block;
   padding: 2px 0;
@@ -1985,6 +2032,29 @@
   .site-shell .site-cta-actions {
     width: 100%;
     justify-content: center;
+  }
+
+  .site-shell .site-cta {
+    padding-bottom: 40px;
+  }
+
+  .site-shell .modern-footer.footer-section {
+    border-radius: 22px 22px 0 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .site-shell .modern-footer .footer-bottom {
+    border-radius: 0 !important;
+    margin-bottom: 0;
+    padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  }
+
+  html:has(.site-shell),
+  body:has(.site-shell) {
+    overflow-x: clip;
   }
 
   .site-shell .section-page {

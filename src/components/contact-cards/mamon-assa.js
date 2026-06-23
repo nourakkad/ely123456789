@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PoweredByElyptek from './PoweredByElyptek';
+import { getWhatsAppWebUrl, handleWhatsAppClick } from './whatsappLink';
 
 const MamonAssa = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
@@ -243,8 +244,8 @@ const MamonAssa = () => {
 </a>
 
             <a 
-              href={`https://wa.me/963938113313`}
-              target="_blank"
+              href={getWhatsAppWebUrl('963938113313')}
+              onClick={handleWhatsAppClick('963938113313')}
               rel="noopener noreferrer"
               style={{
                 backgroundColor: '#8B1538',

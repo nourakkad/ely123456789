@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PoweredByElyptek from './PoweredByElyptek';
+import { getWhatsAppWebUrl, handleWhatsAppClick } from './whatsappLink';
 
 /* Syria intl: mobile 0944… → +963944…; landline 011… → +96311… */
 const TEL_MOBILE = '+963944000710';
@@ -228,8 +229,8 @@ const ChocoSwamp = () => {
               </svg>
             </a>
             <a
-              href={`https://wa.me/${WA_ID}`}
-              target="_blank"
+              href={getWhatsAppWebUrl(WA_ID)}
+              onClick={handleWhatsAppClick(WA_ID)}
               rel="noopener noreferrer"
               style={btnBase}
               onMouseOver={onBtnOver}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PoweredByElyptek from './PoweredByElyptek';
+import { getWhatsAppWebUrl, handleWhatsAppClick } from './whatsappLink';
 
 const DrNaderAlmzayek = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
@@ -242,8 +243,8 @@ const DrNaderAlmzayek = () => {
 </a>
 
             <a 
-              href={`https://wa.me/963944610099`}
-              target="_blank"
+              href={getWhatsAppWebUrl('963944610099')}
+              onClick={handleWhatsAppClick('963944610099')}
               rel="noopener noreferrer"
               style={{
                 backgroundColor: '#ffa700',
