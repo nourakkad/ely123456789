@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && node scripts/inject-sw.js",
+    "build": "react-scripts build && node scripts/prerender.js && node scripts/inject-sw.js",
     "dev": "npx netlify dev",
     "functions": "npx netlify functions:serve",
     "test": "react-scripts test",
@@ -41,7 +41,11 @@
     ]
   },
   "devDependencies": {
+    "@sparticuz/chromium": "^147.0.0",
     "http-proxy-middleware": "^2.0.9",
+    "puppeteer": "^25.2.0",
+    "puppeteer-core": "^25.2.0",
+    "serve": "^14.2.6",
     "workbox-build": "^7.4.1"
   }
 }
