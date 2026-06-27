@@ -77,7 +77,7 @@ const Maydan = () => {
   const contactInfo = {
     title: currentLanguage === 'AR' ? 'مايدان كرييتيف ستوديو' : 'Maydan Creative Studio',
     category: currentLanguage === 'AR' ? 'محمد حيمور — مؤسس شريك' : 'Mohamad Haymour Co / Founder',
-    image: '/assets/logo/maydan.png',
+    image: '',
     instagram: 'https://www.instagram.com/creativemaydan',
     instagramHandle: '@creativemaydan',
     phone: '+963 988 38 6080',
