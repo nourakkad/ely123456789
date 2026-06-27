@@ -1,7 +1,13 @@
 /service-worker.js
-  Cache-Control: no-cache
+  Cache-Control: no-cache, no-store, must-revalidate
 
 /manifest.json
+  Cache-Control: public, max-age=0, must-revalidate
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.html
   Cache-Control: public, max-age=0, must-revalidate
 
 /Dr_Mohammed_Jubain.vcf

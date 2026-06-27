@@ -6,6 +6,43 @@ const isLocalhost = Boolean(
     )
 );
 
+let refreshing = false;
+
+const reloadOnceOnUpdate = () => {
+  if (refreshing) return;
+  refreshing = true;
+  window.location.reload();
+};
+
+const activateWaitingWorker = (registration) => {
+  if (registration.waiting) {
+    registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+  }
+};
+
+const watchForUpdates = (registration) => {
+  registration.addEventListener('updatefound', () => {
+    const installingWorker = registration.installing;
+    if (!installingWorker) return;
+
+    installingWorker.addEventListener('statechange', () => {
+      if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
+        activateWaitingWorker(registration);
+      }
+    });
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+      registration.update();
+    }
+  });
+
+  window.setInterval(() => {
+    registration.update();
+  }, 60 * 60 * 1000);
+};
+
 export function register(config) {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
@@ -13,17 +50,13 @@ export function register(config) {
       return;
     }
 
+    navigator.serviceWorker.addEventListener('controllerchange', reloadOnceOnUpdate);
+
     window.addEventListener('load', () => {
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
 
       if (isLocalhost) {
         checkValidServiceWorker(swUrl, config);
-        navigator.serviceWorker.ready.then(() => {
-          console.log(
-            'This web app is being served cache-first by a service worker. ' +
-              'To learn more, visit https://cra.link/PWA'
-          );
-        });
       } else {
         registerValidSW(swUrl, config);
       }
@@ -35,6 +68,12 @@ function registerValidSW(swUrl, config) {
   navigator.serviceWorker
     .register(swUrl)
     .then((registration) => {
+      watchForUpdates(registration);
+
+      if (registration.waiting && navigator.serviceWorker.controller) {
+        activateWaitingWorker(registration);
+      }
+
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
         if (installingWorker == null) {
@@ -43,18 +82,13 @@ function registerValidSW(swUrl, config) {
         installingWorker.onstatechange = () => {
           if (installingWorker.state === 'installed') {
             if (navigator.serviceWorker.controller) {
-              console.log(
-                'New content is available and will be used when all ' +
-                  'tabs for this page are closed. See https://cra.link/PWA.'
-              );
               if (config && config.onUpdate) {
                 config.onUpdate(registration);
+              } else {
+                activateWaitingWorker(registration);
               }
-            } else {
-              console.log('Content is cached for offline use.');
-              if (config && config.onSuccess) {
-                config.onSuccess(registration);
-              }
+            } else if (config && config.onSuccess) {
+              config.onSuccess(registration);
             }
           }
         };

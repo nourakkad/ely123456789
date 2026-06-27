@@ -9,6 +9,8 @@ generateSW({
   globPatterns: ['**/*.{html,js,css,json,woff2}'],
   globIgnores: ['**/service-worker.js'],
   maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
+  skipWaiting: true,
+  clientsClaim: true,
   navigateFallback: '/index.html',
   navigateFallbackDenylist: [/^\/_/, /\/[^/?]+\.[^/]+$/],
   runtimeCaching: [
