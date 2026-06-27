@@ -76,8 +76,9 @@ const Maydan = () => {
 
   const contactInfo = {
     title: currentLanguage === 'AR' ? 'مايدان كرييتيف ستوديو' : 'Maydan Creative Studio',
-    category: currentLanguage === 'AR' ? 'محمد حيمور — مؤسس شريك' : 'Mohamad Haymour Co / Founder',
-    image: '',
+    categoryName: currentLanguage === 'AR' ? 'محمد حيمور' : 'Mohamad Haymour',
+    categoryRole: currentLanguage === 'AR' ? 'مؤسس شريك' : 'Co / Founder',
+    image: '/assets/logo/maydan.png',
     instagram: 'https://www.instagram.com/creativemaydan',
     instagramHandle: '@creativemaydan',
     phone: '+963 988 38 6080',
@@ -200,7 +201,10 @@ const Maydan = () => {
             </h2>
 
             <span style={{
-              display: 'inline-block',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '2px',
               backgroundColor: light,
               color: c.ink,
               border: `1px solid ${accent}`,
@@ -209,9 +213,11 @@ const Maydan = () => {
               fontSize: '13px',
               fontWeight: '700',
               marginBottom: '12px',
-              textAlign: 'center'
+              textAlign: 'center',
+              lineHeight: 1.35,
             }}>
-              {contactInfo.category}
+              <span>{contactInfo.categoryName}</span>
+              <span>{contactInfo.categoryRole}</span>
             </span>
           </div>
 
