@@ -30,6 +30,7 @@ module.exports = [
   '/contact/mazmazeh',
   '/contact/arta',
   '/contact/àrta',
+  '/contact/watad-agro',
   '/menu/chocoswamp',
   '/menu/kousa-me7shi',
   '/menu/chimney',

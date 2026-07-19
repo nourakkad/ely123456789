@@ -31,6 +31,7 @@ export const CONTACT_SEO_BY_PATH = {
   '/contact/mazmazeh': card('Mazmazeh', 'مزمزة', 'Restaurant in Damascus, Syria.'),
   '/contact/arta': card('àrta', 'àrta', 'Creative art house.'),
   '/contact/\u00e0rta': card('àrta', 'àrta', 'Creative art house.'),
+  '/contact/watad-agro': card('Watad Agro Syria', 'وتد Agro سوريا', 'Agriculture and agro solutions in Syria.'),
 };
 
 export const CONTACT_SITEMAP_PATHS = Object.keys(CONTACT_SEO_BY_PATH);

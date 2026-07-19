@@ -20,3 +20,4 @@ export { default as ArkanCeramics } from './arkan-ceramics';
 export { default as JasminePerfumes } from './jasmine-perfumes';
 export { default as Mazmazeh } from './mazmazeh';
 export { default as Arta } from './àrta';
+export { default as WatadAgro } from './watad-agro';
