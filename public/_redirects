@@ -1,3 +1,5 @@
 # API must precede SPA catch-all — without this line, `/api/*` never reaches Functions.
 /api/send-mail    /.netlify/functions/send-mail    200
+# Canonical URLs without trailing slashes (QR codes, contact cards, etc.)
+/*/    /:splat    301!
 /*    /index.html   200

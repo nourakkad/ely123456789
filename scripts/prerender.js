@@ -10,8 +10,8 @@ const BASE_URL = `http://127.0.0.1:${PORT}`;
 
 const routeToFile = (route) => {
   if (route === '/') return path.join(BUILD_DIR, 'index.html');
-  const segments = route.replace(/^\//, '').split('/');
-  return path.join(BUILD_DIR, ...segments, 'index.html');
+  const clean = route.replace(/^\//, '').replace(/\/+$/, '');
+  return path.join(BUILD_DIR, `${clean}.html`);
 };
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
