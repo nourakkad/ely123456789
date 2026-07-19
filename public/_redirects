@@ -6,34 +6,7 @@
 /about/       /about       301!
 /team/        /team        301!
 /portfolio/   /portfolio   301!
-/contact/     /contact     301!
 /form/        /form        301!
-/contact/dr-mohammed-jubain/    /contact/dr-mohammed-jubain    301!
-/contact/crazy-beeez/    /contact/crazy-beeez    301!
-/contact/mamon-assa/    /contact/mamon-assa    301!
-/contact/dr-nader-almzayek/    /contact/dr-nader-almzayek    301!
-/contact/hussam-alhamad/    /contact/hussam-alhamad    301!
-/contact/rashid-adas/    /contact/rashid-adas    301!
-/contact/abdalrahman-adas/    /contact/abdalrahman-adas    301!
-/contact/yassen-altabakh/    /contact/yassen-altabakh    301!
-/contact/anwar-saeed-jassem/    /contact/anwar-saeed-jassem    301!
-/contact/shadi-saeed-jassem/    /contact/shadi-saeed-jassem    301!
-/contact/deau-cacao/    /contact/deau-cacao    301!
-/contact/chocoswamp/    /contact/chocoswamp    301!
-/contact/elyptek/    /contact/elyptek    301!
-/contact/group-imdad/    /contact/group-imdad    301!
-/contact/maydan/    /contact/maydan    301!
-/contact/dr-hadi-alhariri/    /contact/dr-hadi-alhariri    301!
-/contact/dr-hadi-alomari/    /contact/dr-hadi-alomari    301!
-/contact/khalil-alokdi/    /contact/khalil-alokdi    301!
-/contact/arkan-ceramics/    /contact/arkan-ceramics    301!
-/contact/jasmine-perfumes/    /contact/jasmine-perfumes    301!
-/contact/mazmazeh/    /contact/mazmazeh    301!
-/contact/arta/    /contact/arta    301!
-/contact/watad-agro/    /contact/watad-agro    301!
-/menu/chocoswamp/    /menu/chocoswamp    301!
-/menu/kousa-me7shi/    /menu/kousa-me7shi    301!
-/menu/chimney/    /menu/chimney    301!
 
 # Legacy PDF filenames (old spaced names from first deploy)
 /assets/pdf/WATAD%20Agro%20AR.pdf    /assets/pdf/watad-agro-portfolio.pdf    301!
