@@ -13,7 +13,9 @@ const prerenderDenylist = prerenderRoutes
 generateSW({
   swDest: path.join(buildDir, 'service-worker.js'),
   globDirectory: buildDir,
-  globPatterns: ['**/*.{html,js,css,json,woff2}'],
+  // HTML pages are served directly by Netlify prerender rewrites. Keeping them
+  // out of precache avoids install failures and stale homepage responses.
+  globPatterns: ['**/*.{js,css,json,woff2}'],
   globIgnores: ['**/service-worker.js'],
   maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
   skipWaiting: true,

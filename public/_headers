@@ -12,8 +12,16 @@
 
 /assets/pdf/*
   Content-Type: application/pdf
-  Content-Disposition: attachment; filename="portfolio.pdf"
   Cache-Control: public, max-age=3600, must-revalidate
+
+/assets/pdf/arkan-catalog.pdf
+  Content-Disposition: attachment; filename="arkan-catalog.pdf"
+
+/assets/pdf/watad-agro-portfolio.pdf
+  Content-Disposition: attachment; filename="watad-agro-portfolio.pdf"
+
+/assets/pdf/crazy-beeez-portfolio.pdf
+  Content-Disposition: attachment; filename="crazy-beeez-portfolio.pdf"
 
 /Dr_Mohammed_Jubain.vcf
   Content-Disposition: attachment; filename="Dr_Mohammed_Jubain.vcf"

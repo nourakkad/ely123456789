@@ -15,4 +15,9 @@
 /assets/pdf/WATAD%20Agro%20AR.pdf    /assets/pdf/watad-agro-portfolio.pdf    301!
 /assets/pdf/crazy%20beeez%20portfolio.pdf    /assets/pdf/crazy-beeez-portfolio.pdf    301!
 
+# Serve prerendered pages directly, avoiding a homepage flash before React loads.
+/contact    /contact.html    200
+/contact/:slug    /contact/:slug.html    200
+/menu/:slug    /menu/:slug.html    200
+
 /*    /index.html   200
