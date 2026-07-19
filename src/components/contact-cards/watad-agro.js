@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PoweredByElyptek from './PoweredByElyptek';
 import { getWhatsAppWebUrl, handleWhatsAppClick } from './whatsappLink';
 
-const PORTFOLIO_PDF = '/assets/pdf/watad-agro-portfolio.pdf?v=4';
+const PORTFOLIO_PDF = '/assets/pdf/watad-agro-portfolio.pdf?v=2';
 
 const WatadAgro = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');

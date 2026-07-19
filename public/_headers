@@ -12,7 +12,7 @@
 
 /assets/pdf/*
   Content-Type: application/pdf
-  Content-Disposition: attachment
+  Content-Disposition: attachment; filename="portfolio.pdf"
   Cache-Control: public, max-age=3600, must-revalidate
 
 /Dr_Mohammed_Jubain.vcf
