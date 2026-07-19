@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PoweredByElyptek from './PoweredByElyptek';
 import { getWhatsAppWebUrl, handleWhatsAppClick } from './whatsappLink';
-import { createAssetDownloadHandler } from './downloadAsset';
 
-const PORTFOLIO_PDF = '/assets/pdf/crazy-beeez-portfolio.pdf?v=3';
-const handlePortfolioDownload = createAssetDownloadHandler(
-  PORTFOLIO_PDF,
-  'crazy-beeez-portfolio.pdf',
-);
+const PORTFOLIO_PDF = '/assets/pdf/crazy-beeez-portfolio.pdf?v=4';
 
 const CrazyBeeez = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
@@ -334,7 +329,6 @@ const CrazyBeeez = () => {
             <a
               href={PORTFOLIO_PDF}
               download="crazy-beeez-portfolio.pdf"
-              onClick={handlePortfolioDownload}
               style={{
                 backgroundColor: '#ffcb1c',
                 color: '#fff',

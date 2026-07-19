@@ -14,4 +14,8 @@
 # Never SPA-fallback asset files (prevents HTML being saved as PDF/etc.)
 /assets/*    /assets/:splat    200
 
+# Legacy PDF filenames (old spaced names from first deploy)
+/assets/pdf/WATAD%20Agro%20AR.pdf    /assets/pdf/watad-agro-portfolio.pdf    301!
+/assets/pdf/crazy%20beeez%20portfolio.pdf    /assets/pdf/crazy-beeez-portfolio.pdf    301!
+
 /*    /index.html   200
