@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import PoweredByElyptek from './PoweredByElyptek';
 import { getWhatsAppWebUrl, handleWhatsAppClick } from './whatsappLink';
 
+const CATALOG_PDF = '/assets/pdf/arkan-catalog.pdf';
+
 const ArkanCeramics = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
 
@@ -410,10 +412,8 @@ const ArkanCeramics = () => {
               {currentLanguage === 'AR' ? 'تحميل بطاقة الاتصال' : 'Download Contact Card'}
             </a>
             <a
-              href="/assets/pdf/arkan-catalog.pdf"
+              href={CATALOG_PDF}
               download="arkan-catalog.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
               style={downloadBtnStyle}
               onMouseOver={onDownloadOver}
               onMouseOut={onDownloadOut}

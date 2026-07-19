@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PoweredByElyptek from './PoweredByElyptek';
 import { getWhatsAppWebUrl, handleWhatsAppClick } from './whatsappLink';
 
-const PORTFOLIO_PDF = '/assets/pdf/WATAD Agro AR.pdf';
+const PORTFOLIO_PDF = '/assets/pdf/watad-agro-portfolio.pdf';
 
 const WatadAgro = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
@@ -318,9 +318,7 @@ const WatadAgro = () => {
             </a>
             <a
               href={PORTFOLIO_PDF}
-              download="WATAD Agro AR.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+              download="watad-agro-portfolio.pdf"
               style={{ ...downloadBtnStyle, width: '100%', justifyContent: 'center' }}
               onMouseOver={onDownloadOver}
               onMouseOut={onDownloadOut}

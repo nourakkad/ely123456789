@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import PoweredByElyptek from './PoweredByElyptek';
 import { getWhatsAppWebUrl, handleWhatsAppClick } from './whatsappLink';
 
+const PORTFOLIO_PDF = '/assets/pdf/crazy-beeez-portfolio.pdf';
+
 const CrazyBeeez = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
 
@@ -325,10 +327,8 @@ const CrazyBeeez = () => {
               {currentLanguage === 'AR' ? 'تحميل بطاقة الاتصال' : 'Download Contact Card'}
             </a>
             <a
-              href="/assets/pdf/crazy beeez portfolio.pdf"
-              download="crazy beeez portfolio.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+              href={PORTFOLIO_PDF}
+              download="crazy-beeez-portfolio.pdf"
               style={{
                 backgroundColor: '#ffcb1c',
                 color: '#fff',

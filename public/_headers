@@ -10,6 +10,10 @@
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
 
+/assets/pdf/*
+  Content-Type: application/pdf
+  Content-Disposition: attachment
+
 /Dr_Mohammed_Jubain.vcf
   Content-Disposition: attachment; filename="Dr_Mohammed_Jubain.vcf"
   Content-Type: text/vcard 

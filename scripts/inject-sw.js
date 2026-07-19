@@ -1,7 +1,14 @@
 const path = require('path');
 const { generateSW } = require('workbox-build');
+const prerenderRoutes = require('./prerender-routes');
 
 const buildDir = path.join(__dirname, '..', 'build');
+
+// Do not fall back to index.html for prerendered routes — that causes a homepage flash
+// before React Router renders the contact/menu page.
+const prerenderDenylist = prerenderRoutes
+  .filter((route) => route !== '/')
+  .map((route) => new RegExp(`^${route.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`));
 
 generateSW({
   swDest: path.join(buildDir, 'service-worker.js'),
@@ -12,11 +19,11 @@ generateSW({
   skipWaiting: true,
   clientsClaim: true,
   navigateFallback: '/index.html',
-  navigateFallbackDenylist: [/^\/_/, /\/[^/?]+\.[^/]+$/],
+  navigateFallbackDenylist: [/^\/_/, /\/[^/?]+\.[^/]+$/, ...prerenderDenylist],
   runtimeCaching: [
     {
       urlPattern: ({ url }) =>
-        /\.(?:png|jpg|jpeg|webp|svg|gif|vcf)$/i.test(url.pathname),
+        /\.(?:png|jpg|jpeg|webp|svg|gif|vcf|pdf)$/i.test(url.pathname),
       handler: 'StaleWhileRevalidate',
       options: {
         cacheName: 'static-assets',
