@@ -11,4 +11,7 @@
 /contact/:slug/    /contact/:slug    301!
 /menu/:slug/       /menu/:slug       301!
 
+# Never SPA-fallback asset files (prevents HTML being saved as PDF/etc.)
+/assets/*    /assets/:splat    200
+
 /*    /index.html   200

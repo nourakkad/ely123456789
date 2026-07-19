@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PoweredByElyptek from './PoweredByElyptek';
 import { getWhatsAppWebUrl, handleWhatsAppClick } from './whatsappLink';
 
-const PORTFOLIO_PDF = '/assets/pdf/crazy-beeez-portfolio.pdf';
+const PORTFOLIO_PDF = '/assets/pdf/crazy-beeez-portfolio.pdf?v=2';
 
 const CrazyBeeez = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');

@@ -22,11 +22,15 @@ generateSW({
   navigateFallbackDenylist: [/^\/_/, /\/[^/?]+\.[^/]+$/, ...prerenderDenylist],
   runtimeCaching: [
     {
+      urlPattern: ({ url }) => /\.pdf$/i.test(url.pathname),
+      handler: 'NetworkOnly',
+    },
+    {
       urlPattern: ({ url }) =>
-        /\.(?:png|jpg|jpeg|webp|svg|gif|vcf|pdf)$/i.test(url.pathname),
+        /\.(?:png|jpg|jpeg|webp|svg|gif|vcf)$/i.test(url.pathname),
       handler: 'StaleWhileRevalidate',
       options: {
-        cacheName: 'static-assets',
+        cacheName: 'static-assets-v2',
         expiration: { maxEntries: 120 },
       },
     },

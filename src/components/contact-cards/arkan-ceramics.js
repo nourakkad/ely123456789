@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PoweredByElyptek from './PoweredByElyptek';
 import { getWhatsAppWebUrl, handleWhatsAppClick } from './whatsappLink';
 
-const CATALOG_PDF = '/assets/pdf/arkan-catalog.pdf';
+const CATALOG_PDF = '/assets/pdf/arkan-catalog.pdf?v=2';
 
 const ArkanCeramics = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
