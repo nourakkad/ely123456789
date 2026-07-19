@@ -41,7 +41,30 @@
 
 # Serve prerendered pages directly, avoiding a homepage flash before React loads.
 /contact    /contact.html    200
-/contact/:slug    /contact/:slug.html    200
+/contact/dr-mohammed-jubain    /contact/dr-mohammed-jubain.html    200
+/contact/crazy-beeez    /contact/crazy-beeez.html    200
+/contact/mamon-assa    /contact/mamon-assa.html    200
+/contact/dr-nader-almzayek    /contact/dr-nader-almzayek.html    200
+/contact/hussam-alhamad    /contact/hussam-alhamad.html    200
+/contact/rashid-adas    /contact/rashid-adas.html    200
+/contact/abdalrahman-adas    /contact/abdalrahman-adas.html    200
+/contact/yassen-altabakh    /contact/yassen-altabakh.html    200
+/contact/anwar-saeed-jassem    /contact/anwar-saeed-jassem.html    200
+/contact/shadi-saeed-jassem    /contact/shadi-saeed-jassem.html    200
+/contact/deau-cacao    /contact/deau-cacao.html    200
+/contact/chocoswamp    /contact/chocoswamp.html    200
+/contact/elyptek    /contact/elyptek.html    200
+/contact/group-imdad    /contact/group-imdad.html    200
+/contact/maydan    /contact/maydan.html    200
+/contact/dr-hadi-alhariri    /contact/dr-hadi-alhariri.html    200
+/contact/dr-hadi-alomari    /contact/dr-hadi-alomari.html    200
+/contact/khalil-alokdi    /contact/khalil-alokdi.html    200
+/contact/arkan-ceramics    /contact/arkan-ceramics.html    200
+/contact/jasmine-perfumes    /contact/jasmine-perfumes.html    200
+/contact/mazmazeh    /contact/mazmazeh.html    200
+/contact/arta    /contact/arta.html    200
+/contact/%C3%A0rta    /contact/%C3%A0rta.html    200
+/contact/watad-agro    /contact/watad-agro.html    200
 /menu/chocoswamp    /menu/chocoswamp.html    200
 /menu/kousa-me7shi    /menu/kousa-me7shi.html    200
 /menu/chimney    /menu/chimney.html    200
