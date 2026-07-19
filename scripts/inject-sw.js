@@ -22,7 +22,7 @@ generateSW({
   navigateFallbackDenylist: [/^\/_/, /\/[^/?]+\.[^/]+$/, ...prerenderDenylist],
   runtimeCaching: [
     {
-      urlPattern: ({ url }) => /\.pdf$/i.test(url.pathname),
+      urlPattern: ({ url }) => /\.pdf(?:\?|$)/i.test(`${url.pathname}${url.search}`),
       handler: 'NetworkOnly',
     },
     {
