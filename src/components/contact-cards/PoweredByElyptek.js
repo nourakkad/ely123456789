@@ -15,6 +15,8 @@ const PoweredByElyptek = ({ currentLanguage = 'EN' }) => {
         marginTop: '16px',
         textAlign: 'center',
         direction: isAr ? 'rtl' : 'ltr',
+        background: 'transparent',
+        boxShadow: 'none',
       }}
       aria-label={isAr ? 'مدعوم من إيليبتك' : 'Powered by Elyptek'}
     >
@@ -25,6 +27,7 @@ const PoweredByElyptek = ({ currentLanguage = 'EN' }) => {
           fontWeight: '600',
           color: 'rgba(26, 26, 26, 0.72)',
           lineHeight: 1.5,
+          background: 'transparent',
         }}
       >
         {isAr ? 'مدعوم من ' : 'Powered by '}
@@ -35,6 +38,11 @@ const PoweredByElyptek = ({ currentLanguage = 'EN' }) => {
             rel="noopener noreferrer"
             dir="ltr"
             className="elyptek-word-link"
+            style={{
+              background: 'transparent',
+              boxShadow: 'none',
+              border: 'none',
+            }}
           >
             <ElyptekWord tm />
           </a>
