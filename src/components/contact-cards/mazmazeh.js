@@ -7,7 +7,7 @@ const TEL = '+963955230206';
 const WA_ID = '963955230206';
 
 const Mazmazeh = () => {
-  const [currentLanguage, setCurrentLanguage] = useState('EN');
+  const [currentLanguage, setCurrentLanguage] = useState('AR');
 
   useEffect(() => {
     const handleLanguageChange = (event) => {
