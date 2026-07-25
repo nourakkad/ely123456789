@@ -3,6 +3,7 @@ import PoweredByElyptek from './PoweredByElyptek';
 import { getWhatsAppWebUrl, handleWhatsAppClick } from './whatsappLink';
 
 const PORTFOLIO_PDF = '/assets/pdf/watad-agro-portfolio.pdf?v=2';
+const COMPANY_PROFILE_PDF = '/assets/pdf/WATAD_Stones_Company_Profile_AR.pdf?v=2';
 
 const WatadAgro = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
@@ -325,6 +326,16 @@ const WatadAgro = () => {
             >
               <i className="fas fa-file-pdf-o" style={{ fontSize: '16px' }} />
               {currentLanguage === 'AR' ? 'تحميل البورتفوليو' : 'Download Portfolio'}
+            </a>
+            <a
+              href={COMPANY_PROFILE_PDF}
+              download="WATAD_Stones_Company_Profile_AR.pdf"
+              style={{ ...downloadBtnStyle, width: '100%', justifyContent: 'center' }}
+              onMouseOver={onDownloadOver}
+              onMouseOut={onDownloadOut}
+            >
+              <i className="fas fa-file-pdf-o" style={{ fontSize: '16px' }} />
+              {currentLanguage === 'AR' ? 'تحميل الملف التعريفي للشركة' : 'Download Company Profile'}
             </a>
           </div>
 
