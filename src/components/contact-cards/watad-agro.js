@@ -113,7 +113,7 @@ const WatadAgro = () => {
     title: currentLanguage === 'AR' ? 'وتد الزراعية السورية' : 'Watad Agro Syria',
     category: currentLanguage === 'AR' ? 'الزراعة والحلول الزراعية' : 'Agriculture & Agro Solutions',
     image: '/assets/logo/watad-agro.png',
-    phone: '+963 952 080 80',
+    phone: '+963 995 208 080',
     email: 'info@watadagrosy.com',
     instagram: 'https://www.instagram.com/watadagro.sy?igsh=MWUwdWE3dGFxOHk4bA==',
     instagramHandle: '@watadagro.sy',
@@ -271,8 +271,8 @@ const WatadAgro = () => {
             </a>
 
             <a
-              href={getWhatsAppWebUrl('96395208080')}
-              onClick={handleWhatsAppClick('96395208080')}
+              href={getWhatsAppWebUrl('963995208080')}
+              onClick={handleWhatsAppClick('963995208080')}
               rel="noopener noreferrer"
               style={btnBase}
               onMouseOver={onBtnOver}
