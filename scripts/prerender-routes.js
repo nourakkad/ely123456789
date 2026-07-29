@@ -32,6 +32,7 @@ module.exports = [
   '/contact/àrta',
   '/contact/watad-agro',
   '/contact/osama-azmeh',
+  '/contact/hiam-clinic',
   '/menu/chocoswamp',
   '/menu/kousa-me7shi',
   '/menu/chimney',

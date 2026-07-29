@@ -171,6 +171,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://elyptek.com/contact/hiam-clinic</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://elyptek.com/menu/chocoswamp</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
