@@ -1,0 +1,13 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Clinic;Hiam;;;
+FN:Hiam Clinic - UAE Branch
+ORG:Hiam Clinic
+TITLE:UAE Branch - Abu Dhabi
+EMAIL:h.jabalee@elyzee.ae
+TEL;TYPE=WORK:8005005
+TEL;TYPE=CELL;TYPE=Appointments:+971502708704
+ADR;TYPE=WORK:;;Elyzee Hospital - Arabian Gulf St., Al Mushrif area;Abu Dhabi;;;United Arab Emirates
+URL:https://elyptek.com/contact/hiam-clinic
+NOTE:Hiam Clinic | فرع الإمارات | مشفى الإليزيه - أبو ظبي - شارع الخليج العربي منطقة المشرف | أرضي: 800 5005 | مواعيد: +971 50 270 8704
+END:VCARD

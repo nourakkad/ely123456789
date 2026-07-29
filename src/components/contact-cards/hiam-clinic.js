@@ -21,6 +21,8 @@ const BRANCHES = [
       { display: '+963 988 888 537', tel: '+963988888537', wa: '963988888537' },
       { display: '+963 996 266 930', tel: '+963996266930', wa: '963996266930' },
     ],
+    vcf: '/assets/vcf/hiam-clinic-branch1.vcf',
+    vcfFileName: 'hiam-clinic-branch1.vcf',
   },
   {
     id: 'branch2',
@@ -33,8 +35,10 @@ const BRANCHES = [
       { display: '011 559 8501', tel: '+963115598501' },
       { display: '011 554 5601', tel: '+963115545601' },
     ],
-    laser: { display: '0994 310 484', tel: '+963994310484', wa: '963994310484' },
-    appointments: [{ display: '0983 229 911', tel: '+963983229911', wa: '963983229911' }],
+    laser: { display: '+963 994 310 484', tel: '+963994310484', wa: '963994310484' },
+    appointments: [{ display: '+963 983 229 911', tel: '+963983229911', wa: '963983229911' }],
+    vcf: '/assets/vcf/hiam-clinic-branch2.vcf',
+    vcfFileName: 'hiam-clinic-branch2.vcf',
   },
   {
     id: 'branch3',
@@ -46,6 +50,8 @@ const BRANCHES = [
     landlines: [{ display: '800 5005', tel: '8005005' }],
     laser: null,
     appointments: [{ display: '+971 50 270 8704', tel: '+971502708704', wa: '971502708704' }],
+    vcf: '/assets/vcf/hiam-clinic-branch3.vcf',
+    vcfFileName: 'hiam-clinic-branch3.vcf',
   },
 ];
 
@@ -405,8 +411,8 @@ const HiamClinic = () => {
           </div>
 
           <a
-            href="/assets/vcf/hiam-clinic.vcf"
-            download="hiam-clinic.vcf"
+            href={branch.vcf}
+            download={branch.vcfFileName}
             style={{
               backgroundColor: prim,
               color: '#fff',
