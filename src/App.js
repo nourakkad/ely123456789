@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'r
 import Header from './components/Header';
 import HomePage from './pages/HomePage';
 import SectionPage from './pages/SectionPage';
-import { DrMohammedJubain, CrazyBeeez, MamonAssa, DrNaderAlmzayek, HussamAlhamad, RashidAdas, AbdalrahmanAdas, YassenAltabakh, AnwarSaeedJassem, ShadiSaeedJassem, DeauCacao, ChocoSwamp, Elyptek, GroupImdad, Maydan, DrHadiAlhariri, DrHadiAlomari, KhalilAlokdi, ArkanCeramics, JasminePerfumes, Mazmazeh, Arta, WatadAgro } from './components/contact-cards';
+import { DrMohammedJubain, CrazyBeeez, MamonAssa, DrNaderAlmzayek, HussamAlhamad, RashidAdas, AbdalrahmanAdas, YassenAltabakh, AnwarSaeedJassem, ShadiSaeedJassem, DeauCacao, ChocoSwamp, Elyptek, GroupImdad, Maydan, DrHadiAlhariri, DrHadiAlomari, KhalilAlokdi, ArkanCeramics, JasminePerfumes, Mazmazeh, Arta, WatadAgro, OsamaAzmeh } from './components/contact-cards';
 import { ChocoSwampMenu, KousaMe7shiMenu, ChimneyMenu } from './components/menu/index';
 import PageSeo from './seo/PageSeo';
 import './App.css';
@@ -78,6 +78,7 @@ function App() {
           <Route path="/contact/arta" element={<Arta />} />
           <Route path={'/contact/\u00e0rta'} element={<Arta />} />
           <Route path="/contact/watad-agro" element={<WatadAgro />} />
+          <Route path="/contact/osama-azmeh" element={<OsamaAzmeh />} />
 
           {/* Restaurant Menu Routes */}
           <Route path="/menu/chocoswamp" element={<ChocoSwampMenu />} />
