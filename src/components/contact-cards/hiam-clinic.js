@@ -21,6 +21,11 @@ const BRANCHES = [
       { display: '+963 988 888 537', tel: '+963988888537', wa: '963988888537' },
       { display: '+963 996 266 930', tel: '+963996266930', wa: '963996266930' },
     ],
+    socials: [
+      { type: 'instagram', url: 'https://www.instagram.com/hiam_medical_clinic', handle: '@hiam_medical_clinic' },
+      { type: 'facebook', url: 'https://www.facebook.com/DrHiamjabalee', handle: 'DrHiamjabalee' },
+      { type: 'facebook', url: 'https://www.facebook.com/luminous.medical.center', handle: 'Hiam.medical.center' },
+    ],
     vcf: '/assets/vcf/hiam-clinic-branch1.vcf',
     vcfFileName: 'hiam-clinic-branch1.vcf',
   },
@@ -37,6 +42,11 @@ const BRANCHES = [
     ],
     laser: { display: '+963 994 310 484', tel: '+963994310484', wa: '963994310484' },
     appointments: [{ display: '+963 983 229 911', tel: '+963983229911', wa: '963983229911' }],
+    socials: [
+      { type: 'instagram', url: 'https://www.instagram.com/hiam_medical_clinic', handle: '@hiam_medical_clinic' },
+      { type: 'facebook', url: 'https://www.facebook.com/DrHiamjabalee', handle: 'DrHiamjabalee' },
+      { type: 'facebook', url: 'https://www.facebook.com/luminous.medical.center', handle: 'Hiam.medical.center' },
+    ],
     vcf: '/assets/vcf/hiam-clinic-branch2.vcf',
     vcfFileName: 'hiam-clinic-branch2.vcf',
   },
@@ -50,6 +60,10 @@ const BRANCHES = [
     landlines: [{ display: '800 5005', tel: '8005005' }],
     laser: null,
     appointments: [{ display: '+971 50 270 8704', tel: '+971502708704', wa: '971502708704' }],
+    socials: [
+      { type: 'instagram', url: 'https://www.instagram.com/dr.hiamjabalee.uae', handle: '@dr.hiamjabalee.uae' },
+      { type: 'instagram', url: 'https://www.instagram.com/dr.hiamjabalee', handle: '@dr.hiamjabalee' },
+    ],
     vcf: '/assets/vcf/hiam-clinic-branch3.vcf',
     vcfFileName: 'hiam-clinic-branch3.vcf',
   },
@@ -408,6 +422,50 @@ const HiamClinic = () => {
                 <PhoneRow key={phone.tel} phone={phone} />
               ))}
             </Section>
+
+            {branch.socials?.length > 0 && (
+              <Section icon="fas fa-share-alt" title={isAr ? 'التواصل' : 'Social'}>
+                {branch.socials.map((social) => (
+                  <a
+                    key={social.url}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      gap: '8px',
+                      padding: '8px 10px',
+                      backgroundColor: '#fff',
+                      borderRadius: '12px',
+                      border: '1px solid rgba(201, 162, 39, 0.25)',
+                      textDecoration: 'none',
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
+                      <i
+                        className={social.type === 'instagram' ? 'fab fa-instagram' : 'fab fa-facebook-f'}
+                        style={{ color: prim, fontSize: '14px', width: '14px', textAlign: 'center', flexShrink: 0 }}
+                      />
+                      <span style={{
+                        fontWeight: '600',
+                        color: c.ink,
+                        fontSize: '12px',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        whiteSpace: 'nowrap',
+                      }}>
+                        {social.handle}
+                      </span>
+                    </div>
+                    <span style={miniBtn}>
+                      <i className="fas fa-external-link-alt" style={{ fontSize: '10px' }} />
+                    </span>
+                  </a>
+                ))}
+              </Section>
+            )}
           </div>
 
           <a
