@@ -56,7 +56,7 @@ const Footer = () => {
               <a href="https://www.instagram.com/elyptek.co" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="instagram">
                 <i className="fab fa-instagram"></i>
               </a>
-              <a href="https://wa.me/963956009824" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="whatsapp">
+              <a href="https://wa.me/963980325553" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="whatsapp">
                 <i className="fab fa-whatsapp"></i>
               </a>
             </div>
