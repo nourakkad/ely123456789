@@ -1,3 +1,5 @@
+import { PORTFOLIO_META_DESCRIPTION } from '../data/portfolioItems';
+
 const page = (title, description, jsonLdType = 'WebPage') => ({
   title,
   description,
@@ -25,7 +27,7 @@ export const SITE_SEO_BY_PATH = {
   ),
   '/portfolio': page(
     'Portfolio | Elyptek',
-    'Explore Elyptek portfolio — web design, software development, and digital marketing for KMA, Tembix, Sabco, Global Visionary Minds, Damascus Gin, Khalil Al-Okdi, Luxury777, àrta, and Dr-Academy.',
+    PORTFOLIO_META_DESCRIPTION,
   ),
   '/contact': page(
     'Contact Us | Elyptek',

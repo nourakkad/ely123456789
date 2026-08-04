@@ -15,13 +15,33 @@ export const upsertMeta = (key, content, attr = 'name') => {
 
 export const upsertLink = (rel, href) => {
   if (!href) return;
-  let el = document.querySelector(`link[rel="${rel}"]`);
+  let el = document.querySelector(`link[rel="${rel}"]:not([hreflang])`);
   if (!el) {
     el = document.createElement('link');
     el.setAttribute('rel', rel);
     document.head.appendChild(el);
   }
   el.setAttribute('href', href);
+};
+
+export const upsertHreflang = (hreflang, href) => {
+  if (!hreflang || !href) return;
+  let el = document.querySelector(`link[rel="alternate"][hreflang="${hreflang}"]`);
+  if (!el) {
+    el = document.createElement('link');
+    el.setAttribute('rel', 'alternate');
+    el.setAttribute('hreflang', hreflang);
+    document.head.appendChild(el);
+  }
+  el.setAttribute('href', href);
+};
+
+export const applyHreflangAlternates = (canonicalUrl) => {
+  if (!canonicalUrl) return;
+  const base = canonicalUrl.split('?')[0];
+  upsertHreflang('en', `${base}?lang=EN`);
+  upsertHreflang('ar', `${base}?lang=AR`);
+  upsertHreflang('x-default', base);
 };
 
 export const setJsonLd = (data) => {
@@ -53,7 +73,10 @@ export const applyPageHead = ({
 
   if (description) upsertMeta('description', description);
   if (robots) upsertMeta('robots', robots);
-  if (canonicalUrl) upsertLink('canonical', canonicalUrl);
+  if (canonicalUrl) {
+    upsertLink('canonical', canonicalUrl);
+    applyHreflangAlternates(canonicalUrl);
+  }
 
   upsertMeta('og:title', title, 'property');
   upsertMeta('og:description', description, 'property');

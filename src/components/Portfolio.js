@@ -84,7 +84,12 @@ const Portfolio = () => {
     const category = isAr ? item.categoryAr : item.categoryEn;
 
     return (
-      <article className="portfolio-card" itemScope itemType="https://schema.org/CreativeWork">
+      <article
+        id={item.slug}
+        className="portfolio-card"
+        itemScope
+        itemType="https://schema.org/CreativeWork"
+      >
         <meta itemProp="name" content={item.title} />
         <meta itemProp="description" content={item.categoryEn} />
         {item.website && <meta itemProp="url" content={item.website} />}
@@ -98,6 +103,8 @@ const Portfolio = () => {
             src={item.image}
             alt={getPortfolioImageAlt(item, isAr)}
             loading="lazy"
+            width={200}
+            height={120}
             itemProp="image"
           />
         </div>
@@ -166,22 +173,6 @@ const Portfolio = () => {
           </h4>
           <div className="line-dec" />
           <p className="site-lead">{getTranslation('portfolioDescription', lang)}.</p>
-
-          <div className="portfolio-google-stamp" aria-label={isAr ? 'ختم محفظة الأعمال لمحركات البحث' : 'Search-indexed portfolio stamp'}>
-            <span className="portfolio-google-stamp__mark" aria-hidden="true">
-              {PORTFOLIO_ITEMS.length}
-            </span>
-            <div className="portfolio-google-stamp__copy">
-              <strong>
-                {isAr ? 'ختم أعمال مفهرس لمحركات البحث' : 'Search-indexed portfolio stamp'}
-              </strong>
-              <p>
-                {isAr
-                  ? `${PORTFOLIO_ITEMS.length} مشاريع مفهرسة: ${PORTFOLIO_CLIENT_NAMES.join(' · ')}`
-                  : `${PORTFOLIO_ITEMS.length} indexed projects: ${PORTFOLIO_CLIENT_NAMES.join(' · ')}`}
-              </p>
-            </div>
-          </div>
         </div>
 
         {!isMobile && (
@@ -256,11 +247,22 @@ const Portfolio = () => {
                 />
               ))}
             </div>
-            <p className="portfolio-index-list visually-hidden">
-              {PORTFOLIO_CLIENT_NAMES.join(', ')}
-            </p>
           </>
         )}
+
+        <div className="portfolio-google-stamp" aria-label={isAr ? 'عملاؤنا' : 'Our clients'}>
+          <span className="portfolio-google-stamp__mark" aria-hidden="true">
+            {PORTFOLIO_ITEMS.length}
+          </span>
+          <div className="portfolio-google-stamp__copy">
+            <strong>
+              {isAr ? 'عملاؤنا' : 'Our clients'}
+            </strong>
+            <p>
+              {PORTFOLIO_CLIENT_NAMES.join(' · ')}
+            </p>
+          </div>
+        </div>
 
         <div className="portfolio-page-cta wow fadeInUp">
           <div className="site-cta-inner">
