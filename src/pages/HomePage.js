@@ -147,7 +147,14 @@ const HomePage = () => {
           <div className="row align-items-center">
             <div className="col-lg-6 order-lg-1 order-2">
               <div className="about-left-image wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.4s">
-                <img src="assets/images/About us.png" alt={isAr ? 'About Elyptek' : 'About Elyptek'} />
+                <img
+                  src="/assets/images/about-us.webp"
+                  alt="About Elyptek"
+                  width={800}
+                  height={741}
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
             <div className="col-lg-6 order-lg-2 order-1 wow fadeInRight site-about-intro">

@@ -40,7 +40,14 @@ const Footer = () => {
           <div className="footer-col footer-col-left">
             <div className="footer-logo">
               <Link to={SITE_SECTIONS.home} aria-label="Back to home">
-                <img src="assets/images/LOGO ELYPTEK .png" alt="Elyptek logo" />
+                <img
+                  src="/assets/images/logo-footer.webp"
+                  alt="Elyptek logo"
+                  width={240}
+                  height={180}
+                  loading="lazy"
+                  decoding="async"
+                />
               </Link>
             </div>
             <p className="footer-quote">

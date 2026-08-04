@@ -153,7 +153,14 @@ const Header = () => {
               </button>
 
               <Link to={SITE_SECTIONS.home} className="logo site-header-logo-link" onClick={closeMenu}>
-                <img src="/assets/images/logo12.png" alt="Elyptek Logo" className="site-header-logo" />
+                <img
+                  src="/assets/images/logo-header.webp"
+                  alt="Elyptek Logo"
+                  className="site-header-logo"
+                  width={187}
+                  height={140}
+                  decoding="async"
+                />
               </Link>
 
               <div className="language-toggle">

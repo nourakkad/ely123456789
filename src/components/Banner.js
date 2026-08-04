@@ -57,15 +57,18 @@ const Banner = () => {
       id="top"
       data-wow-duration="1s"
       data-wow-delay="0.5s"
-      style={{ 
-        position: 'relative', 
-        overflow: 'hidden', 
-        background: "url('assets/images/img.jpg') center center / cover no-repeat",
+      style={{
+        position: 'relative',
+        overflow: 'hidden',
+        backgroundImage: "url('/assets/images/hero.webp')",
+        backgroundPosition: 'center center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
         direction: currentLanguage === 'AR' ? 'rtl' : 'ltr',
-        textAlign: currentLanguage === 'AR' ? 'right' : 'left'
+        textAlign: currentLanguage === 'AR' ? 'right' : 'left',
       }}
     >
-      <div className="img-overlay" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(255, 255, 255, 0.8)' }}></div>
+      <div className="img-overlay" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(255, 255, 255, 0.8)' }} />
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         <div className="row">
           <div className="col-lg-12">
