@@ -1,4 +1,4 @@
-import { getContactSeo } from '../components/contact-cards/contactSeoConfig';
+import { buildContactRelationJsonLd, getContactSeo } from '../components/contact-cards/contactSeoConfig';
 import { getMenuSeo } from '../components/menu/menuSeoConfig';
 import { buildPortfolioItemListJsonLd, PORTFOLIO_META_DESCRIPTION } from '../data/portfolioItems';
 import { getSiteSeo } from './siteSeoConfig';
@@ -30,8 +30,10 @@ export const buildPageSeoPayload = (pathname) => {
 
   const contact = getContactSeo(path);
   if (contact) {
-    const title = `${contact.nameEn} | Contact Card | ${SITE_NAME}`;
+    const title = `${contact.nameEn} | Network Contact | ${SITE_NAME}`;
     const description = contact.descriptionEn;
+    const { profilePage, entity } = buildContactRelationJsonLd(pageUrl, contact);
+
     return {
       title,
       description,
@@ -39,7 +41,15 @@ export const buildPageSeoPayload = (pathname) => {
       imageUrl: OG_IMAGE,
       jsonLd: {
         '@context': 'https://schema.org',
-        '@graph': [webPageNode(pageUrl, title, description), ELYPTEK_ORGANIZATION, ELYPTEK_WEBSITE],
+        '@graph': [
+          profilePage,
+          entity,
+          {
+            ...ELYPTEK_ORGANIZATION,
+            knowsAbout: contact.nameEn,
+          },
+          ELYPTEK_WEBSITE,
+        ],
       },
     };
   }
