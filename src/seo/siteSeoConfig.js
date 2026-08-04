@@ -25,7 +25,7 @@ export const SITE_SEO_BY_PATH = {
   ),
   '/portfolio': page(
     'Portfolio | Elyptek',
-    'Explore Elyptek portfolio — web design, software development, and digital marketing work across industries.',
+    'Explore Elyptek portfolio — web design, software development, and digital marketing for KMA, Tembix, Sabco, Global Visionary Minds, Damascus Gin, Khalil Al-Okdi, Luxury777, àrta, and Dr-Academy.',
   ),
   '/contact': page(
     'Contact Us | Elyptek',

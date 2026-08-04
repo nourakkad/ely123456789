@@ -3,115 +3,11 @@ import { Link } from 'react-router-dom';
 import useSiteLanguage from '../hooks/useSiteLanguage';
 import { getTranslation } from '../translations';
 import { SITE_SECTIONS } from '../routes/siteRoutes';
-
-const PORTFOLIO_ITEMS = [
-  {
-    id: 1,
-    title: 'KMA',
-    categoryEn: 'KMA FOR GAS STATION SERVICES',
-    categoryAr: 'شركة القمة لخدمات محطات الوقود',
-    image: '/assets/logo/KMA.png',
-    facebook: 'https://www.facebook.com/profile.php?id=61572372762233&sk',
-    website: 'https://kma-sy.com',
-  },
-  {
-    id: 2,
-    title: 'Tembix',
-    categoryEn: 'Composite Decking & Flooring Solutions',
-    categoryAr: 'حلول الأرضيات والترصيع المركبة',
-    image: '/assets/logo/Tembix.png',
-    instagram: 'https://www.instagram.com/tembix/',
-    facebook: 'https://www.facebook.com/tembix',
-    website: 'https://timbex-sy.com/',
-  },
-  {
-    id: 3,
-    title: 'Sabco',
-    categoryEn: 'Polystyrene & Thermal Insulation',
-    categoryAr: 'البوليسترين والعزل الحراري',
-    image: '/assets/logo/Sabco.png',
-    instagram: 'https://www.instagram.com/sabco/',
-    facebook: 'https://www.facebook.com/sabco',
-    website: 'https://sabco.com.sy/',
-  },
-  {
-    id: 4,
-    title: 'Global Visonery Minds',
-    categoryEn: 'Empowering Change Through Community',
-    categoryAr: 'تمكين التغيير من خلال المجتمع',
-    image: '/assets/logo/gvm.png',
-    website: 'https://globalvisionaryminds.com/',
-  },
-  {
-    id: 5,
-    title: 'Damascus Gin',
-    categoryEn: 'Premium Craft Gin Distillery',
-    categoryAr: 'مصنع جين حرفي فاخر',
-    image: '/assets/logo/damascusgin.png',
-    instagram: 'https://www.instagram.com/damascusgin/',
-    facebook: 'https://www.facebook.com/damascusgin',
-    website: 'https://damascusgin.com',
-  },
-  {
-    id: 6,
-    title: 'Khalil Al-Okdi',
-    categoryEn: 'Trading, Industry & Contracting Establishment',
-    categoryAr: 'تجارة وصناعة ومقاولات',
-    image: '/assets/logo/khalil al-okadi.png',
-    facebook: 'https://www.facebook.com/share/17XWzpfb6f/?mibextid=wwXIfr',
-    instagram: 'https://www.instagram.com/khalilokdi',
-    website: 'https://khalilokdi.com/',
-  },
-  {
-    id: 7,
-    title: 'Luxury777',
-    categoryEn: 'Luxury Car Rentals — Dubai, UAE',
-    categoryAr: 'تأجير سيارات فاخرة — دبي، الإمارات',
-    image: '/assets/logo/luxury777.png',
-    logoVariant: 'dark',
-    website: 'https://luxury777.ae/',
-  },
-  {
-    id: 8,
-    title: 'àrta',
-    categoryEn: 'Creative Art House',
-    categoryAr: 'دار فن إبداعي',
-    image: '/assets/logo/arta.jpg',
-    logoVariant: 'large',
-    facebook: 'https://www.facebook.com/share/1bdNRB1ZwH/',
-    instagram: 'https://www.instagram.com/arta_creative_art_house?igsh=bmwxMnpmYXNmZjBq',
-    website: 'https://àrta.com',
-  },
-  {
-    id: 9,
-    title: 'Crazy Beeez',
-    categoryEn: 'Be Crazy Be Creative',
-    categoryAr: 'Be Crazy Be Creative',
-    image: '/assets/logo/crazy-beeez.jpg',
-    logoVariant: 'light',
-    instagram: 'https://www.instagram.com/crazybeeez_?igsh=MW53dHFkdGU5NHNuNQ==',
-    facebook: 'https://www.facebook.com/share/17Hvs8M6Jb/?mibextid=wwXIfr',
-    website: 'https://elyptek.com/contact/crazy-beeez',
-  },
-  {
-    id: 10,
-    title: 'Maydan Creative Studio',
-    categoryEn: 'Creative Studio',
-    categoryAr: 'مايدان كرييتيف ستوديو',
-    image: '/assets/logo/maydan.jpg',
-    logoVariant: 'maydan',
-    instagram: 'https://www.instagram.com/creativemaydan',
-    website: 'https://elyptek.com/contact/maydan',
-  },
-  {
-    id: 11,
-    title: 'Dr-Academy',
-    categoryEn: 'Online Learning & Medical Workshops',
-    categoryAr: 'منصة تعليم إلكترونية وورشات طبية',
-    image: '/assets/logo/dr-academy.png',
-    website: 'https://dr-academy.tech',
-  },
-];
+import {
+  PORTFOLIO_ITEMS,
+  PORTFOLIO_CLIENT_NAMES,
+  getPortfolioImageAlt,
+} from '../data/portfolioItems';
 
 const SWIPE_THRESHOLD = 50;
 
@@ -188,17 +84,25 @@ const Portfolio = () => {
     const category = isAr ? item.categoryAr : item.categoryEn;
 
     return (
-      <article className="portfolio-card">
+      <article className="portfolio-card" itemScope itemType="https://schema.org/CreativeWork">
+        <meta itemProp="name" content={item.title} />
+        <meta itemProp="description" content={item.categoryEn} />
+        {item.website && <meta itemProp="url" content={item.website} />}
         <div
           className={[
             'portfolio-card-logo',
             item.logoVariant ? `portfolio-card-logo--${item.logoVariant}` : '',
           ].filter(Boolean).join(' ')}
         >
-          <img src={item.image} alt={item.title} loading="lazy" />
+          <img
+            src={item.image}
+            alt={getPortfolioImageAlt(item, isAr)}
+            loading="lazy"
+            itemProp="image"
+          />
         </div>
         <div className="portfolio-card-body">
-          <h5>{item.title}</h5>
+          <h5 itemProp="name">{item.title}</h5>
           <span className="portfolio-card-category">{category}</span>
           <div className="portfolio-card-links">
             {item.instagram && (
@@ -230,6 +134,7 @@ const Portfolio = () => {
                 rel="noopener noreferrer"
                 className="portfolio-link portfolio-link--website"
                 aria-label={`${item.title} website`}
+                itemProp="url"
               >
                 <i className="fas fa-globe" />
               </a>
@@ -245,7 +150,10 @@ const Portfolio = () => {
       id="portfolio"
       className={`portfolio-page ${rtlClass}`}
       dir={isAr ? 'rtl' : 'ltr'}
+      itemScope
+      itemType="https://schema.org/CollectionPage"
     >
+      <meta itemProp="name" content="Elyptek Portfolio" />
       <div className="container">
         <div className="section-heading wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.2s">
           <h6>{getTranslation('portfolioTitle', lang)}</h6>
@@ -258,17 +166,38 @@ const Portfolio = () => {
           </h4>
           <div className="line-dec" />
           <p className="site-lead">{getTranslation('portfolioDescription', lang)}.</p>
+
+          <div className="portfolio-google-stamp" aria-label={isAr ? 'ختم محفظة الأعمال لمحركات البحث' : 'Search-indexed portfolio stamp'}>
+            <span className="portfolio-google-stamp__mark" aria-hidden="true">
+              {PORTFOLIO_ITEMS.length}
+            </span>
+            <div className="portfolio-google-stamp__copy">
+              <strong>
+                {isAr ? 'ختم أعمال مفهرس لمحركات البحث' : 'Search-indexed portfolio stamp'}
+              </strong>
+              <p>
+                {isAr
+                  ? `${PORTFOLIO_ITEMS.length} مشاريع مفهرسة: ${PORTFOLIO_CLIENT_NAMES.join(' · ')}`
+                  : `${PORTFOLIO_ITEMS.length} indexed projects: ${PORTFOLIO_CLIENT_NAMES.join(' · ')}`}
+              </p>
+            </div>
+          </div>
         </div>
 
         {!isMobile && (
-          <div className="portfolio-grid">
+          <div className="portfolio-grid" itemProp="mainEntity" itemScope itemType="https://schema.org/ItemList">
+            <meta itemProp="numberOfItems" content={String(PORTFOLIO_ITEMS.length)} />
             {PORTFOLIO_ITEMS.map((item, index) => (
               <div
                 key={item.id}
                 className="portfolio-grid-item wow fadeInUp"
                 data-wow-delay={`${0.1 + (index % 3) * 0.1}s`}
+                itemProp="itemListElement"
+                itemScope
+                itemType="https://schema.org/ListItem"
               >
-                {renderCard(item)}
+                <meta itemProp="position" content={String(index + 1)} />
+                <div itemProp="item">{renderCard(item)}</div>
               </div>
             ))}
           </div>
@@ -327,6 +256,9 @@ const Portfolio = () => {
                 />
               ))}
             </div>
+            <p className="portfolio-index-list visually-hidden">
+              {PORTFOLIO_CLIENT_NAMES.join(', ')}
+            </p>
           </>
         )}
 

@@ -1,19 +1,25 @@
 # API must precede SPA catch-all — without this line, `/api/*` never reaches Functions.
 /api/send-mail    /.netlify/functions/send-mail    200
 
-# Trailing slashes → canonical URLs (contact cards / QR codes)
-/services/    /services    301!
-/about/       /about       301!
-/team/        /team        301!
-/portfolio/   /portfolio   301!
-/form/        /form        301!
-
 # Legacy PDF filenames (old spaced names from first deploy)
 /assets/pdf/WATAD%20Agro%20AR.pdf    /assets/pdf/watad-agro-portfolio.pdf    301!
 /assets/pdf/crazy%20beeez%20portfolio.pdf    /assets/pdf/crazy-beeez-portfolio.pdf    301!
 
-# Serve prerendered pages directly, avoiding a homepage flash before React loads.
+# Serve prerendered pages directly (200 rewrite — do NOT 301 strip trailing slashes;
+# that fights Netlify Pretty URLs and causes ERR_TOO_MANY_REDIRECTS).
+/services    /services.html    200
+/services/   /services.html    200
+/about    /about.html    200
+/about/   /about.html    200
+/team    /team.html    200
+/team/   /team.html    200
+/portfolio    /portfolio.html    200
+/portfolio/   /portfolio.html    200
+/form    /form.html    200
+/form/   /form.html    200
 /contact    /contact.html    200
+/contact/   /contact.html    200
+
 /contact/dr-mohammed-jubain    /contact/dr-mohammed-jubain.html    200
 /contact/crazy-beeez    /contact/crazy-beeez.html    200
 /contact/mamon-assa    /contact/mamon-assa.html    200
@@ -38,6 +44,9 @@
 /contact/arta    /contact/arta.html    200
 /contact/%C3%A0rta    /contact/%C3%A0rta.html    200
 /contact/watad-agro    /contact/watad-agro.html    200
+/contact/osama-azmeh    /contact/osama-azmeh.html    200
+/contact/hiam-clinic    /contact/hiam-clinic.html    200
+
 /menu/chocoswamp    /menu/chocoswamp.html    200
 /menu/kousa-me7shi    /menu/kousa-me7shi.html    200
 /menu/chimney    /menu/chimney.html    200

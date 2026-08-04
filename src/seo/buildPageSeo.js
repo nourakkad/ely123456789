@@ -1,5 +1,6 @@
 import { getContactSeo } from '../components/contact-cards/contactSeoConfig';
 import { getMenuSeo } from '../components/menu/menuSeoConfig';
+import { buildPortfolioItemListJsonLd, PORTFOLIO_META_DESCRIPTION } from '../data/portfolioItems';
 import { getSiteSeo } from './siteSeoConfig';
 import {
   DEFAULT_DESCRIPTION,
@@ -105,6 +106,36 @@ export const buildPageSeoPayload = (pathname) => {
               areaServed: { '@type': 'Country', name: 'Syria' },
               provider: { '@id': `${SITE}/#organization` },
             },
+          ],
+        },
+      };
+    }
+
+    if (path === '/portfolio') {
+      const description = PORTFOLIO_META_DESCRIPTION;
+      const title = site.title;
+      return {
+        title,
+        description,
+        canonicalUrl: pageUrl,
+        imageUrl: OG_IMAGE,
+        jsonLd: {
+          '@context': 'https://schema.org',
+          '@graph': [
+            {
+              '@type': 'CollectionPage',
+              '@id': `${pageUrl}#webpage`,
+              url: pageUrl,
+              name: title,
+              description,
+              inLanguage: ['en', 'ar'],
+              isPartOf: { '@id': `${SITE}/#website` },
+              about: { '@id': `${SITE}/#organization` },
+              mainEntity: { '@id': `${pageUrl}#itemlist` },
+            },
+            buildPortfolioItemListJsonLd(pageUrl),
+            ELYPTEK_ORGANIZATION,
+            ELYPTEK_WEBSITE,
           ],
         },
       };
