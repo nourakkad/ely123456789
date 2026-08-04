@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 const container = document.getElementById('root');
 const app = (
@@ -23,4 +22,18 @@ if (container.hasChildNodes()) {
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-serviceWorkerRegistration.register();
+// Remove any previously installed PWA service workers + caches for returning visitors.
+if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then((registrations) => {
+    registrations.forEach((registration) => {
+      registration.unregister();
+    });
+  });
+  if (window.caches?.keys) {
+    caches.keys().then((keys) => {
+      keys.forEach((key) => {
+        caches.delete(key);
+      });
+    });
+  }
+}
