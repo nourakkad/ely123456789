@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import useSiteLanguage from '../hooks/useSiteLanguage';
 import { getTranslation } from '../translations';
-import { SITE_SECTIONS } from '../routes/siteRoutes';
+import { SITE_SECTIONS, getPortfolioCaseStudyPath } from '../routes/siteRoutes';
 import {
   PORTFOLIO_ITEMS,
   PORTFOLIO_CLIENT_NAMES,
@@ -82,6 +82,7 @@ const Portfolio = () => {
 
   const renderCard = (item) => {
     const category = isAr ? item.categoryAr : item.categoryEn;
+    const casePath = getPortfolioCaseStudyPath(item.slug);
 
     return (
       <article
@@ -91,62 +92,74 @@ const Portfolio = () => {
         itemType="https://schema.org/CreativeWork"
       >
         <meta itemProp="name" content={item.title} />
-        <meta itemProp="description" content={item.categoryEn} />
-        {item.website && <meta itemProp="url" content={item.website} />}
-        <div
-          className={[
-            'portfolio-card-logo',
-            item.logoVariant ? `portfolio-card-logo--${item.logoVariant}` : '',
-          ].filter(Boolean).join(' ')}
+        <meta itemProp="description" content={item.summaryEn || item.categoryEn} />
+        <Link
+          to={casePath}
+          className="portfolio-card-main"
+          aria-label={
+            isAr
+              ? `عرض مشروع ${item.title}`
+              : `View ${item.title} project case study`
+          }
         >
-          <img
-            src={item.image}
-            alt={getPortfolioImageAlt(item, isAr)}
-            loading="lazy"
-            width={200}
-            height={120}
-            itemProp="image"
-          />
-        </div>
-        <div className="portfolio-card-body">
-          <h5 itemProp="name">{item.title}</h5>
-          <span className="portfolio-card-category">{category}</span>
-          <div className="portfolio-card-links">
-            {item.instagram && (
-              <a
-                href={item.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="portfolio-link portfolio-link--instagram"
-                aria-label={`${item.title} Instagram`}
-              >
-                <i className="fab fa-instagram" />
-              </a>
-            )}
-            {item.facebook && (
-              <a
-                href={item.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="portfolio-link portfolio-link--facebook"
-                aria-label={`${item.title} Facebook`}
-              >
-                <i className="fab fa-facebook-f" />
-              </a>
-            )}
-            {item.website && (
-              <a
-                href={item.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="portfolio-link portfolio-link--website"
-                aria-label={`${item.title} website`}
-                itemProp="url"
-              >
-                <i className="fas fa-globe" />
-              </a>
-            )}
+          <div
+            className={[
+              'portfolio-card-logo',
+              item.logoVariant ? `portfolio-card-logo--${item.logoVariant}` : '',
+            ].filter(Boolean).join(' ')}
+          >
+            <img
+              src={item.image}
+              alt={getPortfolioImageAlt(item, isAr)}
+              loading="lazy"
+              width={200}
+              height={120}
+              itemProp="image"
+            />
           </div>
+          <div className="portfolio-card-body">
+            <h5 itemProp="name">{item.title}</h5>
+            <span className="portfolio-card-category">{category}</span>
+            <span className="portfolio-card-cta">
+              {isAr ? 'عرض دراسة الحالة' : 'View case study'}
+            </span>
+          </div>
+        </Link>
+        <div className="portfolio-card-links">
+          {item.instagram && (
+            <a
+              href={item.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="portfolio-link portfolio-link--instagram"
+              aria-label={`${item.title} Instagram`}
+            >
+              <i className="fab fa-instagram" />
+            </a>
+          )}
+          {item.facebook && (
+            <a
+              href={item.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="portfolio-link portfolio-link--facebook"
+              aria-label={`${item.title} Facebook`}
+            >
+              <i className="fab fa-facebook-f" />
+            </a>
+          )}
+          {item.website && (
+            <a
+              href={item.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="portfolio-link portfolio-link--website"
+              aria-label={`${item.title} website`}
+              itemProp="url"
+            >
+              <i className="fas fa-globe" />
+            </a>
+          )}
         </div>
       </article>
     );
@@ -160,7 +173,7 @@ const Portfolio = () => {
       itemScope
       itemType="https://schema.org/CollectionPage"
     >
-      <meta itemProp="name" content="Elyptek Portfolio" />
+      <meta itemProp="name" content="Elyptek Portfolio Projects & Clients" />
       <div className="container">
         <div className="section-heading wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.2s">
           <h6>{getTranslation('portfolioTitle', lang)}</h6>
@@ -168,7 +181,7 @@ const Portfolio = () => {
             {isAr ? (
               <>استكشف <em>أعمالنا</em></>
             ) : (
-              <>Explore Our <em>Portfolio</em></>
+              <>Explore Our <em>Projects</em></>
             )}
           </h4>
           <div className="line-dec" />
@@ -250,13 +263,15 @@ const Portfolio = () => {
           </>
         )}
 
-        <div className="portfolio-google-stamp" aria-label={isAr ? 'عملاؤنا' : 'Our clients'}>
+        <div className="portfolio-google-stamp" aria-label={isAr ? 'عملاء ومشاريع إيليبتك' : 'Elyptek clients and projects'}>
           <span className="portfolio-google-stamp__mark" aria-hidden="true">
             {PORTFOLIO_ITEMS.length}
           </span>
           <div className="portfolio-google-stamp__copy">
             <strong>
-              {isAr ? 'عملاؤنا' : 'Our clients'}
+              {isAr
+                ? 'عملاء ومشاريع إيليبتك — مواقع صُنعت بواسطة إيليبتك'
+                : 'Elyptek clients & projects — websites made by Elyptek'}
             </strong>
             <p>
               {PORTFOLIO_CLIENT_NAMES.join(' · ')}

@@ -1,6 +1,13 @@
 import { buildContactRelationJsonLd, getContactSeo } from '../components/contact-cards/contactSeoConfig';
 import { getMenuSeo } from '../components/menu/menuSeoConfig';
-import { buildPortfolioItemListJsonLd, PORTFOLIO_META_DESCRIPTION } from '../data/portfolioItems';
+import {
+  buildPortfolioCaseStudyJsonLd,
+  buildPortfolioItemListJsonLd,
+  getPortfolioCaseStudyMeta,
+  getPortfolioItemBySlug,
+  PORTFOLIO_CLIENT_NAMES,
+  PORTFOLIO_META_DESCRIPTION,
+} from '../data/portfolioItems';
 import { getSiteSeo } from './siteSeoConfig';
 import {
   DEFAULT_DESCRIPTION,
@@ -13,6 +20,12 @@ import {
 } from './siteConstants';
 
 const normalizePath = (pathname) => decodeURIComponent(pathname).replace(/\/+$/, '') || '/';
+
+const matchPortfolioCaseStudy = (path) => {
+  const match = path.match(/^\/portfolio\/([^/]+)$/);
+  if (!match) return null;
+  return getPortfolioItemBySlug(match[1]);
+};
 
 const webPageNode = (pageUrl, title, description) => ({
   '@type': 'WebPage',
@@ -90,6 +103,38 @@ export const buildPageSeoPayload = (pathname) => {
     };
   }
 
+  const portfolioItem = matchPortfolioCaseStudy(path);
+  if (portfolioItem) {
+    const { title, description } = getPortfolioCaseStudyMeta(portfolioItem);
+    const imageUrl = `${SITE}${encodeURI(portfolioItem.image)}`;
+    return {
+      title,
+      description,
+      canonicalUrl: pageUrl,
+      imageUrl,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            ...webPageNode(pageUrl, title, description),
+            about: { '@id': `${pageUrl}#project` },
+            mainEntity: { '@id': `${pageUrl}#project` },
+          },
+          buildPortfolioCaseStudyJsonLd(portfolioItem, pageUrl),
+          {
+            ...ELYPTEK_ORGANIZATION,
+            knowsAbout: [
+              portfolioItem.title,
+              'Elyptek portfolio projects',
+              'websites designed and developed by Elyptek',
+            ],
+          },
+          ELYPTEK_WEBSITE,
+        ],
+      },
+    };
+  }
+
   const site = getSiteSeo(path);
   if (site) {
     if (site.jsonLdType === 'home') {
@@ -139,7 +184,15 @@ export const buildPageSeoPayload = (pathname) => {
               mainEntity: { '@id': `${pageUrl}#itemlist` },
             },
             buildPortfolioItemListJsonLd(pageUrl),
-            ELYPTEK_ORGANIZATION,
+            {
+              ...ELYPTEK_ORGANIZATION,
+              knowsAbout: [
+                ...PORTFOLIO_CLIENT_NAMES,
+                'Elyptek projects',
+                'Elyptek clients',
+                'websites designed and developed by Elyptek',
+              ],
+            },
             ELYPTEK_WEBSITE,
           ],
         },

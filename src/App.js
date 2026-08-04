@@ -14,6 +14,7 @@ import Services from './components/Services';
 import About from './components/About';
 import Team from './components/Team';
 import Portfolio from './components/Portfolio';
+import PortfolioCaseStudy from './components/PortfolioCaseStudy';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import JobApplication from './components/JobApplication';
@@ -47,6 +48,7 @@ function App() {
           <Route path="/about" element={<SectionPage><About /></SectionPage>} />
           <Route path="/team" element={<SectionPage><Team /></SectionPage>} />
           <Route path="/portfolio" element={<SectionPage><Portfolio /></SectionPage>} />
+          <Route path="/portfolio/:slug" element={<SectionPage><PortfolioCaseStudy /></SectionPage>} />
           <Route path="/contact" element={<SectionPage><Contact /></SectionPage>} />
 
           <Route path="/form" element={<SectionPage><JobApplication /></SectionPage>} />

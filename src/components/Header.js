@@ -19,6 +19,14 @@ const NAV_ITEMS = [
 
 const normalizePath = (pathname) => decodeURIComponent(pathname).replace(/\/+$/, '') || '/';
 
+const isNavItemActive = (currentPath, itemPath) => {
+  if (currentPath === itemPath) return true;
+  if (itemPath === SITE_SECTIONS.portfolio && currentPath.startsWith(`${SITE_SECTIONS.portfolio}/`)) {
+    return true;
+  }
+  return false;
+};
+
 const Header = () => {
   const location = useLocation();
   const currentPath = normalizePath(location.pathname);
@@ -172,7 +180,7 @@ const Header = () => {
                       to={item.path}
                       className={[
                         item.isContactBtn ? 'contact-btn' : '',
-                        currentPath === item.path ? 'active' : '',
+                        isNavItemActive(currentPath, item.path) ? 'active' : '',
                       ]
                         .filter(Boolean)
                         .join(' ')}

@@ -35,7 +35,7 @@ export const translations = {
     // Portfolio
     portfolioTitle: "Our Portfolio",
     portfolioSubtitle: "Recent Work",
-    portfolioDescription: "Discover our latest portfolio showcasing innovative design and development solutions across various industries",
+    portfolioDescription: "Explore Elyptek projects and clients — websites designed and developed by Elyptek across industries. See the customer work we have built",
     
     // Contact
     contactTitle: "Contact Us",
@@ -156,7 +156,7 @@ export const translations = {
     // Portfolio
     portfolioTitle: "أعمالنا",
     portfolioSubtitle: "أحدث الأعمال",
-    portfolioDescription: "اكتشف أحدث أعمالنا التي تعرض حلول التصميم والتطوير المبتكرة عبر مختلف الصناعات",
+    portfolioDescription: "استكشف مشاريع وعملاء إيليبتك — مواقع صمّمتها وطوّرتها إيليبتك عبر قطاعات متعددة. اطّلع على أعمال العملاء التي بنيناها",
     
     // Contact
     contactTitle: "اتصل بنا",

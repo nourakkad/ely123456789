@@ -26,7 +26,7 @@ export const SITE_SEO_BY_PATH = {
     'Meet the Elyptek team — developers, designers, and digital specialists building software and marketing solutions.',
   ),
   '/portfolio': page(
-    'Portfolio | Elyptek',
+    'Elyptek Projects & Clients | Portfolio',
     PORTFOLIO_META_DESCRIPTION,
   ),
   '/contact': page(
