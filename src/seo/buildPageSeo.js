@@ -5,6 +5,7 @@ import { getSiteSeo } from './siteSeoConfig';
 import {
   DEFAULT_DESCRIPTION,
   ELYPTEK_ORGANIZATION,
+  ELYPTEK_PROFESSIONAL_SERVICE,
   ELYPTEK_WEBSITE,
   OG_IMAGE,
   SITE,
@@ -97,14 +98,8 @@ export const buildPageSeoPayload = (pathname) => {
               about: { '@id': `${SITE}/#organization` },
             },
             {
-              '@type': 'ProfessionalService',
-              '@id': `${SITE}/#service`,
-              name: SITE_NAME,
-              url: SITE,
-              image: OG_IMAGE,
+              ...ELYPTEK_PROFESSIONAL_SERVICE,
               description: site.description,
-              areaServed: { '@type': 'Country', name: 'Syria' },
-              provider: { '@id': `${SITE}/#organization` },
             },
           ],
         },
