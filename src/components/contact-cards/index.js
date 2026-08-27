@@ -23,3 +23,4 @@ export { default as Arta } from './àrta';
 export { default as WatadAgro } from './watad-agro';
 export { default as OsamaAzmeh } from './osama-azmeh';
 export { default as HiamClinic } from './hiam-clinic';
+export { default as AzouManasfi } from './azou-manasfi';

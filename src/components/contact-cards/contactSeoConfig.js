@@ -155,6 +155,11 @@ export const CONTACT_SEO_BY_PATH = {
     roleAr: 'عيادة تجميل',
     detailEn: 'Damascus and Abu Dhabi branches',
   }),
+  '/contact/azou-manasfi': relation('Azou & Manasfi', 'عزو و مناصفي', {
+    entityType: 'organization',
+    roleEn: 'Contracting & Construction Co. — Integrated Engineering Solutions',
+    roleAr: 'للتعهدات والمقاولات — حلول هندسية متكاملة',
+  }),
 };
 
 export const CONTACT_SITEMAP_PATHS = Object.keys(CONTACT_SEO_BY_PATH);

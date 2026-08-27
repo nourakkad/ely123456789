@@ -3,7 +3,34 @@ import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'r
 import Header from './components/Header';
 import HomePage from './pages/HomePage';
 import SectionPage from './pages/SectionPage';
-import { DrMohammedJubain, CrazyBeeez, MamonAssa, DrNaderAlmzayek, HussamAlhamad, RashidAdas, AbdalrahmanAdas, YassenAltabakh, AnwarSaeedJassem, ShadiSaeedJassem, DeauCacao, ChocoSwamp, Elyptek, GroupImdad, Maydan, DrHadiAlhariri, DrHadiAlomari, KhalilAlokdi, ArkanCeramics, JasminePerfumes, Mazmazeh, Arta, WatadAgro, OsamaAzmeh, HiamClinic } from './components/contact-cards';
+import {
+  DrMohammedJubain,
+  CrazyBeeez,
+  MamonAssa,
+  DrNaderAlmzayek,
+  HussamAlhamad,
+  RashidAdas,
+  AbdalrahmanAdas,
+  YassenAltabakh,
+  AnwarSaeedJassem,
+  ShadiSaeedJassem,
+  DeauCacao,
+  ChocoSwamp,
+  Elyptek,
+  GroupImdad,
+  Maydan,
+  DrHadiAlhariri,
+  DrHadiAlomari,
+  KhalilAlokdi,
+  ArkanCeramics,
+  JasminePerfumes,
+  Mazmazeh,
+  Arta,
+  WatadAgro,
+  OsamaAzmeh,
+  HiamClinic,
+  AzouManasfi,
+} from './components/contact-cards';
 import { ChocoSwampMenu, KousaMe7shiMenu, ChimneyMenu } from './components/menu/index';
 import PageSeo from './seo/PageSeo';
 import './App.css';
@@ -82,9 +109,9 @@ function App() {
           <Route path="/contact/watad-agro" element={<WatadAgro />} />
           <Route path="/contact/osama-azmeh" element={<OsamaAzmeh />} />
           <Route path="/contact/hiam-clinic" element={<HiamClinic />} />
+          <Route path="/contact/azou-manasfi" element={<AzouManasfi />} />
 
-          {/* Restaurant Menu Routes */}
-          <Route path="/menu/chocoswamp" element={<ChocoSwampMenu />} />
+          {/* Restaurant Menu Routes */}          <Route path="/menu/chocoswamp" element={<ChocoSwampMenu />} />
           <Route path="/menu/kousa-me7shi" element={<KousaMe7shiMenu />} />
           <Route path="/menu/chimney" element={<ChimneyMenu />} />
         </Routes>
