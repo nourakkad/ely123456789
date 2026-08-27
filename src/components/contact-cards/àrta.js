@@ -263,6 +263,7 @@ const Arta = () => {
             <a
               href="/assets/vcf/àrta.vcf"
               download={`${BRAND}.vcf`}
+              onClick={handleVcfClick('/assets/vcf/àrta.vcf')}
               style={{
                 backgroundColor: prim,
                 color: '#fff',
