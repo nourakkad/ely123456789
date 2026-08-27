@@ -42,8 +42,8 @@ const AzouManasfi = () => {
         : 'Integrated Engineering Solutions',
     image: '/assets/logo/azou-manasfi.jpg',
     facebook: 'https://www.facebook.com/profile.php?id=100068921213692',
-    instagram: 'https://www.instagram.com/yaza_n3560',
-    instagram1: 'https://www.instagram.com/khez769',
+    instagram: 'https://www.instagram.com/khez769',
+    instagram1: 'https://www.instagram.com/yaza_n3560',
     phone: '+963 951 899 635',
     phone1: '+963 965 442 270',
     whatsapp: '963930064935',
@@ -356,7 +356,7 @@ const AzouManasfi = () => {
                   rel="noopener noreferrer"
                   style={{ fontWeight: '600', color: prim, fontSize: '13px', textDecoration: 'underline' }}
                 >
-                  @yaza_n3560
+                  @khez769
                 </a>
               </div>
             )}
@@ -383,7 +383,7 @@ const AzouManasfi = () => {
                   rel="noopener noreferrer"
                   style={{ fontWeight: '600', color: prim, fontSize: '13px', textDecoration: 'underline' }}
                 >
-                  @khez769
+                  @yaza_n3560
                 </a>
               </div>
             )}
