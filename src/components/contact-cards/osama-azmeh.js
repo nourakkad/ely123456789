@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PoweredByElyptek from './PoweredByElyptek';
-import { getWhatsAppWebUrl, handleWhatsAppClick } from './whatsappLink';
+import { getWhatsAppWebUrl, handleWhatsAppClick, handleVcfClick, getTelHref } from './whatsappLink';
 
 const CV_PDF = '/assets/pdf/Osama-Azmeh-Videographer.pdf';
 const PROFILE_IMAGE = '/assets/logo/osama-azmeh.jpeg';
@@ -271,7 +271,7 @@ const OsamaAzmeh = () => {
             marginTop: '16px',
           }}>
             <a
-              href={`tel:${contactInfo.phone.replace(/\s/g, '')}`}
+              href={getTelHref(contactInfo.phone)}
               style={btnBase}
               onMouseOver={onBtnOver}
               onMouseOut={onBtnOut}
@@ -318,7 +318,7 @@ const OsamaAzmeh = () => {
             width: '100%',
           }}>
             <a
-              href="/assets/vcf/osama-azmeh.vcf"
+              href="/assets/vcf/osama-azmeh.vcf" onClick={handleVcfClick('/assets/vcf/osama-azmeh.vcf')}
               download="osama-azmeh.vcf"
               style={{ ...downloadBtnStyle, width: '100%', justifyContent: 'center' }}
               onMouseOver={onDownloadOver}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PoweredByElyptek from './PoweredByElyptek';
-import { getWhatsAppWebUrl, handleWhatsAppClick } from './whatsappLink';
+import { getWhatsAppWebUrl, handleWhatsAppClick, handleVcfClick, getTelHref } from './whatsappLink';
 
 const DrNaderAlmzayek = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
@@ -176,7 +176,7 @@ const DrNaderAlmzayek = () => {
             marginTop: '16px'
           }}>
             <a 
-              href={`tel:${doctorInfo.phone}`}
+              href={getTelHref(doctorInfo.phone)}
               style={{
                 backgroundColor: '#ffa700',
                 color: '#fff',
@@ -283,7 +283,7 @@ const DrNaderAlmzayek = () => {
             marginTop: '16px'
           }}>
             <a
-              href="/assets/vcf/dr-nader-almzayek.vcf"
+              href="/assets/vcf/dr-nader-almzayek.vcf" onClick={handleVcfClick('/assets/vcf/dr-nader-almzayek.vcf')}
               download="dr-nader-almzayek.vcf"
               style={{
                 backgroundColor: '#ffa700',

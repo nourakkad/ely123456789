@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PoweredByElyptek from './PoweredByElyptek';
-import { getWhatsAppWebUrl, handleWhatsAppClick } from './whatsappLink';
+import { getWhatsAppWebUrl, handleWhatsAppClick, handleVcfClick, getTelHref } from './whatsappLink';
 
 const PORTFOLIO_PDF = '/assets/pdf/watad-agro-portfolio.pdf?v=2';
 const COMPANY_PROFILE_PDF = '/assets/pdf/WATAD_Stones_Company_Profile_AR.pdf?v=2';
@@ -259,7 +259,7 @@ const WatadAgro = () => {
             marginTop: '16px',
           }}>
             <a
-              href={`tel:${contactInfo.phone.replace(/\s/g, '')}`}
+              href={getTelHref(contactInfo.phone)}
               style={btnBase}
               onMouseOver={onBtnOver}
               onMouseOut={onBtnOut}
@@ -306,7 +306,7 @@ const WatadAgro = () => {
             width: '100%',
           }}>
             <a
-              href="/assets/vcf/watad-agro.vcf"
+              href="/assets/vcf/watad-agro.vcf" onClick={handleVcfClick('/assets/vcf/watad-agro.vcf')}
               download="watad-agro.vcf"
               style={{ ...downloadBtnStyle, width: '100%', justifyContent: 'center' }}
               onMouseOver={onDownloadOver}

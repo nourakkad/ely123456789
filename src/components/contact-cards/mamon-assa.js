@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PoweredByElyptek from './PoweredByElyptek';
-import { getWhatsAppWebUrl, handleWhatsAppClick } from './whatsappLink';
+import { getWhatsAppWebUrl, handleWhatsAppClick, handleVcfClick, getTelHref } from './whatsappLink';
 
 const MamonAssa = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
@@ -177,7 +177,7 @@ const MamonAssa = () => {
             marginTop: '16px'
           }}>
             <a 
-              href={`tel:${doctorInfo.phone}`}
+              href={getTelHref(doctorInfo.phone)}
               style={{
                 backgroundColor: '#8B1538',
                 color: '#fff',
@@ -284,7 +284,7 @@ const MamonAssa = () => {
             marginTop: '16px'
           }}>
             <a
-              href="/assets/vcf/mamon-assa.vcf"
+              href="/assets/vcf/mamon-assa.vcf" onClick={handleVcfClick('/assets/vcf/mamon-assa.vcf')}
               download="mamon-assa.vcf"
               style={{
                 backgroundColor: '#8B1538',

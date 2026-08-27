@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PoweredByElyptek from './PoweredByElyptek';
-import { getWhatsAppWebUrl, handleWhatsAppClick } from './whatsappLink';
+import { getWhatsAppWebUrl, handleWhatsAppClick, handleVcfClick, getTelHref } from './whatsappLink';
 
 /* Syria intl: mobile 0944… → +963944…; landline 011… → +96311… */
 const TEL_MOBILE = '+963944000710';
@@ -208,7 +208,7 @@ const ChocoSwamp = () => {
           </div>
 
           <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '12px', marginTop: '16px' }}>
-            <a href={`tel:${TEL_MOBILE}`} style={btnBase} onMouseOver={onBtnOver} onMouseOut={onBtnOut} aria-label="Mobile">
+            <a href={getTelHref(TEL_MOBILE)} style={btnBase} onMouseOver={onBtnOver} onMouseOut={onBtnOut} aria-label="Mobile">
               <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '20px', height: '20px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path
                   strokeLinecap="round"
@@ -218,7 +218,7 @@ const ChocoSwamp = () => {
                 />
               </svg>
             </a>
-            <a href={`tel:${TEL_LAND}`} style={btnBase} onMouseOver={onBtnOver} onMouseOut={onBtnOut} title="Landline" aria-label="Landline">
+            <a href={getTelHref(TEL_LAND)} style={btnBase} onMouseOver={onBtnOver} onMouseOut={onBtnOut} title="Landline" aria-label="Landline">
               <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '20px', height: '20px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path
                   strokeLinecap="round"
@@ -245,7 +245,7 @@ const ChocoSwamp = () => {
 
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: '16px' }}>
             <a
-              href="/assets/vcf/chocoswamp.vcf"
+              href="/assets/vcf/chocoswamp.vcf" onClick={handleVcfClick('/assets/vcf/chocoswamp.vcf')}
               download="chocoswamp.vcf"
               style={{
                 backgroundColor: prim,

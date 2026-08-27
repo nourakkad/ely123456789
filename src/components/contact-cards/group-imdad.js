@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { getTelHref, handleVcfClick } from './whatsappLink';
 import PoweredByElyptek from './PoweredByElyptek';
 
 const BRANCHES = [
@@ -205,7 +206,7 @@ const GroupImdad = () => {
 
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: '16px', width: '100%' }}>
             <a
-              href="/assets/vcf/group-imdad.vcf"
+              href="/assets/vcf/group-imdad.vcf" onClick={handleVcfClick('/assets/vcf/group-imdad.vcf')}
               download="group-imdad.vcf"
               style={{
                   backgroundColor: prim,
@@ -392,7 +393,7 @@ const GroupImdad = () => {
                       {currentLanguage === 'AR' ? b.nameAR : b.nameEN}
                     </p>
                     <a
-                      href={`tel:${b.tel}`}
+                      href={getTelHref(b.tel)}
                       style={{
                         display: 'flex',
                         alignItems: 'center',
@@ -525,7 +526,7 @@ const GroupImdad = () => {
                       {currentLanguage === 'AR' ? ENGINEERING_SERVICE.nameAR : ENGINEERING_SERVICE.nameEN}
                     </p>
                     <a
-                      href={`tel:${ENGINEERING_SERVICE.tel}`}
+                      href={getTelHref(ENGINEERING_SERVICE.tel)}
                       style={{
                         display: 'flex',
                         alignItems: 'center',

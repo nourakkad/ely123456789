@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PoweredByElyptek from './PoweredByElyptek';
-import { getWhatsAppWebUrl, handleWhatsAppClick } from './whatsappLink';
+import { getWhatsAppWebUrl, handleWhatsAppClick, handleVcfClick, getTelHref } from './whatsappLink';
 
 const KhalilAlokdi = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
@@ -207,12 +207,12 @@ const KhalilAlokdi = () => {
           </div>
 
           <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', marginTop: '16px' }}>
-            <a href={`tel:${doctorInfo.phone}`} style={btnStyle} onMouseOver={onBtnOver} onMouseOut={onBtnOut}>
+            <a href={getTelHref(doctorInfo.phone)} style={btnStyle} onMouseOver={onBtnOver} onMouseOut={onBtnOut}>
               <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '20px', height: '20px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.516 2.064a2 2 0 01-.45 1.958l-1.27 1.27a16.001 16.001 0 006.586 6.586l1.27-1.27a2 2 0 011.958-.45l2.064.516A2 2 0 0121 18.72V21a2 2 0 01-2 2h-1C9.163 23 1 14.837 1 5V4a2 2 0 012-2z" />
               </svg>
             </a>
-            <a href={`tel:${doctorInfo.phone1}`} style={btnStyle} onMouseOver={onBtnOver} onMouseOut={onBtnOut}>
+            <a href={getTelHref(doctorInfo.phone1)} style={btnStyle} onMouseOver={onBtnOver} onMouseOut={onBtnOut}>
               <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '20px', height: '20px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.516 2.064a2 2 0 01-.45 1.958l-1.27 1.27a16.001 16.001 0 006.586 6.586l1.27-1.27a2 2 0 011.958-.45l2.064.516A2 2 0 0121 18.72V21a2 2 0 01-2 2h-1C9.163 23 1 14.837 1 5V4a2 2 0 012-2z" />
               </svg>
@@ -235,7 +235,7 @@ const KhalilAlokdi = () => {
 
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: '16px' }}>
             <a
-              href="/assets/vcf/khalil-alokdi.vcf"
+              href="/assets/vcf/khalil-alokdi.vcf" onClick={handleVcfClick('/assets/vcf/khalil-alokdi.vcf')}
               download="khalil-alokdi.vcf"
               style={{
                 backgroundColor: prim,

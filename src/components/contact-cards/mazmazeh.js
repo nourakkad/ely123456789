@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PoweredByElyptek from './PoweredByElyptek';
 import { Link } from 'react-router-dom';
-import { getWhatsAppWebUrl, handleWhatsAppClick } from './whatsappLink';
+import { getWhatsAppWebUrl, handleWhatsAppClick, handleVcfClick, getTelHref } from './whatsappLink';
 
 const TEL = '+963955230206';
 const WA_ID = '963955230206';
@@ -227,7 +227,7 @@ const Mazmazeh = () => {
          {/* Actions */}
          <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '12px' }}>
-              <a href={`tel:${TEL}`} style={btnBase} onMouseOver={onBtnOver} onMouseOut={onBtnOut} aria-label="Phone">
+              <a href={getTelHref(TEL)} style={btnBase} onMouseOver={onBtnOver} onMouseOut={onBtnOut} aria-label="Phone">
                 <svg xmlns="http://www.w3.org/2000/svg" style={{ width: '20px', height: '20px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path
                     strokeLinecap="round"
@@ -253,7 +253,7 @@ const Mazmazeh = () => {
             </div>
 
             <a
-              href="/assets/vcf/mazmazeh.vcf"
+              href="/assets/vcf/mazmazeh.vcf" onClick={handleVcfClick('/assets/vcf/mazmazeh.vcf')}
               download="mazmazeh.vcf"
               style={{
                 width: '100%',

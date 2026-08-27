@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PoweredByElyptek from './PoweredByElyptek';
-import { getWhatsAppWebUrl, handleWhatsAppClick } from './whatsappLink';
+import { getWhatsAppWebUrl, handleWhatsAppClick, handleVcfClick, getTelHref } from './whatsappLink';
 
 const JasminePerfumes = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
@@ -304,7 +304,7 @@ const JasminePerfumes = () => {
 
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: '16px' }}>
             <a
-              href="/assets/vcf/jasmine-perfumes.vcf"
+              href="/assets/vcf/jasmine-perfumes.vcf" onClick={handleVcfClick('/assets/vcf/jasmine-perfumes.vcf')}
               download="jasmine-perfumes.vcf"
               style={{
                 backgroundColor: prim,
@@ -372,7 +372,7 @@ const JasminePerfumes = () => {
                       }}
                     >
                       <a
-                        href={`tel:${phone}`}
+                        href={getTelHref(phone)}
                         style={detailActionBtnStyle}
                         aria-label={`Call ${phone}`}
                         onMouseOver={onBtnOver}
@@ -385,7 +385,7 @@ const JasminePerfumes = () => {
                         {phoneIcon}
                       </a>
                       <a
-                        href={`tel:${phone}`}
+                        href={getTelHref(phone)}
                         style={{
                           ...detailLinkStyle,
                           flex: 1,

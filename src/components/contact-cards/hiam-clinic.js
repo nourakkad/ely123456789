@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PoweredByElyptek from './PoweredByElyptek';
-import { getWhatsAppWebUrl, handleWhatsAppClick } from './whatsappLink';
+import { getWhatsAppWebUrl, handleWhatsAppClick, handleVcfClick, getTelHref } from './whatsappLink';
 
 const LOGO = '/assets/logo/hiam-clinic.jpeg';
 
@@ -156,7 +156,7 @@ const HiamClinic = () => {
       border: `1px solid rgba(201, 162, 39, 0.25)`,
     }}>
       <a
-        href={`tel:${phone.tel}`}
+        href={getTelHref(phone.tel)}
         style={{
           fontWeight: '700',
           color: c.ink,
@@ -172,7 +172,7 @@ const HiamClinic = () => {
       </a>
       <div style={{ display: 'flex', gap: '6px', flexShrink: 0 }}>
         <a
-          href={`tel:${phone.tel}`}
+          href={getTelHref(phone.tel)}
           aria-label={`Call ${phone.display}`}
           style={miniBtn}
           onMouseOver={onMiniOver}
@@ -470,6 +470,7 @@ const HiamClinic = () => {
 
           <a
             href={branch.vcf}
+            onClick={handleVcfClick(branch.vcf)}
             download={branch.vcfFileName}
             style={{
               backgroundColor: prim,

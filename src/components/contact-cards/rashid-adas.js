@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PoweredByElyptek from './PoweredByElyptek';
-import { getWhatsAppWebUrl, handleWhatsAppClick } from './whatsappLink';
+import { getWhatsAppWebUrl, handleWhatsAppClick, handleVcfClick, getTelHref } from './whatsappLink';
 
 const RashidAdas = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
@@ -182,7 +182,7 @@ const RashidAdas = () => {
             marginTop: '16px'
           }}>
             <a 
-              href={`tel:${doctorInfo.phone}`}
+              href={getTelHref(doctorInfo.phone)}
               style={{
                 backgroundColor: '#E1251B',
                 color: '#fff',
@@ -289,7 +289,7 @@ const RashidAdas = () => {
             marginTop: '16px'
           }}>
             <a
-              href="/assets/vcf/rashid-adas.vcf"
+              href="/assets/vcf/rashid-adas.vcf" onClick={handleVcfClick('/assets/vcf/rashid-adas.vcf')}
               download="rashid-adas.vcf"
               style={{
                 backgroundColor: '#E1251B',

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PoweredByElyptek from './PoweredByElyptek';
-import { getWhatsAppWebUrl, handleWhatsAppClick } from './whatsappLink';
+import { getWhatsAppWebUrl, handleWhatsAppClick, handleVcfClick, getTelHref } from './whatsappLink';
 
 const DeauCacao = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
@@ -176,7 +176,7 @@ const DeauCacao = () => {
             marginTop: '16px'
           }}>
             <a 
-              href={`tel:${doctorInfo.phone}`}
+              href={getTelHref(doctorInfo.phone)}
               style={{
                 backgroundColor: '#3f1b29',
                 color: '#fff',
@@ -283,7 +283,7 @@ const DeauCacao = () => {
             marginTop: '16px'
           }}>
             <a
-              href="/assets/vcf/deau-cacao.vcf"
+              href="/assets/vcf/deau-cacao.vcf" onClick={handleVcfClick('/assets/vcf/deau-cacao.vcf')}
               download="deau-cacao.vcf"
               style={{
                 backgroundColor: '#3f1b29',

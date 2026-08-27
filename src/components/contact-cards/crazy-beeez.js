@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PoweredByElyptek from './PoweredByElyptek';
-import { getWhatsAppWebUrl, handleWhatsAppClick } from './whatsappLink';
+import { getWhatsAppWebUrl, handleWhatsAppClick, handleVcfClick, getTelHref } from './whatsappLink';
 
 const PORTFOLIO_PDF = '/assets/pdf/crazy-beeez-portfolio.pdf?v=2';
 
@@ -181,7 +181,7 @@ const CrazyBeeez = () => {
             marginTop: '16px'
           }}>
             <a 
-              href={`tel:${doctorInfo.phone}`}
+              href={getTelHref(doctorInfo.phone)}
               style={{
                 backgroundColor: '#ffcb1c',
                 color: '#fff',
@@ -291,7 +291,7 @@ const CrazyBeeez = () => {
             width: '100%'
           }}>
             <a
-              href="/assets/vcf/Crazy_Beeez.vcf"
+              href="/assets/vcf/Crazy_Beeez.vcf" onClick={handleVcfClick('/assets/vcf/Crazy_Beeez.vcf')}
               download="Crazy_Beeez.vcf"
               style={{
                 backgroundColor: '#ffcb1c',
