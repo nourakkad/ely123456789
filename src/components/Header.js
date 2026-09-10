@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { getTranslation } from '../translations';
 import { SITE_SECTIONS } from '../routes/siteRoutes';
+import { applySiteLanguage, getInitialLanguage } from '../utils/siteLanguage';
 
 function isDeviceArabic() {
   const lang = navigator.language || (navigator.languages && navigator.languages[0]);
@@ -36,46 +37,31 @@ const Header = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [currentLanguage, setCurrentLanguage] = useState(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const langFromUrl = urlParams.get('lang');
-    if (langFromUrl && (langFromUrl === 'EN' || langFromUrl === 'AR')) {
-      return langFromUrl;
-    }
-    const langFromStorage = localStorage.getItem('language');
-    if (langFromStorage && (langFromStorage === 'EN' || langFromStorage === 'AR')) {
-      return langFromStorage;
-    }
-    if (isDeviceArabic()) {
+    const initial = getInitialLanguage();
+    if (initial !== 'EN') return initial;
+    if (isDeviceArabic() && !new URLSearchParams(window.location.search).get('lang') && !localStorage.getItem('language')) {
       return 'AR';
     }
-    return 'EN';
+    return initial;
   });
 
   useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const langFromUrl = urlParams.get('lang');
-    const langFromStorage = localStorage.getItem('language');
-
-    let initialLang = 'EN';
-    if (langFromUrl && (langFromUrl === 'EN' || langFromUrl === 'AR')) {
-      initialLang = langFromUrl;
-      localStorage.setItem('language', langFromUrl);
-    } else if (langFromStorage && (langFromStorage === 'EN' || langFromStorage === 'AR')) {
-      initialLang = langFromStorage;
+    const initialLang = getInitialLanguage();
+    if (
+      initialLang === 'EN' &&
+      isDeviceArabic() &&
+      !new URLSearchParams(window.location.search).get('lang') &&
+      !localStorage.getItem('language')
+    ) {
+      setCurrentLanguage('AR');
+      return;
     }
-
     setCurrentLanguage(initialLang);
   }, []);
 
   const changeLanguage = (lang) => {
-    setCurrentLanguage(lang);
-    localStorage.setItem('language', lang);
-
-    const url = new URL(window.location);
-    url.searchParams.set('lang', lang);
-    window.history.pushState({}, '', url);
-
-    window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: lang } }));
+    const next = applySiteLanguage(lang, { replace: false });
+    setCurrentLanguage(next);
   };
 
   const toggleLanguage = () => {

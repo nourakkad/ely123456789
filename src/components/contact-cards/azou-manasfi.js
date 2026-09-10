@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PoweredByElyptek from './PoweredByElyptek';
 import { getWhatsAppWebUrl, handleWhatsAppClick, handleVcfClick, getTelHref } from './whatsappLink';
+import { applySiteLanguage, getInitialLanguage } from '../../utils/siteLanguage';
 
 const AzouManasfi = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
@@ -10,15 +11,7 @@ const AzouManasfi = () => {
       setCurrentLanguage(event.detail.language);
     };
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const langFromUrl = urlParams.get('lang');
-    const langFromStorage = localStorage.getItem('language');
-
-    if (langFromUrl && (langFromUrl === 'EN' || langFromUrl === 'AR')) {
-      setCurrentLanguage(langFromUrl);
-    } else if (langFromStorage && (langFromStorage === 'EN' || langFromStorage === 'AR')) {
-      setCurrentLanguage(langFromStorage);
-    }
+    setCurrentLanguage(getInitialLanguage());
 
     window.addEventListener('languageChanged', handleLanguageChange);
     return () => window.removeEventListener('languageChanged', handleLanguageChange);
@@ -42,8 +35,8 @@ const AzouManasfi = () => {
         : 'Integrated Engineering Solutions',
     image: '/assets/logo/azou-manasfi.jpg',
     facebook: 'https://www.facebook.com/profile.php?id=100068921213692',
-    instagram: 'https://www.instagram.com/khez769',
-    instagram1: 'https://www.instagram.com/yaza_n3560',
+    instagram: 'https://www.instagram.com/azzou_and_munasfi_contracting',
+    instagram1: 'https://www.instagram.com/ezzou_contracting',
     phone: '+963 951 899 635',
     phone1: '+963 965 442 270',
     whatsapp: '963930064935',
@@ -103,10 +96,8 @@ const AzouManasfi = () => {
         <button
           type="button"
           onClick={() => {
-            const newLang = currentLanguage === 'EN' ? 'AR' : 'EN';
+            const newLang = applySiteLanguage(currentLanguage === 'EN' ? 'AR' : 'EN');
             setCurrentLanguage(newLang);
-            localStorage.setItem('language', newLang);
-            window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: newLang } }));
           }}
           style={{
             padding: '10px 18px',
@@ -357,7 +348,7 @@ const AzouManasfi = () => {
                   rel="noopener noreferrer"
                   style={{ fontWeight: '600', color: prim, fontSize: '13px', textDecoration: 'underline' }}
                 >
-                  @khez769
+                  @azzou_and_munasfi_contracting
                 </a>
               </div>
             )}
@@ -384,7 +375,7 @@ const AzouManasfi = () => {
                   rel="noopener noreferrer"
                   style={{ fontWeight: '600', color: prim, fontSize: '13px', textDecoration: 'underline' }}
                 >
-                  @yaza_n3560
+                  @ezzou_contracting
                 </a>
               </div>
             )}

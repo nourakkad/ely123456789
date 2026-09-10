@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PoweredByElyptek from './PoweredByElyptek';
 import { getWhatsAppWebUrl, handleWhatsAppClick, handleVcfClick, getTelHref } from './whatsappLink';
+import { applySiteLanguage, getInitialLanguage } from '../../utils/siteLanguage';
 
 const Maydan = () => {
   const [currentLanguage, setCurrentLanguage] = useState('EN');
@@ -10,15 +11,7 @@ const Maydan = () => {
       setCurrentLanguage(event.detail.language);
     };
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const langFromUrl = urlParams.get('lang');
-    const langFromStorage = localStorage.getItem('language');
-
-    if (langFromUrl && (langFromUrl === 'EN' || langFromUrl === 'AR')) {
-      setCurrentLanguage(langFromUrl);
-    } else if (langFromStorage && (langFromStorage === 'EN' || langFromStorage === 'AR')) {
-      setCurrentLanguage(langFromStorage);
-    }
+    setCurrentLanguage(getInitialLanguage());
 
     window.addEventListener('languageChanged', handleLanguageChange);
     return () => window.removeEventListener('languageChanged', handleLanguageChange);
@@ -108,10 +101,8 @@ const Maydan = () => {
 <button
           type="button"
           onClick={() => {
-            const newLang = currentLanguage === 'EN' ? 'AR' : 'EN';
+            const newLang = applySiteLanguage(currentLanguage === 'EN' ? 'AR' : 'EN');
             setCurrentLanguage(newLang);
-            localStorage.setItem('language', newLang);
-            window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: newLang } }));
           }}
           style={{
             padding: '10px 18px',
