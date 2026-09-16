@@ -47,11 +47,17 @@ const Header = () => {
     // hydration against prerendered EN HTML and can freeze the page.
     let initialLang = getInitialLanguage();
     let inferredFromDevice = false;
+    let storedLang = null;
+    try {
+      storedLang = localStorage.getItem('language');
+    } catch (_) {
+      // Safari private mode can block storage
+    }
     if (
       initialLang === 'EN' &&
       isDeviceArabic() &&
       !new URLSearchParams(window.location.search).get('lang') &&
-      !localStorage.getItem('language')
+      !storedLang
     ) {
       initialLang = 'AR';
       inferredFromDevice = true;

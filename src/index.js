@@ -11,11 +11,9 @@ const app = (
   </React.StrictMode>
 );
 
-if (container.hasChildNodes()) {
-  ReactDOM.hydrateRoot(container, app);
-} else {
-  ReactDOM.createRoot(container).render(app);
-}
+// Always client-render. hydrateRoot against Puppeteer HTML mismatches
+// (styles, RR attrs, language) and blanks the page on iOS Safari.
+ReactDOM.createRoot(container).render(app);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
@@ -29,7 +27,7 @@ if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
       registration.unregister();
     });
   });
-  if (window.caches?.keys) {
+  if (window.caches && window.caches.keys) {
     caches.keys().then((keys) => {
       keys.forEach((key) => {
         caches.delete(key);
