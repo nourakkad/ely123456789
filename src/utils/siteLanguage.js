@@ -8,10 +8,14 @@ export const normalizeLang = (value) => {
 
 export const getInitialLanguage = () => {
   if (typeof window === 'undefined') return 'EN';
-  const fromUrl = normalizeLang(new URLSearchParams(window.location.search).get('lang'));
-  if (fromUrl) return fromUrl;
-  const fromStorage = normalizeLang(localStorage.getItem('language'));
-  if (fromStorage) return fromStorage;
+  try {
+    const fromUrl = normalizeLang(new URLSearchParams(window.location.search).get('lang'));
+    if (fromUrl) return fromUrl;
+    const fromStorage = normalizeLang(localStorage.getItem('language'));
+    if (fromStorage) return fromStorage;
+  } catch (_) {
+    // Safari private mode / blocked storage
+  }
   return 'EN';
 };
 
@@ -24,15 +28,23 @@ export const applySiteLanguage = (lang, { replace = true } = {}) => {
   const next = normalizeLang(lang) || 'EN';
   if (typeof window === 'undefined') return next;
 
-  localStorage.setItem('language', next);
+  try {
+    localStorage.setItem('language', next);
+  } catch (_) {
+    // Safari private mode can throw QuotaExceededError
+  }
 
-  const url = new URL(window.location.href);
-  url.searchParams.set('lang', next);
-  const nextUrl = `${url.pathname}${url.search}${url.hash}`;
-  if (replace) {
-    window.history.replaceState({}, '', nextUrl);
-  } else {
-    window.history.pushState({}, '', nextUrl);
+  try {
+    const url = new URL(window.location.href);
+    url.searchParams.set('lang', next);
+    const nextUrl = `${url.pathname}${url.search}${url.hash}`;
+    if (replace) {
+      window.history.replaceState({}, '', nextUrl);
+    } else {
+      window.history.pushState({}, '', nextUrl);
+    }
+  } catch (_) {
+    // Ignore malformed URL edge cases
   }
 
   window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: next } }));

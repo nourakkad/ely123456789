@@ -36,27 +36,34 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [currentLanguage, setCurrentLanguage] = useState(() => {
-    const initial = getInitialLanguage();
-    if (initial !== 'EN') return initial;
-    if (isDeviceArabic() && !new URLSearchParams(window.location.search).get('lang') && !localStorage.getItem('language')) {
-      return 'AR';
-    }
-    return initial;
-  });
+  const [currentLanguage, setCurrentLanguage] = useState('EN');
 
   useEffect(() => {
-    const initialLang = getInitialLanguage();
+    const handleLanguageChange = (event) => {
+      setCurrentLanguage(event.detail.language);
+    };
+
+    // Apply after mount only — reading device/storage in useState breaks Safari
+    // hydration against prerendered EN HTML and can freeze the page.
+    let initialLang = getInitialLanguage();
+    let inferredFromDevice = false;
     if (
       initialLang === 'EN' &&
       isDeviceArabic() &&
       !new URLSearchParams(window.location.search).get('lang') &&
       !localStorage.getItem('language')
     ) {
-      setCurrentLanguage('AR');
-      return;
+      initialLang = 'AR';
+      inferredFromDevice = true;
     }
     setCurrentLanguage(initialLang);
+    // Persist + notify Banner/Footer/etc. so they don't stay stuck on EN.
+    if (inferredFromDevice) {
+      applySiteLanguage(initialLang);
+    }
+
+    window.addEventListener('languageChanged', handleLanguageChange);
+    return () => window.removeEventListener('languageChanged', handleLanguageChange);
   }, []);
 
   const changeLanguage = (lang) => {

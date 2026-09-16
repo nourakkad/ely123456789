@@ -52,7 +52,8 @@ const Portfolio = () => {
 
   const handleTouchMove = (e) => {
     if (!isMobile || !isDragging) return;
-    e.preventDefault();
+    // Do not preventDefault — Safari treats passive touch listeners and
+    // blocking scroll here freezes/janks the page on iPhone.
     setCurrentX(e.touches[0].clientX);
   };
 

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Elyptek main site design system.
  * Scoped to .site-shell — does NOT affect /contact/* cards or /menu/* pages.
  */
@@ -16,11 +16,12 @@
   --site-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   --site-shadow-hover: 0 12px 32px rgba(255, 167, 0, 0.15);
   --site-section-y: 70px;
-  overflow-x: clip;
+  overflow-x: hidden;
   max-width: 100%;
 }
 
-/* Clip decorative layers / animation overflow that extends scroll height */
+/* Clip decorative layers / animation overflow that extends scroll height.
+   Prefer hidden over clip for Safari iOS scroll compatibility. */
 .site-shell .services,
 .site-shell .our-portfolio,
 .site-shell .team-section,
@@ -30,7 +31,7 @@
 .site-shell .site-section,
 .site-shell .site-cta,
 .site-shell .section-divider {
-  overflow: clip;
+  overflow: hidden;
 }
 
 .site-shell .services {
@@ -459,6 +460,7 @@
   font-size: 13px;
   line-height: 1;
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
@@ -2037,7 +2039,7 @@
 .site-shell .about-page#about {
   padding-top: 0 !important;
   padding-bottom: 48px;
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 
 .site-shell .about-page-hero {
@@ -2299,7 +2301,7 @@
 
   html:has(.site-shell),
   body:has(.site-shell) {
-    overflow-x: clip;
+    overflow-x: hidden;
   }
 
   .site-shell .section-page {
