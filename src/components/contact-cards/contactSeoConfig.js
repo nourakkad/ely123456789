@@ -160,6 +160,11 @@ export const CONTACT_SEO_BY_PATH = {
     roleEn: 'Contracting & Construction Co. — Integrated Engineering Solutions',
     roleAr: 'للتعهدات والمقاولات — حلول هندسية متكاملة',
   }),
+  '/contact/graphixol': relation('Graphixol', 'جرافيكسول', {
+    entityType: 'organization',
+    roleEn: 'Design & Print — From Pixel To Press, Crafting Success',
+    roleAr: 'تصميم وطباعة — من البكسل إلى الطباعة، نصنع النجاح',
+  }),
 };
 
 export const CONTACT_SITEMAP_PATHS = Object.keys(CONTACT_SEO_BY_PATH);

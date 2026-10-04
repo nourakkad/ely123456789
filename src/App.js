@@ -30,6 +30,7 @@ import {
   OsamaAzmeh,
   HiamClinic,
   AzouManasfi,
+  Graphixol,
 } from './components/contact-cards';
 import { ChocoSwampMenu, KousaMe7shiMenu, ChimneyMenu } from './components/menu/index';
 import PageSeo from './seo/PageSeo';
@@ -110,6 +111,7 @@ function App() {
           <Route path="/contact/osama-azmeh" element={<OsamaAzmeh />} />
           <Route path="/contact/hiam-clinic" element={<HiamClinic />} />
           <Route path="/contact/azou-manasfi" element={<AzouManasfi />} />
+          <Route path="/contact/graphixol" element={<Graphixol />} />
 
           {/* Restaurant Menu Routes */}          <Route path="/menu/chocoswamp" element={<ChocoSwampMenu />} />
           <Route path="/menu/kousa-me7shi" element={<KousaMe7shiMenu />} />
